@@ -1,5 +1,5 @@
 
-// v1.2 - Absolute Final Group 1 Precision Sync
+// v1.3 - Group 2 Precision Data Sync & ID Shift Fix
 import { useState, useMemo } from 'react';
 import studentsData from '@/data/students.json';
 
