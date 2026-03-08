@@ -1,11 +1,8 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import DeveloperCard from "@/components/DeveloperCard";
-import ChatBeeba from "@/components/ChatBeeba";
-import { useState } from "react";
+import ClientLayout from "./ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,13 +14,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "الزتونة | Az-Zaitouna",
+  description: "الزتونة - المنصة التعليمية الذكية للطلاب. المذاكرة بذكاء مش بمجهود.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-
   return (
     <html lang="en">
       <body
@@ -46,29 +46,15 @@ export default function RootLayout({
             `,
           }}
         />
-        <div className="relative isolate min-h-screen">
+
+        <ClientLayout>
           {children}
-          {/* Spacer to ensure content isn't hidden behind the fixed card */}
-          <div className="h-28 print:hidden" />
-        </div>
 
-        {/* Global Chat Toggle Button */}
-        <button
-          onClick={() => setIsChatOpen(true)}
-          className="fixed bottom-24 right-6 z-[9998] w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(0,242,255,0.4)] hover:scale-110 active:scale-95 transition-all group pointer-events-auto"
-          title="اسأل الدحيح"
-        >
-          <span className="text-3xl group-hover:rotate-12 transition-transform">🤖</span>
-          <div className="absolute -top-2 -right-2 w-5 h-5 bg-green-500 rounded-full border-4 border-[#0a0a0a] animate-pulse" />
-        </button>
-
-        {/* Global Chat Overlay */}
-        <ChatBeeba isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
-
-        {/* Global Developer Card - Fixed at the very bottom */}
-        <div className="fixed bottom-6 inset-x-0 z-[9999] flex justify-center pointer-events-none px-4">
-          <DeveloperCard />
-        </div>
+          {/* Global Developer Card - Fixed at the very bottom inside ClientLayout wrapper */}
+          <div className="fixed bottom-6 inset-x-0 z-[9999] flex justify-center pointer-events-none px-4">
+            <DeveloperCard />
+          </div>
+        </ClientLayout>
       </body>
     </html>
   );
