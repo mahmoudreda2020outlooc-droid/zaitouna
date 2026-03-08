@@ -193,27 +193,47 @@ export default function LectureDetailsPage() {
                                 </div>
                             </a>
 
-                            <a href={lecture.resources.sheet} target="_blank" className="resource-card sheet-card group">
-                                <div className="resource-icon bg-green-500/10 text-green-500">📝</div>
-                                <div className="text-right flex-1">
-                                    <h3 className="text-white font-black text-base group-hover:text-green-400 transition-colors">شيت الأسئلة</h3>
-                                    <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">WORKSHEET</p>
+                            {lecture.resources.sheet && lecture.resources.sheet !== "#" ? (
+                                <a href={lecture.resources.sheet} target="_blank" className="resource-card sheet-card group">
+                                    <div className="resource-icon bg-green-500/10 text-green-500">📝</div>
+                                    <div className="text-right flex-1">
+                                        <h3 className="text-white font-black text-base group-hover:text-green-400 transition-colors">شيت الأسئلة</h3>
+                                        <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">WORKSHEET</p>
+                                    </div>
+                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                                        <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
+                                    </div>
+                                </a>
+                            ) : (
+                                <div className="resource-card opacity-40 cursor-not-allowed grayscale">
+                                    <div className="resource-icon bg-white/5 text-white/20">📝</div>
+                                    <div className="text-right flex-1">
+                                        <h3 className="text-white/40 font-black text-base">شيت الأسئلة</h3>
+                                        <p className="text-white/20 text-[11px] font-bold uppercase tracking-wider">لا يوجد</p>
+                                    </div>
                                 </div>
-                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-                                    <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
-                                </div>
-                            </a>
+                            )}
 
-                            <Link href={`/subjects/${subjectId}/${lectureId}/sheet`} className="flex items-center gap-5 p-6 rounded-[32px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-amber-500/20 transition-all duration-300 group cursor-pointer hover:scale-[1.02] hover:-translate-x-1 relative overflow-hidden">
-                                <div className="w-14 h-14 rounded-[20px] flex items-center justify-center text-[28px] bg-amber-500/10 shrink-0">🤖</div>
-                                <div className="text-right flex-1">
-                                    <h3 className="text-white font-black text-base group-hover:text-amber-400 transition-colors">حل الشيت</h3>
-                                    <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">AI SOLVER</p>
+                            {lecture.resources.sheet && lecture.resources.sheet !== "#" ? (
+                                <Link href={`/subjects/${subjectId}/${lectureId}/sheet`} className="flex items-center gap-5 p-6 rounded-[32px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-amber-500/20 transition-all duration-300 group cursor-pointer hover:scale-[1.02] hover:-translate-x-1 relative overflow-hidden">
+                                    <div className="w-14 h-14 rounded-[20px] flex items-center justify-center text-[28px] bg-amber-500/10 shrink-0">🤖</div>
+                                    <div className="text-right flex-1">
+                                        <h3 className="text-white font-black text-base group-hover:text-amber-400 transition-colors">حل الشيت</h3>
+                                        <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">AI SOLVER</p>
+                                    </div>
+                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                                        <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
+                                    </div>
+                                </Link>
+                            ) : (
+                                <div className="flex items-center gap-5 p-6 rounded-[32px] bg-white/[0.02] border border-white/5 opacity-40 cursor-not-allowed grayscale">
+                                    <div className="w-14 h-14 rounded-[20px] flex items-center justify-center text-[28px] bg-white/5 shrink-0">🤖</div>
+                                    <div className="text-right flex-1">
+                                        <h3 className="text-white/40 font-black text-base">حل الشيت</h3>
+                                        <p className="text-white/20 text-[11px] font-bold uppercase tracking-wider">لا يوجد شيت</p>
+                                    </div>
                                 </div>
-                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-                                    <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
-                                </div>
-                            </Link>
+                            )}
 
                             {lecture.resources.assignments && lecture.resources.assignments !== "#" ? (
                                 <a href={lecture.resources.assignments} target="_blank" className="resource-card assign-card group">
