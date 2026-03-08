@@ -6,9 +6,20 @@ import studentsData from '@/data/students.json';
 export default function StudentsReviewPage() {
     const [searchTerm, setSearchTerm] = useState('');
 
+    const normalizeArabic = (text: string) => {
+        return text
+            .replace(/[أإآٱ]/g, 'ا')
+            .replace(/ة/g, 'ه')
+            .replace(/ى/g, 'ي')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .toLowerCase();
+    };
+
     const filteredStudents = useMemo(() => {
+        const normalizedSearch = normalizeArabic(searchTerm);
         return studentsData.filter(student =>
-            (student.name?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+            normalizeArabic(student.name || '').includes(normalizedSearch) ||
             (student.id || '').includes(searchTerm)
         );
     }, [searchTerm]);
@@ -79,7 +90,7 @@ export default function StudentsReviewPage() {
                 <header className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 no-print">
                     <div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                            مراجعة بيانات الطلاب (v2.0 - Group 3 SYNC)
+                            مراجعة بيانات الطلاب (v2.1 - AR SEARCH PRO)
                         </h1>
                         <p className="text-gray-400 mt-2">مجموع الطلاب: {studentsData.length} | المفلتر: {filteredStudents.length}</p>
                     </div>
