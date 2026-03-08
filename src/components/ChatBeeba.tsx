@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { tts } from "@/lib/tts-utils";
 
 interface Message {
     role: "user" | "assistant";
@@ -21,6 +22,8 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
     const [isLoading, setIsLoading] = useState(false);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
+    const [isAutoSpeak, setIsAutoSpeak] = useState(false);
+    const [speakingIdx, setSpeakingIdx] = useState<number | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -109,6 +112,12 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
             if (data.reply) {
                 setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
                 playSound(receiveSoundUrl);
+
+                // Auto-speak if enabled
+                if (isAutoSpeak && tts) {
+                    setSpeakingIdx(messages.length + 1); // Approximate index
+                    tts.speak(data.reply, () => setSpeakingIdx(null));
+                }
             } else {
                 setMessages((prev) => [...prev, { role: "assistant", content: "معلش يا صاحبي حصل مشكلة، جرب تاني كمان شوية." }]);
             }
@@ -146,14 +155,23 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                             </div>
                         </div>
                     </div>
-                    <button
-                        onClick={onClose}
-                        className="p-4 bg-white/5 hover:bg-white/10 rounded-3xl transition-all text-white/50 hover:text-white border border-white/5 hover:border-white/20 active:scale-90 group"
-                    >
-                        <svg className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                    <div className="flex items-center gap-4">
+                        <button
+                            onClick={() => setIsAutoSpeak(!isAutoSpeak)}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all text-xs font-black uppercase tracking-widest ${isAutoSpeak ? 'bg-primary/20 border-primary/40 text-primary' : 'bg-white/10 border-white/10 text-white/40'}`}
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-20a3 3 0 00-3 3v10a3 3 0 006 0V3a3 3 0 00-3-3z" /></svg>
+                            {isAutoSpeak ? "إيقاف" : "صوت"}
+                        </button>
+                        <button
+                            onClick={onClose}
+                            className="p-4 bg-white/5 hover:bg-white/10 rounded-3xl transition-all text-white/50 hover:text-white border border-white/5 hover:border-white/20 active:scale-90 group"
+                        >
+                            <svg className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 {/* Messages Container */}
@@ -177,6 +195,31 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                         </div>
                                     )}
                                     {msg.content && <div className="whitespace-pre-wrap">{msg.content}</div>}
+
+                                    {/* TTS Speak Button for Assistant */}
+                                    {msg.role === "assistant" && tts && (
+                                        <button
+                                            onClick={() => {
+                                                if (speakingIdx === idx) {
+                                                    tts?.stop();
+                                                    setSpeakingIdx(null);
+                                                } else {
+                                                    setSpeakingIdx(idx);
+                                                    tts?.speak(msg.content, () => setSpeakingIdx(null));
+                                                }
+                                            }}
+                                            className={`mt-4 w-full flex items-center justify-center gap-2 py-2 rounded-xl transition-all border ${speakingIdx === idx ? 'bg-primary border-primary text-black' : 'bg-white/10 border-white/10 text-white/40 hover:bg-white/20 hover:text-white'}`}
+                                        >
+                                            <svg className="w-4 h-4 flex-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                {speakingIdx === idx ? (
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1z" />
+                                                ) : (
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                                )}
+                                            </svg>
+                                            <span className="text-[10px] font-black uppercase tracking-widest">{speakingIdx === idx ? "جاري التحدث..." : "استمع للدحيح"}</span>
+                                        </button>
+                                    )}
                                 </div>
                                 {/* Message Overlay Decor */}
                                 <div className={`absolute top-0 ${msg.role === "user" ? "left-0" : "right-0"} w-32 h-32 bg-white/5 blur-3xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity`} />
