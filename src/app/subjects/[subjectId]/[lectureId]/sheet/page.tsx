@@ -85,12 +85,20 @@ export default function SheetSolverPage() {
     const lecture = (lecturesData as Lecture[]).find((l: Lecture) => l.subjectId === subjectId && l.lectureId === lectureId);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (!storedUser) {
-            router.push("/login");
-        } else {
-            setUser(JSON.parse(storedUser));
-        }
+        const checkUser = async () => {
+            try {
+                const res = await fetch('/api/student-lookup?check=true');
+                if (res.ok) {
+                    const data = await res.json();
+                    setUser(data.student);
+                } else {
+                    router.push("/login");
+                }
+            } catch (err) {
+                router.push("/login");
+            }
+        };
+        checkUser();
     }, [router]);
 
     useEffect(() => {
