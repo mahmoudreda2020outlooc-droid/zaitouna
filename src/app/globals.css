@@ -22,6 +22,11 @@
   --foreground: #f0f0f5;
   --primary: #00f2ff;
   --secondary: #a855f7;
+
+  /* Fluid Typography */
+  --fs-h1: clamp(2rem, 5vw + 1rem, 4rem);
+  --fs-h2: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+  --fs-body: clamp(0.875rem, 0.5vw + 0.75rem, 1.125rem);
 }
 
 * {
@@ -43,7 +48,14 @@ body {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 2rem;
+  border-radius: 1.5rem;
+  /* Reduced from 2rem for better mobile fit */
+}
+
+@media (min-width: 768px) {
+  .glass-panel {
+    border-radius: 2rem;
+  }
 }
 
 .glass-card {
@@ -51,9 +63,16 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-glass-border);
-  border-radius: 2.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1.5rem;
+  /* Reduced for mobile */
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  .glass-card {
+    border-radius: 2.5rem;
+  }
 }
 
 .glass-card:hover {
@@ -77,8 +96,9 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border-radius: 1.25rem;
-  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  /* Tighter on mobile */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +108,13 @@ body {
   overflow: hidden;
   border: none;
   box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+  .btn-premium {
+    padding: 1.25rem 2.5rem;
+    border-radius: 1.25rem;
+  }
 }
 
 /* Pulse effect */
@@ -246,7 +273,14 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  gap: 1.5rem;
+  gap: 1rem;
+  /* More compact for mobile */
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 1024px) {

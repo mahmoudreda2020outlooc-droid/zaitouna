@@ -48,7 +48,7 @@ export default function HomePage() {
       </div>
 
       {/* Main Content Area */}
-      <main className="min-h-screen p-6 lg:p-12 max-w-7xl mx-auto" dir="rtl">
+      <main className="min-h-screen p-4 md:p-8 lg:p-12 max-w-7xl mx-auto" dir="rtl">
         {/* Top Header */}
         <header className="flex justify-between items-center mb-12 md:mb-20">
           <div className="flex items-center gap-4">
@@ -59,8 +59,8 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <h2 className="text-3xl font-black text-white leading-tight mb-1 py-2 text-gradient drop-shadow-[0_2px_10px_rgba(0,242,255,0.15)]">{user.name}</h2>
-              <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mt-1 pr-1 border-r-2 border-primary/20">فرقة تانية - قسم تكنولوجيا المعلومات</p>
+              <h2 className="text-2xl md:text-3xl font-black text-white leading-tight mb-1 py-1 md:py-2 text-gradient drop-shadow-[0_2px_10px_rgba(0,242,255,0.15)]">{user.name}</h2>
+              <p className="text-[9px] md:text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mt-1 pr-1 border-r-2 border-primary/20">فرقة تانية - قسم تكنولوجيا المعلومات</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export default function HomePage() {
         {/* Bento Dashboard */}
         <div className="bento-grid">
           {/* Motivational Quote Hero */}
-          <div className="col-span-full glass-card p-10 md:p-20 relative overflow-hidden flex flex-col justify-end min-h-[450px] border-white/5 shadow-2xl">
+          <div className="col-span-full glass-card p-6 md:p-12 lg:p-20 relative overflow-hidden flex flex-col justify-end min-h-[400px] md:min-h-[450px] border-white/5 shadow-2xl">
             {/* Premium Mesh Gradients */}
             <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(0,242,255,0.15),transparent_50%)] -z-10" />
             <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(189,101,255,0.1),transparent_50%)] -z-10" />
@@ -83,11 +83,11 @@ export default function HomePage() {
               <div className="max-w-3xl pr-2">
                 <div className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-primary/20 backdrop-blur-md">إلهام اليوم</div>
 
-                <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight drop-shadow-2xl">
+                <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight drop-shadow-2xl">
                   {currentQuote.main} <span className="text-gradient block md:inline-block mt-2 md:mt-0">{currentQuote.subMain}</span>
                 </h1>
 
-                <p className="text-white/70 text-base md:text-xl font-medium mb-8 leading-relaxed max-w-2xl border-r-2 border-primary/30 pr-6">
+                <p className="text-white/70 text-sm md:text-xl font-medium mb-8 leading-relaxed max-w-2xl border-r-2 border-primary/30 pr-4 md:pr-6">
                   "{currentQuote.quote}"
                 </p>
 
@@ -112,9 +112,9 @@ export default function HomePage() {
               </div>
 
               {/* Graphic Side */}
-              <div className="relative flex justify-center items-center h-[300px] lg:h-full mt-10 lg:mt-0">
+              <div className="relative flex justify-center items-center h-[240px] md:h-[300px] lg:h-full mt-6 md:mt-10 lg:mt-0">
                 {/* Custom Zaitouna SVG Animation */}
-                <div className="relative w-64 h-64 md:w-80 md:h-80 graphic-container">
+                <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 graphic-container">
 
                   {/* Glowing Aura Behind */}
                   <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>

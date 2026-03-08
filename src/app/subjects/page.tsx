@@ -50,7 +50,7 @@ export default function SubjectsPage() {
     if (!user) return null;
 
     return (
-        <main className="min-h-screen bg-[#0a0a0a] text-white p-6 md:p-12 font-[Outfit,system-ui,sans-serif]" dir="rtl">
+        <main className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8 lg:p-12 font-[Outfit,system-ui,sans-serif]" dir="rtl">
             {/* Background mesh */}
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,242,255,0.05),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(189,101,255,0.05),transparent_50%)] pointer-events-none -z-10" />
 
@@ -61,10 +61,10 @@ export default function SubjectsPage() {
                         <Link href="/" className="text-primary/70 hover:text-primary mb-4 inline-block transition-colors text-sm font-bold flex items-center gap-2">
                             <span>←</span> العودة للرئيسية
                         </Link>
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-2">
+                        <h1 className="text-2xl md:text-5xl font-black tracking-tight mb-2">
                             زتونة <span className="text-gradient">المواد</span>
                         </h1>
-                        <p className="text-white/50 text-base">هنا تلاقي الخلاصة لكل مادة دراسية شايل همها.</p>
+                        <p className="text-white/50 text-sm md:text-base">هنا تلاقي الخلاصة لكل مادة دراسية شايل همها.</p>
                     </div>
 
                     <div className="glass-card px-6 py-4 flex items-center gap-4 border-white/5">
@@ -84,7 +84,7 @@ export default function SubjectsPage() {
                         <Link
                             href={`/subjects/${subject.code}`}
                             key={idx}
-                            className="glass-card p-8 group hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 border-white/5 hover:border-primary/30 hover:shadow-[0_10px_40px_rgba(0,242,255,0.1)] relative overflow-hidden flex flex-col items-start text-right min-h-[300px] cursor-pointer"
+                            className="glass-card p-6 md:p-8 group hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 border-white/5 hover:border-primary/30 hover:shadow-[0_10px_40px_rgba(0,242,255,0.1)] relative overflow-hidden flex flex-col items-start text-right min-h-[280px] md:min-h-[300px] cursor-pointer"
                             style={{ animationDelay: subject.delay }}
                         >
                             {/* Card glow */}
@@ -95,8 +95,8 @@ export default function SubjectsPage() {
                             </div>
 
                             <div className="mb-auto">
-                                <h3 className="text-2xl font-black mb-4 group-hover:text-primary transition-colors">{subject.title}</h3>
-                                <p className="text-white/40 text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors">{renderTextWithHighlights(subject.summary)}</p>
+                                <h3 className="text-xl md:text-2xl font-black mb-4 group-hover:text-primary transition-colors">{subject.title}</h3>
+                                <p className="text-white/40 text-[13px] md:text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors">{renderTextWithHighlights(subject.summary)}</p>
                             </div>
 
 
