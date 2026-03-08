@@ -1,5 +1,5 @@
-'use client';
 
+// v1.1 - Final Precision Sync & PDF Export
 import { useState, useMemo } from 'react';
 import studentsData from '@/data/students.json';
 
