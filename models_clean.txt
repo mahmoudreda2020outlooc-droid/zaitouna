@@ -1,0 +1,47 @@
+﻿
+models_full.txt:3:- models/gemini-2.5-flash
+models_full.txt:4:- models/gemini-2.5-pro
+models_full.txt:5:- models/gemini-2.0-flash
+models_full.txt:6:- models/gemini-2.0-flash-001
+models_full.txt:7:- models/gemini-2.0-flash-lite-001
+models_full.txt:8:- models/gemini-2.0-flash-lite
+models_full.txt:9:- models/gemini-2.5-flash-preview-tts
+models_full.txt:10:- models/gemini-2.5-pro-preview-tts
+models_full.txt:11:- models/gemma-3-1b-it
+models_full.txt:12:- models/gemma-3-4b-it
+models_full.txt:13:- models/gemma-3-12b-it
+models_full.txt:14:- models/gemma-3-27b-it
+models_full.txt:15:- models/gemma-3n-e4b-it
+models_full.txt:16:- models/gemma-3n-e2b-it
+models_full.txt:17:- models/gemini-flash-latest
+models_full.txt:18:- models/gemini-flash-lite-latest
+models_full.txt:19:- models/gemini-pro-latest
+models_full.txt:20:- models/gemini-2.5-flash-lite
+models_full.txt:21:- models/gemini-2.5-flash-image
+models_full.txt:22:- models/gemini-2.5-flash-lite-preview-09-2025
+models_full.txt:23:- models/gemini-3-pro-preview
+models_full.txt:24:- models/gemini-3-flash-preview
+models_full.txt:25:- models/gemini-3.1-pro-preview
+models_full.txt:26:- models/gemini-3.1-pro-preview-customtools
+models_full.txt:27:- models/gemini-3.1-flash-lite-preview
+models_full.txt:28:- models/gemini-3-pro-image-preview
+models_full.txt:29:- models/nano-banana-pro-preview
+models_full.txt:30:- models/gemini-3.1-flash-image-preview
+models_full.txt:31:- models/gemini-robotics-er-1.5-preview
+models_full.txt:32:- models/gemini-2.5-computer-use-preview-10-2025
+models_full.txt:33:- models/deep-research-pro-preview-12-2025
+models_full.txt:34:- models/gemini-embedding-001
+models_full.txt:35:- models/aqa
+models_full.txt:36:- models/imagen-4.0-generate-001
+models_full.txt:37:- models/imagen-4.0-ultra-generate-001
+models_full.txt:38:- models/imagen-4.0-fast-generate-001
+models_full.txt:39:- models/veo-2.0-generate-001
+models_full.txt:40:- models/veo-3.0-generate-001
+models_full.txt:41:- models/veo-3.0-fast-generate-001
+models_full.txt:42:- models/veo-3.1-generate-preview
+models_full.txt:43:- models/veo-3.1-fast-generate-preview
+models_full.txt:44:- models/gemini-2.5-flash-native-audio-latest
+models_full.txt:45:- models/gemini-2.5-flash-native-audio-preview-09-2025
+models_full.txt:46:- models/gemini-2.5-flash-native-audio-preview-12-2025
+
+
