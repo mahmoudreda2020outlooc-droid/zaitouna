@@ -79,7 +79,7 @@ export default function StudentsReviewPage() {
                 <header className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 no-print">
                     <div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                            مراجعة بيانات الطلاب (v1.6)
+                            مراجعة بيانات الطلاب (v1.7 - FIXED)
                         </h1>
                         <p className="text-gray-400 mt-2">مجموع الطلاب: {studentsData.length} | المفلتر: {filteredStudents.length}</p>
                     </div>
