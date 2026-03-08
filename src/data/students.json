@@ -155,9 +155,9 @@
     "id": "2320127",
     "name": "إيهاب حمدي إبراهيم",
     "group": "2",
-    "section": "4",
+    "section": "2",
     "subGroup": "A",
-    "serial": 3
+    "serial": 999
   },
   {
     "id": "2320166",
@@ -1213,7 +1213,7 @@
     "group": "2",
     "section": "2",
     "subGroup": "A",
-    "serial": 2
+    "serial": 999
   },
   {
     "id": "2420112",
@@ -1517,7 +1517,7 @@
     "group": "2",
     "section": "2",
     "subGroup": "A",
-    "serial": 41
+    "serial": 999
   },
   {
     "id": "2420151",
@@ -1549,7 +1549,7 @@
     "group": "2",
     "section": "2",
     "subGroup": "A",
-    "serial": 45
+    "serial": 999
   },
   {
     "id": "2420156",
@@ -1573,15 +1573,15 @@
     "group": "2",
     "section": "2",
     "subGroup": "A",
-    "serial": 49
+    "serial": 999
   },
   {
     "id": "2420161",
     "name": "أميرة محمود بدري محمد ملكي",
     "group": "2",
     "section": "2",
-    "subGroup": "B",
-    "serial": 51
+    "subGroup": "A",
+    "serial": 999
   },
   {
     "id": "2420162",
@@ -1604,8 +1604,8 @@
     "name": "أمنية نبيل محمد",
     "group": "2",
     "section": "2",
-    "subGroup": "B",
-    "serial": 55
+    "subGroup": "A",
+    "serial": 999
   },
   {
     "id": "2420166",
