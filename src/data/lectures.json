@@ -1088,58 +1088,29 @@
         "explanation": "الـ Switch بتخليك تختار كود معين يتنفذ حسب قيمة المتغير.",
         "type": "mcq",
         "pdfPage": 15
-      }
-    ]
-  },
-  {
-    "id": "lecture_2",
-    "subjectId": "WEB-201",
-    "lectureId": "lecture_2",
-    "title": "المحاضرة 2: PHP Data Types & Operators",
-    "summary": "بص يا صاحبي، أي برنامج في الدنيا بيتعامل مع بيانات، والبيانات دي ليها أنواع. زي ما في الحياة فيه أرقام وحروف وصور، في البرمجة برضه فيه أنواع مختلفة للبيانات. النهاردة هنفهم إيه هي أنواع البيانات دي في الـ **PHP** وإزاي بنستخدمها، وكمان إزاي بنعمل عمليات عليها باستخدام الـ **Operators**.\n\n### 1. أنواع البيانات في الـ **PHP** (Data Types)\n\n*   الـ **PHP** بتدعم 8 أنواع أساسية للبيانات، بنقسمها لـ 3 مجموعات:\n    *   **Scalar Types (الأنواع الفردية):** دي اللي بتخزن قيمة واحدة بس.\n        *   **Integer (الأعداد الصحيحة):** زي 5، -10، 1000. أرقام صحيحة بدون كسور.\n        *   **Float (الأعداد العشرية):** زي 3.14، 0.5، -12.7. أرقام فيها كسور عشرية.\n        *   **String (النصوص):** زي \"Hello World!\"، \"اسم المستخدم\". أي كلام أو حروف بنحطها بين علامات تنصيص.\n        *   **Boolean (القيم المنطقية):** يا `true` يا `false`. بتستخدم لاتخاذ القرارات (صح أو غلط).\n    *   **Compound Types (الأنواع المركبة):** دي اللي بتخزن أكتر من قيمة.\n        *   **Array (المصفوفات):** زي صندوق كبير فيه كذا خانة، كل خانة ممكن تشيل قيمة. بنستخدمها لتخزين مجموعة من القيم المرتبطة ببعض.\n        *   **Object (الكائنات):** دي حاجة متقدمة شوية، بس ببساطة هي طريقة لتجميع البيانات والوظائف اللي بتشتغل عليها البيانات دي في كيان واحد.\n    *   **Special Types (الأنواع الخاصة):**\n        *   **NULL:** يعني \"لا شيء\". قيمة بتدل إن المتغير ملوش أي قيمة.\n        *   **Resource:** ده نوع خاص بيشاور على موارد خارجية زي اتصال بقاعدة بيانات أو ملف مفتوح.\n\n### 2. إزاي تعرف نوع البيانات؟ (Getting Data Type)\n\n*   الـ **PHP** لغة \"مرنة\" في أنواع البيانات، يعني مش لازم تحدد نوع المتغير لما تعرفه. هي بتفهم لوحدها.\n*   عشان تتأكد من نوع المتغير وقيمته، بنستخدم دالة `var_dump()`.\n    *   مثال: `var_dump(5);` هتطلع لك `int(5)`.\n    *   مثال: `var_dump(\"Hello\");` هتطلع لك `string(5) \"Hello\"`.\n\n### 3. العمليات الحسابية والمنطقية (Operators)\n\n*   الـ **Operators** دي هي الرموز اللي بنستخدمها عشان نعمل عمليات على البيانات.\n*   **Arithmetic Operators (العمليات الحسابية):** زي `+` (جمع)، `-` (طرح)، `*` (ضرب)، `/` (قسمة)، `%` (باقي القسمة)، `**` (أس).\n*   **Assignment Operators (عمليات الإسناد):** زي `=` (إسناد قيمة)، `+=` (جمع وإسناد)، `-=` (طرح وإسناد).\n*   **Comparison Operators (عمليات المقارنة):** زي `==` (يساوي)، `!=` (لا يساوي)، `>` (أكبر من)، `<` (أصغر من)، `>=` (أكبر من أو يساوي)، `<=` (أصغر من أو يساوي).\n*   **Logical Operators (العمليات المنطقية):** زي `&&` (AND)، `||` (OR)، `!` (NOT). بتستخدم لربط الشروط المنطقية.\n\n### 4. دوال الرياضيات في الـ **PHP** (Math Functions)\n\n*   الـ **PHP** فيها دوال جاهزة كتير بتساعدنا في العمليات الرياضية.\n*   `pi()`: بترجع قيمة الـ `PI` (ط). `round()`: بتقرب الأرقام العشرية.\n*   `min()` و `max()`: بترجع أصغر وأكبر قيمة من مجموعة أرقام.\n*   `abs()`: بترجع القيمة المطلقة للرقم (بتشيل السالب).\n*   `sqrt()`: بترجع الجذر التربيعي للرقم.\n\n### الزتونة 🫒\nفهمك لأنواع البيانات والـ **Operators** هو أساس أي برمجة. هي اللي بتخليك تعرف تخزن البيانات صح وتعمل عليها العمليات اللي محتاجها. ركز في الأمثلة عشان تثبت المعلومة! بالتوفيق يا بطل!",
-    "quiz": [
+      },
       {
+        "question": "What is the difference between integer and float data types in PHP?",
+        "answer": "Integer stores whole numbers (e.g., 5, -10), while Float stores decimal numbers (e.g., 3.14, -0.5).",
+        "explanation": "الـ Integer بيخزن الأرقام الصحيحة من غير كسور، والـ Float بيخزن الأرقام العشرية اللي فيها فاصلة زي 3.14.",
         "type": "mcq",
-        "question": "Which loop is best used when you know the exact number of iterations?",
-        "options": [
-          "while",
-          "do-while",
-          "for",
-          "foreach"
-        ],
-        "answer": "for",
-        "explanation": "الـ for loop هو الأنسب لما بنكون عارفين عدد المرات مسبقاً.",
-        "topic": "Loop Types"
-      }
-    ],
-    "sheetSolutions": [
-      {
-        "question": "Write a PHP while loop that prints numbers from 1 to 5.",
-        "answer": "$i=1; while($i<=5){ echo $i++; }",
-        "explanation": "اللوب بيبدأ من 1 وبيزيد كل مرة لحد ما يوصل 5.",
-        "type": "essay",
         "pdfPage": 3
       },
       {
-        "question": "How do you loop through an array called $colors in PHP?",
-        "answer": "foreach ($colors as $color) { echo $color; }",
-        "explanation": "الـ foreach هى أسهل طريقة للتعامل مع الـ arrays.",
-        "type": "mcq",
-        "pdfPage": 10
+        "question": "Write a PHP code to check if a variable $score is greater than or equal to 50, and display 'Pass' or 'Fail'.",
+        "answer": "$score = 60; if($score >= 50) { echo 'Pass'; } else { echo 'Fail'; }",
+        "explanation": "بنستخدم الـ if...else عشان نقارن قيمة المتغير ونطبع الحكم المناسب.",
+        "type": "essay",
+        "pdfPage": 7
       },
       {
-        "question": "What is the result of using 'break' inside a loop?",
-        "answer": "It immediately terminates the loop.",
-        "explanation": "الـ break بتخلص اللوب فوراً وتخرج بره.",
+        "question": "What does the var_dump() function return in PHP?",
+        "answer": "It returns both the data type and the value of a variable.",
+        "explanation": "الـ var_dump() بيرجعلك نوع البيانات والقيمة بتاعتها مع بعض، مثلاً: int(5) أو string(4) \"test\".",
         "type": "mcq",
-        "pdfPage": 9
+        "pdfPage": 5
       }
-    ],
-    "resources": {
-      "pdf": "/materials/WEB-201/المحاضرة التالتة.pdf",
-      "sheet": "#",
-      "assignments": "#"
-    }
+    ]
   },
   {
     "id": "lecture_3",
