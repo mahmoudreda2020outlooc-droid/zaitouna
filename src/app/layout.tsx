@@ -28,6 +28,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary/30 min-h-screen bg-background`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('contextmenu', (e) => e.preventDefault());
+              document.addEventListener('keydown', (e) => {
+                if (
+                  e.key === 'F12' ||
+                  (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+                  (e.ctrlKey && e.key === 'U')
+                ) {
+                  e.preventDefault();
+                }
+              });
+              // Redirection is handled by middleware, but we can clear local storage 
+              // to stay consistent with the new cookie-based system.
+              localStorage.removeItem("user");
+            `,
+          }}
+        />
         <div className="relative isolate min-h-screen">
           {children}
           {/* Spacer to ensure content isn't hidden behind the fixed card */}

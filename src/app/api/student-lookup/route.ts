@@ -5,7 +5,16 @@ import path from "path";
 export async function GET(req: Request) {
     try {
         const { searchParams } = new URL(req.url);
-        const studentId = searchParams.get("studentId");
+        let studentId = searchParams.get("studentId");
+        const isCheck = searchParams.get("check") === "true";
+
+        if (isCheck) {
+            const { getAuthUser } = await import("@/lib/auth-utils");
+            const authUser = await getAuthUser();
+            if (authUser) {
+                studentId = authUser.id;
+            }
+        }
 
         if (!studentId) {
             return NextResponse.json({ message: "كود الطالب مطلوب" }, { status: 400 });

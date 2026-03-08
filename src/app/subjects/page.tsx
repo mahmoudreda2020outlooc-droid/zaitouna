@@ -39,13 +39,21 @@ export default function SubjectsPage() {
     const router = useRouter();
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (!storedUser) {
-            router.push("/login");
-        } else {
-            setUser(JSON.parse(storedUser));
+        // Auth is handled by server-side middleware.
+        // Fetching user data from the protected API.
+        const checkUser = async () => {
+            try {
+                const res = await fetch('/api/student-lookup?check=true');
+                if (res.ok) {
+                    const data = await res.json();
+                    setUser(data.student);
+                }
+            } catch (err) {
+                console.error("Auth check failed", err);
+            }
         }
-    }, [router]);
+        checkUser();
+    }, []);
 
     if (!user) return null;
 

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { setAuthCookie } from "@/lib/auth-utils";
 
 export async function POST(req: Request) {
     try {
@@ -17,9 +18,11 @@ export async function POST(req: Request) {
         const student = students.find((s: any) => s.id === studentId);
 
         if (student) {
+            const userData = { id: student.id, name: student.name };
+            await setAuthCookie(userData);
             return NextResponse.json({
                 success: true,
-                user: { id: student.id, name: student.name }
+                user: userData
             });
         }
 

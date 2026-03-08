@@ -2,12 +2,20 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-    // Since we are using localStorage on the client, we can't easily check auth on the server middleware
-    // Without cookies. For simplicity in this early phase, we'll handle redirects on the client.
-    // But we can add a basic check here if we decide to use cookies later.
+    const authCookie = request.cookies.get('zaitouna_auth');
+    const isLoginPage = request.nextUrl.pathname === '/login';
+
+    if (!authCookie && !isLoginPage) {
+        return NextResponse.redirect(new URL('/login', request.url));
+    }
+
+    if (authCookie && isLoginPage) {
+        return NextResponse.redirect(new URL('/', request.url));
+    }
+
     return NextResponse.next()
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|login).*)'],
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 }

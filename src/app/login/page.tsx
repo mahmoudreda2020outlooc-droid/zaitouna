@@ -12,11 +12,8 @@ export default function LoginPage() {
     const router = useRouter();
 
     useEffect(() => {
-        // Check if already logged in
-        if (localStorage.getItem("user")) {
-            router.push("/");
-        }
-    }, [router]);
+        // Redirection is handled by server-side middleware
+    }, []);
 
     const handleLookup = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -54,7 +51,6 @@ export default function LoginPage() {
             const data = await response.json();
 
             if (response.ok) {
-                localStorage.setItem("user", JSON.stringify(data.user));
                 router.push("/");
             } else {
                 setError(data.message || "حدث خطأ أثناء تسجيل الدخول");

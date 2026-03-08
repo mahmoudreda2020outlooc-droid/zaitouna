@@ -140,11 +140,14 @@ export default function BeebaChatPage() {
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     const base64 = (e.target?.result as string).split(",")[1];
-                    setAttachments(prev => [...prev, {
+                    const voiceAttachment = {
                         data: base64,
                         mimeType: 'audio/webm',
                         preview: 'voice_recording'
-                    }]);
+                    };
+
+                    // Auto-send immediately after recording stops
+                    sendMessage(input, [...attachments, voiceAttachment]);
                 };
                 reader.readAsDataURL(audioBlob);
                 stream.getTracks().forEach(track => track.stop());
@@ -181,10 +184,14 @@ export default function BeebaChatPage() {
     };
 
     const handleSend = async () => {
-        if ((!input.trim() && attachments.length === 0) || isLoading) return;
+        sendMessage(input, attachments);
+    };
 
-        const userMessage = input.trim();
-        const currentAttachments = [...attachments];
+    const sendMessage = async (textToSend: string, attachmentsToSend: { data: string; mimeType: string; preview: string }[]) => {
+        if ((!textToSend.trim() && attachmentsToSend.length === 0) || isLoading) return;
+
+        const userMessage = textToSend.trim();
+        const currentAttachments = [...attachmentsToSend];
 
         // Optimistic update
         const newUserMessage: Message = {
@@ -240,7 +247,6 @@ export default function BeebaChatPage() {
 
         } catch (error: any) {
             console.error("Chat Error:", error);
-            // Revert or show error
             const errorMessage: Message = {
                 role: "assistant",
                 content: `يا زميلي، السيرفر مهنج أو فيه مشكلة في الرفع. جرب ترفع صورة أصغر أو تتأكد من النت. (Error: ${error.message})`,
@@ -248,12 +254,10 @@ export default function BeebaChatPage() {
             };
             setMessages(prev => [...prev, errorMessage]);
 
-            // Put text back if it failed so user doesn't lose it
             if (!input) setInput(userMessage);
             if (attachments.length === 0) setAttachments(currentAttachments);
         } finally {
             setIsLoading(false);
-            // Force scroll to bottom
             setTimeout(() => {
                 messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
             }, 100);

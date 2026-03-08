@@ -21,13 +21,21 @@ export default function HomePage() {
   const [currentQuote, setCurrentQuote] = useState(baladiQuotes[0]);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (!storedUser) {
-      router.push("/login");
-    } else {
-      setUser(JSON.parse(storedUser));
+    // Auth is handled by server-side middleware.
+    // Fetching user data from the protected API.
+    const checkUser = async () => {
+      try {
+        const res = await fetch('/api/student-lookup?check=true');
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data.student);
+        }
+      } catch (err) {
+        console.error("Auth check failed", err);
+      }
     }
-  }, [router]);
+    checkUser();
+  }, []);
 
   useEffect(() => {
     const randomQuote = baladiQuotes[Math.floor(Math.random() * baladiQuotes.length)];
@@ -39,11 +47,10 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="orb w-[600px] h-[600px] bg-primary/20 -top-40 -left-40" />
-        <div className="orb w-[500px] h-[500px] bg-secondary/15 bottom-0 -right-20" style={{ animationDelay: '-4s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_100%)]" />
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-background">
+        <div className="orb w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary/10 md:bg-primary/20 -top-20 -left-20 md:-top-40 md:-left-40" />
+        <div className="orb w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-secondary/10 md:bg-secondary/15 bottom-0 -right-10 md:-right-20" style={{ animationDelay: '-4s' }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_100%)] hidden md:block" />
       </div>
 
       {/* Main Content Area */}
@@ -134,9 +141,9 @@ export default function HomePage() {
                         <stop offset="0%" stopColor="#e2e8f0" />
                         <stop offset="100%" stopColor="#94a3b8" />
                       </linearGradient>
-                      {/* Glow Filter */}
+                      {/* Glow Filter - Simplified for mobile */}
                       <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="8" result="blur" />
+                        <feGaussianBlur stdDeviation="4" result="blur" className="md:std-deviation-8" />
                         <feComposite in="SourceGraphic" in2="blur" operator="over" />
                       </filter>
                     </defs>
@@ -148,7 +155,7 @@ export default function HomePage() {
                     </g>
 
                     {/* The Zaitouna (Olive Base) */}
-                    <g className="zaitouna-body floating">
+                    <g className="zaitouna-body floating will-change-transform">
                       <ellipse cx="200" cy="270" rx="70" ry="90" fill="url(#oliveGradient)" filter="url(#glow)" />
                       {/* Olive reflection highlight */}
                       <path d="M 160 210 Q 180 190 200 200" stroke="rgba(255,255,255,0.4)" strokeWidth="6" strokeLinecap="round" fill="none" />
@@ -157,7 +164,7 @@ export default function HomePage() {
                     </g>
 
                     {/* The Brain (Emerging from top) */}
-                    <g className="brain-part brain-pulse">
+                    <g className="brain-part brain-pulse will-change-transform">
                       <path d="M 140 180 C 120 120 180 80 200 120 C 220 80 280 120 260 180 Z" fill="url(#brainGradient)" filter="url(#glow)" opacity="0.9" />
                       {/* Brain folds/lines */}
                       <path d="M 200 100 V 170" stroke="rgba(255,255,255,0.3)" strokeWidth="4" />
@@ -177,12 +184,16 @@ export default function HomePage() {
                       </g>
                     </g>
 
-                    {/* Sparkles/Stars */}
-                    <g className="sparkles">
+                    {/* Sparkles/Stars - Reduced for performance */}
+                    <g className="sparkles hidden md:block">
                       <circle cx="100" cy="150" r="4" fill="#00f2ff" className="glow-pulse" />
                       <circle cx="300" cy="120" r="6" fill="#00f2ff" className="glow-pulse" style={{ animationDelay: '0.5s' }} />
                       <circle cx="280" cy="280" r="3" fill="#a855f7" className="glow-pulse" style={{ animationDelay: '1s' }} />
                       <circle cx="120" cy="270" r="5" fill="#a855f7" className="glow-pulse" style={{ animationDelay: '1.5s' }} />
+                    </g>
+                    <g className="sparkles md:hidden">
+                      <circle cx="100" cy="150" r="3" fill="#00f2ff" />
+                      <circle cx="300" cy="120" r="4" fill="#00f2ff" />
                     </g>
                   </svg>
                 </div>

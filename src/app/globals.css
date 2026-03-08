@@ -45,33 +45,37 @@ body {
 /* Glassmorphism Variants */
 .glass-panel {
   background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 1.5rem;
-  /* Reduced from 2rem for better mobile fit */
 }
 
 @media (min-width: 768px) {
   .glass-panel {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-radius: 2rem;
   }
 }
 
 .glass-card {
   background: var(--color-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--color-glass-border);
-  border-radius: 1.5rem;
-  /* Reduced for mobile */
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
 
 @media (min-width: 768px) {
   .glass-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 2.5rem;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -98,7 +102,6 @@ body {
   letter-spacing: 0.1em;
   border-radius: 1rem;
   padding: 1rem 1.5rem;
-  /* Tighter on mobile */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,6 +111,7 @@ body {
   overflow: hidden;
   border: none;
   box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+  will-change: transform;
 }
 
 @media (min-width: 768px) {
@@ -175,12 +179,12 @@ body {
 .btn-ai {
   position: relative;
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #fff;
   font-weight: 700;
   border-radius: 1.25rem;
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,6 +195,15 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   z-index: 1;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .btn-ai {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.25rem 2.5rem;
+  }
 }
 
 /* Glowing Border Effect */
@@ -336,10 +349,18 @@ body {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(40px);
   z-index: -1;
-  opacity: 0.4;
-  animation: orb-pulse 8s ease-in-out infinite;
+  opacity: 0.3;
+  animation: orb-pulse 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (min-width: 768px) {
+  .orb {
+    filter: blur(80px);
+    animation: orb-pulse 8s ease-in-out infinite;
+  }
 }
 
 @keyframes orb-pulse {
