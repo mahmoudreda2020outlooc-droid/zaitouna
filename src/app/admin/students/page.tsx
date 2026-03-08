@@ -8,8 +8,8 @@ export default function StudentsReviewPage() {
 
     const filteredStudents = useMemo(() => {
         return studentsData.filter(student =>
-            student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            student.id.includes(searchTerm)
+            (student.name?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+            (student.id || '').includes(searchTerm)
         );
     }, [searchTerm]);
 
