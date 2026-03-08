@@ -1,3 +1,4 @@
+"use client";
 
 // v1.5 - Absolute Final Group 2 Precision & ID Sync
 import { useState, useMemo } from 'react';
