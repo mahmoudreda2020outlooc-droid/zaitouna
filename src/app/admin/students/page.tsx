@@ -24,31 +24,97 @@ export default function StudentsReviewPage() {
         return Object.entries(groups).sort(([a], [b]) => Number(a) - Number(b));
     }, [filteredStudents]);
 
+    const handleExportPDF = () => {
+        window.print();
+    };
+
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white p-8">
-            <div className="max-w-6xl mx-auto">
-                <header className="mb-8 flex justify-between items-center">
+            {/* Print Styles */}
+            <style jsx global>{`
+                @media print {
+                    @page {
+                        size: A4;
+                        margin: 1cm;
+                    }
+                    body {
+                        background: white !important;
+                        color: black !important;
+                        padding: 0 !important;
+                    }
+                    .no-print {
+                        display: none !important;
+                    }
+                    .print-only {
+                        display: block !important;
+                    }
+                    .container-to-print {
+                        width: 100% !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+                    table {
+                        border-collapse: collapse !important;
+                        width: 100% !important;
+                        color: black !important;
+                    }
+                    th, td {
+                        border: 1px solid #ddd !important;
+                        padding: 8px !important;
+                        background: transparent !important;
+                        color: black !important;
+                    }
+                    .text-cyan-400 { color: black !important; }
+                    .text-purple-400 { color: black !important; }
+                    .bg-cyan-500\/10 { background: none !important; border: 1px solid #eee !important; }
+                    .bg-purple-500\/10 { background: none !important; border: 1px solid #eee !important; }
+                    h1, h2 { color: black !important; }
+                    .bg-\[\#1a1a1a\], .bg-\[\#111\] { background: transparent !important; }
+                    .border-gray-800 { border-color: #eee !important; }
+                }
+                .print-only { display: none; }
+            `}</style>
+
+            <div className="max-w-6xl mx-auto container-to-print">
+                <header className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 no-print">
                     <div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                             مراجعة بيانات الطلاب
                         </h1>
                         <p className="text-gray-400 mt-2">مجموع الطلاب: {studentsData.length} | المفلتر: {filteredStudents.length}</p>
                     </div>
-                    <input
-                        type="text"
-                        placeholder="بحث بالاسم أو الكود..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="bg-[#1a1a1a] border border-gray-800 rounded-lg px-4 py-2 w-72 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all text-right"
-                        dir="rtl"
-                    />
+
+                    <div className="flex items-center gap-4 w-full md:w-auto">
+                        <input
+                            type="text"
+                            placeholder="بحث بالاسم أو الكود..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="bg-[#1a1a1a] border border-gray-800 rounded-lg px-4 py-2 flex-grow md:w-72 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all text-right"
+                            dir="rtl"
+                        />
+                        <button
+                            onClick={handleExportPDF}
+                            className="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2 rounded-lg font-bold transition-all flex items-center gap-2"
+                        >
+                            <span>تصدير PDF</span>
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </button>
+                    </div>
                 </header>
 
+                <div className="print-only mb-8 text-center" dir="rtl">
+                    <h1 className="text-2xl font-bold mb-2">تقرير بيانات الطلاب</h1>
+                    <p className="text-gray-600">التاريخ: {new Date().toLocaleDateString('ar-EG')}</p>
+                </div>
+
                 {groupedStudents.map(([group, students]) => (
-                    <div key={group} className="mb-12">
+                    <div key={group} className="mb-12 break-inside-avoid">
                         <h2 className="text-2xl font-bold text-white mb-4 bg-[#111] p-4 rounded-lg border border-gray-800 flex items-center justify-between">
                             <span>المجموعة {group}</span>
-                            <span className="text-sm font-normal text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full">
+                            <span className="text-sm font-normal text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full no-print">
                                 {students.length} طالب
                             </span>
                         </h2>
@@ -57,7 +123,7 @@ export default function StudentsReviewPage() {
                                 <thead className="bg-[#1a1a1a] text-gray-400 text-sm uppercase">
                                     <tr>
                                         <th className="px-6 py-4 font-medium">الكود</th>
-                                        <th className="px-6 py-4 font-medium text-right">الاسم (كما هو في المصدر)</th>
+                                        <th className="px-6 py-4 font-medium text-right">الاسم</th>
                                         <th className="px-6 py-4 font-medium">المجموعة</th>
                                         <th className="px-6 py-4 font-medium">الفصل</th>
                                         <th className="px-6 py-4 font-medium">المسلسل</th>
@@ -88,7 +154,7 @@ export default function StudentsReviewPage() {
                 ))}
 
                 {filteredStudents.length === 0 && (
-                    <div className="p-20 text-center text-gray-500">
+                    <div className="p-20 text-center text-gray-500 no-print">
                         لم يتم العثور على أي نتائج للبحث
                     </div>
                 )}
