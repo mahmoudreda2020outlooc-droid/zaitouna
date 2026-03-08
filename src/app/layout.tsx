@@ -50,10 +50,9 @@ export default function RootLayout({
         <ClientLayout>
           {children}
 
-          {/* Global Developer Card - Fixed at the very bottom inside ClientLayout wrapper */}
-          <div className="fixed bottom-6 inset-x-0 z-[9999] flex justify-center pointer-events-none px-4">
+          <footer className="w-full flex justify-center py-8 pb-12 relative z-50">
             <DeveloperCard />
-          </div>
+          </footer>
         </ClientLayout>
       </body>
     </html>
