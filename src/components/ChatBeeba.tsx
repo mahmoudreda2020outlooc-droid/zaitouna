@@ -24,6 +24,9 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
     const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
     const [isAutoSpeak, setIsAutoSpeak] = useState(false);
     const [speakingIdx, setSpeakingIdx] = useState<number | null>(null);
+    const [isRecording, setIsRecording] = useState(false);
+    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+    const audioChunksRef = useRef<Blob[]>([]);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -52,7 +55,7 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
         scrollToBottom();
     }, [messages]);
 
-    const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
@@ -70,10 +73,54 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
         if (fileInputRef.current) fileInputRef.current.value = "";
     };
 
-    const handleSend = async () => {
-        if ((!input.trim() && !selectedImage) || isLoading) return;
+    const startRecording = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const mediaRecorder = new MediaRecorder(stream);
+            mediaRecorderRef.current = mediaRecorder;
+            audioChunksRef.current = [];
 
-        const userMessage = input.trim();
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) audioChunksRef.current.push(e.data);
+            };
+
+            mediaRecorder.onstop = async () => {
+                const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const base64 = (e.target?.result as string).split(",")[1];
+                    const voiceAttachment = {
+                        data: base64,
+                        mimeType: 'audio/webm'
+                    };
+
+                    // Auto-send immediately after recording stops
+                    handleSend(input, voiceAttachment);
+                };
+                reader.readAsDataURL(audioBlob);
+                stream.getTracks().forEach(track => track.stop());
+            };
+
+            mediaRecorder.start();
+            setIsRecording(true);
+        } catch (err) {
+            console.error("Recording error:", err);
+        }
+    };
+
+    const stopRecording = () => {
+        if (mediaRecorderRef.current && isRecording) {
+            mediaRecorderRef.current.stop();
+            setIsRecording(false);
+        }
+    };
+
+    const handleSend = async (textOverride?: string, voiceAttachment?: { data: string; mimeType: string }) => {
+        const textToSend = typeof textOverride === 'string' ? textOverride : input;
+
+        if ((!textToSend.trim() && !selectedImage && !voiceAttachment) || isLoading) return;
+
+        const userMessage = textToSend.trim() || (voiceAttachment ? "أرسل تسجيلاً صوتياً" : "");
         const currentImage = selectedImage;
         const currentFile = selectedImageFile;
 
@@ -100,6 +147,11 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                         mimeType: currentFile.type
                     }
                 ];
+            }
+
+            if (voiceAttachment) {
+                if (!payload.attachments) payload.attachments = [];
+                payload.attachments.push(voiceAttachment);
             }
 
             const response = await fetch("/api/chat-beeba", {
@@ -262,14 +314,14 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                         <div className="relative group p-[2px] rounded-[2rem] bg-gradient-to-r from-white/10 via-white/5 to-white/10 focus-within:from-primary/40 focus-within:via-secondary/40 focus-within:to-primary/40 transition-all duration-700 shadow-2xl">
                             <div className="flex flex-col md:flex-row gap-4 bg-[#0a0a0a]/90 backdrop-blur-3xl rounded-[1.9rem] p-4 md:p-6">
 
-                                {/* Upload Button */}
-                                <div className="flex items-end pb-1 pr-2">
+                                {/* Upload & Record Buttons */}
+                                <div className="flex items-center gap-2 items-end pb-1 pr-2">
                                     <input
                                         type="file"
                                         accept="image/*"
                                         className="hidden"
                                         ref={fileInputRef}
-                                        onChange={handleImageSelect}
+                                        onChange={handleFileChange}
                                     />
                                     <button
                                         onClick={() => fileInputRef.current?.click()}
@@ -278,6 +330,17 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                     >
                                         <svg className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        onMouseDown={startRecording}
+                                        onMouseUp={stopRecording}
+                                        onMouseLeave={stopRecording}
+                                        className={`p-4 rounded-2xl border transition-all active:scale-95 group ${isRecording ? 'bg-red-500/20 border-red-500 animate-pulse' : 'bg-white/5 border-white/10 hover:bg-white/15'}`}
+                                        title="تسجيل صوتي"
+                                    >
+                                        <svg className={`w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110 ${isRecording ? 'text-red-500' : 'text-white/40 group-hover:text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-20a3 3 0 00-3 3v10a3 3 0 006 0V3a3 3 0 00-3-3z" />
                                         </svg>
                                     </button>
                                 </div>
@@ -297,13 +360,13 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                                 handleSend();
                                             }
                                         }}
-                                        placeholder="حابب تسأل الدحيح عن إيه في المنهج يا بطل؟"
+                                        placeholder={isRecording ? "جاري التسجيل..." : "حابب تسأل الدحيح عن إيه في المنهج يا بطل؟"}
                                         className="w-full bg-transparent border-none px-4 py-4 md:py-6 text-xl md:text-3xl text-white placeholder:text-white/20 focus:outline-none transition-all resize-none max-h-[200px] scrollbar-hide"
                                     />
                                 </div>
                                 <div className="flex items-end justify-end">
                                     <button
-                                        onClick={handleSend}
+                                        onClick={() => handleSend()}
                                         disabled={isLoading || (!input.trim() && !selectedImage)}
                                         className="h-16 md:h-20 px-10 md:px-16 bg-gradient-to-r from-primary to-secondary text-black font-black text-2xl md:text-3xl rounded-2xl hover:scale-105 active:scale-95 transition-all disabled:opacity-30 disabled:scale-100 shadow-2xl shadow-primary/30 flex items-center justify-center gap-4 group"
                                     >
