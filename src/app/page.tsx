@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import DeveloperCard from "@/components/DeveloperCard";
 
 const baladiQuotes = [
   { main: "عافر هتوصل،", subMain: "مفيش حاجة تيجي بالساهل!", quote: "اتعب النهاردة عشان ترتاح بكرة، ومستقبلك يستاهل العافرة." },
@@ -201,7 +200,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex gap-8 items-center justify-center">
-            <DeveloperCard />
+            {/* DeveloperCard moved to RootLayout */}
           </div>
 
           <div className="text-[10px] font-bold text-white/10 uppercase tracking-[0.2em]">

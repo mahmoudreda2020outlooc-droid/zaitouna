@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import DeveloperCard from "@/components/DeveloperCard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,6 @@ export const metadata: Metadata = {
   description: "الزتونة - المنصة التعليمية الذكية للطلاب. المذاكرة بذكاء مش بمجهود.",
 };
 
-import DeveloperCard from "@/components/DeveloperCard";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,9 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen pb-16`}
       >
         {children}
+        <div className="fixed bottom-6 left-0 right-0 z-50 pointer-events-none flex justify-center">
+          <div className="pointer-events-auto">
+            <DeveloperCard />
+          </div>
+        </div>
       </body>
     </html>
   );
