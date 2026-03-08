@@ -3,12 +3,12 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const client = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY || "",
-});
-
 export async function POST(req: Request) {
     try {
+        const client = new GoogleGenAI({
+            apiKey: process.env.GEMINI_API_KEY || "",
+        });
+
         const { message, history, attachments, systemContext } = await req.json();
 
         // Subject Mapping

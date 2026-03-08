@@ -1,12 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 
-const client = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY || "",
-});
-
 export async function POST(req: Request) {
     try {
+        const client = new GoogleGenAI({
+            apiKey: process.env.GEMINI_API_KEY || "",
+        });
+
         const { text, type } = await req.json();
 
         if (!text) {
