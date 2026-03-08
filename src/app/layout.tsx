@@ -26,13 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen pb-16`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary/30 min-h-screen bg-background`}
       >
-        {children}
-        <div className="fixed bottom-6 left-0 right-0 z-50 pointer-events-none flex justify-center">
-          <div className="pointer-events-auto">
-            <DeveloperCard />
-          </div>
+        <div className="relative isolate min-h-screen">
+          {children}
+          {/* Spacer to ensure content isn't hidden behind the fixed card */}
+          <div className="h-28 print:hidden" />
+        </div>
+
+        {/* Global Developer Card - Fixed at the very bottom */}
+        <div className="fixed bottom-6 inset-x-0 z-[9999] flex justify-center pointer-events-none px-4">
+          <DeveloperCard />
         </div>
       </body>
     </html>
