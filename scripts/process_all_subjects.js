@@ -39,6 +39,17 @@ const dataToProcess = [
             { id: "lecture_3", name: "المحاضرة الثالثة", pdf: "المحاضرة الثالثة.pdf", sheet: "شيت 3.pdf", assignment: "#" },
             { id: "lecture_4", name: "المحاضرة الرابعة", pdf: "المحاضرة الرابعة.pdf", sheet: "شيت 4.pdf", assignment: "#" }
         ]
+    },
+    {
+        subjectId: "DB-202",
+        title: "Database Systems",
+        prefix: "db202",
+        lectures: [
+            { id: "lecture_1", name: "المحاضرة الأولى", pdf: "المحاضرة الاولى.pdf", sheet: "#", assignment: "#" },
+            { id: "lecture_2", name: "المحاضرة الثانية", pdf: "المحاضرة الثانية.pdf", sheet: "الاسيمن -2.pdf", assignment: "#" },
+            { id: "lecture_3", name: "المحاضرة الثالثة", pdf: "المحاضرة الثالثة.pdf", sheet: "#", assignment: "#" },
+            { id: "lecture_4", name: "المحاضرة الرابعة", pdf: "المحاضرة الرابعة.pdf", sheet: "#", assignment: "#" }
+        ]
     }
 ];
 
@@ -142,9 +153,9 @@ async function processData() {
                         title: parsed.title,
                         summary: parsed.summary,
                         resources: {
-                            pdf: `/materials/${subject.subjectId}/${encodeURIComponent(lecture.pdf)}`.replace(/%20/g, ' '),
-                            sheet: lecture.sheet !== '#' ? `/materials/${subject.subjectId}/${encodeURIComponent(lecture.sheet)}`.replace(/%20/g, ' ') : '#',
-                            assignments: lecture.assignment !== '#' ? `/materials/${subject.subjectId}/${encodeURIComponent(lecture.assignment)}`.replace(/%20/g, ' ') : '#'
+                            pdf: `/materials/${subject.subjectId}/${encodeURI(lecture.pdf)}`,
+                            sheet: lecture.sheet !== '#' ? `/materials/${subject.subjectId}/${encodeURI(lecture.sheet)}` : '#',
+                            assignments: lecture.assignment !== '#' ? `/materials/${subject.subjectId}/${encodeURI(lecture.assignment)}` : '#'
                         },
                         quiz: parsed.quiz
                     };
