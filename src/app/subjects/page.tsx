@@ -87,27 +87,25 @@ export default function SubjectsPage() {
                 </div>
 
                 {/* Subjects List */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     {subjects.map((subject, idx) => (
                         <Link
                             href={`/subjects/${subject.code}`}
                             key={idx}
-                            className="glass-card p-6 md:p-8 group hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 border-white/5 hover:border-primary/30 hover:shadow-[0_10px_40px_rgba(0,242,255,0.1)] relative overflow-hidden flex flex-col items-start text-right min-h-[280px] md:min-h-[300px] cursor-pointer"
-                            style={{ animationDelay: subject.delay }}
+                            className={`glass-card p-6 md:p-8 group hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 border-white/5 hover:border-primary/30 hover:shadow-[0_10px_40px_rgba(0,242,255,0.1)] relative overflow-hidden flex flex-col items-start text-right min-h-[220px] md:min-h-[300px] cursor-pointer animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both`}
+                            style={{ animationDelay: `${idx * 0.1}s` }}
                         >
                             {/* Card glow */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-3xl mb-8 group-hover:bg-primary/20 transition-colors shadow-inner border border-white/5">
+                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/5 flex items-center justify-center text-2xl md:text-3xl mb-6 md:mb-8 group-hover:bg-primary/20 transition-colors shadow-inner border border-white/5">
                                 {subject.icon}
                             </div>
 
-                            <div className="mb-auto">
-                                <h3 className="text-xl md:text-2xl font-black mb-4 group-hover:text-primary transition-colors">{subject.title}</h3>
-                                <p className="text-white/40 text-[13px] md:text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors">{renderTextWithHighlights(subject.summary)}</p>
+                            <div className="mb-auto w-full">
+                                <h3 className="text-lg md:text-2xl font-black mb-3 md:mb-4 group-hover:text-primary transition-colors truncate">{subject.title}</h3>
+                                <p className="text-white/40 text-[12px] md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-white/60 transition-colors line-clamp-3 md:line-clamp-none">{renderTextWithHighlights(subject.summary)}</p>
                             </div>
-
-
                         </Link>
                     ))}
                 </div>
