@@ -1163,1673 +1163,6 @@
     }
   },
   {
-    "id": "lecture_1",
-    "subjectId": "DS-401",
-    "lectureId": "lecture_1",
-    "title": "المحاضرة 1: مقدمة في هياكل البيانات (Data Structures)",
-    "summary": "بص يا صاحبي، لو نفسك تعمل أي أبلكيشن أو برنامج سريع وفعّال، يبقى لازم تفهم إزاي ترص الداتا بتاعتك صح، عشان لو رصيتها غلط، برنامجك هيبقى أبطأ من السلحفاة.\n\n### 1. إيه يا عم الـ **Data Structure** ده وليه وجع الدماغ ده؟\n\n-   الـ **Data Structure** (هياكل البيانات) دي ببساطة هي طريقة بنظّم بيها الداتا بتاعتنا جوه الكمبيوتر، عشان نعرف نستخدمها بكفاءة وسرعة.\n-   تخيل إنك بتنظم دولاب هدومك، لو حاطط كل حاجة في مكانها هتعرف توصل لأي حاجة بسرعة، هي دي الفكرة بالظبط!\n\n### 2. الداتا دي بنعمل بيها إيه يا معلم؟ (الـ **Operations** الأساسية)\n\n-   بنعمل عليها شوية عمليات أساسية كده، زي إننا نعملها **Storing** (تخزين)، أو نعملها **Access** (نوصلها) عشان نشوفها.\n-   ممكن نضيف عليها داتا جديدة، ودي بنسميها **Insertion** (إضافة)، أو نمسح داتا قديمة، ودي اسمها **Deletion** (حذف).\n-   وأهم حاجة إننا بندور على داتا معينة جواها، ودي اسمها **Searching** (بحث).\n\n### 3. برنامجك صاروخ ولا كراكير؟ (الـ **Performance** وكام مصطلح مهم)\n\n-   الـ **Data Structure** اللي بتختارها بتأثر بشكل مباشر على تصميم البرنامج بتاعك، سواء في شكله أو في طريقة شغله.\n-   البرنامج اللي بيكتب الـ **Data Structure** نفسها بنسميه **Implementation** (تنفيذ)، والبرنامج اللي بيستخدمها عشان يشتغل اسمه **Client Program** (برنامج عميل).\n-   الـ \"كود\" بتاعك (الـ **Program**) ببساطة هو عبارة عن **Algorithm** (خوارزمية) ومعاها **Data Structure** (هيكل بيانات) مناسب.\n-   الـ **Algorithm** دي شوية خطوات ورا بعض بنعملها عشان نحل مشكلة معينة أو نعمل وظيفة محددة.\n-   أداء برنامجك بنقيسه بحاجتين أساسيتين: **SPACE** (مساحة التخزين اللي بيستهلكها) و **TIME** (الوقت اللي بياخده عشان ينفذ مهمة). عايزين الاتنين يكونوا أقل ما يمكن!\n\n### 4. أنواع الداتا المتدشتة (مش كاندي كراش!)\n\n-   الداتا دي ليها أنواع رئيسية كده، الأول اسمه **Primitive** (بدائية) ودي اللي بتجيلك جاهزة زي الأرقام الصحيحة (Integer)، والأرقام العشرية (float)، والحروف (Character)، والمؤشرات (pointer).\n-   النوع التاني اسمه **Non-Primitive** (غير بدائية)، ودي بقى اللي إحنا بنبنيها وننظمها بطريقتنا:\n    -   **Linear Data Structure** (هياكل بيانات خطية): يعني الداتا مترتبة ورا بعضها كده بالدور، زي:\n        -   الـ **Array** (المصفوفة): شوية عناصر ورا بعض في الذاكرة ليها نفس النوع.\n        -   الـ **Linked list** (القائمة المتصلة): عناصر متصلة ببعضها بس مش لازم تكون ورا بعض في الذاكرة.\n        -   الـ **Stack** (المكدس): زي رصة الأطباق، اللي بتحطه آخر واحد بتشيله أول واحد (LIFO).\n        -   الـ **Queue** (الطابور): زي طابور العيش، اللي بييجي الأول هو اللي بياخد الأول (FIFO).\n    -   **Non-Linear Data Structure** (هياكل بيانات غير خطية): الداتا مش ماشية بالترتيب، بتبقى متفرعة كده، زي:\n        -   الـ **Trees** (الأشجار): زي شجرة العائلة كده، ليها جذر وفروع وأوراق.\n        -   الـ **Graphs** (الرسوم البيانية): زي شبكة المواصلات، نقاط متصلة ببعضها.\n\n### 5. إزاي نقيس سرعة البرنامج؟ (الـ **Complexity** و الـ **Analysis**)\n\n-   تخيل إنك بتدور على رقم معين في قائمة طويلة، ممكن تلاقيه من أول مرة (وده بنسميه **Best Case**).\n-   أو ممكن تلاقيه في النص (وده بنسميه **Average Case**).\n-   أو ممكن تضطر تدور عليه لحد آخر رقم (وده بنسميه **Worst Case**).\n-   عشان نقيس الكلام ده ونعرف أداء الكود بتاعنا، بنستخدم مفاهيم اسمها **Asymptotic Analysis** (التحليل التقاربي)، اللي بتشوف أداء الكود عامل إزاي لما حجم الداتا يكبر أوي.\n-   ولكل حالة من دول ليها رمز خاص بيها:\n    -   الـ **Best case** (أفضل حالة): بنمثلها بالـ **Omega notation, Ω** (أوميجا).\n    -   الـ **Average case** (الحالة المتوسطة): بنمثلها بالـ **Theta notation, Θ** (ثيتا).\n    -   الـ **Worst case** (أسوأ حالة): بنمثلها بالـ **Big O notation, O** (بيج أوو)، ودي أهم واحدة وغالباً اللي بنركز عليها.\n\n### الزتونة 🫒\nفهم الـ **Data Structures** دي هو الأساس لأي كود نضيف وسريع، ركز على المصطلحات دي كويس عشان هي مفتاح فهم اللي جاي! شد حيلك يا بطل!",
-    "quiz": [
-      {
-        "type": "mcq",
-        "question": "What is the primary purpose of a data structure, as defined in the lecture?",
-        "options": [
-          "To store data randomly without any specific order",
-          "To organize data in a way that it can be used efficiently",
-          "To encrypt data for security purposes",
-          "To exclusively store numerical data types"
-        ],
-        "answer": "To organize data in a way that it can be used efficiently",
-        "explanation": "The lecture defines a data structure as 'the organization of the data in a way that it can be used efficiently'.",
-        "topic": "Introduction to Data Structure"
-      },
-      {
-        "type": "fitb",
-        "question": "A data structure is the ________ of the data in a way that it can be used efficiently.",
-        "options": [],
-        "answer": "organization",
-        "explanation": "The definition provided is 'A data structure is the organization of the data in a way that it can be used efficiently'.",
-        "topic": "Introduction to Data Structure"
-      },
-      {
-        "type": "tf",
-        "question": "The main goal of a data structure is to organize data inefficiently.",
-        "answer": "false",
-        "explanation": "The lecture explicitly states that data structures organize data for 'efficient' use, not inefficient.",
-        "topic": "Introduction to Data Structure"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is NOT explicitly listed as a fundamental function or operation on data in the lecture?",
-        "options": [
-          "Storing",
-          "Debugging",
-          "Insertion",
-          "Searching"
-        ],
-        "answer": "Debugging",
-        "explanation": "The lecture lists Storing, Access and Operations, Insertion, Deletion, and Searching as functions on DATA. Debugging is not listed.",
-        "topic": "Functions on Data"
-      },
-      {
-        "type": "tf",
-        "question": "Searching is one of the fundamental functions performed on data using data structures.",
-        "answer": "true",
-        "explanation": "The lecture lists 'Searching' as one of the explicit functions on the DATA.",
-        "topic": "Functions on Data"
-      },
-      {
-        "type": "fitb",
-        "question": "The operation of adding new data into a structure is called ________.",
-        "options": [],
-        "answer": "Insertion",
-        "explanation": "Insertion is the function responsible for adding new data, as listed in the lecture.",
-        "topic": "Functions on Data"
-      },
-      {
-        "type": "tf",
-        "question": "Data structures only affect the functional aspects of a program, not the structural.",
-        "answer": "false",
-        "explanation": "The lecture states that data structures affect 'the design of both structural & functional aspects of a program'.",
-        "topic": "Impact of Data Structures"
-      },
-      {
-        "type": "mcq",
-        "question": "Data structures influence which aspects of a program's design?",
-        "options": [
-          "Only performance metrics",
-          "Only security protocols",
-          "Both structural and functional aspects",
-          "Only user interface design"
-        ],
-        "answer": "Both structural and functional aspects",
-        "explanation": "The lecture explicitly states, 'Data structure affects the design of both structural & functional aspects of a program'.",
-        "topic": "Impact of Data Structures"
-      },
-      {
-        "type": "fitb",
-        "question": "A program that builds or creates a data structure is referred to as its ________.",
-        "options": [],
-        "answer": "implementation",
-        "explanation": "The lecture defines 'The program which implements the data structure is known as the implementation'.",
-        "topic": "Data Structure Terminology"
-      },
-      {
-        "type": "mcq",
-        "question": "What is a program that utilizes an existing data structure called?",
-        "options": [
-          "A compiler",
-          "A client program",
-          "An operating system",
-          "An algorithm designer"
-        ],
-        "answer": "A client program",
-        "explanation": "The lecture states, 'The program that uses data structure is called a client program'.",
-        "topic": "Data Structure Terminology"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the correct formula representing a program, according to the lecture?",
-        "options": [
-          "Program = Hardware + Software",
-          "Program = Algorithm + Data Structure",
-          "Program = Input + Output",
-          "Program = Functions + Variables"
-        ],
-        "answer": "Program = Algorithm + Data Structure",
-        "explanation": "The lecture explicitly provides the formula: 'Program=algorithm + Data Structure'.",
-        "topic": "Program Components"
-      },
-      {
-        "type": "tf",
-        "question": "A program is solely an algorithm without any data structure component.",
-        "answer": "false",
-        "explanation": "The lecture defines 'Program = algorithm + Data Structure', indicating both are essential components.",
-        "topic": "Program Components"
-      },
-      {
-        "type": "fitb",
-        "question": "A program is composed of an algorithm and a ________ ________.",
-        "options": [],
-        "answer": "Data Structure",
-        "explanation": "The lecture defines 'Program=algorithm + Data Structure'.",
-        "topic": "Program Components"
-      },
-      {
-        "type": "tf",
-        "question": "An algorithm is a general guideline for problem-solving, not necessarily step-by-step.",
-        "answer": "false",
-        "explanation": "The lecture defines an algorithm as 'a step by step procedure to solve a particular function'.",
-        "topic": "Algorithm Definition"
-      },
-      {
-        "type": "fitb",
-        "question": "An algorithm is a ________ by ________ procedure to solve a particular function.",
-        "options": [],
-        "answer": "step",
-        "explanation": "The lecture defines an algorithm as 'a step by step procedure to solve a particular function'.",
-        "topic": "Algorithm Definition"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is considered a primitive data structure according to the lecture's classification?",
-        "options": [
-          "Array",
-          "Linked List",
-          "Integer",
-          "Tree"
-        ],
-        "answer": "Integer",
-        "explanation": "The lecture classifies Integer, float, character, and pointer as Primitive data structures.",
-        "topic": "Data Structure Classification (Primitive)"
-      },
-      {
-        "type": "tf",
-        "question": "A linked list is an example of a primitive data structure.",
-        "answer": "false",
-        "explanation": "The lecture classifies Linked List as a Non-primitive, Linear data structure.",
-        "topic": "Data Structure Classification (Primitive)"
-      },
-      {
-        "type": "fitb",
-        "question": "Integer, float, and character are examples of ________ data structures.",
-        "options": [],
-        "answer": "Primitive",
-        "explanation": "The lecture's diagram clearly places Integer, float, and character under the 'Primitive' category.",
-        "topic": "Data Structure Classification (Primitive)"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of these is a non-primitive, linear data structure?",
-        "options": [
-          "Pointer",
-          "Graph",
-          "Stack",
-          "Float"
-        ],
-        "answer": "Stack",
-        "explanation": "The lecture classifies Array, Linked List, Stack, and Queue under Non-primitive, Linear data structures.",
-        "topic": "Data Structure Classification (Linear)"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of these is a non-primitive, non-linear data structure?",
-        "options": [
-          "Queue",
-          "Array",
-          "Trees",
-          "Character"
-        ],
-        "answer": "Trees",
-        "explanation": "The lecture classifies Trees and Graphs under Non-primitive, Non-linear data structures.",
-        "topic": "Data Structure Classification (Non-linear)"
-      },
-      {
-        "type": "tf",
-        "question": "Stacks are classified as non-linear data structures.",
-        "answer": "false",
-        "explanation": "The lecture classifies Stacks as 'Linear data structure' under the Non-primitive category.",
-        "topic": "Data Structure Classification (Linear)"
-      },
-      {
-        "type": "fitb",
-        "question": "Trees and Graphs are examples of ________ data structures.",
-        "options": [],
-        "answer": "Non linear",
-        "explanation": "The lecture's diagram clearly places Trees and Graphs under 'Non linear data structure'.",
-        "topic": "Data Structure Classification (Non-linear)"
-      },
-      {
-        "type": "fitb",
-        "question": "An Array is a type of ________ data structure.",
-        "options": [],
-        "answer": "Linear",
-        "explanation": "The lecture classifies Array under 'Linear data structure'.",
-        "topic": "Data Structure Classification (Linear)"
-      },
-      {
-        "type": "mcq",
-        "question": "Which category do Arrays, Linked Lists, Stacks, and Queues all belong to?",
-        "options": [
-          "Primitive data structures",
-          "Non-primitive, linear data structures",
-          "Non-primitive, non-linear data structures",
-          "Abstract data types"
-        ],
-        "answer": "Non-primitive, linear data structures",
-        "explanation": "The classification diagram shows Array, Linked list, Stack, and Queue grouped under 'Linear data structure' which is a subcategory of 'Non primitive'.",
-        "topic": "Data Structure Classification (Linear)"
-      },
-      {
-        "type": "tf",
-        "question": "Linked lists fall under the category of non-linear data structures.",
-        "answer": "false",
-        "explanation": "The lecture explicitly lists Linked List as a 'Linear data structure'.",
-        "topic": "Data Structure Classification (Linear)"
-      },
-      {
-        "type": "mcq",
-        "question": "If a data structure organizes data sequentially, it is typically categorized as:",
-        "options": [
-          "A primitive data structure",
-          "A non-linear data structure",
-          "A linear data structure",
-          "A simple data type"
-        ],
-        "answer": "A linear data structure",
-        "explanation": "Linear data structures, such as Arrays, Linked Lists, Stacks, and Queues, organize data in a sequential manner.",
-        "topic": "Data Structure Classification (Linear)"
-      },
-      {
-        "type": "fitb",
-        "question": "The two main categories of non-primitive data structures are linear and ________.",
-        "options": [],
-        "answer": "Non linear",
-        "explanation": "The classification diagram shows Non primitive splitting into Linear data structure and Non linear data structure.",
-        "topic": "Data Structure Classification (Non-primitive)"
-      },
-      {
-        "type": "mcq",
-        "question": "What are the two main performance metrics discussed for programming code in the lecture?",
-        "options": [
-          "Readability and Maintainability",
-          "Security and Robustness",
-          "SPACE and Time",
-          "Scalability and Flexibility"
-        ],
-        "answer": "SPACE and Time",
-        "explanation": "The lecture explicitly highlights 'SPACE' and 'Time' as the performance metrics for programming code.",
-        "topic": "Performance Analysis"
-      },
-      {
-        "type": "tf",
-        "question": "Only time is considered when evaluating the performance of programming code, not space.",
-        "answer": "false",
-        "explanation": "The lecture clearly states both 'SPACE' and 'Time' are performance considerations.",
-        "topic": "Performance Analysis"
-      },
-      {
-        "type": "fitb",
-        "question": "The performance of programming code is primarily evaluated based on time and ________.",
-        "options": [],
-        "answer": "SPACE",
-        "explanation": "The lecture presents 'SPACE' and 'Time' as the two key performance metrics.",
-        "topic": "Performance Analysis"
-      },
-      {
-        "type": "mcq",
-        "question": "When summing numbers from 1 to n, which approach is generally more efficient in terms of computational steps for large 'n'?",
-        "options": [
-          "Using a 'for' loop to add each number incrementally",
-          "Using the mathematical formula n*(n+1)/2",
-          "Both approaches are equally efficient regardless of 'n'",
-          "Efficiency depends on the programming language used"
-        ],
-        "answer": "Using the mathematical formula n*(n+1)/2",
-        "explanation": "The lecture implies the mathematical formula is 'the best?? Performance??' when presented against a loop, suggesting it's more efficient for larger 'n' as it's a constant time operation versus linear time.",
-        "topic": "Time Complexity Example"
-      },
-      {
-        "type": "tf",
-        "question": "The iterative summation (using a loop) is always more efficient than the mathematical formula (n*(n+1)/2) for summing numbers from 1 to n.",
-        "answer": "false",
-        "explanation": "The lecture's example implicitly suggests the formula n*(n+1)/2 is more efficient, especially for large 'n', as it avoids the linear traversal of the loop.",
-        "topic": "Time Complexity Example"
-      },
-      {
-        "type": "tf",
-        "question": "The search for an element at the beginning of a list typically represents the worst-case scenario.",
-        "answer": "false",
-        "explanation": "Finding an element quickly, such as at the beginning of a list, represents the best-case scenario. The worst case would be finding it at the end or not at all.",
-        "topic": "Search Complexity"
-      },
-      {
-        "type": "mcq",
-        "question": "If searching for an element takes the maximum possible time in a given data structure, it refers to the:",
-        "options": [
-          "Best case",
-          "Worst case",
-          "Average case",
-          "Optimal case"
-        ],
-        "answer": "Worst case",
-        "explanation": "The lecture uses an example where finding '4' (likely at the end of a specific list) is described as 'slow time', associated with the worst case.",
-        "topic": "Search Complexity"
-      },
-      {
-        "type": "fitb",
-        "question": "Finding an element in the fastest possible time during a search is known as the ________ case.",
-        "options": [],
-        "answer": "Best",
-        "explanation": "The lecture states 'If we want to search 10 → we find it in fast time' and labels it as 'Best case'.",
-        "topic": "Search Complexity"
-      },
-      {
-        "type": "tf",
-        "question": "The average case complexity is always exactly halfway between the best and worst case.",
-        "answer": "false",
-        "explanation": "While it falls between best and worst, 'average' doesn't necessarily imply an exact halfway point; it refers to the expected performance over many inputs.",
-        "topic": "Search Complexity"
-      },
-      {
-        "type": "mcq",
-        "question": "Which asymptotic notation describes the upper bound or worst-case complexity of an algorithm?",
-        "options": [
-          "Omega notation (Ω)",
-          "Theta notation (Θ)",
-          "Big O notation (O)",
-          "Delta notation (Δ)"
-        ],
-        "answer": "Big O notation (O)",
-        "explanation": "The lecture explicitly states 'Worst case Big O notation, O'.",
-        "topic": "Asymptotic Notations"
-      },
-      {
-        "type": "fitb",
-        "question": "The Omega notation (Ω) is used to denote the ________ case time complexity.",
-        "options": [],
-        "answer": "Best",
-        "explanation": "The lecture explicitly states 'Best case Omega notation ,Ω'.",
-        "topic": "Asymptotic Notations"
-      },
-      {
-        "type": "tf",
-        "question": "Theta notation (Θ) is used to represent the worst-case time complexity.",
-        "answer": "false",
-        "explanation": "The lecture states 'Worst case Big O notation, O' and 'Average case Theta notation, Θ'.",
-        "topic": "Asymptotic Notations"
-      },
-      {
-        "type": "mcq",
-        "question": "To describe the average-case complexity, which asymptotic notation is typically used?",
-        "options": [
-          "Big O notation (O)",
-          "Omega notation (Ω)",
-          "Theta notation (Θ)",
-          "Sigma notation (Σ)"
-        ],
-        "answer": "Theta notation (Θ)",
-        "explanation": "The lecture states 'Average case Theta notation, Θ'.",
-        "topic": "Asymptotic Notations"
-      },
-      {
-        "type": "fitb",
-        "question": "Big O notation (O) represents the ________ case time complexity.",
-        "options": [],
-        "answer": "Worst",
-        "explanation": "The lecture explicitly states 'Worst case Big O notation, O'.",
-        "topic": "Asymptotic Notations"
-      },
-      {
-        "type": "mcq",
-        "question": "When comparing functions 'in the limit' for performance analysis, this process is known as:",
-        "options": [
-          "Empirical testing",
-          "Runtime profiling",
-          "Asymptotic analysis",
-          "Functional decomposition"
-        ],
-        "answer": "Asymptotic analysis",
-        "explanation": "The lecture states 'Compare functions in the limit, that is, asymptotic analysis'.",
-        "topic": "Asymptotic Analysis"
-      },
-      {
-        "type": "tf",
-        "question": "Asymptotic analysis involves comparing functions at their exact values, not in the limit.",
-        "answer": "false",
-        "explanation": "The lecture explicitly states 'Compare functions in the limit, that is, asymptotic analysis'.",
-        "topic": "Asymptotic Analysis"
-      },
-      {
-        "type": "fitb",
-        "question": "________ analysis is used to compare functions in the limit.",
-        "options": [],
-        "answer": "Asymptotic",
-        "explanation": "The lecture defines 'asymptotic analysis' as the method to 'Compare functions in the limit'.",
-        "topic": "Asymptotic Analysis"
-      },
-      {
-        "type": "mcq",
-        "question": "According to the lecture's contents, which topic is *not* specifically introduced or defined in this particular lecture segment, but listed as a broader topic?",
-        "options": [
-          "Time Complexity",
-          "Linear data structure",
-          "Sorting and hashing techniques",
-          "Introduction to the data structure"
-        ],
-        "answer": "Sorting and hashing techniques",
-        "explanation": "The lecture explicitly covers 'Time Complexity', 'Linear data structure', and 'Introduction to the data structure', but only lists 'Sorting and hashing techniques' in the contents without further detail in the provided text.",
-        "topic": "Lecture Contents"
-      },
-      {
-        "type": "tf",
-        "question": "This lecture provides a detailed explanation of sorting algorithms.",
-        "answer": "false",
-        "explanation": "Sorting and hashing techniques are listed in the table of contents but are not detailed in the provided lecture text.",
-        "topic": "Lecture Contents"
-      },
-      {
-        "type": "fitb",
-        "question": "The lecture explicitly mentions ________ management as a topic for the course.",
-        "options": [],
-        "answer": "Memory",
-        "explanation": "'Memory management' is listed in the 'Contents' section of the lecture.",
-        "topic": "Lecture Contents"
-      },
-      {
-        "type": "mcq",
-        "question": "Why is organizing data efficiently important in data structures?",
-        "options": [
-          "To reduce the number of operations required",
-          "To increase the overall memory footprint",
-          "To complicate program design unnecessarily",
-          "To ensure data is always encrypted"
-        ],
-        "answer": "To reduce the number of operations required",
-        "explanation": "Efficient organization implies that operations like access, insertion, deletion, and searching can be performed with optimal time and space complexity, effectively reducing the overall computational effort.",
-        "topic": "Importance of Data Structure"
-      },
-      {
-        "type": "tf",
-        "question": "A pointer is considered a non-primitive data type.",
-        "answer": "false",
-        "explanation": "The lecture explicitly lists 'pointer' under the 'Primitive' data structure category.",
-        "topic": "Data Structure Classification (Primitive)"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is *not* a non-primitive data structure listed in the lecture?",
-        "options": [
-          "Array",
-          "Queue",
-          "Float",
-          "Trees"
-        ],
-        "answer": "Float",
-        "explanation": "Array, Queue, and Trees are all listed as non-primitive data structures. Float, however, is listed as a primitive data structure.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is considered a primitive data structure according to the lecture's classification?",
-        "options": [
-          "Array",
-          "Integer",
-          "Stack",
-          "Tree"
-        ],
-        "answer": "Integer",
-        "explanation": "The lecture lists Integer, Float, Character, and Pointer under primitive data structures.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "tf",
-        "question": "A linked list is categorized as a non-linear data structure.",
-        "answer": "false",
-        "explanation": "The lecture classifies Linked List under 'Linear data structure', which is a subcategory of non-primitive data structures.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "fitb",
-        "question": "Arrays, Linked lists, Stacks, and Queues are examples of _____ data structures.",
-        "options": [],
-        "answer": "Linear",
-        "explanation": "These are explicitly listed under 'Linear data structure' in the lecture.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is NOT a linear data structure?",
-        "options": [
-          "Queue",
-          "Stack",
-          "Graph",
-          "Array"
-        ],
-        "answer": "Graph",
-        "explanation": "Graphs are listed under 'Non linear data structure', while Queue, Stack, and Array are linear.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "tf",
-        "question": "Pointers are considered a type of primitive data structure.",
-        "answer": "true",
-        "explanation": "The lecture text explicitly lists 'pointer' under 'Primitive' data structures.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "fitb",
-        "question": "Trees and Graphs are examples of _____ data structures.",
-        "options": [],
-        "answer": "Non-linear",
-        "explanation": "The lecture categorizes Trees and Graphs under 'Non linear data structure'.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "mcq",
-        "question": "Which category do Float and Character data types belong to?",
-        "options": [
-          "Non-primitive",
-          "Linear",
-          "Primitive",
-          "Non-linear"
-        ],
-        "answer": "Primitive",
-        "explanation": "Float and Character are listed alongside Integer and Pointer as primitive data types.",
-        "topic": "Data Structure Classification"
-      },
-      {
-        "type": "mcq",
-        "question": "In a Linked Stack, which pointer typically indicates the element that was most recently added and will be removed next?",
-        "options": [
-          "Head",
-          "Tail",
-          "Top",
-          "Base"
-        ],
-        "answer": "Top",
-        "explanation": "The visual representation and common understanding of a stack indicate 'top' as the pointer to the most recently added element.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "tf",
-        "question": "A Linked Stack stores its elements in contiguous memory locations.",
-        "answer": "false",
-        "explanation": "Linked data structures, by definition, use nodes linked by pointers, not contiguous memory locations, unlike arrays.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "fitb",
-        "question": "When building a Linked Stack, new elements are typically added to the _____ of the stack.",
-        "options": [],
-        "answer": "top",
-        "explanation": "The LIFO (Last-In, First-Out) principle of stacks means elements are added and removed from the top.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "mcq",
-        "question": "What value or reference typically signifies the end or bottom of a linked list or linked stack?",
-        "options": [
-          "0",
-          "-1",
-          "NULL",
-          "EOF"
-        ],
-        "answer": "NULL",
-        "explanation": "The lecture's visual diagram explicitly uses 'NULL' to indicate the end of the linked stack structure.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "tf",
-        "question": "The 'NULL' reference in a linked stack indicates the element at the top of the stack.",
-        "answer": "false",
-        "explanation": "The 'NULL' reference indicates the end or bottom of the linked stack, not the top.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "fitb",
-        "question": "Common functions used to build and manage a Linked Stack typically include push and _____.",
-        "options": [],
-        "answer": "pop",
-        "explanation": "Push (add element) and pop (remove element) are the fundamental operations for a stack.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "mcq",
-        "question": "If elements are pushed onto a linked stack in the order A, B, C (C being the last pushed), which element will be at the 'top' of the stack?",
-        "options": [
-          "A",
-          "B",
-          "C",
-          "NULL"
-        ],
-        "answer": "C",
-        "explanation": "In a stack, the last element pushed is always at the top.",
-        "topic": "Linked Stack"
-      },
-      {
-        "type": "fitb",
-        "question": "The infix expression `5/5+2-1*9` is converted to the postfix expression `5 5 / 2 + 1 9 * _____`.",
-        "options": [],
-        "answer": "-",
-        "explanation": "Following the conversion steps shown, the final operator in the expression is subtraction.",
-        "topic": "Infix to Postfix Conversion"
-      },
-      {
-        "type": "mcq",
-        "question": "When evaluating postfix expressions, in which direction are operations performed?",
-        "options": [
-          "Right to left",
-          "Left to right",
-          "Middle outwards",
-          "Top to bottom"
-        ],
-        "answer": "Left to right",
-        "explanation": "The lecture states: 'Start from left to the RIGHT in postfix.'",
-        "topic": "Postfix Evaluation Rules"
-      },
-      {
-        "type": "tf",
-        "question": "For subtraction and division operations in postfix evaluation, the high index refers to the first operand and the less index refers to the second operand.",
-        "answer": "false",
-        "explanation": "The lecture states: 'The less index is the first and high index is the second in subtraction and division' for postfix evaluation.",
-        "topic": "Postfix Evaluation Rules"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the result of evaluating the postfix expression `5 5 /`?",
-        "options": [
-          "0",
-          "1",
-          "5",
-          "25"
-        ],
-        "answer": "1",
-        "explanation": "5 divided by 5 equals 1.",
-        "topic": "Postfix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "The postfix expression for the infix operation `3 * 5` is `3 5 _____`.",
-        "options": [],
-        "answer": "*",
-        "explanation": "In postfix, the operator comes after its operands.",
-        "topic": "Infix to Postfix Conversion"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the correct postfix equivalent for the parenthesized infix expression `((5*5)*4)-3`?",
-        "options": [
-          "5 5 * 4 * 3 -",
-          "5 5 * 4 * - 3",
-          "5 * 5 * 4 - 3",
-          "5 5 * * 4 3 -"
-        ],
-        "answer": "5 5 * 4 * 3 -",
-        "explanation": "Following the steps shown in the lecture: `(5*5)` becomes `5 5 *`, then `(5 5 *)*4` becomes `5 5 * 4 *`, and finally `-3` makes it `5 5 * 4 * 3 -`.",
-        "topic": "Infix to Postfix Conversion"
-      },
-      {
-        "type": "tf",
-        "question": "The string `3 5 * 5 5 * 4 * 3 - / 10 2 / +` is an example of an infix expression.",
-        "answer": "false",
-        "explanation": "This expression uses postfix notation, where operators follow their operands.",
-        "topic": "Postfix Notation"
-      },
-      {
-        "type": "mcq",
-        "question": "Evaluate the postfix expression `10 2 /`.",
-        "options": [
-          "5",
-          "0.2",
-          "20",
-          "8"
-        ],
-        "answer": "5",
-        "explanation": "10 divided by 2 equals 5.",
-        "topic": "Postfix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "To convert the infix expression `4-6*5/8+2` to postfix, the first conceptual step often involves applying operator _____.",
-        "options": [],
-        "answer": "precedence",
-        "explanation": "Operators are grouped and converted based on their precedence (e.g., multiplication/division before addition/subtraction).",
-        "topic": "Infix to Postfix Conversion"
-      },
-      {
-        "type": "tf",
-        "question": "The postfix form of `4-6*5/8+2` is `4 6 5 * 8 / - 2 +`.",
-        "answer": "true",
-        "explanation": "This matches the solution provided in 'Example: 4-6*5/8+2'.",
-        "topic": "Infix to Postfix Conversion"
-      },
-      {
-        "type": "mcq",
-        "question": "When evaluating the postfix expression `4 6 5 * 8 / - 2 +`, what is the intermediate result obtained from the sub-expression `6 5 *`?",
-        "options": [
-          "11",
-          "30",
-          "1.2",
-          "0.83"
-        ],
-        "answer": "30",
-        "explanation": "6 multiplied by 5 equals 30.",
-        "topic": "Postfix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "After `6 5 *` evaluates to 30, the next operation involving 30 in the evaluation of `4 6 5 * 8 / - 2 +` would be `30 8 _____`.",
-        "options": [],
-        "answer": "/",
-        "explanation": "Following the left-to-right evaluation, after `6 5 *` comes `8 /`.",
-        "topic": "Postfix Evaluation Example"
-      },
-      {
-        "type": "tf",
-        "question": "The final result of evaluating the postfix expression `4 6 5 * 8 / - 2 +` is `2.25`.",
-        "answer": "true",
-        "explanation": "The lecture's step-by-step example shows the final result as 2.25.",
-        "topic": "Postfix Evaluation Example"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is the correct postfix expression for `8*5+3^2-4`?",
-        "options": [
-          "8 5 * 3 2 ^ + 4 -",
-          "8 5 * + 3 2 ^ 4 -",
-          "8 5 * 3 2 ^ + - 4",
-          "8 * 5 3 ^ 2 + 4 -"
-        ],
-        "answer": "8 5 * 3 2 ^ + 4 -",
-        "explanation": "This matches the conversion shown in the 'The power in postfix' example.",
-        "topic": "Infix to Postfix Conversion with Exponents"
-      },
-      {
-        "type": "fitb",
-        "question": "The `^` operator in `8*5+3^2-4` represents _____.",
-        "options": [],
-        "answer": "exponentiation",
-        "explanation": "The context and the example '3^2' clearly indicate exponentiation or power.",
-        "topic": "Operator Precedence"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the result of evaluating the postfix expression `3 2 ^`?",
-        "options": [
-          "5",
-          "6",
-          "9",
-          "8"
-        ],
-        "answer": "9",
-        "explanation": "3 raised to the power of 2 (3*3) equals 9.",
-        "topic": "Postfix Evaluation Example with Exponents"
-      },
-      {
-        "type": "tf",
-        "question": "The evaluation of the postfix expression `8 5 * 3 2 ^ + 4 -` results in 45.",
-        "answer": "true",
-        "explanation": "The lecture's example shows the evaluation steps leading to 45.",
-        "topic": "Postfix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "In postfix evaluation, a _____ is commonly used to temporarily store operands until an operator is encountered.",
-        "options": [],
-        "answer": "stack",
-        "explanation": "Stacks are fundamental for evaluating postfix expressions, storing numbers until an operator is found.",
-        "topic": "Postfix Evaluation Mechanism"
-      },
-      {
-        "type": "fitb",
-        "question": "In prefix evaluation, operations are performed from _____ to left.",
-        "options": [],
-        "answer": "right",
-        "explanation": "The lecture explicitly states: 'Start from RIGHT to the LEFT in postfix' (referring to prefix evaluation here).",
-        "topic": "Prefix Evaluation Rules"
-      },
-      {
-        "type": "mcq",
-        "question": "For subtraction and division operations in prefix evaluation, which index refers to the first operand?",
-        "options": [
-          "Smallest index",
-          "High index",
-          "Middle index",
-          "Last index"
-        ],
-        "answer": "High index",
-        "explanation": "The lecture states: 'The HIGH index is the first and LESS index is the second in subtraction and division' for prefix evaluation.",
-        "topic": "Prefix Evaluation Rules"
-      },
-      {
-        "type": "tf",
-        "question": "The prefix form of the infix expression `4-6*5/8+2` is `+-4/*6582`.",
-        "answer": "true",
-        "explanation": "This matches the solution provided in the 'Prefix method' example.",
-        "topic": "Infix to Prefix Conversion"
-      },
-      {
-        "type": "mcq",
-        "question": "When evaluating the prefix expression `+-4/*6582`, what is one of the first operations performed starting from the right?",
-        "options": [
-          "`82`",
-          "`58`",
-          "`*65`",
-          "`+ -`"
-        ],
-        "answer": "`*65`",
-        "explanation": "Starting from the right, the first operator encountered with its operands is `*65`.",
-        "topic": "Prefix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "The result of evaluating the prefix sub-expression `* 6 5` is _____.",
-        "options": [],
-        "answer": "30",
-        "explanation": "6 multiplied by 5 equals 30.",
-        "topic": "Prefix Evaluation Example"
-      },
-      {
-        "type": "mcq",
-        "question": "After `*65` evaluates to 30, what is the next logical operation in the prefix evaluation of `+-4/*6582`?",
-        "options": [
-          "`+ -`",
-          "`* 6`",
-          "`/ 30 8`",
-          "`- 4`"
-        ],
-        "answer": "`/ 30 8`",
-        "explanation": "The next operator encountered when scanning right-to-left is `/`, and its operands are 30 (result of *65) and 8.",
-        "topic": "Prefix Evaluation Example"
-      },
-      {
-        "type": "tf",
-        "question": "The final result of evaluating the prefix expression `+-4/*6582` is `2.25`.",
-        "answer": "true",
-        "explanation": "The lecture's step-by-step example for prefix evaluation confirms the final result is 2.25.",
-        "topic": "Prefix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "The prefix expression for the infix operation `8*5` is `* _____ 5`.",
-        "options": [],
-        "answer": "8",
-        "explanation": "In prefix notation, the operator comes before its operands.",
-        "topic": "Infix to Prefix Conversion"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the correct prefix expression for `3^2`?",
-        "options": [
-          "`3^2`",
-          "`^32`",
-          "`2^3`",
-          "`32^`"
-        ],
-        "answer": "`^32`",
-        "explanation": "In prefix, the operator `^` precedes its operands `3` and `2`.",
-        "topic": "Infix to Prefix Conversion with Exponents"
-      },
-      {
-        "type": "tf",
-        "question": "The prefix form of the infix expression `8*5+3^2-4` is `-+*85^324`.",
-        "answer": "true",
-        "explanation": "This matches the conversion shown in 'The power in prefix' example.",
-        "topic": "Infix to Prefix Conversion with Exponents"
-      },
-      {
-        "type": "mcq",
-        "question": "When evaluating the prefix expression `-+*85^324` from right to left, which operator-operand combination is processed first?",
-        "options": [
-          "`^32`",
-          "`*85`",
-          "`-4`",
-          "`+*85`"
-        ],
-        "answer": "`^32`",
-        "explanation": "Scanning from right to left, `^` is the first operator encountered with two operands, `3` and `2`.",
-        "topic": "Prefix Evaluation Example with Exponents"
-      },
-      {
-        "type": "fitb",
-        "question": "The result of evaluating the prefix sub-expression `^ 3 2` is _____.",
-        "options": [],
-        "answer": "9",
-        "explanation": "3 raised to the power of 2 equals 9.",
-        "topic": "Prefix Evaluation Example with Exponents"
-      },
-      {
-        "type": "mcq",
-        "question": "After `*85` evaluates to 40 and `^32` evaluates to 9 in `-+*85^324`, what is the next operation?",
-        "options": [
-          "`+ 40 9`",
-          "`- 49 4`",
-          "`* 40`",
-          "`^ 9`"
-        ],
-        "answer": "`+ 40 9`",
-        "explanation": "The expression becomes `-+ 40 9 4`. Scanning right-to-left, the next operator is `+`, with operands 40 and 9.",
-        "topic": "Prefix Evaluation Example"
-      },
-      {
-        "type": "tf",
-        "question": "The final evaluation of the prefix expression `-+*85^324` will yield 45.",
-        "answer": "true",
-        "explanation": "The lecture's example shows the evaluation steps leading to 45.",
-        "topic": "Prefix Evaluation Example"
-      },
-      {
-        "type": "fitb",
-        "question": "Prefix notation is also commonly known as _____ Polish Notation.",
-        "options": [],
-        "answer": "Polish",
-        "explanation": "Prefix notation is famously known as Polish Notation, while postfix is Reverse Polish Notation.",
-        "topic": "Notation Terminology"
-      },
-      {
-        "type": "mcq",
-        "question": "What is a key difference in the application of operator precedence rules when converting an infix expression to postfix versus prefix?",
-        "options": [
-          "There is no difference in precedence application.",
-          "Postfix conversion processes operators from left-to-right, while prefix processes right-to-left.",
-          "Postfix ignores precedence, while prefix always uses parentheses.",
-          "Prefix always converts addition first, regardless of other operators."
-        ],
-        "answer": "Postfix conversion processes operators from left-to-right, while prefix processes right-to-left.",
-        "explanation": "While both use precedence, the direction of scanning the expression (and thus operator association) differs between postfix and prefix evaluation/conversion strategies, as indicated by the 'Start from left to right' for postfix and 'Start from right to left' for prefix in the lecture.",
-        "topic": "Notation Comparison"
-      },
-      {
-        "type": "mcq",
-        "question": "When analyzing the 'complexity' of an algorithm, what are the primary aspects generally being measured?",
-        "options": [
-          "The length of the source code and number of comments.",
-          "The memory usage and execution time (or number of operations).",
-          "The number of bugs found during testing.",
-          "The readability and maintainability of the code."
-        ],
-        "answer": "The memory usage and execution time (or number of operations).",
-        "explanation": "Although not explicitly defined in the lecture text, 'complexity' in algorithms generally refers to the resources (time and space) an algorithm requires.",
-        "topic": "Algorithmic Complexity (Conceptual)"
-      },
-      {
-        "type": "fitb",
-        "question": "Algorithmic complexity is frequently expressed using _____ notation, which describes the upper bound of an algorithm's growth rate.",
-        "options": [],
-        "answer": "Big O",
-        "explanation": "Big O notation is the standard mathematical notation used to describe the limiting behavior of a function when the argument tends towards a particular value or infinity.",
-        "topic": "Algorithmic Complexity (Conceptual)"
-      }
-    ],
-    "sheetSolutions": [
-      {
-        "question": "A data structure is the ..................of the data in away that it can be used efficiently",
-        "answer": "organization",
-        "explanation": "الداتا ستراكشر هي طريقة تنظيم البيانات عشان نعرف نستخدمها بأفضل وأسرع شكل.",
-        "type": "fitb",
-        "pdfPage": 10
-      },
-      {
-        "question": "The program which implements the data structure is known as the ..................",
-        "answer": "implementation",
-        "explanation": "ده الجزء اللي بيبني الهيكل نفسه بتاع البيانات.",
-        "type": "fitb",
-        "pdfPage": 10
-      },
-      {
-        "question": "The program that uses data structure is called a .....................",
-        "answer": "client program",
-        "explanation": "ده البرنامج اللي بيستخدم الحاجز الجاهز عشان يعمل وظايف تانية.",
-        "type": "fitb",
-        "pdfPage": 10
-      },
-      {
-        "question": "Program = .............. + ................",
-        "answer": "Algorithm + Data Structure",
-        "explanation": "المعادلة الذهبية لأي برنامج في الدنيا: طريقة الحل (الخوارزمية) + تنظيم البيانات.",
-        "type": "fitb",
-        "pdfPage": 10
-      },
-      {
-        "question": ".................is a step by step procedure to solve a particular function.",
-        "answer": "Algorithm",
-        "explanation": "الخطوات اللي بنمشي عليها واحد اتنين تلاتة عشان نحل مشكلة معينة.",
-        "type": "fitb",
-        "pdfPage": 10
-      },
-      {
-        "question": "What is the difference between DS and database?",
-        "answer": "Data structures are used for internal data organization in RAM for efficiency, while databases are used for persistent, organized storage on disk.",
-        "explanation": "الداتا ستراكشر في الرامات وسريعة للمهام الحالية، الداتابيز عشان نخزن البيانات للأبد على الهارد ديسك.",
-        "type": "mcq",
-        "pdfPage": 6
-      },
-      {
-        "question": "Why do we need data structure?",
-        "answer": "To manage large amounts of data efficiently, optimize performance, and simplify code architecture.",
-        "explanation": "عشان البرنامج ميهنجش ونعرف نوصل لأي معلومة وسط ملايين البيانات في ثواني.",
-        "type": "essay",
-        "pdfPage": 6
-      },
-      {
-        "question": "Mention the different types of data structure",
-        "answer": "Linear (Array, Linked List, Stack, Queue) and Non-Linear (Tree, Graph).",
-        "explanation": "فيه حاجات مرصوصة ورا بعض (Linear) وحاجات متفرعة زي الشجر (Non-Linear).",
-        "type": "essay",
-        "pdfPage": 2
-      },
-      {
-        "question": "Convert the infix expression 5/5+2-1*9 to Postfix.",
-        "answer": "5 5 / 2 + 1 9 * -",
-        "explanation": "بنمشي بخطوات: (5/5) تبقى 5 5 /، و (1*9) تبقى 1 9 *، وبعدين نجمع ونطرح بالترتيب.",
-        "type": "essay",
-        "pdfPage": 23
-      },
-      {
-        "question": "Convert the infix expression 8*5+3^2-4 to Postfix.",
-        "answer": "8 5 * 3 2 ^ + 4 -",
-        "explanation": "الأس (^) ليه أولوية، وبعدين الضرب، وفي الآخر الجمع والطرح.",
-        "type": "essay",
-        "pdfPage": 30
-      },
-      {
-        "question": "Convert the infix expression 8*5+3^2-4 to Prefix.",
-        "answer": "- + * 8 5 ^ 3 2 4",
-        "explanation": "في الـ Prefix بنحط العلامات في الأول حسب الترتيب العكسي.",
-        "type": "essay",
-        "pdfPage": 32
-      },
-      {
-        "question": "Evaluate the Postfix expression: 5 5 / 2 + 1 9 * -",
-        "answer": "-6",
-        "explanation": "5/5=1، 1+2=3، 1*9=9، 3-9=-6.",
-        "type": "essay",
-        "pdfPage": 23
-      }
-    ],
-    "resources": {
-      "pdf": "/materials/DS-401/المحاضرة الثالثة.pdf",
-      "sheet": "/materials/DS-401/الشيت الثالث.pdf",
-      "assignments": "#"
-    }
-  },
-  {
-    "id": "lecture_2",
-    "subjectId": "DS-401",
-    "lectureId": "lecture_2",
-    "title": "المحاضرة 2: تحليل كفاءة الخوارزميات (Big-O Notation)",
-    "summary": "بص يا صاحبي، خلينا كده نفهم ليه بنوجع دماغنا بحاجات زي حساب سرعة الكود بتاعنا. الفكرة وما فيها، إنك لما بتكتب كود، ده زي ما تكون بتصمم عربية سباق. لازم تبقى عارف عربيتك دي هتوصل الأول ولا لأ، وهل ممكن تبطأ مع عدد العربيات اللي بتتسابق معاها؟ بالظبط كده، الـ **Time Complexity** (تعقيد الوقت) بيعرفنا الكود بتاعنا هيشتغل بسرعة إزاي كل ما الـ **input** (البيانات اللي داخله للكود) تكبر.\n\n### 1. إيه هو الـ Big O وليه أصلاً بنحسبه؟\n- الـ **Big O Notation** (تدوين بيج O) ده اختصار بسيط بنعبر بيه عن سرعة الكود بتاعنا. بدل ما نقول الكود بتاعي بياخد 5 ثواني أو 10، بنقول هو بيشتغل إزاي بالنسبة لحجم الـ **input** (البيانات المدخلة).\n- اللقطة هنا إننا بنركز على \"أسوأ سيناريو\" ممكن يحصل، وبنتجاهل الأرقام الثابتة أو الحاجات الصغيرة اللي مش هتفرق كتير لما الـ **input** يبقى ضخم. إفهمها كده، الـ **Big O** بيقولك الكود بتاعك \"هيتصرف إزاي\" لو الـ **input** ده كبر بشكل خرافي.\n\n### 2. الحاجات الثابتة: سريع البرق! (O(1))\n- أي سطر كود بسيط زي إنك تدي قيمة لمتغير، أو تطبع حاجة، ده بيسموه **Constant Time** (وقت ثابت). يعني بياخد نفس الوقت دايماً، مهما كان حجم الـ **input** بتاعك كبير.\n- زي ما شفت في الأمثلة 1 و 2:\n    - `X= 1;`\n    - `Y= 2;`\n    - `Z= x + y;`\n    - `Print z;`\n- كل سطر من دول بياخد وقت ثابت، والمجموع بتاعهم برضه ثابت. الخلاصة بتاعته بتكون `**O(1)**`. يعني الكود ده أسرع حاجة ممكن تعملها.\n\n### 3. اللوب العادي: كود بيكبر مع شغله (O(n))\n- لو عندك **for loop** (حلقة تكرارية) بتلف على كل عنصر في قائمة، أو بتعد من 1 لـ `n`، يبقى الكود ده بيشتغل عدد مرات بيساوي حجم الـ **input**.\n- ده بنسميه **Linear Time** (وقت خطي). يعني لو الـ **input** كبر 10 مرات، الكود هياخد وقت أكبر 10 مرات.\n- زي ما شفت في أمثلة 3 و 5:\n    - `For (i=1;i<=n,i++)`\n    - `Sum = sum+i;`\n- هنا الـ **loop** ده بيلف `n` مرة. وبالتالي الـ **Time Complexity** (تعقيد الوقت) بتاعه بيكون `**O(n)**`. لو فيه سطر قبله أو بعده ثابت مش بنحسبه في الـ **Big O** (بنتجاهل الثوابت).\n- حتى لو الـ **sum = n*(n+1)/2** (مثال 4) ده سطر واحد حسابي، مبيعتبرش `O(n)` لكن `O(1)` لأنه بيتحسب مرة واحدة بس، مش بيلف عدد `n` من المرات.\n\n### 4. حلقة جوه حلقة: المشكلة بتكبر تربيع (O(n^2))\n- هنا بقى الدنيا بتسخن شوية. لو عندك **Nested Loop** (حلقة متداخلة)، يعني **for loop** جوه **for loop** تاني.\n- ده بيسموه **Quadratic Time** (وقت تربيعي). لو الـ **input** بتاعك `n`، الـ **loop** الخارجي بيلف `n` مرة، وكل مرة الـ **loop** الداخلي بيلف `n` مرة كمان.\n- يبقى الإجمالي `n * n`، يعني `n^2`.\n- زي المثال بتاع الـ **Nested loop** ده:\n    - `For (i=0;i<n,i++)`\n    - `For(j=0;j<n;j++)`\n    - `For (int k=0;k<n;k++)`\n- هنا عندك 3 **loops** متداخلين، يبقى `n * n * n`، يعني `n^3`. بس المثال في المحاضرة كان 2 **loops** متداخلين في الجزء اللي فيه `n*n`، والجزء اللي قبله كان **loop** عادي `n`، يبقى الإجمالي `1 + n + n*n` (لو بصيت للـ `i` والـ `j` **loops** بس).\n- والـ **Big O** بتاعها بيكون `**O(n^2)**` (بناخد أكبر \"أس\" وبنرمي الباقي).\n\n### 5. حلقات القفز السريع: زي الصاروخ (O(log n))\n- مش كل الـ **loops** بتزيد 1 كل مرة. ساعات تلاقي الـ **loop** المتغير بتاعه بيضرب في 2 أو بيتقسم على 2.\n- ده بيكون أسرع بكتير، وبنسميه **Logarithmic Time** (وقت لوغاريتمي).\n- زي المثال ده:\n    - `For (i=0;i<n,i*2)`\n- هنا الـ `i` بيتضاعف كل مرة، فبيوصل لـ `n` بسرعة جداً. الـ **Complexity** (التعقيد) هنا بتكون `**O(log n)**`.\n- **نصيحة سريعة**: لو الـ **loop** بيعمل `add` أو `subtract` (زي `i++`) يبقى `**O(n)**`. لو بيعمل `multiply` أو `division` (زي `i*2` أو `j=j/3`) يبقى `**O(log n)**`.\n\n### 6. لما الدنيا تتلخبط: نضرب ولا نجمع؟ (O(n log n) و O(n))\n- **لما تلاقي حلقة جوه حلقة (ضرب):**\n    - لو عندك `**O(n)**` **loop** بره، وجواه `**O(log n)**` **loop**، يبقى الإجمالي بتاعهم ضرب: `n * log n`.\n    - زي المثال ده:\n        - `For (i;i<n,i++)` (ده `O(n)`)\n        - `For (j;j<n,j=j/3)` (ده `O(log n)`)\n        - يبقى الـ **Complexity** هتكون `**O(n log n)**`.\n- **لما تلاقي حلقات ورا بعض (جمع وبناخد الأكبر):**\n    - لو عندك `**O(n)**` **loop** وبعده `**O(log n)**` **loop** تاني، دول مش متداخلين، دول ورا بعض.\n    - يبقى الـ **Complexity** بتاعتهم مجموع `n + log n`.\n    - بس في الـ **Big O Notation** (تدوين بيج O) بناخد الـ **Dominant Term** (الحد الأكبر). الـ `n` أكبر بكتير من `log n` لما `n` تكبر.\n    - يبقى الـ **Complexity** النهائية بتكون `**O(n)**`.\n    - زي المثال الأخير اللي فيه **loop** `i` وبعديه **loop** `j`:\n        - `For (i=0;i<n,i++)` (ده `O(n)`)\n        - `For(j=0;j<n; j=j/3)` (ده `O(log n)`)\n        - الإجمالي `1 + n + log n`، والـ **Big O** بيكون `**O(n)**`.\n\n### 7. أنواع الـ Big O: مين الأسرع؟\n- فيه ترتيب كده لأنواع الـ **Complexity** (التعقيد) من الأسرع للأبطأ، لازم تعرفهم:\n    - `- **O(1)**`: الأسرع (Constant Time).\n    - `- **O(log n)**`: سريع جداً (Logarithmic Time).\n    - `- **O(n)**`: كويس (Linear Time).\n    - `- **O(n log n)**`: مقبول (Linearithmic Time).\n    - `- **O(n^2)**`: بطيء شوية (Quadratic Time).\n    - `- **O(2^n)**`: بطيء جداً، لازم نتجنبه لو عرفنا (Exponential Time).\n- كل ما الـ **Complexity** كانت أقل (الـ `O` بتاعها أصغر)، كل ما الكود بتاعك كان أسرع وأحسن لما الـ **input** يكبر.\n\n### الزتونة 🫒\nركز كويس على الـ **for loops** شوف المتغير بتاعها بيزيد إزاي، هو ده مفتاح حل أي سؤال **Complexity**! يلا شد حيلك يا بطل!",
-    "quiz": [
-      {
-        "type": "mcq",
-        "question": "What is the time complexity of the following code snippet?\n\nX = 1;\nY = 2;\nZ = X + Y;\nPrint Z;\n",
-        "options": [
-          "O(1)",
-          "O(n)",
-          "O(log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(1)",
-        "explanation": "Each statement (assignment, arithmetic operation, print) executes a constant number of times, regardless of input size. Thus, its complexity is O(1).",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "tf",
-        "question": "An `if-else` statement always has a time complexity of O(1), regardless of the operations within its blocks.",
-        "answer": "false",
-        "explanation": "While the `if-else` condition check itself is O(1), the overall complexity depends on the complexity of the code blocks within the `if` and `else` branches. If those blocks contain loops or complex operations, the `if-else` structure's total complexity will be higher.",
-        "topic": "Conditional Statements Complexity"
-      },
-      {
-        "type": "fitb",
-        "question": "When determining the Big O notation, constants are always __________ and the highest degree term dominates.",
-        "options": [],
-        "answer": "canceled",
-        "explanation": "Big O notation focuses on the growth rate of an algorithm, ignoring constant factors which become insignificant for large input sizes.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "mcq",
-        "question": "Identify the time complexity for the following code snippet:\n\nX = 20;\nIf (X <= 10) {\n    print X;\n}\n",
-        "options": [
-          "O(1)",
-          "O(n)",
-          "O(log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(1)",
-        "explanation": "The assignment and the `if` condition check (and potential print) are all constant time operations, executing a fixed number of times.",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "tf",
-        "question": "The time complexity of a loop `for (i=1; i<=n; i++) { Sum = sum + i; }` is accurately represented as O(1+n).",
-        "answer": "false",
-        "explanation": "While the exact count is 1+n, in Big O notation, lower-order terms and constants are dropped, simplifying 1+n to O(n).",
-        "topic": "Big O Notation Rules, Linear Time Complexity"
-      },
-      {
-        "type": "fitb",
-        "question": "A loop that iterates `n` times, where `n` is the input size, and performs a constant amount of work in each iteration, typically has a time complexity of O(___).",
-        "options": [],
-        "answer": "n",
-        "explanation": "Such a loop's execution time grows linearly with the input size `n`.",
-        "topic": "Linear Time Complexity (O(n))"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following code snippets represents an O(1) time complexity?",
-        "options": [
-          "For (i=0; i<n; i++) { print i; }",
-          "Sum = n * (n+1) / 2;",
-          "For (i=1; i<n; i*=2) { print i; }",
-          "For (i=0; i<n; i++) { For (j=0; j<n; j++) { print i+j; } }"
-        ],
-        "answer": "Sum = n * (n+1) / 2;",
-        "explanation": "Calculating the sum using a direct mathematical formula involves a fixed number of operations, independent of `n`. The other options involve loops that depend on `n`.",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "tf",
-        "question": "The sum 1+2+3+4+5=15 calculated directly via a formula `n*(n+1)/2` illustrates an O(n) time complexity.",
-        "answer": "false",
-        "explanation": "Calculating the sum using the formula `n*(n+1)/2` is a constant time operation, O(1), because it involves a fixed number of arithmetic calculations regardless of the value of `n`.",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "fitb",
-        "question": "When using Big O notation, to simplify an expression like `1 + n`, we take the biggest degree and cancel the constant, resulting in O(___).",
-        "options": [],
-        "answer": "n",
-        "explanation": "The term `n` has a higher degree than the constant `1`, and constants are dropped in Big O notation.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the time complexity of the following code snippet?\n\nInt i;\ni = 0;\nFor (i=0; i<n; i++) {\n    Print i;\n}\n",
-        "options": [
-          "O(1)",
-          "O(n)",
-          "O(log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(n)",
-        "explanation": "The initialization is O(1), and the loop runs `n` times, performing constant work in each iteration. The total complexity `1+n` simplifies to O(n).",
-        "topic": "Linear Time Complexity (O(n))"
-      },
-      {
-        "type": "tf",
-        "question": "A loop where the control variable is multiplied or divided in each iteration (e.g., `i*=2` or `i/=2`) typically results in O(n) time complexity.",
-        "answer": "false",
-        "explanation": "Loops where the control variable is multiplied or divided in each step (e.g., `i*=2`) reduce the problem size exponentially, leading to O(log n) complexity, not O(n).",
-        "topic": "Logarithmic Time Complexity (O(log n))"
-      },
-      {
-        "type": "fitb",
-        "question": "A nested loop where both inner and outer loops iterate `n` times with constant increments will have a time complexity of O(___).",
-        "options": [],
-        "answer": "n^2",
-        "explanation": "Each of the `n` iterations of the outer loop executes the inner loop `n` times, leading to `n*n` or `n^2` total operations.",
-        "topic": "Quadratic Time Complexity (O(n^2))"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following Big O complexities represents the most efficient algorithm for large input sizes `n`?",
-        "options": [
-          "O(n^2)",
-          "O(2^n)",
-          "O(n log n)",
-          "O(log n)"
-        ],
-        "answer": "O(log n)",
-        "explanation": "From the given options, O(log n) grows the slowest and is thus the most efficient for large `n`. The order from most to least efficient is O(log n), O(n log n), O(n^2), O(2^n).",
-        "topic": "Complexity Hierarchy"
-      },
-      {
-        "type": "tf",
-        "question": "In Big O notation, `O(n + log n)` simplifies to `O(n log n)` because both terms depend on `n`.",
-        "answer": "false",
-        "explanation": "When terms are added sequentially, the dominant term dictates the complexity. `n` grows faster than `log n`, so `O(n + log n)` simplifies to `O(n)`. `O(n log n)` would arise from nested operations where one runs `n` times and the other `log n` times.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "fitb",
-        "question": "The time complexity of an algorithm that involves a loop where the control variable is repeatedly multiplied by a constant factor (e.g., `i *= 2`) is typically O(___).",
-        "options": [],
-        "answer": "log n",
-        "explanation": "This type of loop reduces the problem size exponentially, characteristic of logarithmic behavior.",
-        "topic": "Logarithmic Time Complexity (O(log n))"
-      },
-      {
-        "type": "mcq",
-        "question": "Consider the following code:\n\nInt i;\ni=0;\nFor (i=0; i<n; i++) { // Loop 1\n    Print i;\n}\nFor (int j=0; j<n; j++) { // Loop 2\n    For (int k=0; k<n; k++) { // Loop 3\n        Print j+k;\n    }\n}\n\nWhat is the dominant time complexity of this entire code block?",
-        "options": [
-          "O(n)",
-          "O(n log n)",
-          "O(n^2)",
-          "O(n^3)"
-        ],
-        "answer": "O(n^2)",
-        "explanation": "Loop 1 is O(n). Loops 2 and 3 form a nested structure, resulting in O(n*n) = O(n^2). When sequential operations are performed, the overall complexity is determined by the term with the highest growth rate. So, O(n + n^2) simplifies to O(n^2).",
-        "topic": "Nested Loop Complexity, Dominant Terms"
-      },
-      {
-        "type": "tf",
-        "question": "A `for` loop that iterates `i=0; i<n; i++` has the same time complexity as `for (j=0; j<n; j=j/3)`.",
-        "answer": "false",
-        "explanation": "The first loop iterates `n` times, giving O(n). The second loop where `j` is divided by 3 repeatedly has logarithmic complexity, O(log n). These are not the same.",
-        "topic": "Linear vs. Logarithmic Time Complexity"
-      },
-      {
-        "type": "fitb",
-        "question": "The complexity of an algorithm whose execution time doubles with each additional input element is typically O(___).",
-        "options": [],
-        "answer": "2^n",
-        "explanation": "This describes exponential growth, where the number of operations grows by a factor of 2 for each unit increase in input size.",
-        "topic": "Exponential Time Complexity (O(2^n))"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the time complexity of the following code snippet?\n\nInt i;\ni=1;\nFor (i=1; i<n; i*=2) {\n    Print i;\n}\n",
-        "options": [
-          "O(1)",
-          "O(n)",
-          "O(log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(log n)",
-        "explanation": "The loop control variable `i` is multiplied by 2 in each iteration, meaning `i` grows exponentially. This reduces the number of iterations required to reach `n` logarithmically.",
-        "topic": "Logarithmic Time Complexity (O(log n))"
-      },
-      {
-        "type": "tf",
-        "question": "For sequential code blocks, the overall time complexity is determined by summing the complexities of each block.",
-        "answer": "false",
-        "explanation": "While you sum the complexities, the overall Big O notation is then simplified by taking the dominant term (the one that grows fastest), not by keeping all terms.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "fitb",
-        "question": "When comparing different complexities, O(n log n) is generally considered more efficient than O(___), but less efficient than O(n).",
-        "options": [],
-        "answer": "n^2",
-        "explanation": "The hierarchy of common complexities shows `O(n^2)` grows faster than `O(n log n)`, which in turn grows faster than `O(n)`.",
-        "topic": "Complexity Hierarchy"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the time complexity of the following code snippet?\n\nInt i, j;\ni=j=0;\nFor (i=0; i<n; i++) {\n    For (j=1; j<n; j=j*3) {\n        Print i + j;\n    }\n}\n",
-        "options": [
-          "O(n)",
-          "O(log n)",
-          "O(n log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(n log n)",
-        "explanation": "The outer loop runs `n` times (O(n)). The inner loop multiplies `j` by 3 in each iteration, giving O(log n). Since they are nested, their complexities multiply: O(n * log n).",
-        "topic": "Nested Loop Complexity, N Log N Complexity"
-      },
-      {
-        "type": "tf",
-        "question": "An algorithm with `O(2^n)` complexity is typically suitable for very large input sizes.",
-        "answer": "false",
-        "explanation": "`O(2^n)` represents exponential growth, which becomes unmanageably slow even for moderately sized inputs. It's considered very inefficient for large `n`.",
-        "topic": "Complexity Hierarchy, Exponential Time Complexity"
-      },
-      {
-        "type": "fitb",
-        "question": "The time complexity of a function call is typically equivalent to the complexity of the __________ of that function.",
-        "options": [],
-        "answer": "body",
-        "explanation": "To determine the complexity of a function call, one must analyze the complexity of the operations performed within that function's definition.",
-        "topic": "Function Call Complexity"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the overall time complexity of the following code?\n\nInt i;\ni=0;\nFor (i=0; i<n; i++) { // Loop A\n    Print i;\n}\nFor (int j=1; j<n; j=j*3) { // Loop B\n    Print j;\n}\n",
-        "options": [
-          "O(log n)",
-          "O(n)",
-          "O(n log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(n)",
-        "explanation": "Loop A is O(n). Loop B is O(log n). Since these loops execute sequentially (one after the other), their complexities are added: O(n + log n). In Big O notation, the dominant term is taken, so O(n) dominates O(log n).",
-        "topic": "Sequential Loop Complexity, Dominant Terms"
-      },
-      {
-        "type": "tf",
-        "question": "According to Big O rules, `O(1+n)` simplifies to `O(n)` by taking the biggest degree and canceling the constant.",
-        "answer": "true",
-        "explanation": "This statement correctly applies the rules of Big O notation. `n` is the biggest degree, and `1` is a constant.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "fitb",
-        "question": "The concept of 'Data structure' often involves considering the __________ complexity of operations performed on the data.",
-        "options": [],
-        "answer": "time",
-        "explanation": "When discussing data structures, analyzing the time and space complexity of operations like insertion, deletion, and searching is fundamental.",
-        "topic": "Introduction to Data Structures/Complexity"
-      },
-      {
-        "type": "mcq",
-        "question": "Which type of operation typically leads to O(log n) time complexity?",
-        "options": [
-          "Adding or subtracting in a loop control variable",
-          "Assigning a value to a variable",
-          "Multiplying or dividing in a loop control variable",
-          "Executing nested loops with linear increments"
-        ],
-        "answer": "Multiplying or dividing in a loop control variable",
-        "explanation": "The lecture explicitly states, 'For loop add or subtract → n', 'Multiply or division → log n'.",
-        "topic": "Logarithmic Time Complexity (O(log n))"
-      },
-      {
-        "type": "tf",
-        "question": "Big O notation always provides an exact count of operations for a given input size.",
-        "answer": "false",
-        "explanation": "Big O notation describes the upper bound of an algorithm's growth rate as input size approaches infinity, not an exact count. It ignores constant factors and lower-order terms.",
-        "topic": "Big O Notation Definition"
-      },
-      {
-        "type": "fitb",
-        "question": "In the hierarchy of complexities, O(log n) is more efficient than O(___), which in turn is more efficient than O(n log n).",
-        "options": [],
-        "answer": "n",
-        "explanation": "The correct order of efficiency is O(log n) > O(n) > O(n log n) > O(n^2) > O(2^n).",
-        "topic": "Complexity Hierarchy"
-      },
-      {
-        "type": "mcq",
-        "question": "An algorithm that takes a constant amount of time regardless of the input size `n` is said to have what complexity?",
-        "options": [
-          "O(n)",
-          "O(1)",
-          "O(log n)",
-          "O(n^2)"
-        ],
-        "answer": "O(1)",
-        "explanation": "O(1) signifies constant time complexity, meaning the execution time does not depend on the size of the input.",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "tf",
-        "question": "Calculating the sum of numbers from 1 to `n` using a `for` loop, `Sum = sum+i;`, is an O(1) operation.",
-        "answer": "false",
-        "explanation": "This loop iterates `n` times, making it an O(n) operation. Only if a direct mathematical formula is used (as in `n*(n+1)/2`) would it be O(1).",
-        "topic": "Linear Time Complexity (O(n)) vs. Constant Time (O(1))"
-      },
-      {
-        "type": "fitb",
-        "question": "The process of 'finding complexity' involves analyzing different program constructs such as statements, loops, nested loops, if-else blocks, and __________ calls.",
-        "options": [],
-        "answer": "function",
-        "explanation": "These are the main categories of code constructs listed in the lecture for complexity analysis.",
-        "topic": "Finding Complexity Categories"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following represents the correct Big O simplification for a complexity of `1 + n + n^2`?",
-        "options": [
-          "O(n)",
-          "O(n^2)",
-          "O(n^3)",
-          "O(1)"
-        ],
-        "answer": "O(n^2)",
-        "explanation": "In Big O notation, you take the term with the highest degree, ignoring constants and lower-degree terms. Here, `n^2` is the highest degree.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "tf",
-        "question": "The complexity `O(n log n)` means that for every unit increase in `n`, the execution time increases by a factor of `log n`.",
-        "answer": "false",
-        "explanation": "It means the execution time grows proportionally to `n` multiplied by `log n`, not that it increases by a factor of `log n` for each unit increase in `n`. It's about the overall growth rate.",
-        "topic": "N Log N Complexity"
-      },
-      {
-        "type": "fitb",
-        "question": "When analyzing the worst-case scenario, Big O notation describes the __________ bound of an algorithm's running time.",
-        "options": [],
-        "answer": "upper",
-        "explanation": "Big O notation specifically denotes the asymptotic upper bound of the growth rate.",
-        "topic": "Big O Notation Definition"
-      },
-      {
-        "type": "mcq",
-        "question": "If an algorithm involves iterating through an array of size `n` once, followed by iterating through the same array again, what is its overall complexity?",
-        "options": [
-          "O(1)",
-          "O(log n)",
-          "O(n)",
-          "O(n^2)"
-        ],
-        "answer": "O(n)",
-        "explanation": "Two sequential O(n) operations combine to O(n + n), which simplifies to O(n) because `n` is the dominant term.",
-        "topic": "Sequential Linear Operations"
-      },
-      {
-        "type": "tf",
-        "question": "A loop that terminates after 10 fixed iterations always has an O(1) time complexity, regardless of how large `n` might be in other parts of the program.",
-        "answer": "true",
-        "explanation": "If the number of iterations is fixed and does not depend on the input size `n`, it's a constant number of operations, hence O(1).",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "fitb",
-        "question": "The highest degree term in a complexity expression is referred to as the __________ term.",
-        "options": [],
-        "answer": "dominant",
-        "explanation": "The dominant term dictates the overall growth rate for large input sizes.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following algorithm complexities signifies the slowest performance for increasing input size?",
-        "options": [
-          "O(n log n)",
-          "O(n^2)",
-          "O(2^n)",
-          "O(n)"
-        ],
-        "answer": "O(2^n)",
-        "explanation": "O(2^n) (exponential) grows much faster than O(n^2) (polynomial), O(n log n), or O(n) (linear), making it the slowest.",
-        "topic": "Complexity Hierarchy"
-      },
-      {
-        "type": "tf",
-        "question": "The time complexity of finding an element in a sorted array using a binary search approach is typically O(n).",
-        "answer": "false",
-        "explanation": "Binary search repeatedly halves the search space, resulting in O(log n) time complexity, not O(n).",
-        "topic": "Logarithmic Time Complexity (O(log n))"
-      },
-      {
-        "type": "fitb",
-        "question": "The lecture text categorizes finding complexity into Statements, If else, Loop, Nested loop, and __________ calls.",
-        "options": [],
-        "answer": "Functions",
-        "explanation": "These are the explicit categories mentioned for analyzing complexity.",
-        "topic": "Finding Complexity Categories"
-      },
-      {
-        "type": "mcq",
-        "question": "Consider a program with two independent `for` loops. The first loop runs `n` times, and the second loop runs `m` times. What is the overall complexity if `n` and `m` are independent input sizes?",
-        "options": [
-          "O(n*m)",
-          "O(n+m)",
-          "O(max(n,m))",
-          "O(min(n,m))"
-        ],
-        "answer": "O(n+m)",
-        "explanation": "When operations are sequential, their complexities are added. Since `n` and `m` are independent, we don't assume one dominates the other; thus, the complexity is O(n+m).",
-        "topic": "Sequential Operations, Multiple Variables"
-      },
-      {
-        "type": "tf",
-        "question": "Any arithmetic operation, such as addition or multiplication of two numbers, is considered an O(1) operation.",
-        "answer": "true",
-        "explanation": "Basic arithmetic operations are assumed to take a constant amount of time, irrespective of the magnitude of the numbers (within typical machine integer limits).",
-        "topic": "Constant Time Complexity (O(1))"
-      },
-      {
-        "type": "fitb",
-        "question": "When analyzing complexity for loops, an increment/decrement operation (like `i++`) typically leads to a factor of `n`, while a multiplication/division operation (like `i*=2`) leads to a factor of __________.",
-        "options": [],
-        "answer": "log n",
-        "explanation": "This distinction is explicitly mentioned in the lecture: 'For loop add or subtract → n', 'Multiply or division → log n'.",
-        "topic": "Linear vs. Logarithmic Loops"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following Big O notations indicates that an algorithm's execution time grows polynomially with the input size?",
-        "options": [
-          "O(log n)",
-          "O(n!)",
-          "O(n^3)",
-          "O(2^n)"
-        ],
-        "answer": "O(n^3)",
-        "explanation": "Polynomial time complexity means the growth rate is `n` raised to a constant power (e.g., `n^2`, `n^3`). `O(log n)` is logarithmic, `O(n!)` is factorial, and `O(2^n)` is exponential.",
-        "topic": "Complexity Classification"
-      },
-      {
-        "type": "tf",
-        "question": "It is always preferable to choose an algorithm with O(n) complexity over one with O(log n) complexity for performance-critical applications.",
-        "answer": "false",
-        "explanation": "O(log n) is significantly more efficient than O(n) for large input sizes because logarithmic growth is much slower than linear growth. Therefore, O(log n) is preferable.",
-        "topic": "Complexity Comparison, Efficiency"
-      },
-      {
-        "type": "fitb",
-        "question": "The primary goal of using Big O notation is to describe the __________ behavior of an algorithm's running time or space requirements.",
-        "options": [],
-        "answer": "asymptotic",
-        "explanation": "Asymptotic behavior refers to how an algorithm performs as the input size approaches infinity, ignoring constant factors and lower-order terms.",
-        "topic": "Big O Notation Definition"
-      },
-      {
-        "type": "mcq",
-        "question": "If an algorithm performs a sequence of operations where the first takes O(n^2) time and the second takes O(n) time, what is the overall Big O complexity?",
-        "options": [
-          "O(n)",
-          "O(n^2)",
-          "O(n^3)",
-          "O(n log n)"
-        ],
-        "answer": "O(n^2)",
-        "explanation": "When sequential operations are involved, the dominant term dictates the overall complexity. `n^2` grows faster than `n`, so `O(n^2 + n)` simplifies to `O(n^2)`.",
-        "topic": "Dominant Terms, Sequential Operations"
-      },
-      {
-        "type": "tf",
-        "question": "The time complexity of calculating the factorial of `n` using a simple loop is typically O(n!).",
-        "answer": "false",
-        "explanation": "Calculating factorial using a simple loop involves `n` multiplications, so it's O(n). O(n!) refers to algorithms that generate permutations, which is much more complex.",
-        "topic": "Linear Time Complexity (O(n))"
-      },
-      {
-        "type": "fitb",
-        "question": "A data structure is a particular way of organizing data in a computer so that it can be used __________.",
-        "options": [],
-        "answer": "effectively",
-        "explanation": "The effectiveness of data structures is often measured by the time and space complexity of operations on them.",
-        "topic": "Introduction to Data Structures"
-      },
-      {
-        "type": "mcq",
-        "question": "What is the time complexity of the following pseudo-code?\n\nresult = 0;\nfor (i = 0; i < n / 2; i++) {\n    result += i;\n}\n",
-        "options": [
-          "O(1)",
-          "O(log n)",
-          "O(n)",
-          "O(n^2)"
-        ],
-        "answer": "O(n)",
-        "explanation": "The loop iterates `n/2` times. When considering Big O, constant factors like `1/2` are dropped, so the complexity is O(n).",
-        "topic": "Linear Time Complexity (O(n))"
-      },
-      {
-        "type": "tf",
-        "question": "The complexity `O(n^2)` is always more efficient than `O(n log n)` for any value of `n`.",
-        "answer": "false",
-        "explanation": "`O(n log n)` is generally more efficient (grows slower) than `O(n^2)` for sufficiently large `n`.",
-        "topic": "Complexity Hierarchy Comparison"
-      },
-      {
-        "type": "fitb",
-        "question": "When simplifying time complexity expressions, we typically only consider the term that grows the __________ as the input size increases.",
-        "options": [],
-        "answer": "fastest",
-        "explanation": "The fastest growing (dominant) term determines the asymptotic behavior.",
-        "topic": "Big O Notation Rules"
-      },
-      {
-        "type": "mcq",
-        "question": "Consider two algorithms: Algorithm A has complexity O(log n) and Algorithm B has complexity O(n). For a very large input `n`, which algorithm will perform better?",
-        "options": [
-          "Algorithm A",
-          "Algorithm B",
-          "They will perform similarly",
-          "It cannot be determined"
-        ],
-        "answer": "Algorithm A",
-        "explanation": "O(log n) grows much slower than O(n) for large `n`, meaning Algorithm A will be significantly faster and more efficient.",
-        "topic": "Complexity Comparison, Efficiency"
-      },
-      {
-        "type": "tf",
-        "question": "The presence of a single `Print` statement inside a loop that runs `n` times will make the loop's overall complexity O(n).",
-        "answer": "true",
-        "explanation": "A `Print` statement is an O(1) operation. If an O(1) operation is performed `n` times inside a loop, the total complexity is `n * O(1)`, which simplifies to O(n).",
-        "topic": "Linear Time Complexity (O(n))"
-      },
-      {
-        "type": "fitb",
-        "question": "The primary purpose of complexity analysis is to predict how an algorithm will __________ with increasing input size.",
-        "options": [],
-        "answer": "scale",
-        "explanation": "Complexity analysis helps understand the scalability and performance characteristics of algorithms.",
-        "topic": "Purpose of Complexity Analysis"
-      },
-      {
-        "type": "mcq",
-        "question": "Which of the following is NOT typically considered a fundamental category for finding complexity as per the lecture?",
-        "options": [
-          "Statements",
-          "If else",
-          "Recursion",
-          "Loops"
-        ],
-        "answer": "Recursion",
-        "explanation": "The lecture lists 'Statements', 'If else', 'Loop', 'Nested loop', and 'Functions call'. Recursion is a form of function call, but not explicitly listed as a top-level category for analysis in this lecture.",
-        "topic": "Finding Complexity Categories"
-      },
-      {
-        "type": "tf",
-        "question": "A loop incrementing by a constant `i = i + C` where `C` is a constant integer always results in O(n) complexity, assuming the loop runs up to `n`.",
-        "answer": "true",
-        "explanation": "Linear increments (or decrements) by a constant factor mean the loop will iterate a number of times proportional to `n`, hence O(n) complexity.",
-        "topic": "Linear Time Complexity (O(n))"
-      }
-    ],
-    "sheetSolutions": [
-      {
-        "question": "What is the time complexity of a simple for loop that runs 'n' times?",
-        "answer": "O(n)",
-        "explanation": "أي لووب بيلف n مرة بياخد وقت خطي (Linear Time).",
-        "type": "mcq",
-        "pdfPage": 6
-      },
-      {
-        "question": "Arrange the following complexities from fastest to slowest: O(n^2), O(1), O(n log n), O(n).",
-        "answer": "O(1) < O(n) < O(n log n) < O(n^2)",
-        "explanation": "الترتيب ده مهم جداً عشان تعرف إيه الكود الأحسن والفرق بين السرعات.",
-        "type": "essay",
-        "pdfPage": 12
-      },
-      {
-        "question": "What is the complexity of a nested loop (loop inside loop) where both run 'n' times?",
-        "answer": "O(n^2)",
-        "explanation": "لما تلاقي لووب جوه لووب، بنضرب n * n.",
-        "type": "mcq",
-        "pdfPage": 8
-      },
-      {
-        "question": "Explain O(log n) complexity with an example.",
-        "answer": "It occurs when the input is halved or doubled in each step, like Binary Search or a loop with i = i * 2.",
-        "explanation": "أي حاجة فيها قسمة أو ضرب في رقم ثابت كل لفة بتبقى log n وده سريع جداً.",
-        "type": "essay",
-        "pdfPage": 11
-      }
-    ],
-    "resources": {
-      "pdf": "/materials/DS-401/المحاضرة الثانية.pdf",
-      "sheet": "/materials/DS-401/الشيت الثانى.pdf",
-      "assignments": "/materials/DS-401/as-2.pdf"
-    }
-  },
-  {
     "id": "db_202_lecture_1",
     "subjectId": "DB-202",
     "lectureId": "lecture_1",
@@ -3137,6 +1470,875 @@
         ],
         "answer": "تحديد أنواع البيانات (Data Types)",
         "explanation": "التصميم الفيزيائي ده اللي بينزل على أرض الواقع، يعني بتحدد فيه إزاي الداتا هتتخزن بالظبط، زي أنواع البيانات والجداول الفعلية. الـ ERD وتحليل المتطلبات ده شغل منطقي في الأول."
+      }
+    ]
+  },
+  {
+    "id": "net_301_lecture_1",
+    "subjectId": "NET-301",
+    "lectureId": "lecture_1",
+    "title": "رحلة الدحيح في عالم الشبكات: من البيت للإنترنت!",
+    "summary": "يا دفعة الأبطال! النهاردة هنفك شفرة أول خطوة في عالم **الشبكات**، الموضوع بسيط ومفهوم وهتفهموه كأنكم بتشربوا عصير قصب!\n\n### إيه هي أنواع الشبكات اللي حوالينا؟\nبص يا معلم، الشبكات دي زي العائلات، كل واحدة ليها حجمها ومكانها. عندنا أربع أنواع أساسية لازم تعرفهم صم:\n\n*   **الـLAN (Local Area Network):** دي شبكة البيت أو المكتب الصغير بتاعك. يعني كل الأجهزة متوصلة في **مكان فيزيكال واحد**. ممكن تكون صغيرة أوي (كمبيوتر واحد) أو كبيرة (مبنى شركة كامل).\n*   **الـCAN (Campus Area Network):** دي بقى شبكة الحرم الجامعي بتاعنا أو شركة ليها **مباني كتير** قريبة من بعض. بتوصل كذا LAN ببعضها وبتكون متوصلة بالإنترنت العام.\n*   **الـWAN (Wide Area Network):** دي بقى الشبكة العملاقة، بنسميها **شبكة الشبكات**. بتوصل LANs كتير جداً ببعضها على مساحات جغرافية واسعة. تعرف مين أكبر WAN في العالم؟ أيوه صح، هو **الإنترنت** اللي بنستخدمه كل يوم!\n*   **الـPAN (Personal Area Network):** دي أصغر شبكة فيهم، يعني شبكة شخصية جداً. بتوصل أجهزتك اللي حواليك على **نطاق محدود جداً**، كام متر كده حواليك، زي مثلاً موبايلك بالبلوتوث للسماعة، أو أجهزة مكتبك الصغير عشان تشارك الملفات. سواء سلكي أو لاسلكي.\n\n### إيه حكاية الـNetwork Topology؟\nالـ**Network Topology** دي ببساطة هي **شكل وترتيب** العناصر اللي بتكون الشبكة (زي الأجهزة والكابلات). يعني بنوصف بيها الشبكة دي متوصلة إزاي وشكلها عامل إزاي.\n\n### إيه هي الـRing Topology؟\nمن ضمن أشكال الـTopology دي، عندنا الـ**Ring Topology**. تخيل إن الأجهزة كلها متوصلة في **دايرة مقفولة**، كل جهاز متوصل بـ**جهازين بس** (واحد قبله وواحد بعده)، وكأنهم ماسكين إيدين بعض. كده الداتا بتلف في المسار ده بشكل مستمر.\n\nوبس كده يا وحوش! كده فهمتوا أساسيات الشبكات وأنواعها وأشكال توصيلها. شدوا حيلكم والمذاكرة أول بأول عشان تضمنوا الـA+!",
+    "resources": {
+      "pdf": "/materials/NET-301/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89.pdf",
+      "sheet": "/materials/NET-301/%D8%A7%D8%B3%D9%8A%D9%85%D9%86%D8%AA-1.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "أي من أنواع الشبكات التالية يصف شبكة أجهزة متصلة في موقع مادي واحد مثل مبنى أو مكتب أو منزل؟",
+        "options": [
+          "WAN",
+          "CAN",
+          "LAN",
+          "PAN"
+        ],
+        "answer": "LAN",
+        "explanation": "الـLAN هي شبكة محلية، يعني كل الأجهزة متجمعة في مكان واحد زي البيت أو المكتب. بسيطة ومحدودة المكان."
+      },
+      {
+        "type": "tf",
+        "question": "الـWAN (Wide Area Network) هي أصغر أنواع الشبكات وتعمل ضمن نطاق محدود جداً من الأمتار.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "يا صاحبي، الـWAN دي أكبر شبكة فيهم، شبكة الشبكات! اللي بتشتغل في نطاق محدود جداً هي الـPAN، أو الشبكة الشخصية."
+      },
+      {
+        "type": "fitb",
+        "question": "الـCAN (Campus Area Network) تربط بين عدة شبكات ____ داخل حرم جامعي أو مؤسسي.",
+        "options": [],
+        "answer": "LAN",
+        "explanation": "الـCAN وظيفتها توصل كذا LAN ببعضها جوه نطاق حرم جامعي أو شركة كبيرة عشان يعملوا شبكة واحدة."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو نوع الشبكة الذي يمثل الإنترنت؟",
+        "options": [
+          "LAN",
+          "CAN",
+          "PAN",
+          "WAN"
+        ],
+        "answer": "WAN",
+        "explanation": "الإنترنت هو أكبر مثال على الـWAN، لأنه بيربط ملايين الشبكات المحلية والعالمية ببعضها."
+      },
+      {
+        "type": "tf",
+        "question": "في الـRing Topology، يتم توصيل كل جهاز بجهاز واحد فقط، مما يشكل مسارًا دائريًا.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـRing Topology الأجهزة بتتوصل فيها بشكل دائري، بس كل جهاز بيتوصل بـ'جهازين' بالظبط، واحد قبله وواحد بعده، مش جهاز واحد."
+      },
+      {
+        "type": "fitb",
+        "question": "الـPAN (Personal Area Network) مصممة لربط الأجهزة ضمن نطاق محدود لا يتجاوز بضعة ____.",
+        "options": [],
+        "answer": "أمتار",
+        "explanation": "الـPAN دي شبكة شخصية جداً، يعني المدى بتاعها بيكون كام متر حواليك بالظبط، زي توصيل الموبايل بالسماعة."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الغرض الأساسي من Network Topology؟",
+        "options": [
+          "تحديد سرعة نقل البيانات في الشبكة",
+          "وصف ترتيب عناصر الشبكة (الروابط، العقد، إلخ)",
+          "تأمين الشبكة من الاختراقات الخارجية",
+          "إدارة عناوين الـIP للأجهزة"
+        ],
+        "answer": "وصف ترتيب عناصر الشبكة (الروابط، العقد، إلخ)",
+        "explanation": "الـNetwork Topology دي بتوصفلنا إزاي الأجهزة والكابلات متوصلة ببعضها وشكل الشبكة عامل إزاي، مش بتحدد السرعة ولا الأمن ولا الـIPات."
+      }
+    ]
+  },
+  {
+    "id": "net_301_lecture_2",
+    "subjectId": "NET-301",
+    "lectureId": "lecture_2",
+    "title": "رحلة البيانات في الشبكة: دليل الدحيح لـ OSI و TCP/IP!",
+    "summary": "يا دفعة الحاسبات والبرمجة الجامدة، المحاضرة دي بقى **زتونة** فهم ازاي البيانات بتاعتنا بتمشي في الشبكة، من أول ما تدوس Enter لحد ما توصل لصاحبك. الموضوع مش عشوائي خالص، ده ماشي بنظام طبقات متقسم ومترتب، زي ما تكون بتبعت جواب بالبريد، لو مفيش مكتب بريد وخدمات، الموضوع هيبقى فيلم هندي!\n\n### موديل OSI: الأب الروحي للشبكات\nتخيل معايا كده، في منظمة عالمية اسمها ISO (من زمان أوي، 1947) عملت موديل قياسي عشان كل الأجهزة تتفاهم مع بعضها، سموه **OSI Model**. الموديل ده عبارة عن **7 طبقات**، كل طبقة ليها شغلانة محددة وبتسلم للطبقة اللي بعدها. ليه 7 طبقات؟ عشان يقسموا الشغلانة الكبيرة لأجزاء صغيرة، وكل جزء يركز في حاجة معينة، وده بيخلي الدنيا أسهل في الفهم والصيانة وحل المشاكل. كل طبقة بتستلم داتا من اللي فوقيها وتضيف عليها معلومات خاصة بيها (دي اسمها **Encapsulation**)، وبعدين تسلمها للي تحتيها وهكذا.\n\n### رحلة البتات والباكتات!\n*   **Physical Layer (الطبقة الفيزيائية)**: دي بقى شغلانتها نقل الـ **Bits** (الصفر والواحد) من جهاز لجهاز. هنا بنتكلم عن الكابلات والأسلاك. أشهر حاجة هي **Copper Cabling** (الكابلات النحاسية) اللي بنشوفها في كل مكان. رخيصة وسهلة التركيب، بس ليها مشاكلها زي **Attenuation** (الاشارة بتضعف كل ما المسافة تطول) و **Interference** (التشويش من حاجات زي EMI و RFI). عشان يحلوا المشاكل دي، بيستخدموا كابلات معزولة أو يلفوا الأسلاك حوالين بعضها (Twisted Pairs).\n    *   أنواع الكابلات النحاسية المهمة: **UTP** (Unshielded Twisted Pair) وده الأشهر والأكثر استخداماً، و **STP** (Shielded Twisted Pair) وده أغلى وأصعب في التركيب بس بيوفر حماية أفضل ضد التشويش.\n*   **Data Link Layer (طبقة ربط البيانات)**: دي بقى بتاخد الـ Bits وتجمعهم في حاجة اسمها Frames، وبرضه مسؤولة عن النقل من جهاز لجهاز اللي جنب بعض.\n*   **Network Layer (طبقة الشبكة)**: هنا بقى الشغل تقيل، دي مسؤولة عن توصيل الـ **Packets** من الجهاز اللي بيبعت للـ Destination النهائي، حتى لو كانوا في شبكات مختلفة. دي اللي بتحدد المسار اللي الباكت هيمشي فيه.\n*   **Transport Layer (طبقة النقل)**: دي اللي بتضمن إن الرسالة كلها توصل من برنامج لبرنامج (Process to process delivery). هنا بنقابل أهم بروتوكولين:\n    *   **TCP (Transmission Control Protocol)**: ده \"البروتوكول المسؤول\"، بيضمن إن البيانات توصل كاملة وبالترتيب الصح، وبيعمل Check للأخطاء. ممتاز لحاجات زي الإيميلات ونقل الملفات اللي مينفعش فيها غلطة.\n    *   **UDP (User Datagram Protocol)**: ده \"البروتوكول السريع\"، بيركز على السرعة والكفاءة، مبيعملش تأكيد وصول ولا بيصلح أخطاء. مثالي لحاجات زي الألعاب أونلاين والفيديوهات المباشرة اللي السرعة أهم من إن كل بت توصل بالظبط.\n*   **Session, Presentation, Application Layers**: دول الطبقات اللي فوق، بيتعاملوا مع حاجات زي التحكم في الحوار (Session)، ترجمة وتشفير البيانات (Presentation)، وتوفير الخدمات للمستخدم (Application) زي المتصفح بتاعك كده.\n\n### موديل TCP/IP: موديل الإنترنت العملي\nالموديل ده هو اللي الإنترنت كله شغال بيه، وهو أبسط شوية من OSI. بيتكون من **4 طبقات** بس، ومبيطابقش OSI بالظبط. الطبقات بتاعته هي:\n1.  **Physical and Data Link Layers**: دمجوا الطبقتين دول مع بعض.\n2.  **Network Layer**: زي اللي في OSI.\n3.  **Transport Layer**: زي اللي في OSI.\n4.  **Application Layer**: دي بقى دمجت الـ Session والـ Presentation والـ Application اللي في موديل OSI في طبقة واحدة. فهمك للموديلين دول، خصوصاً الـ OSI، هيخليك \"دحيح\" الشبكات بجد وتقدر تحل أي مشكلة تقابلك!",
+    "resources": {
+      "pdf": "/materials/NET-301/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+      "sheet": "/materials/NET-301/%D8%B4%D9%8A%D8%AA 2.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "أي من الطبقات التالية في موديل OSI هي المسؤولة عن نقل الـ 'individual bits' من جهاز لآخر (hop-to-hop)؟",
+        "options": [
+          "Data Link Layer",
+          "Physical Layer",
+          "Network Layer",
+          "Transport Layer"
+        ],
+        "answer": "Physical Layer",
+        "explanation": "الـ Physical Layer هي اللي بتتعامل مع نقل البيانات كـ 'bits' (أصفار ووحايد) على الكابلات أو الوسائط المادية، يعني دي الطبقة اللي بتشوف الكابلات والإشارات الكهربائية."
+      },
+      {
+        "type": "tf",
+        "question": "كابلات UTP (Unshielded Twisted Pair) توفر حماية أفضل ضد التشويش (noise protection) وتكون أغلى وأصعب في التركيب من كابلات STP (Shielded Twisted Pair).",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "العكس هو الصحيح! كابلات STP هي اللي بتوفر حماية أفضل ضد التشويش وبتكون أغلى وأصعب في التركيب مقارنة بـ UTP. الـ UTP هي الأكثر شيوعًا لأنها أرخص وأسهل."
+      },
+      {
+        "type": "mcq",
+        "question": "في أي طبقة من طبقات OSI يتم تحديد ما إذا كان البروتوكول سيضمن تسليم البيانات بالترتيب الصحيح ومعالجة الأخطاء (زي TCP) أم لا (زي UDP)؟",
+        "options": [
+          "Network Layer",
+          "Session Layer",
+          "Transport Layer",
+          "Application Layer"
+        ],
+        "answer": "Transport Layer",
+        "explanation": "الـ Transport Layer هي اللي مسؤولة عن توصيل الرسائل بشكل موثوق أو سريع بين البرامج، وهنا بيتم اختيار بروتوكولات زي TCP اللي بتضمن التسليم أو UDP اللي بيركز على السرعة."
+      },
+      {
+        "type": "fitb",
+        "question": "الظاهرة التي تسبب ضعف الإشارة الكهربائية في الكابلات النحاسية كلما زادت المسافة التي تقطعها تعرف بـ ______________.",
+        "options": [],
+        "answer": "Attenuation",
+        "explanation": "الـ Attenuation هي ضعف الإشارة، ودي مشكلة بتحصل في الكابلات الطويلة، عشان كده فيه حدود لأطوال الكابلات عشان الإشارة متضعفش أوي ومتبقاش مفهومة."
+      },
+      {
+        "type": "mcq",
+        "question": "إذا كنت تقوم ببث فيديو مباشر أو تلعب لعبة عبر الإنترنت، فما هو البروتوكول الأنسب من حيث السرعة والكفاءة، حتى لو كان على حساب ضمان وصول كل جزء من البيانات؟",
+        "options": [
+          "TCP",
+          "HTTP",
+          "FTP",
+          "UDP"
+        ],
+        "answer": "UDP",
+        "explanation": "الـ UDP هو ملك السرعة والكفاءة في الحالات دي. في الألعاب والفيديوهات المباشرة، لو باكتة وقعت مش مشكلة كبيرة، الأهم إن البيانات توصل بسرعة عشان مفيش تأخير يحصل."
+      },
+      {
+        "type": "tf",
+        "question": "موديل TCP/IP يتكون من 7 طبقات وهو مطابق تمامًا لطبقات موديل OSI.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "موديل TCP/IP بيتكون من 4 طبقات بس، ومش مطابق بالظبط لموديل OSI اللي فيه 7 طبقات. فيه اختلافات في دمج بعض الطبقات."
+      },
+      {
+        "type": "mcq",
+        "question": "في موديل TCP/IP، ما هي الطبقات التي تم دمجها لتكوين الـ Application Layer؟",
+        "options": [
+          "Physical, Data Link, Network",
+          "Session, Presentation, Application",
+          "Transport, Session, Presentation",
+          "Network, Transport, Application"
+        ],
+        "answer": "Session, Presentation, Application",
+        "explanation": "الـ Application Layer في موديل TCP/IP هي في الحقيقة دمج للـ Session والـ Presentation والـ Application layers من موديل OSI، وده بيخلي الموديل أبسط وأقل في عدد الطبقات."
+      }
+    ]
+  },
+  {
+    "id": "net_301_lecture_3",
+    "subjectId": "NET-301",
+    "lectureId": "lecture_3",
+    "title": "رحلة الباكت: فك شفرة الـ Network Layer، IPv4، IPv6 وRouting!",
+    "summary": "يا جدعان الدفعة، صباح الفل أو مساء الخير حسب توقيت قرايتك! النهار ده جايين نفهم حتة مهمة أوي في الشبكات، وهي الـ **Network Layer** أو الطبقة الثالثة. دي الطبقة اللي بتخلي الأجهزة البعيدة عن بعض تتكلم عادي، يعني من الآخر هي المسؤولة عن إن الداتا بتاعتك توصل من جهاز لجهاز تاني في أي حتة في الدنيا. البروتوكولات الأساسية هنا هما **IPv4** و **IPv6**. الطبقة دي بتعمل 4 حاجات أساسية: بتدي عناوين للأجهزة، بتعمل تغليف (Encapsulation)، بتوجه البيانات دي (Routing)، وفي الآخر بتفك التغليف ده (De-encapsulation) لما توصل.\n\n### IP Encapsulation و Connectionless\nطب الـ IP ده بيعمل إيه بالظبط؟ ببساطة، بياخد الداتا اللي جاية من الـ Transport Layer ويحطها جوه **IP Packet**. سواء كان IPv4 أو IPv6 مش بيفرق مع الـ Transport Layer. الباكت ده بقى بيتفحص من كل أجهزة الـ Layer 3 (زي الراوترات) وهو ماشي في السكة، بس لازم تعرف معلومة مهمة: عنوان الـ IP بتاع الجهاز اللي باعت (Source) والمستقبل (Destination) مش بيتغير من أول ما الباكت يطلع لحد ما يوصل. الأهم من ده كله إن الـ IP **Connectionless**، يعني إيه؟ يعني مبيعملش 'اتصال' أو 'تنسيق' مع الجهاز اللي هيستقبل قبل ما يبعت الباكت، بيبعت وخلاص. لو فيه بروتوكول محتاج اتصال مؤكد، زي الـ TCP، هو اللي بيقوم بالمهمة دي في طبقة الـ Transport.\n\n### IPv4: المارد القديم ومشاكله\nنيجي بقى لـ IPv4، ده بطل زمانه. الهيدر بتاعه (IPv4 Packet Header) بيكون فيه شوية معلومات مهمة زي الـ Version، والـ **Time to Live (TTL)** اللي بيقول الباكت ده يعدي على كام راوتر قبل ما يموت، والـ Protocol اللي بيحدد البروتوكول اللي جاي بعده، وطبعًا أهم حاجة الـ Source IP Address و Destination IP Address (دول 32 بت). بس يا معلم، IPv4 خلاص 'جاب آخره' زي ما بنقول. ليه؟ عشان فيه 3 مشاكل رئيسية: **نفاد عناوين IPv4**، فقدان الاتصال من النهاية للنهاية (بسبب الـ **NAT**)، وزيادة تعقيد الشبكة.\n\n### IPv6: البطل الجديد\nعشان كده ظهر **IPv6**، واللي طورته الـ IETF عشان يحل كل مشاكل IPv4. إيه مميزاته؟\n*   **مساحة عناوين ضخمة:** ده 128 بت مش 32 بت، يعني عناوين لا حصر لها.\n*   معالجة باكتات أفضل: الهيدر بتاعه أبسط وفيه عدد فيلدات أقل (زي إنه شال الـ Flag والـ Fragment Offset والـ Header Checksum اللي كانوا موجودين في IPv4).\n*   مبقاش فيه احتياج للـ NAT: بما إن فيه عناوين كتير أوي، مبقاش فيه داعي نستخدم عناوين خاصة جوه الشبكة ونعملها NAT عشان تطلع على الإنترنت.\nالهيدر بتاع IPv6 حجمه ثابت 40 بايت وفيه فيلدات زي الـ Version، والـ Traffic Class للـ QoS، والـ Flow Label، والـ Payload Length، وكمان الـ Hop Limit اللي بيحل محل الـ TTL، وطبعًا الـ Source و Destination IP Address (اللي بقوا 128 بت).\n\n### الـ Routing: ازاي الأجهزة والراوترات بتوجه الباكتات؟\nنيجي بقى لآخر حتة، وهي الـ **Routing**. أي جهاز (Host) بيبعت باكت، بياخد قرار بناءً على جدول التوجيه بتاعه. ممكن يبعت لنفسه، أو لأجهزة محلية على نفس الشبكة، أو لأجهزة بعيدة، وهنا بيحتاج الـ **Default Gateway**. الـ Default Gateway ده بيكون راوتر أو سويتش Layer 3، ولازم يكون ليه IP في نفس الرينج بتاع الشبكة. لو الجهاز معندوش Default Gateway صح، الباكتات بتاعته مش هتطلع بره الشبكة المحلية أبدًا. الراوتر بقى عنده جدول توجيه (Routing Table) فيه 3 أنواع من المسارات: المتصلة مباشرة (Directly Connected)، **البعيدة (Remote)** (سواء Static أو Dynamic)، و **المسار الافتراضي (Default Route)**. عشان تشوف جدول التوجيه بتاع جهازك الويندوز بتكتب `route print` أو `netstat -r`.",
+    "resources": {
+      "pdf": "/materials/NET-301/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9.pdf",
+      "sheet": "/materials/NET-301/%D8%B4%D9%8A%D8%AA 3.pdf",
+      "assignments": "/materials/NET-301/%D8%A7%D8%B3%D9%8A%D9%85%D9%86%D8%AA -3.pdf"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هي البروتوكولات الرئيسية لطبقة الشبكة (Network Layer) المسؤولة عن تبادل البيانات بين الأجهزة النهائية؟",
+        "options": [
+          "TCP و UDP",
+          "HTTP و HTTPS",
+          "IPv4 و IPv6",
+          "ARP و ICMP"
+        ],
+        "answer": "IPv4 و IPv6",
+        "explanation": "يا صاحبي، النص بيقول صراحة إن **IPv4** و **IPv6** هما البروتوكولات الأساسية للـ Network Layer اللي بتخلي الأجهزة تتكلم مع بعض. الباقيين دول بتوع طبقات تانية أو ليهم وظايف مختلفة."
+      },
+      {
+        "type": "tf",
+        "question": "الـ IP (Internet Protocol) بيعمل اتصال مؤكد (connection-oriented) مع الجهاز المستهدف قبل ما يبعت أي باكت.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لا يا هندسة، الـ IP ده **Connectionless**، يعني بيبعت الباكت على طول من غير ما يعمل اتصال أو تنسيق مسبق مع الجهاز التاني. لو عايزين اتصال مؤكد، ده بيكون شغل بروتوكولات تانية زي الـ TCP في طبقة الـ Transport."
+      },
+      {
+        "type": "fitb",
+        "question": "في هيدر حزمة IPv4، الحقل المسؤول عن تحديد عدد القفزات المتبقية للحزمة قبل أن يتم التخلص منها هو ______.",
+        "options": [],
+        "answer": "Time to Live (TTL)",
+        "explanation": "ده الـ **TTL** يا معلم، وظيفته إنه يحمي الشبكة من الباكتات اللي ممكن تفضل تلف في دوائر لا نهائية. كل ما تعدي على راوتر، قيمته بتقل، ولما توصل للصفر، الراوتر بيرميها."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو أحد القيود الرئيسية لـ IPv4 والتي أدت لتطوير IPv6؟",
+        "options": [
+          "عدم دعمه لبروتوكولات التوجيه الديناميكية.",
+          "مساحة العناوين الكبيرة جداً التي تسبب تعقيداً.",
+          "نفاد عناوين IPv4.",
+          "عدم قدرته على التغليف (Encapsulation)."
+        ],
+        "answer": "نفاد عناوين IPv4.",
+        "explanation": "النص واضح وصريح، أكبر مشكلة في IPv4 هي إن **عناوينه خلصت**، وده كان الدافع الأساسي لظهور IPv6 اللي بيوفر عدد مهول من العناوين."
+      },
+      {
+        "type": "tf",
+        "question": "يتميز هيدر حزمة IPv6 بأنه أصغر حجماً وأكثر تعقيداً من هيدر IPv4.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "هو فعلاً **أكثر بساطة** (simplified) لأنه شال فيلدات كتير كانت موجودة في IPv4 زي الـ Header Checksum والـ Fragment Offset، بس مش أصغر حجماً، هو **حجمه ثابت 40 بايت** وممكن يكون أكبر من هيدر IPv4 العادي."
+      },
+      {
+        "type": "fitb",
+        "question": "عندما يريد جهاز (Host) إرسال باكت إلى جهاز بعيد ليس على نفس الشبكة المحلية (LAN)، فإنه يوجه هذا الباكت مباشرة إلى الـ ______ الخاص به.",
+        "options": [],
+        "answer": "Default Gateway",
+        "explanation": "أي جهاز عايز يطلع بره الشبكة المحلية بتاعته، لازم يرمي الباكت على الـ **Default Gateway**. ده المدخل والمخرج بتاعه للعالم الخارجي. لو مش موجود أو غلط، الجهاز مش هيعرف يتواصل مع أي حاجة بره الـ LAN."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من أنواع المسارات التالية يتعلمها الراوتر تلقائياً عند تفعيل الواجهة وتكوين عنوان IP لها؟",
+        "options": [
+          "Static Routes",
+          "Dynamic Routes",
+          "Default Routes",
+          "Directly Connected Routes"
+        ],
+        "answer": "Directly Connected Routes",
+        "explanation": "الـ **Directly Connected Routes** دي الراوتر بيعرفها لوحده أوتوماتيك أول ما الواجهة بتاعته تبقى شغالة وليها IP Address. الباقيين دول يا إما بتتعمل يدوي (Static) يا إما بتتعلم من بروتوكولات (Dynamic) أو بتكون مسار الطوارئ (Default)."
+      }
+    ]
+  },
+  {
+    "id": "net_301_lecture_4",
+    "subjectId": "NET-301",
+    "lectureId": "lecture_4",
+    "title": "الدحيح يشرح: رحلة في أعماق الشبكات - من الإيثرنت للفيزيكال لاير!",
+    "summary": "يا جدعان الدفعة، صباح الفل أو مساء الخير حسب توقيت قرايتك! معاكم أخوكم الدحيح وجاي أعملكم زتونة محاضرة النهاردة اللي هتخليكم **فنانين** في عالم الشبكات. المحاضرة دي هتلف بينا لفة سريعة ومفيدة على طبقات الإيثرنت، وبالذات الطبقتين اللي تحت خالص: الـ**Data Link Layer** والـ**Physical Layer**. يلا بينا!\n\n### Data Link Layer (الطبقة السحرية للربط)\nبص يا صاحبي، الـData Link Layer دي هي اللي بتظبط الدنيا بين كروت الشبكة بتاعت الأجهزة. شغلانتها الأساسية إنها بتخلي البروتوكولات اللي فوقيها تعرف تكلم الطبقة الفيزيائية اللي تحت. كمان، دي اللي بتعمل **Encapsulation** للـpackets بتاعت Layer 3 وتحولها لـ**Frames** بتاعت Layer 2 عشان تمشي في الشبكة. ولو في أي فريم بايظ أو فيه مشاكل، هي اللي بتلقطه وبتعمل **Error Detection** عشان الداتا توصل سليمة.\n\nالطبقة دي مش حتة واحدة، دي متقسمة لحتتين مهمين:\n*   **Logical Link Control (LLC)**: دي اللي بتوصل السوفتوير بتاع الشبكة بالهاردوير.\n*   **Media Access Control (MAC)**: ودي اللي مسؤولة عن تغليف الداتا والتحكم في الوصول للـmedia.\nولازم تعرف إن أي راوتر في طريقه بيستلم الـframe، بيفك تغليفها، بيغلفها تاني في frame جديد، وبيبعتها للـsegment اللي بعده.\n\n### أنواع الشبكات وطرق التواصل (هندسة الشبكات)\nتخيل إنك بتبني شبكة، لازم تعرف شكلها عامل إزاي. عندنا نوعين من الـ**Topologies**:\n*   **Physical Topology**: دي الخريطة الحقيقية للأسلاك والأجهزة متوصلة إزاي.\n*   **Logical Topology**: ودي الخريطة الافتراضية اللي بتحدد الأجهزة بتكلم بعض إزاي بالـIPs.\nبالنسبة للـWAN، أشهر الأشكال: **Point-to-point**، **Hub and spoke**، و**Mesh**. أما في الـLAN، فالـ**Star** و**Extended Star** هما الملوك دلوقتي، سهلين في التركيب والصيانة. زمان كان فيه الـ**Bus** والـ**Ring**.\n\nنيجي بقى لطريقة الكلام في الشبكة. عندك يا إما:\n*   **Half-duplex**: جهاز واحد بس بيتكلم أو بيسمع في نفس الوقت (زي الـWLAN).\n*   **Full-duplex**: الجهازين بيتكلموا وبيسمعوا في نفس الوقت (زي سويتشات الإيثرنت الحديثة).\nوطرق التحكم في مين اللي يتكلم إمتى: الـ**Contention-based access** (كله بيتنافس) زي الـ**CSMA/CD** للإيثرنت القديم والـ**CSMA/CA** للـWi-Fi. وفيه الـ**Controlled access** اللي كل جهاز ليه دوره.\n\n### Physical Layer (الفيزياء هي الأساس)\nالـPhysical Layer دي بقى هي الطبقة اللي تحت خالص اللي بتتعامل مع الداتا كـ**Bits** وبتحولها لإشارات عشان تمشي في السلك أو الهوا. دي آخر خطوة في عملية التغليف. عشان تشتغل صح، ليها 3 جوانب:\n*   **Physical Components**: يعني الكابلات والـNICs والموصلات.\n*   **Encoding**: طريقة تحويل الـBits لإشارات مفهومة للطرف التاني.\n*   **Signaling**: إزاي الـ0 والـ1 بيتمثلوا (كهربا، ضوء، موجات).\nوإوعى تنسى الـ**Bandwidth** اللي هو سرعة نقل الداتا.\n\n### أنواع الـMedia (الكابلات واللاسلكي)\nعندنا نوعين أساسيين للـmedia:\n1.  **Fiber-Optic Cabling**: الكابلات دي غالية حبتين بس بتوصل لمسافات أطول وبسرعات أعلى بكتير من الكابلات النحاس، ومناعتها ضد التشويش (EMI/RFI) مية في المية. فيه منها نوعين: **Single-Mode Fiber** و**Multimode Fiber**. بتستخدم في شبكات الشركات الكبيرة، وتوصيل البيوت، وحتى كابلات المحيطات.\n2.  **Wireless Media**: دي بقى اللي بتدينا حرية الحركة. بتستخدم إشارات كهرومغناطيسية. بس ليها عيوب زي مساحة التغطية المحدودة، التشويش الكتير، مشاكل الأمان، وإنها Half-duplex. أشهرها الـ**Wi-Fi** والـ**Bluetooth**.\n\nوبكده نكون خلصنا الزتونة يا أبطال. شدوا حيلكم، والمادة دي محتاجة فهم مش حفظ. الدحيح بيصبح عليكم!",
+    "resources": {
+      "pdf": "/materials/NET-301/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9.pdf",
+      "sheet": "#",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هي الوظيفة الأساسية لطبقة Data Link Layer؟",
+        "options": [
+          "أ. تحديد مسار الحزم عبر الشبكات المختلفة.",
+          "ب. تحويل الـPackets إلى Frames وإجراء اكتشاف الأخطاء.",
+          "ج. تشفير البيانات لضمان السرية.",
+          "د. إدارة عناوين IP للأجهزة."
+        ],
+        "answer": "ب. تحويل الـPackets إلى Frames وإجراء اكتشاف الأخطاء.",
+        "explanation": "الداتا لينك لاير هي المسؤولة عن إنها تاخد الـpackets من الطبقة اللي فوقيها وتغلفها في frames عشان تمشي في السلك، وكمان بتراجع لو فيه أي أخطاء في الـframes دي."
+      },
+      {
+        "type": "tf",
+        "question": "تعمل تقنية Ethernet في طبقتي Data Link Layer و Physical Layer.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "الإيثرنت يا معلم بتشتغل في الطبقتين دول، الداتا لينك عشان بتتعامل مع الفريمز، والفيزيكال عشان بتحدد نوع الكابل والإشارات."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هما الطبقتان الفرعيتان لطبقة Data Link Layer؟",
+        "options": [
+          "أ. Network Access Control و Logical Addressing Control.",
+          "ب. Physical Media Control و Data Encapsulation.",
+          "ج. Logical Link Control (LLC) و Media Access Control (MAC).",
+          "د. Error Correction Layer و Flow Control Layer."
+        ],
+        "answer": "ج. Logical Link Control (LLC) و Media Access Control (MAC).",
+        "explanation": "طبقة الداتا لينك متقسمة لـLLC اللي بتربط السوفت بالهارد، والـMAC اللي بتغلف الداتا وتتحكم في الوصول للميديا."
+      },
+      {
+        "type": "fitb",
+        "question": "تقوم طبقة Physical Layer بنقل الـ___________ عبر وسائط الشبكة.",
+        "options": [],
+        "answer": "Bits",
+        "explanation": "الطبقة الفيزيائية دي هي آخر حاجة خالص بتتعامل مع الداتا كـ'bits' (أصفار ووحايد) وبتحولها لإشارات عشان تمشي في الكابل أو الهوا."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من المزايا التالية تنطبق على كابلات الألياف الضوئية (Fiber-Optic Cabling) مقارنة بكابلات النحاس (UTP Cabling)؟",
+        "options": [
+          "أ. تكلفتها أقل بكثير.",
+          "ب. سهولة تركيبها وصيانتها.",
+          "ج. مناعة عالية جداً ضد التداخل الكهرومغناطيسي (EMI/RFI).",
+          "د. تستخدم في المسافات القصيرة فقط."
+        ],
+        "answer": "ج. مناعة عالية جداً ضد التداخل الكهرومغناطيسي (EMI/RFI).",
+        "explanation": "الفايبر أوبتك يا باشا هو بطل المسافات الطويلة والسرعات العالية، والميزة الخارقة فيه إنه مبيتاثرش بأي تشويش كهرومغناطيسي زي كابلات النحاس خالص."
+      },
+      {
+        "type": "tf",
+        "question": "تستخدم طريقة الوصول CSMA/CD في شبكات الواي فاي (WLANs) لتجنب التصادمات.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لا يا صاحبي، الـCSMA/CD دي بتاعة الإيثرنت القديم اللي بيشتغل بالـBus topology. الواي فاي بيستخدم الـCSMA/CA عشان يتفادى التصادمات، مش يكتشفها بعد ما تحصل."
+      },
+      {
+        "type": "fitb",
+        "question": "يشير الغلاف ذو اللون _________ في كابلات الألياف الضوئية إلى كابلات Multimode Fiber.",
+        "options": [],
+        "answer": "البرتقالي (أو الأزرق المائي)",
+        "explanation": "لون الجاكيت بتاع الكابل بيفرق، الأصفر ده للـSingle-Mode، والبرتقالي (أو الأزرق المائي) ده للـMultimode. خلي بالك من الألوان دي عشان بتفرق في الشغل."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_3",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_3",
+    "title": "رحلة الدحيح في عالم اللوبس والمصفوفات: أساسيات برمجية لا غنى عنها!",
+    "summary": "يا وحوش البرمجة، محاضرة النهارده دي من أهم المحاضرات اللي هتخليك تفهم إزاي الكود بيشتغل صح ويتكرر بكفاءة، وإزاي تخزن بيانات كتير بشكل منظم. ركز معايا عشان الزتونة دي هتثبت في دماغك!\n\n### اللوبس (Loops): ليه بنستخدمها وإيه أنواعها؟\nتخيل إنك عايز تنفذ أمر معين أو مجموعة أوامر **لعدد معين من المرات** أو **طول ما شرط معين متحقق**. بدل ما تكتب الكود ده 100 مرة، بنستخدم اللوبس! اللوبس دي **بتوفر وقت** و**بتقلل الأخطاء** وبتخلي الكود بتاعك **أكثر وضوحاً**. عندنا 3 أنواع رئيسية:\n*   **While Loop**: دي عاملة زي الشرطي الواقف على الباب، **بتشيك الأول** على الشرط، لو متحقق بتسمح للكود يتنفذ، ولو لأ، مش هتنفذ حاجة خالص.\n*   **Do/While Loop**: دي بقى الفرق بينها وبين الـ While إنها **بتنفذ مرة واحدة على الأقل**، حتى لو الشرط غلط من البداية. يعني بتنفذ الـ `do` الأول، وبعدين بتشيك على الـ `while`.\n*   **For Loop**: دي أحسن استخدام ليها لما تكون **عارف عدد المرات** اللي عايز الكود يتكرر فيها بالظبط. فيها 3 أجزاء: جزء بيبدأ اللوب، جزء الشرط، وجزء بيتنفذ بعد كل لفة عشان يغير قيمة العداد.\n\n### اللوبس المتداخلة (Nested Loops) والقفزات السريعة (Break & Continue)\n*   **Nested Loops**: ببساطة كده، دي معناها إنك تحط **لوب جوه لوب**! اللوب اللي جوه هتتنفذ كل مرة اللوب اللي بره بتلف. يعني لو اللوب اللي بره لفت مرتين، واللي جوه لفت 3 مرات، يبقى اللي جوه هتتنفذ 2 * 3 = 6 مرات.\n*   **Break**: دي كلمة سحرية بتخليك **تطيرك بره اللوب خالص**! لو لاقيتها جوه اللوب، اللوب بتقف فوراً وبيكمل تنفيذ الكود اللي بعد اللوب.\n*   **Continue**: دي ألطف شوية، مش بتخرجك بره اللوب، لأ دي **بتعدي على إيتيريشن واحدة** (لفة واحدة) في اللوب وبتكمل اللفات اللي بعدها عادي. يعني بتفوت اللي حصل في اللفة دي وتكمل اللي جاي.\n\n### المصفوفات (Arrays): تخزين البيانات بذكاء!\nتخيل إنك عايز تخزن أسماء 100 طالب. هل هتعمل 100 متغير؟ لأ طبعاً! هنا يجي دور الـ **Arrays** اللي بتخليك **تخزن قيم كتير** من نفس النوع في **متغير واحد** كبير. بتعلن عنها كده: `String[] cars = {\"Volvo\", \"BMW\"};`.\n*   **الوصول للعناصر (Access Elements)**: عشان توصل لأي عنصر جوه المصفوفة، بتستخدم حاجة اسمها الـ **Index** (الفهرس)، وده بيبدأ دايماً **من صفر**! يعني أول عنصر الـ Index بتاعه 0، والتاني 1، وهكذا.\n*   **تعديل العناصر (Edit Elements)**: عايز تغير قيمة عنصر معين؟ برضه بتستخدم الـ Index، زي كده: `cars[0] = \"Opel\";`.\n*   **طول المصفوفة (Array Length)**: عشان تعرف المصفوفة فيها كام عنصر، بتستخدم الـ `length` property، زي `cars.length`.\n*   **المرور على عناصر المصفوفة (Looping through Arrays)**: ممكن تستخدم الـ For Loop العادية عشان تلف على عناصر المصفوفة كلها، أو ممكن تستخدم الـ **For-each loop** اللي بتسهل الموضوع أكتر: `for(String i : cars) { ... }`.\n\n### المصفوفات متعددة الأبعاد (Multi-Dimensional Arrays)\nدي بقى لو عايز تخزن بيانات في شكل **صفوف وأعمدة**، زي جدول كده. بدل ما بتستخدم Index واحد، بتستخدم اتنين: واحد للصف وواحد للعمود، زي: `int[][] myNumbers = {{1, 2}, {3, 4}};`. عشان توصل لعنصر فيها، هتحتاج تحدد الـ Index بتاع الصف والـ Index بتاع العمود، مثلاً `myNumbers[0][1]`.\n\nكده نكون لمينا أهم نقطة في المحاضرة دي، ركزوا عليها كويس عشان دي أساسيات هتفضل معاكوا طول ما انتوا بتبرمجوا. بالتوفيق يا دحيحة!",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AA%D8%A7%D9%84%D8%AA%D8%A9.pdf",
+      "sheet": "#",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "إيه الهدف الأساسي من استخدام الـ Loops (حلقات التكرار) في البرمجة؟",
+        "options": [
+          "تنفيذ جزء من الكود مرة واحدة فقط.",
+          "تنظيم الدوال (Functions) داخل البرنامج.",
+          "تكرار تنفيذ جزء معين من الكود عدة مرات بناءً على شرط أو عدد محدد.",
+          "تعريف المتغيرات بأنواعها المختلفة."
+        ],
+        "answer": "تكرار تنفيذ جزء معين من الكود عدة مرات بناءً على شرط أو عدد محدد.",
+        "explanation": "الـ Loops معمولة أساساً عشان توفر عليك إعادة كتابة الكود وتخليه يتنفذ أكتر من مرة، سواء لعدد معين أنت عارفه أو طول ما شرط معين متحقق."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Do/While Loop بتضمن تنفيذ الكود اللي جواها على الأقل مرة واحدة، حتى لو الشرط بتاعها كان خطأ من البداية.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "بالظبط، عشان هي بتنفذ الـ `do` الأول قبل ما تشيك على الشرط بتاع الـ `while`. فلو الشرط طلع غلط، هتكون اتنفذت مرة واحدة على الأقل."
+      },
+      {
+        "type": "fitb",
+        "question": "الكلمة المفتاحية (Keyword) اللي بتخرجك من اللوب خالص هي ____، أما اللي بتعدي على الإيتيريشن الحالية وتكمل اللي بعدها هي ____.",
+        "options": [],
+        "answer": "break, continue",
+        "explanation": "الـ `break` بتطيرك بره اللوب كلها، أما الـ `continue` بتفوت اللفة اللي أنت فيها بس وبتكمل اللفات اللي بعدها عادي."
+      },
+      {
+        "type": "mcq",
+        "question": "لو عندنا مصفوفة `String[] names = {\"Ahmed\", \"Mostafa\", \"Ali\"};`، إيه الكود اللي هيطبع اسم \"Mostafa\"؟",
+        "options": [
+          "System.out.println(names[0]);",
+          "System.out.println(names[1]);",
+          "System.out.println(names[2]);",
+          "System.out.println(names[3]);"
+        ],
+        "answer": "System.out.println(names[1]);",
+        "explanation": "عشان الـ Index في المصفوفات بيبدأ من صفر. يبقى 'Ahmed' في Index 0، و'Mostafa' في Index 1، و'Ali' في Index 2."
+      },
+      {
+        "type": "tf",
+        "question": "المصفوفات متعددة الأبعاد (Multi-dimensional arrays) بتستخدم لتخزين البيانات في شكل صفوف وأعمدة، زي الجدول.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "بالظبط، زي ما بتشوف في الجداول، كل عنصر ليه مكان محدد بصف وعمود، وده بيسهل تنظيم البيانات المعقدة."
+      },
+      {
+        "type": "mcq",
+        "question": "في الـ For loop، أي جزء من الأجزاء الثلاثة بيتنفذ مرة واحدة بس في بداية اللوب؟",
+        "options": [
+          "Statement 2 (الشرط)",
+          "Statement 3 (التغيير بعد كل لفة)",
+          "Statement 1 (التهيئة/البداية)",
+          "الـ code block (الكود اللي جوه اللوب)"
+        ],
+        "answer": "Statement 1 (التهيئة/البداية)",
+        "explanation": "الـ Statement 1 دي بتاعة الـ Initialization، بتتعمل مرة واحدة بس في الأول عشان تبدأ اللوب، وبعد كده اللوب بتفضل شغالة بناءً على الشرط والـ Statement 3."
+      },
+      {
+        "type": "fitb",
+        "question": "لو عندنا مصفوفة ثنائية الأبعاد `int[][] matrix = {{10, 20}, {30, 40}};`، عشان نوصل للقيمة 40 بنستخدم `matrix[___][___]`.",
+        "options": [],
+        "answer": "1, 1",
+        "explanation": "القيمة 40 موجودة في الصف التاني (اللي الـ Index بتاعه 1) وفي العمود التاني (اللي الـ Index بتاعه 1 برضه)."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_1",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_1",
+    "title": "الدحيح يشرح: كل اللي محتاج تعرفه عن الجافا في المحاضرة الأولى!",
+    "summary": "### يا جدعان، إيه الجافا دي أصلاً؟\nبص يا معلم، الجافا دي لغة برمجة **جامدة جداً**، اتعملت سنة 1995 و Oracle هي اللي ماسكاها دلوقتي. تخيل إن فيه أكتر من 3 مليار جهاز في العالم شغال بيها! بتستخدمها في كل حاجة تقريباً: تطبيقات الموبايل (خصوصاً **الأندرويد** اللي في جيبك)، تطبيقات الديسكتوب، مواقع الويب، السيرفرات، الألعاب، وكمان بتعرف توصلها بقواعد البيانات. يعني بصراحة، ملهاش حل!\n\n### طب ليه نستخدم الجافا بالذات؟\nسؤال وجيه! الجافا دي ليها مميزات كتير تخليها اختيارك الأول:\n*   بتشتغل على أي نظام تشغيل (ويندوز، ماك، لينكس)، يعني **Cross-platform**.\n*   **مطلوبة جداً** في سوق الشغل، يعني هتلاقي فرص كتير.\n*   سهلة في التعلم والاستخدام، مش هتعقدك.\n*   **مفتوحة المصدر ومجانية**، مش هتدفع فيها ولا مليم.\n*   **آمنة وسريعة وقوية**.\n*   مجتمع المطورين بتاعها **ضخم جداً**، يعني أي مشكلة هتلاقي ليها حل.\n*   هي لغة **Object-Oriented**، وده بيخلي الكود منظم وسهل إنك تستخدمه أكتر من مرة، وبالتالي بيوفر وقت وفلوس.\n*   قريبة من C++ و C#، فلو تعرف واحدة فيهم، التحويل للجافا أو العكس **سهل جداً**.\n\n### ازاي نسطب الجافا ونشغل أول برنامج؟\nقبل أي حاجة، ممكن تكون الجافا متسطبة عندك أصلاً. عشان تتأكد، افتح الـ Command Prompt (CMD) واكتب `java -version`. لو ظهرلك إصدار، يبقى تمام. لو لأ، هتلاقيها مجاناً على موقع **oracle.com**. بعد ما تسطبها، هتعمل نفس الأمر تاني عشان تتأكد إنها اشتغلت. وممكن تستخدم برامج زي **IntelliJ IDEA** أو Netbeans أو Eclipse اللي بتسهل عليك كتابة وإدارة المشاريع الكبيرة.\n\nأول برنامج ليك هيكون الـ \"Hello World\" المشهور. هتكتب الكود بتاعه في ملف اسمه `Test.java` (أو أي اسم بس لازم يكون نفس اسم الـ Class). بعدين هتفتح الـ CMD وتعمل compile للكود بـ `javac Test.java`، وبعدين تشغله بـ `java Test`. على فكرة، أي حاجة عايز تسيبها ليك ملاحظة في الكود ومش عايز الكومبايلر يشوفها، استخدم `//` للسطر الواحد أو `/* ... */` لأكتر من سطر، دي اسمها **Comments**.\n\n### أنواع البيانات والمتغيرات: أساسيات البرمجة\nفي الجافا، عندك حاجة اسمها **Data Types** عشان تحدد نوع القيمة اللي هتخزنها. فيه 8 أنواع أساسية (Primitive Data Types):\n*   `byte`، `short`، `int`، `long`: دول للأعداد الصحيحة، بيختلفوا في المساحة اللي بيخزنوها وبالتالي في المدى بتاع الأرقام.\n*   `float`، `double`: دول للأعداد الكسرية، الـ `double` أدق وأكبر من الـ `float`.\n*   `boolean`: ده بيخزن قيمتين بس: `true` أو `false`.\n*   `char`: بيخزن حرف واحد بس، ولازم تحطه بين **Single Quotes** `'A'`.\n\nلما بتيجي تعرف متغير (Variable)، بتدي له اسم فريد (اسمه **Identifier**). لازم الاسم ده يبدأ بحرف، ويفضل يكون حروف صغيرة، ومينفعش يكون كلمة محجوزة في الجافا (زي `int` أو `boolean`). ولو عايز المتغير ده قيمته متتغيرش أبداً، بتحط قبله كلمة **`final`**، وده بيخليه ثابت (Constant). عشان تعرض قيمة أي متغير، بتستخدم `System.out.println()`. وممكن تجمع Strings مع بعض أو أرقام عادي بنفس علامة `+`. وممكن كمان تعرف أكتر من متغير من نفس النوع في سطر واحد عشان توفر وقت.",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89.pdf",
+      "sheet": "/materials/JAV-110/%D8%B4%D9%8A%D8%AA 1.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "متى تم إنشاء لغة الجافا؟",
+        "options": [
+          "1990",
+          "1995",
+          "2000",
+          "2005"
+        ],
+        "answer": "1995",
+        "explanation": "الجافا اتولدت سنة 1995، يعني لغة ليها تاريخها ومكملة معانا بقوة."
+      },
+      {
+        "type": "tf",
+        "question": "لغة الجافا تعمل فقط على نظام تشغيل Windows.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لأ يا برنس، الجافا من أهم مميزاتها إنها بتشتغل على أي نظام تشغيل زي ويندوز وماك ولينكس وغيرهم، عشان كده بنقول عليها \"Cross-platform\"."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الغرض الأساسي من استخدام الكلمة المفتاحية `final` في الجافا؟",
+        "options": [
+          "لزيادة سرعة تنفيذ الكود",
+          "لجعل المتغير ثابتًا لا يمكن تغيير قيمته",
+          "لتحديد نوع البيانات للمتغير",
+          "لتعريف دالة جديدة"
+        ],
+        "answer": "لجعل المتغير ثابتًا لا يمكن تغيير قيمته",
+        "explanation": "لما تحب تخلي قيمة متغير ثابتة ومحدش يقدر يغيرها بعد كده، بتستخدم `final` قبله، وده بيخليه \"constant\" أو \"Read-only\"."
+      },
+      {
+        "type": "fitb",
+        "question": "لتفحص ما إذا كانت الجافا مثبتة على جهازك، يمكنك كتابة الأمر ______ في الـ Command Prompt.",
+        "options": [],
+        "answer": "java -version",
+        "explanation": "الأمر ده هو مفتاحك السحري عشان تعرف إذا كانت الجافا متسطبة عندك ولا لأ، وبيوريك كمان الإصدار بتاعها."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من البرامج التالية يُعتبر بيئة تطوير متكاملة (IDE) تُستخدم لكتابة تطبيقات الجافا؟",
+        "options": [
+          "Notepad",
+          "Microsoft Word",
+          "IntelliJ IDEA",
+          "Paint"
+        ],
+        "answer": "IntelliJ IDEA",
+        "explanation": "الـ IDEs زي IntelliJ IDEA و Netbeans و Eclipse بتسهل الشغل جداً على المبرمجين، خصوصاً في المشاريع الكبيرة، بعكس برامج زي Notepad اللي مجرد محرر نصوص بسيط."
+      },
+      {
+        "type": "tf",
+        "question": "الـ `char` data type يمكنها تخزين أكثر من حرف واحد.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ `char` بيخزن حرف واحد بس، ولازم يكون محطوط بين Single Quotes زي 'A'. لو عايز تخزن نص كامل، بتستخدم `String`."
+      },
+      {
+        "type": "fitb",
+        "question": "أول برنامج جافا يتم كتابته غالبًا لعرض رسالة \"______\" على الشاشة.",
+        "options": [],
+        "answer": "Hello World",
+        "explanation": "\"Hello World\" دي الرسالة التقليدية اللي بيبدأ بيها أي مبرمج جديد رحلته مع أي لغة برمجة، عشان يتعلم أساسيات الطباعة."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_2",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_2",
+    "title": "دليلك الشامل لأساسيات جافا: من البيانات للتحكم في البرامج",
+    "summary": "يا جدعان الدفعة، صباح الفل أو مساء الخير حسب توقيت قرايتك للملخص ده! المحاضرة دي بقى يا معلم هي **الأساس المتين** اللي هتبني عليه كل اللي جاي في البرمجة. ركز معايا عشان هنلخص الدنيا في شوية نقط زبدة.\n\n### أنواع البيانات والتحويلات (Data Types & Casting)\nأول حاجة لازم تعرفها هي **أنواع البيانات** اللي بنستخدمها عشان نخزن بيها المعلومات. عندك أرقام صحيحة (int, long, short, byte)، أرقام عشرية (float, double)، حروف (char)، ونصوص (String). طيب لو عايز تحول من نوع لنوع؟ عندنا طريقتين:\n*   **التحويل التلقائي (Widening Casting)**: ده لما تحول من نوع صغير لنوع أكبر منه، زي من `int` لـ `double`. الجافا بتعملها لوحدها وبتبقى أمان ومفيش مشاكل.\n*   **التحويل اليدوي (Narrowing Casting)**: وده بقى لما تحول من نوع كبير لنوع صغير، زي من `double` لـ `int`. هنا لازم تقول للجافا أنت عايز إيه بالظبط (تحط قوسين واسم النوع `(int)`)، وممكن **تخسر بيانات** لو الرقم كبير.\n\n### إدخال البيانات من المستخدم (User Input - Scanner)\nلو عايز تخلي البرنامج بتاعك يتفاعل مع المستخدم وياخد منه معلومات، هتستخدم كلاس الـ **`Scanner`**. ده موجود في الـ `java.util` package. كل اللي عليك تعمله:\n1.  تعمل `import java.util.Scanner;` في أول الكود.\n2.  تعمل Object منه: `Scanner myObj = new Scanner(System.in);`.\n3.  تستخدم الـ methods بتاعته زي `nextLine()` للنصوص، و `nextInt()` للأرقام الصحيحة، و `nextDouble()` للأرقام العشرية. بسيطة، صح؟\n\n### العمليات الحسابية والمنطقية (Operators)\nالـ **Operators** دي هي الأدوات اللي بتخليك تعمل عمليات على المتغيرات والقيم. عندك أنواع كتير:\n*   **Arithmetic Operators**: زي الجمع (+)، الطرح (-)، الضرب (*)، القسمة (/)، باقي القسمة (%)، والزيادة والنقصان (++، --).\n*   **Assignment Operators**: عشان تسند قيمة لمتغير، زي `= ، += ، -=`.\n*   **Comparison Operators**: بتقارن بين قيمتين والناتج بيكون `true` أو `false`، زي يساوي (==)، لا يساوي (!=)، أكبر من (>)، أصغر من (<).\n*   **Logical Operators**: دول بقى عشان تربط بين شروط مختلفة، زي `&&` (and) لو عايز الشرطين صح، و `||` (or) لو عايز واحد منهم بس صح، و `!` (not) عشان تعكس النتيجة.\n\n### الشروط والتحكم في سير البرنامج (Conditional Statements)\nدي بقى حتة الفن في البرمجة اللي بتخلي برنامجك ذكي وياخد قرارات. عندنا كذا طريقة:\n*   **`IF` Statement**: أشهر حاجة. بتخليك تنفذ كود معين لو شرط معين اتحقق. ممكن تكون `if` بس، أو `if-else` (لو الشرط اتحقق اعمل كذا وإلا اعمل كذا)، أو `if-else if-else` (لو الشروط كتير). وممكن تعمل **`Nested IF`** يعني `if` جوه `if` عشان شروط أكتر تعقيدًا.\n*   **`Ternary Operator`**: ده اختصار لـ `if-else` البسيطة في سطر واحد. شكله بيكون كده: `variable = (condition) ? expressionTrue : expressionFalse;`. شيك وسريع لو الشرط بسيط.\n*   **`Switch` Statement**: بديل ممتاز للـ `if-else if` الكتير لما يكون عندك متغير واحد عايز تختبر قيم مختلفة ليه. بتكتب `switch(expression)` وبعدين `case` لكل قيمة محتملة. متنساش الـ `break` عشان تخرج من الـ `switch` بعد ما تلاقي الـ `case` الصح، وإلا هيكمل تنفيذ كل الـ `cases` اللي بعدها (ودي اسمها **fall-through**). ولو مفيش ولا `case` طابق، الـ `default` هو اللي بيتنفذ.\n\nالمحاضرة دي جوهرية عشان تفهم إزاي البرامج بتشتغل، طبق كتير عشان كل ده يثبت في دماغك. بالتوفيق يا دفعة!",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+      "sheet": "/materials/JAV-110/%D8%B4%D9%8A%D8%AA 2.pdf",
+      "assignments": "/materials/JAV-110/%D8%A7%D8%B3%D9%8A%D9%85%D9%86%D8%AA -2.pdf"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "أي نوع من تحويل البيانات (Casting) يتم بشكل تلقائي في جافا؟",
+        "options": [
+          "Narrowing Casting",
+          "Widening Casting",
+          "Explicit Casting",
+          "Manual Casting"
+        ],
+        "answer": "Widening Casting",
+        "explanation": "التحويل التلقائي (Widening Casting) بيحصل لما تحول من نوع بيانات صغير لنوع أكبر منه (زي من int لـ double)، فالجافا بتعملها لوحدها من غير ما تحتاج تكتب أي حاجة."
+      },
+      {
+        "type": "tf",
+        "question": "يتم العثور على الكلاس `Scanner` المستخدم لإدخال بيانات المستخدم في حزمة `java.io`.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ `Scanner` كلاس عشان تاخد input من اليوزر موجودة في الـ `java.util` package مش الـ `java.io`. ركز يا هندسة!"
+      },
+      {
+        "type": "fitb",
+        "question": "الـ `___` Operator بيستخدم عشان ترجع باقي القسمة.",
+        "options": [],
+        "answer": "% (Modulus)",
+        "explanation": "علامة الـ `%` دي بتستخدم عشان تجيب باقي القسمة (Modulus)، مش ناتج القسمة نفسه. دي مهمة في حاجات كتير زي معرفة الأرقام الفردية والزوجية."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من الـ Logical Operators التالية يرجع `true` فقط إذا كانت كلتا العبارتين صحيحتين؟",
+        "options": [
+          "|| (Logical OR)",
+          "! (Logical NOT)",
+          "&& (Logical AND)",
+          "= (Assignment)"
+        ],
+        "answer": "&& (Logical AND)",
+        "explanation": "الـ `&&` (Logical AND) دي زي ما اسمها بيقول، لازم الشرطين اللي رابطاهم يكونوا صح عشان الناتج الكلي يبقى `true`. لو واحد بس غلط، يبقى كله غلط."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Ternary Operator هو اختصار لتركيب `if-else if-else` المعقد.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ Ternary Operator هو اختصار لـ `if-else` بسيطة في سطر واحد، مش لـ `if-else if-else` المعقدة اللي فيها شروط كتير. هو مفيد للقرارات السريعة."
+      },
+      {
+        "type": "mcq",
+        "question": "ماذا يحدث إذا تم حذف كلمة `break` في إحدى حالات الـ `switch`؟",
+        "options": [
+          "يتوقف البرنامج عن العمل.",
+          "يتم تنفيذ حالة الـ `default` فقط.",
+          "يستمر تنفيذ الكود في الحالات التالية (fall-through).",
+          "يحدث خطأ أثناء الترجمة (compile-time error)."
+        ],
+        "answer": "يستمر تنفيذ الكود في الحالات التالية (fall-through).",
+        "explanation": "لو نسيت الـ `break`، البرنامج هيكمل تنفيذ كل الـ `cases` اللي بعد الـ `case` اللي طابق لحد ما يلاقي `break` أو يوصل لنهاية الـ `switch` block. ودي اسمها `fall-through`."
+      },
+      {
+        "type": "fitb",
+        "question": "عند استخدام جملة `if` داخل جملة `if` أخرى، فإنك تستخدم شروط `___`.",
+        "options": [],
+        "answer": "متداخلة (Nested)",
+        "explanation": "لما تلاقي `if` جوه `if`، ده اسمه `Nested IF`، يعني شروط متداخلة. بتستخدمها لما يكون عندك تسلسل منطقي للشروط، يعني شرط بيعتمد على شرط قبله."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_4",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_4",
+    "title": "الدحيح يفك شفرة الـ Methods والـ Recursion: حكايات الكود اللي بتكرر نفسها!",
+    "summary": "يا جدعان الحاسبات، محضرين دماغكم لرحلة جديدة في عالم الجافا؟ النهاردة هنتكلم عن حاجة أساسية ومهمة جداً في البرمجة: الـ **Methods**! الميثودز دي هي قلب أي برنامج محترم، وبتخلي الكود بتاعك منظم، سهل القراية، والأهم من ده كله، **قابل لإعادة الاستخدام**.\n\n### إيه هي الـ Method وليه بنستخدمها؟\nببساطة كده، الميثود (أو الـ Function زي ما ناس كتير بتسميها) هي **كتلة كود** متجمعة بتعمل شغلانة معينة. الكود ده مش بيشتغل لوحده، لأ ده بيشتغل بس لما أنت **تنده عليه**. طب ليه نعمل كده؟ عشان بدل ما تكتب نفس الكود 100 مرة، بتكتبه مرة واحدة بس جوه ميثود، وكل ما تحتاجه، تنده على الميثود دي وتنجز! يعني بتوفر وقت ومجهود وبتخلي الكود بتاعك **نضيف ومترتب**.\n\n### صناعة الميثودز: من الصفر للاحتراف!\nعشان تعمل ميثود، فيه شوية حاجات لازم تعرفها: أولاً، لازم تحدد مين يقدر يستخدم الميثود دي عن طريق الـ **Access Modifiers** (زي `public`, `private`, `protected`). بعد كده، فيه الـ **Non-Access Modifiers** زي `static` اللي بيخلي الميثود دي تبع الـ Class مش الـ Object، و`final` اللي بيمنع تغييرها. الميثود ممكن تاخد منك **Parameters** (بيانات بتدخلها عشان تشتغل عليها) وممكن ترجعلك **Return Value** (نتيجة شغلها). لو الميثود مش بترجع حاجة، بنستخدم `void`. وفيه حركة جامدة اسمها **Method Overloading**، ودي بتخليك تعمل كذا ميثود بنفس الاسم بس كل واحدة بتاخد **parameters مختلفة**، وده بيخلي الكود أذكى وأشيك. كمان ممكن تستخدم الـ **Variable Arguments** عشان تبعت عدد مش معروف من الـ Parameters من نفس النوع، بس خلي بالك، لازم تكون آخر Parameter في الميثود وماينفعش يبقى فيه غير واحد بس.\n\n### الـ Scope: حدود صلاحيات المتغيرات\nتخيل كده إن كل متغير في الكود ليه منطقة نفوذ معينة، دي بالظبط هي الـ **Scope**. المتغير اللي بتعرفه جوه ميثود، بيكون متاح بس جوه الميثود دي. ولو عرفت متغير جوه `if` أو `for` loop (اللي بنسميها **Block Scope**)، المتغير ده مش هيكون متاح غير جوه الـ Block ده بس. يعني كل حاجة ليها حدودها عشان الكود بتاعك ميتلخبطش.\n\n### الـ Recursion: لما الكود يحب نفسه!\nودي بقى حتة فنانة! الـ **Recursion** يعني الميثود **تنده على نفسها**! طب ليه نعمل كده؟ عشان نحل مشاكل معقدة عن طريق تقسيمها لمشاكل أصغر وأبسط. بس خلي بالك، لازم يكون فيه **Base Case**، يعني شرط توقف، وإلا الميثود هتفضل تنده على نفسها للأبد وهتعملنا **Stack Overflow** (وهنا الجهاز هيعمل معاك الصح)! أشهر مثال ليها هو حساب الـ Factorial أو مجموع الأرقام لحد رقم معين. بتلاقي الميثود بتفضل تنادي على نفسها لحد ما توصل للشرط اللي يوقفها وترجع بالناتج النهائي. شغل عالي بصراحة!",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9.pdf",
+      "sheet": "#",
+      "assignments": "/materials/JAV-110/%D8%A7%D8%B3%D9%8A%D9%85%D9%86%D8%AA -4.pdf"
+    }
+  },
+  {
+    "id": "ds_401_lecture_1",
+    "subjectId": "DS-401",
+    "lectureId": "lecture_1",
+    "title": "الداتا ستراكشرز: الدليل الكامل لأداء برنامجك الخارق!",
+    "summary": "### إيه حكاية الداتا ستراكشرز دي؟\n\nيا جدعان، الداتا ستراكشرز دي مش مجرد كلام نظري، دي **روح أي برنامج محترم**! باختصار كده، هي طريقة تنظيم البيانات في الكمبيوتر عشان نعرف نستخدمها بكفاءة وسرعة. تخيل مكتبة كتب مش مترتبة، عشان تلاقي كتاب هتاخد وقت قد إيه؟ بالظبط كده، الداتا ستراكشر بتخلي مكتبتك دي متنظمة ومفهرسة عشان **تلاقي اللي أنت عايزه في ثواني**. دي اللي بتحدد إذا كان برنامجك ده صاروخ ولا سلحفاة!\n\n### ليه هي مهمة أوي كده؟\n\nبص يا معلم، أي برنامج محترم بيتكون من حاجتين أساسيتين: **Algorithm (الخوارزمية)** اللي هي الخطوات اللي بنحل بيها مشكلة معينة، و**Data Structure (هيكل البيانات)** اللي هي طريقة تخزين وتنظيم البيانات دي. الاتنين دول مرتبطين ببعض بشكل جنوني. الداتا ستراكشر بتاعتك بتأثر بشكل مباشر على تصميم البرنامج بتاعك، سواء الجزء الشكلي أو الوظيفي. يعني لو اخترت داتا ستراكشر غلط، ممكن تكتب كود طويل ومعقد عشان تعمل حاجة بسيطة، والعكس صحيح.\n\n### أنواع البيانات وهياكلها\n\nالبيانات نفسها ليها أنواع:\n*   **الأنواع البدائية (Primitive)**: زي الأرقام الصحيحة (Integer)، العشرية (Float)، الحروف (Char)، والمؤشرات (Pointer). دي حاجات أساسية الكمبيوتر بيفهمها مباشرة.\n*   **الأنواع غير البدائية (Non-Primitive)**: ودي بقى اللي بنبنيها إحنا عشان ننظم البيانات المعقدة أكتر. بتتقسم لنوعين:\n    *   **خطية (Linear)**: زي الـ Array، الـ Linked List، الـ Stack، والـ Queue. كل عنصر مرتبط باللي قبله أو بعده.\n    *   **غير خطية (Non-Linear)**: ودي بقى اللي فيها علاقات أكتر تعقيداً زي الـ **Trees** (شجر) والـ **Graphs** (رسوم بيانية).\n\n### أداء الكود: السرعة والمساحة\n\nلما بنكتب كود، أهم حاجة بنفكر فيها هو **أداء الكود (Performance)**. الأداء ده بنقيسه بحاجتين أساسيتين:\n1.  **الوقت (Time)**: يعني الكود بتاعك بياخد وقت قد إيه عشان يتنفذ؟\n2.  **المساحة (Space)**: يعني الكود بتاعك بيستهلك مساحة من الذاكرة قد إيه؟\nطبعًا كل ما كان الوقت والمساحة أقل، كل ما كان البرنامج **أفضل وأكفأ**. ممكن يكون فيه أكتر من طريقة تحل بيها نفس المشكلة، بس مش كلهم بنفس الكفاءة.\n\n### تحليل التعقيد (Complexity Analysis)\n\nهنا بقى بنخش في الجد! عشان نقيس كفاءة الألجوريزم والداتا ستراكشر بتاعتنا، بنستخدم حاجة اسمها تحليل التعقيد. ده بيساعدنا نعرف الكود بتاعنا هيتصرف إزاي لما حجم البيانات يكبر. عندنا 3 حالات رئيسية:\n*   **أفضل حالة (Best Case)**: ودي أسرع سيناريو ممكن يحصل، بنعبر عنها بـ Omega notation (Ω).\n*   **أسوأ حالة (Worst Case)**: ودي أبطأ سيناريو، وبنعبر عنها بـ **Big O notation (O)**. دي اللي بنركز عليها أكتر عشان نعرف أقصى سوء أداء ممكن يوصله برنامجنا.\n*   **الحالة المتوسطة (Average Case)**: ودي الأداء المتوقع في أغلب الأحيان، وبنعبر عنها بـ Theta notation (Θ).\nفهمك للمفاهيم دي هيخليك **مهندس برمجيات حقيقي** مش مجرد كاتب أكواد!",
+    "resources": {
+      "pdf": "/materials/DS-401/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89.pdf",
+      "sheet": "/materials/DS-401/%D8%A7%D9%84%D8%B4%D9%8A%D8%AA 1.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هو التعريف الأساسي لهيكل البيانات (Data Structure)؟",
+        "options": [
+          "أ. مجموعة من الأوامر لتنفيذ مهمة معينة.",
+          "ب. طريقة لتنظيم البيانات لاستخدامها بكفاءة.",
+          "ج. برنامج يستخدم هياكل البيانات.",
+          "د. لغة برمجة لتصميم البرامج."
+        ],
+        "answer": "ب. طريقة لتنظيم البيانات لاستخدامها بكفاءة.",
+        "explanation": "الداتا ستراكشر يا معلم هي أساسًا طريقة بنرتب بيها البيانات بتاعتنا عشان نقدر نوصلها ونستخدمها بأسرع وأكفأ شكل ممكن، زي ما تكون بتنظم دولابك بالظبط!"
+      },
+      {
+        "type": "tf",
+        "question": "يتكون البرنامج (Program) من الخوارزمية (Algorithm) فقط.",
+        "answer": "خطأ",
+        "explanation": "لأ يا صاحبي، البرنامج مش ألجوريزم بس! البرنامج الصح عبارة عن **Algorithm + Data Structure**. الاتنين بيكملوا بعض عشان البرنامج يشتغل صح ويكون كفء."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من التالي يعتبر هيكل بيانات غير بدائي وخطّي (Non-Primitive Linear Data Structure)؟",
+        "options": [
+          "أ. Integer",
+          "ب. Trees",
+          "ج. Array",
+          "د. Pointer"
+        ],
+        "answer": "ج. Array",
+        "explanation": "الـ Integer والـ Pointer دول Primitive (بدائية)، والـ Trees دي Non-Linear (غير خطية). الـ Array هي اللي Non-Primitive و Linear، يعني عناصرها مترتبة ورا بعض بشكل خطي."
+      },
+      {
+        "type": "fitb",
+        "question": "يتم قياس أداء الكود بحاجتين أساسيتين هما: __________ و __________ .",
+        "answer": "الوقت, المساحة",
+        "explanation": "عشان تعرف كودك ده جامد ولا لأ، بتبص على حاجتين: هياخد **وقت** قد إيه عشان يتنفذ، وهيستهلك **مساحة** قد إيه من الذاكرة. كل ما قلوا، كل ما كان الكود أحسن."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من رموز التعقيد التالية (Asymptotic Notations) يصف 'أسوأ حالة' (Worst Case) لأداء الألجوريزم؟",
+        "options": [
+          "أ. Omega (Ω)",
+          "ب. Theta (Θ)",
+          "ج. Big O (O)",
+          "د. Delta (Δ)"
+        ],
+        "answer": "ج. Big O (O)",
+        "explanation": "لما بنتكلم عن 'أسوأ حالة' (Worst Case)، اللي هو أقصى أداء سيء ممكن يوصله برنامجك، بنستخدم رمز **Big O (O)**. ده مهم عشان نعرف حدود برنامجنا في أسوأ الظروف."
+      },
+      {
+        "type": "tf",
+        "question": "البرنامج الذي يستخدم هيكل البيانات يُعرف باسم 'Implementation'.",
+        "answer": "خطأ",
+        "explanation": "ركز يا دحيح! الـ 'Implementation' هو البرنامج اللي **بينفذ** الداتا ستراكشر نفسها. لكن البرنامج اللي **بيستخدم** الداتا ستراكشر دي اسمه 'Client Program'. في فرق كبير بينهم!"
+      },
+      {
+        "type": "fitb",
+        "question": "من أمثلة هياكل البيانات غير البدائية وغير الخطية (Non-Primitive Non-Linear Data Structures) الـ __________ والـ __________ .",
+        "answer": "Trees, Graphs",
+        "explanation": "لما البيانات تكون علاقاتها معقدة ومش ماشية ورا بعضها خطيًا، بنستخدم حاجات زي الـ **Trees** (شجر) اللي ليها فروع، أو الـ **Graphs** (رسوم بيانية) اللي بتربط حاجات ببعضها بشبكة."
+      }
+    ]
+  },
+  {
+    "id": "ds_401_lecture_2",
+    "subjectId": "DS-401",
+    "lectureId": "lecture_2",
+    "title": "فك شفرة الكود: دليلك السريع لفهم الـ Time Complexity",
+    "summary": "يا جدعان الحاسبات، صباح الفل! النهاردة جايبلكم **زتونة** موضوع مهم جداً في حياتنا كـ مبرمجين: إزاي نقيم **أداء الكود** بتاعنا؟ بنتكلم عن الـ **Time Complexity**. الموضوع ده ممكن يبان معقد في الأول، بس بعد ما نخلصه هتبقى معلم فيه وتعرف الكود بتاعك هيشتغل إزاي مع أي حجم بيانات.\n\n### إيه هو الـ Time Complexity وليه مهم؟\nبص يا معلم، الـ **Time Complexity** ده باختصار بيقولك الكود بتاعك هياخد وقت قد إيه عشان يتنفذ كل ما حجم الـ `Input` (الـ `n`) يزيد. مش بنقيس بالثواني بالظبط، لأ، بنقيس بعدد العمليات اللي بتتعمل. ليه ده مهم؟ عشان لو بتعمل برنامج هيشتغل على بيانات ضخمة، لازم الكود بتاعك يكون **فعال وسريع**، وإلا العميل هيزهق ويقفل البرنامج. كل ما الكود يبقى أسرع وأكفأ، كل ما يكون أحسن.\n\n### قواعد اللعبة: إزاي بنحسبها؟\n*   **العمليات البسيطة (O(1))**: أي سطر كود بيعمل عملية واحدة زي `X=1;` أو `Z=x+y;`، ده بيتاخد بـ `1`. مهما كان الـ `Input`، هيعمل العملية دي مرة واحدة. ده بنقول عليه **O(1)**، يعني `Constant Time`، وده أسرع حاجة ممكن توصلها.\n*   **الـ Loops العادية (O(n))**: لما تلاقي `for` loop بتلف من `1` لـ `n` (أو من `0` لـ `n-1`) وبتزود الـ `i` بواحد (أو بتنقصها بواحد) زي `i++` أو `i--`، دي بنعتبرها `n` عملية. يعني لو الـ `n` بـ `100`، الـ loop هتلف `100` مرة. ده بنقول عليه **O(n)**، يعني `Linear Time`.\n*   **الـ Nested Loops (O(n^2))**: لو عندك `for` loop جواها `for` loop تانية، هنا بقى بتضرب عدد اللفات في بعض. لو الأولى `n` والتانية `n`، يبقى الإجمالي **n * n** يعني **O(n^2)**. دي بتبقى أبطأ بكتير جداً لما الـ `n` تكبر، وحاول تتجنبها لو تقدر.\n*   **الـ Loops اللي فيها ضرب أو قسمة (O(log n))**: ودي بقى اللوب اللي بتلاقي الـ `i` بتتضرب في `2` أو بتتقسم على `2` في كل لفة (مثال: `i*2` أو `j=j/3`). دي مش بتلف `n` مرة، لأ دي بتلف عدد مرات أقل بكتير، بنسميها **O(log n)**.\n\n### الـ Big O Notation: الخلاصة والزتونة!\n*   لما تحسب مجموع العمليات (زي `1 + n` أو `1 + n + n^2`)، الـ **Big O** بيقولك خد **أكبر أس** بس، وشيل أي **ثوابت**. يعني `1 + n` تبقى **O(n)**، و `1 + n + n^2` تبقى **O(n^2)**. بنعمل كده عشان احنا بنهتم بـ **المبالغة** في الأداء لما الـ `n` تكبر أوي.\n*   ولو عندك لوبين ورا بعض (مش جوه بعض)، بتجمع تعقيد كل واحدة. لكن لو واحدة `O(n)` والتانية `O(log n)`، الناتج النهائي هيكون **O(n)** لأن `n` أكبر بكتير من `log n` وبتسيطر عليها. أما لو لوب جوه لوب، بتضرب التعقيد. يعني `O(n)` جوه `O(log n)` يبقى **O(n log n)**.\n\n**أهم حاجة** تفهمها إننا بندور على **أسوأ سيناريو** (Worst Case) عشان نعرف الكود بتاعنا ممكن ياخد وقت قد إيه في أقصى الظروف. ودي كانت **زتونة** الـ **Time Complexity** يا صحبي! ذاكر الأمثلة كويس هتلاقي الموضوع سهل جداً.",
+    "resources": {
+      "pdf": "/materials/DS-401/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+      "sheet": "/materials/DS-401/%D8%B4%D9%8A%D8%AA 2.pdf",
+      "assignments": "/materials/DS-401/as-2.pdf"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هو الـ Time Complexity للسطور البرمجية التالية:\n`X = 1;\nY = 2;\nZ = X + Y;\nPrint Z;`",
+        "options": [
+          "O(n)",
+          "O(log n)",
+          "O(1)",
+          "O(n^2)"
+        ],
+        "answer": "O(1)",
+        "explanation": "بص يا معلم، كل سطر من دول بيعمل عملية واحدة بس ومبتعتمدش على حجم الـ Input. عشان كده بنقول عليها `Constant Time` أو **O(1)**، يعني أسرع حاجة."
+      },
+      {
+        "type": "tf",
+        "question": "عند حساب الـ Big-O Notation، نقوم دائمًا بإهمال الثوابت والحدود ذات الدرجة الأقل.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "بالظبط كده! الـ Big-O بيركز على `Worst Case` والأداء لما الـ `n` تكبر أوي، فساعتها الثوابت والحدود الصغيرة مبتبقاش مؤثرة وبنطنشها."
+      },
+      {
+        "type": "fitb",
+        "question": "حلقة الـ `for` التي يتم فيها مضاعفة أو تقسيم المتغير في كل تكرار (مثل `i = i * 2` أو `j = j / 3`) يكون لها عادةً تعقيد زمني من النوع O(_______).",
+        "options": [],
+        "answer": "log n",
+        "explanation": "لما تلاقي الـ `loop` بتضرب أو تقسم المتغير بتاعها، اعرف إنها `log n` على طول. دي بتخلص في عدد لفات أقل بكتير من الـ `loop` العادية."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الـ Time Complexity لحلقتين `for` متداخلتين (nested loops)، كلتاهما تتكرر `n` من المرات (على سبيل المثال: `for i=0 to n { for j=0 to n { ... } }`)؟",
+        "options": [
+          "O(n)",
+          "O(log n)",
+          "O(n^2)",
+          "O(n log n)"
+        ],
+        "answer": "O(n^2)",
+        "explanation": "لما يكون عندك `loop` جوه `loop`، بتضرب التعقيد بتاعهم في بعض. لو الاتنين `n`، يبقى `n * n` اللي هي **O(n^2)**."
+      },
+      {
+        "type": "tf",
+        "question": "إذا كان هناك خوارزمية تتكون من جزأين مستقلين، أحدهما بتعقيد O(n) والآخر بتعقيد O(log n)، فإن التعقيد الكلي للخوارزمية سيكون O(n log n).",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "خد بالك، هنا بيقولك 'جزأين مستقلين' يعني ورا بعض، مش جوه بعض. في الحالة دي بنجمع التعقيد وبناخد الأكبر. `n` أكبر من `log n`، فالناتج هيكون **O(n)**. لو كانوا متداخلين، كنا ضربناهم."
+      },
+      {
+        "type": "fitb",
+        "question": "خوارزمية تحتوي على حلقة `for` تتكرر `n` من المرات، وداخلها حلقة `for` أخرى تقوم بقسمة المتغير الخاص بها على `3` في كل خطوة، سيكون لها تعقيد زمني من النوع O(_______).",
+        "options": [],
+        "answer": "n log n",
+        "explanation": "الحلقة اللي بره `O(n)`، والحلقة اللي جوه بتقسم يبقى `O(log n)`. بما إنهم متداخلين (nested)، بنضربهم في بعض يبقى `n * log n` اللي هي **O(n log n)**."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من تعقيدات الوقت التالية يمثل الخوارزمية الأكثر كفاءة (الأسرع) لأحجام الإدخال الكبيرة `n`؟",
+        "options": [
+          "O(n^2)",
+          "O(n log n)",
+          "O(n)",
+          "O(1)"
+        ],
+        "answer": "O(1)",
+        "explanation": "الـ **O(1)** هو الأسرع دايماً لأن وقت التنفيذ بتاعه ثابت ومبيتغيرش مهما حجم الـ `Input` كبر. ده أحسن سيناريو ممكن توصلّه."
+      }
+    ]
+  },
+  {
+    "id": "ds_401_lecture_3",
+    "subjectId": "DS-401",
+    "lectureId": "lecture_3",
+    "title": "الدحيح يفك شفرة هياكل البيانات والعمليات الرياضية: من الـStack للميزان!",
+    "summary": "يا جدعان، يا دفعة الحاسبات اللي بتشرفونا، الدحيح جايلكم النهاردة بـ\"زتونة\" محاضرة هتخليكم تفهموا الدنيا ماشية إزاي في عالم **هياكل البيانات** اللي ممكن تكون مكلكعة شوية. ركزوا معايا عشان نطلع من هنا فاهمين ومذاكرين!\n\n### أساسيات هياكل البيانات (Data Structures)\nبص يا صديقي، هياكل البيانات دي زي أدواتك اللي بتستخدمها عشان ترتب وتنظم معلوماتك في الكمبيوتر. عندنا نوعين أساسيين:\n*   **الـPrimitive**: دي الحاجات البدائية زي الأرقام الصحيحة (Integer)، الأرقام العشرية (float)، الحروف (Char)، وحتى الـPointers اللي بتشاور على أماكن في الذاكرة.\n*   **الـNon-Primitive**: ودي بقى هياكل أكتر تعقيدًا. بتتقسم لنوعين:\n    *   **الـLinear**: يعني البيانات مترتبة ورا بعضها زي الطابور، أمثلتها: الـArray، الـLinked List، الـ**Stack**، والـQueue.\n    *   **الـNon-Linear**: البيانات مش مترتبة ورا بعضها بشكل مباشر، زي الشجر والشبكات، أمثلتها: الـTrees والـGraphs.\n\n### الـLinked Stack الساحر\nالـ**Stack** ده واحد من أبطال الـ**Linear** data structures. فكرته بسيطة: زي رصة الأطباق، اللي بتحطه آخر واحد هو اللي بتشيله أول واحد (LIFO - Last In, First Out). المحاضرة هنا بتوضح الـ**Linked Stack**، وده معناه إن الـStack ده مش مبني على Array ثابتة، لأ ده كل عنصر فيه عبارة عن 'نود' (Node) مربوطة باللي قبلها واللي بعدها، وده بيديله مرونة رهيبة في التعامل مع البيانات.\n\n### فك شفرة العمليات: Infix, Postfix, Prefix\nنيجي بقى للحتة الجامدة، إزاي الكمبيوتر بيفهم العمليات الحسابية المعقدة دي؟ إحنا كبشر بنستخدم الـ**Infix** (زي 5 + 2)، يعني العملية في النص. بس الكمبيوتر بيفضل أشكال تانية زي الـ**Postfix** (5 2 +) أو الـ**Prefix** (+ 5 2). ليه؟ عشان يتجنب اللخبطة في ترتيب العمليات (مين يتضرب قبل مين ومين يتجمع). التحويل من Infix للـPostfix أو الـPrefix بيخلي الموضوع أبسط للآلة.\n\n### تقييم الـPostfix بالـStack (الـStack هو الحل!)\nلما نيجي نحسب قيمة تعبير مكتوب بالـ**Postfix**، بنستخدم الـ**Stack** ده. بنمشي على التعبير من **الشمال لليمين**. لو لقينا رقم، بنحطه في الـStack. لو لقينا عملية (+، -، *، /)، بنطلع آخر رقمين من الـStack، نعمل عليهم العملية، ونرجع الناتج للـStack تاني. فيه نقطة مهمة جداً في الطرح والقسمة: الرقم اللي مؤشره **الأقل** هو اللي بيكون الأول في العملية، والرقم اللي مؤشره الأعلى هو التاني. يعني لو طلعت 5 و 2 من الـStack، ولقيت علامة طرح، هتعمل 5 - 2 (الخمسة هي اللي مؤشرها أقل، كانت دخلت الأول).\n\n### تقييم الـPrefix (المقلوب!)\nأما الـ**Prefix** بقى، الموضوع شبه الـPostfix بس بالمقلوب! بنمشي على التعبير من **اليمين للشمال**. نفس الفكرة، الأرقام بتخش الـStack، والعمليات بتطلع رقمين وتعمل عليهم العملية وترجع الناتج. بس هنا في الطرح والقسمة، الرقم اللي مؤشره **الأعلى** هو اللي بيكون الأول في العملية، والرقم اللي مؤشره الأقل هو التاني. يعني لو طلعت 5 و 2 من الـStack، ولقيت علامة طرح، هتعمل 2 - 5 (الاتنين هي اللي مؤشرها الأعلى، كانت دخلت الآخر).\n\nالخلاصة يا شباب، فهمكم لـ**هياكل البيانات** زي الـStack وإزاي بيستخدم في التعامل مع الـExpressions (الـPostfix والـPrefix) ده بيفتح لكم أبواب كتير في فهم برمجة الـCompilers والـInterpreters. ركزوا على الأمثلة اللي في المحاضرة عشان تثبت المعلومة كويس!",
+    "resources": {
+      "pdf": "/materials/DS-401/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9.pdf",
+      "sheet": "/materials/DS-401/%D8%B4%D9%8A%D8%AA 3.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "أي من هياكل البيانات التالية تُعتبر Non-linear (غير خطية)؟",
+        "options": [
+          "Array",
+          "Linked List",
+          "Stack",
+          "Trees"
+        ],
+        "answer": "Trees",
+        "explanation": "بص يا صاحبي، الـArray والـLinked List والـStack دول كلهم بيخزنوا البيانات بشكل خطي (ورا بعض). الـTrees بقى والـGraphs دول اللي بيكسروا القاعدة وبيبقوا غير خطيين. فالإجابة أكيد Trees."
+      },
+      {
+        "type": "tf",
+        "question": "في تقييم تعبير Postfix، يتم معالجة التعبير من اليمين إلى اليسار.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "ركز يا هندسة! الـPostfix بنمشي عليه من **الشمال لليمين** عشان نطلّع الأرقام ونعمل العمليات. اللي بيمشي من اليمين للشمال ده الـPrefix."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي بنية البيانات المستخدمة بشكل شائع لتقييم تعبيرات Postfix؟",
+        "options": [
+          "Queue",
+          "Array",
+          "Stack",
+          "Linked List"
+        ],
+        "answer": "Stack",
+        "explanation": "الـStack هو البطل بتاعنا هنا! فكرة الـLIFO (آخر واحد يدخل أول واحد يطلع) دي هي اللي بتخليه مثالي لتقييم الـPostfix والـPrefix. بيحفظ الأرقام مؤقتًا لحد ما يلاقي عملية."
+      },
+      {
+        "type": "fitb",
+        "question": "عند تقييم تعبير Postfix لعمليات الطرح أو القسمة، الرقم الذي له مؤشر ____ هو المعامل الأول.",
+        "options": [],
+        "answer": "أقل",
+        "explanation": "لما بتيجي تعمل طرح أو قسمة في الـPostfix، بتطلع رقمين من الـStack. الرقم اللي كان دخل الـStack بدري (يعني مؤشره أقل) هو اللي بيكون الأول في العملية. يعني لو طلعت 5 وبعدين 2، ولقيت طرح، هتعمل 5 - 2."
+      },
+      {
+        "type": "mcq",
+        "question": "حوّل التعبير Infix التالي إلى Postfix: `5 / 5 + 2 - 1 * 9`",
+        "options": [
+          "5 5 / 2 + 1 9 * -",
+          "5 5 / + 2 1 9 * -",
+          "5 5 / 2 1 9 * + -",
+          "5 5 / 2 + 9 1 * -"
+        ],
+        "answer": "5 5 / 2 + 1 9 * -",
+        "explanation": "دي محتاجة تركيز! الأولويات بتقول إن الضرب والقسمة قبل الجمع والطرح. فـ (5/5) و (1*9) هيتعملوا الأول. وبعدين الجمع والطرح. التعبير اللي في المحاضرة هو ده بالظبط: `(5/5) + (2) - (1*9)` بتتحول لـ `(5 5 /) (2) + (1 9 *) -` وفي الآخر `5 5 / 2 + 1 9 * -`"
+      },
+      {
+        "type": "tf",
+        "question": "في تقييم تعبير Prefix لعمليات الطرح أو القسمة، الرقم الذي له مؤشر أعلى هو المعامل الأول.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "بالظبط كده! عكس الـPostfix. في الـPrefix لما بنمشي من اليمين للشمال، الرقم اللي بيطلع آخر واحد من الـStack (يعني مؤشره أعلى) هو اللي بيكون الأول في العملية. يعني لو طلعت 5 وبعدين 2، ولقيت طرح، هتعمل 2 - 5."
+      },
+      {
+        "type": "fitb",
+        "question": "هياكل البيانات غير الخطية (Non-linear) تشمل الـTrees والـ____.",
+        "options": [],
+        "answer": "Graphs",
+        "explanation": "يا عم الحاج، الموضوع بسيط! هياكل البيانات بتتقسم لخطية وغير خطية. الخطية زي الـArray والـLinked List والـStack. والغير خطية هما الـTrees والـGraphs. مفيش غيرهم في المحاضرة دي."
+      }
+    ]
+  },
+  {
+    "id": "ds_401_lecture_4",
+    "subjectId": "DS-401",
+    "lectureId": "lecture_4",
+    "title": "الدحيح يشرح: الـ Linked List من الألف للياء (كل اللي محتاجه عشان تفهمها صح!)",
+    "summary": "يا هلا بطلاب حاسبات ومعلومات، الدحيح معاكم! النهاردة هنفك طلاسم واحدة من أهم الـ **Data Structures** اللي هتفضل معاك طول عمرك، وهي الـ **Linked List**.\n\n### إيه هي الـ Linked List وليه بنستخدمها؟\nبص يا صاحبي، تخيل إن الـ **Array** عامل زي عمارة سكنية، لازم تحدد عدد الشقق اللي فيها من الأول ومتقدرش تزود أو تنقص بسهولة. الـ Linked List بقى عاملة زي سلسلة عربيات قطر، كل عربية (اللي بنسميها **Node**) متوصلة بالعربية اللي بعدها. الميزة هنا إنك مش محتاج تحدد الحجم من الأول، كل ما تحتاج تضيف عنصر، بتضيف عربية جديدة في السلسلة، وكل عربية فيها حاجتين: **البيانات بتاعتها** (Data) و **مؤشر** (Pointer) بيقولك فين العربية اللي بعدها. وفي أول السلسلة بيكون فيه حاجة اسمها **Head** بتشاور على أول عربية.\n\n### أنواع الـ Linked List: مش نوع واحد يا معلم!\nعندنا كذا نوع، وكل واحد ليه استخداماته ومميزاته:\n*   **Singly Linked List**: ده أبسط نوع، كل Node فيها Data ومؤشر واحد بس بيشاور على الـ Node اللي بعدها. يعني تمشي في اتجاه واحد بس، لقدام.\n*   **Doubly Linked List**: ده بقى الأقوى شوية، كل Node فيها Data ومؤشرين: واحد للـ Node اللي بعدها (Next) وواحد للـ Node اللي قبلها (Previous). وده بيخليك تقدر تمشي في الاتجاهين، قدام وورا، وده بيسهل عمليات **الإضافة والحذف**.\n*   **Circular Linked List**: هنا بقى اللعب كله، آخر Node مش بتشاور على NULL زي الباقيين، لأ، دي بتشاور على **أول Node** في الـ List. يعني مفيش نهاية، بتلف في دايرة مقفولة.\n*   Circular Doubly Linked List: دي بقى ميكس بين الاتنين اللي فاتوا، يعني دائرية وفي نفس الوقت تقدر تمشي فيها في الاتجاهين.\n\n### عمليات الـ Singly Linked List: أساسيات لازم تعرفها\nأهم العمليات اللي بنعملها على الـ Singly Linked List:\n1.  **Traversal (المرور)**: يعني تمشي على كل الـ Nodes بالترتيب، من الـ **Head** لحد ما توصل للـ **NULL** (اللي هو نهاية السلسلة).\n2.  Searching (البحث): تدور على قيمة معينة، برضه بتمشي Node Node لحد ما تلاقيها أو تخلص الـ List.\n3.  Length (الطول): بتعد عدد الـ Nodes اللي في الـ List.\n4.  **Insertion (الإضافة)**: ممكن تضيف Node جديدة في البداية (بتخليها هي الـ Head الجديدة)، أو في النهاية (بتوصلها بآخر Node)، أو في مكان معين (بتدخلها بين Node واللي بعدها).\n5.  Deletion (الحذف): برضه ممكن تحذف Node من البداية (بتشيل الـ Head القديم)، أو من النهاية (بتشيل آخر Node)، أو من مكان معين (بتخلي الـ Node اللي قبلها تشاور على اللي بعدها وتتجاهل اللي في النص).\n6.  Modification (التعديل): بتغير قيمة الـ Data في Node معينة بعد ما توصلها.\n\n### الـ Doubly Linked List: قوة إضافية!\nزي ما قلنا، الـ Doubly Linked List بتديك ميزة الـ **Next** والـ **Previous** pointers. ده بيخلي عمليات زي الـ Traversal أسهل وأكثر مرونة (تمشي يمين وشمال). وعمليات الـ Insertion والـ Deletion فيها برضه بتتم بنفس الفكرة بس مع تعديل المؤشرين (Next و Previous) عشان تحافظ على الترابط في الاتجاهين. يعني من الآخر، لو محتاج مرونة في الحركة أو التعديل، الـ Doubly Linked List هي **اختيارك الأمثل**.",
+    "resources": {
+      "pdf": "/materials/DS-401/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9.pdf",
+      "sheet": "/materials/DS-401/%D8%B4%D9%8A%D8%AA 4.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هي الميزة الأساسية للـ Linked List مقارنة بالـ Array؟",
+        "options": [
+          "تخزين البيانات في ذاكرة متجاورة.",
+          "سهولة الوصول المباشر لأي عنصر باستخدام الفهرس.",
+          "إمكانية تغيير حجمها ديناميكياً بسهولة.",
+          "سرعة البحث عن العناصر دائمًا."
+        ],
+        "answer": "إمكانية تغيير حجمها ديناميكياً بسهولة.",
+        "explanation": "الـ Linked List مش بتحتاج تحدد حجمها من الأول زي الـ Array، بتقدر تزود أو تنقص Nodes بسهولة حسب احتياجك، وده بيخليها مرنة جداً في إدارة الذاكرة."
+      },
+      {
+        "type": "tf",
+        "question": "في الـ Singly Linked List، كل Node تحتوي على مؤشر يشير إلى الـ Node السابقة لها.",
+        "answer": "خطأ",
+        "explanation": "الـ Singly Linked List فيها مؤشر واحد بس بيشاور على الـ Node اللي بعدها (next)، مش اللي قبلها. اللي فيها مؤشر للـ Node اللي قبلها دي الـ Doubly Linked List يا برنس."
+      },
+      {
+        "type": "mcq",
+        "question": "أي نوع من الـ Linked Lists يسمح بالتنقل في الاتجاهين (الأمام والخلف)؟",
+        "options": [
+          "Singly Linked List",
+          "Circular Linked List",
+          "Doubly Linked List",
+          "Array (ده مش Linked List أصلاً!)"
+        ],
+        "answer": "Doubly Linked List",
+        "explanation": "الـ Doubly Linked List هي اللي بتميزها إن كل Node فيها مؤشرين، واحد للـ 'Next' وواحد للـ 'Previous'، وده بيخليك تتحرك في الاتجاهين براحتك."
+      },
+      {
+        "type": "fitb",
+        "question": "عملية إضافة Node جديدة في بداية الـ Singly Linked List تتضمن جعل الـ Node الجديدة تشير إلى الـ __________ الحالي.",
+        "options": [],
+        "answer": "Head",
+        "explanation": "لما بتضيف Node في الأول، بتخلي الـ Node الجديدة دي تشاور على الـ Head القديم، وبعدين الـ Head نفسه بيشاور على الـ Node الجديدة دي عشان تبقى هي أول واحدة في الـ List."
+      },
+      {
+        "type": "tf",
+        "question": "في الـ Circular Linked List، آخر Node تشير إلى NULL.",
+        "answer": "خطأ",
+        "explanation": "لأ يا معلم، الـ Circular Linked List اسمها 'دائرية' عشان آخر Node فيها مش بتشاور على NULL، دي بتشاور على أول Node في الـ List، عشان تفضل تلف في دايرة."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي الخطوة الأولى عند البحث عن عنصر في Singly Linked List؟",
+        "options": [
+          "القفز مباشرة إلى منتصف القائمة.",
+          "البدء من الـ Head وتتبع الـ Nodes.",
+          "استخدام الفهرس للوصول المباشر.",
+          "إعادة ترتيب القائمة أبجديًا أولاً."
+        ],
+        "answer": "البدء من الـ Head وتتبع الـ Nodes.",
+        "explanation": "في الـ Linked List، عشان توصل لأي عنصر لازم تبدأ من الـ Head وتمشي Node Node لحد ما تلاقي اللي بتدور عليه، مفيش 'فهرس مباشر' زي الـ Array."
+      },
+      {
+        "type": "fitb",
+        "question": "لكي تحذف Node من منتصف الـ Singly Linked List، يجب عليك تعديل مؤشر الـ __________ الخاص بالـ Node السابقة لتشير إلى الـ Node التي تلي الـ Node المحذوفة.",
+        "options": [],
+        "answer": "next",
+        "explanation": "عشان تشيل Node من النص، الـ Node اللي قبلها لازم تعرف إن اللي كانت بتشاور عليه ده اتلغى، فبتخليها تشاور على الـ Node اللي بعد اللي انت حذفتها على طول، وده بيتم عن طريق تعديل الـ 'next' بتاعها."
       }
     ]
   }
