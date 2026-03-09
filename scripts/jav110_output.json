@@ -1,0 +1,1735 @@
+[
+  {
+    "id": "jav_110_lecture_1",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_1",
+    "title": "المحاضرة الأولى: أساسيات لغة Java",
+    "summary": "يا دفعة يا جامدة، ركزوا معايا عشان النهاردة هنفرم ونفهم **Java** من الألف للياء، وكأنه ساندويتش \"زتونة\" معلومات هتخليكوا دحيحة بجد!\n\n### مقدمة يا بوب عن Java:\nبص يا صاحبي، **Java** دي لغة برمجة أسطورية، اتعملت سنة **1995**، وبتملكها شركة **Oracle**. تخيل إنها شغالة على أكتر من **3 مليار جهاز**! استخداماتها بقى؟ حدث ولا حرج: **تطبيقات الموبايل** (خاصة أندرويد)، تطبيقات الديسك توب، الويب، سيرفرات الويب والتطبيقات، الألعاب، وربط قواعد البيانات. يعني من الآخر، Java في كل حتة!\n\n### ليه يا عم نستخدم Java بالذات؟ (المميزات اللي تخليها اختيارك):\nليه تختار Java؟ عشان ببساطة هي **Multi-platform** (شغالة على ويندوز، ماك، لينكس... أي حاجة تخطر على بالك)، ومطلوبة جداً في سوق العمل. كمان هي سهلة التعلم، **Open-source و Free** (يعني ببلاش يا معلم)، وآمنة وسريعة وقوية. ومتقلقش لو احتجت مساعدة، ليها **Community support ضخم** من ملايين المطورين. الأهم من ده كله، إنها لغة **Object-Oriented** (OOP)، وده بيخلي الكود منظم جداً وتقدر تستخدم أجزاء منه أكتر من مرة، وده بيوفر عليك وقت وفلوس.\n\n### إزاي تشغل Java عندك؟ (الخطوات العملية):\nأول حاجة، شوفها متسطبة عندك ولا لأ. افتح الـ **CMD** (Command Prompt) واكتب الأمر `**java -version**`. لو طلعتلك معلومات عن الإصدار، يبقى أنت زي الفل. لو لأ، يبقى تنزلها ببلاش من الموقع الرسمي بتاع **oracle.com**. بعد ما تسطبها، عيد نفس الأمر تاني عشان تتأكد إن كل حاجة تمام.\n\n### بيئة التطوير المتكاملة (IDE) يا معلم:\nعشان تكتب كود Java بسهولة وتنظيم، بنستخدم برامج اسمها **IDE** (Integrated Development Environment). دي زي محرر أكواد بس على \"التقيل\"، بتساعدك في كل حاجة. أشهر أمثلتها: **IntelliJ IDEA**، Netbeans، و Eclipse. مفيدة جداً لما يكون عندك مشاريع كبيرة وفيها ملفات Java كتير.\n\n### يلا بينا نكتب أول برنامج Java (Hello World):\nكل تطبيق Java بيبدأ بـ **Class**، ولازم اسم الـ Class ده يكون **نفس اسم الملف** بالضبط (يعني لو الكلاس اسمه `Test` يبقى الملف `Test.java`). الكود الأساسي لـ \"Hello World\" بسيط: `public static void main(String[] args) { System.out.println(\"Hello World\"); }`. عشان تشغله، بتعمل خطوتين في الـ CMD:\n1.  **Compile** (تجميع الكود): `javac Test.java`\n2.  **Run** (تشغيل الكود): `java Test`\n\n### شويه أساسيات في الـ Syntax (القواعد):\n*   **Comments** (التعليقات): دي ملاحظات بتكتبها ليك أو لغيرك في الكود عشان تفهموا هو بيعمل إيه، والكومبايلر بيتجاهلها. فيه نوعين: `//` لسطر واحد، و `/* ... */` لأكتر من سطر.\n\n### أنواع البيانات (Data Types) يا صاحبي:\nدي بتحدد نوع وقيمة المتغيرات. فيه **8 Primitive Data Types** أساسية في Java:\n*   **`byte`, `short`, `int`, `long`**: دول للأرقام الصحيحة، وكل واحد ليه مدى معين وحجم في الذاكرة.\n*   **`float`, `double`**: دول للأرقام العشرية. الـ `float` بتكفي لـ 6-7 أرقام عشرية ولازم تحط `f` بعد الرقم، أما الـ `double` أدق (لـ 15 رقم).\n*   **`boolean`**: بتخزن قيمتين بس: `true` أو `false`.\n*   **`char`**: بتخزن حرف واحد (بين علامتي تنصيص فردية `' '`) أو قيمة ASCII المقابلة لحرف.\n\n### المتغيرات (Variables) والـ `final`:\nالمتغيرات دي اللي بتخزن فيها القيم. لو عايز تخلي قيمة متغير **ثابتة** ومحدش يقدر يغيرها بعد كده (يعني **Read-only**)، بتستخدم الكلمة المفتاحية `**final**` قبله. لو حاولت تغير قيمته، هتاخد **Error**.\n\n### طرق الطباعة (Printing Variables):\nبتستخدم `System.out.println()` عشان تطبع قيم المتغيرات أو أي نصوص على الشاشة. تقدر **Concatenate** (تجمع) النصوص مع المتغيرات باستخدام علامة `+`. ولو بتجمع أرقام، هيعملها عملية جمع حسابي عادية.\n\n### المعرفات (Identifiers) وقواعد التسمية:\nكل متغير لازم يكون ليه **اسم فريد** عشان Java تقدر تتعرف عليه. الأسماء دي اسمها **Identifiers**. فيه قواعد مهمة لتسميتها:\n*   ممكن تحتوي على حروف، أرقام، `_`، و `$`.\n*   لازم **تبدأ بحرف**.\n*   مفيش مسافات.\n*   **Case sensitive** (حساسة لحالة الأحرف)، يعني `myVar` غير `myvar`.\n*   مينفعش تستخدم **Reserved word** (الكلمات المحجوزة) زي `int` أو `boolean` كاسم متغير.\n\nوبكده نكون لمينا أهم نقط المحاضرة الأولى، شدوا حيلكم يا أبطال!",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89.pdf",
+      "sheet": "/materials/JAV-110/%D8%B4%D9%8A%D8%AA 1.pdf",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "متى تم إنشاء لغة البرمجة Java؟",
+        "options": [
+          "1990",
+          "1995",
+          "2000",
+          "2005"
+        ],
+        "answer": "1995",
+        "explanation": "زي ما المحاضرة قالت بالظبط، Java اتعملت سنة 1995."
+      },
+      {
+        "type": "mcq",
+        "question": "من هي الشركة المالكة للغة البرمجة Java حالياً؟",
+        "options": [
+          "Microsoft",
+          "Google",
+          "Oracle",
+          "Apple"
+        ],
+        "answer": "Oracle",
+        "explanation": "شركة Oracle هي اللي بتملك Java دلوقتي."
+      },
+      {
+        "type": "tf",
+        "question": "يتم تشغيل Java على أقل من مليار جهاز حول العالم.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "المحاضرة وضحت إن Java شغالة على أكتر من 3 مليار جهاز، مش أقل من مليار."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من التطبيقات التالية يمكن تطويرها باستخدام Java؟",
+        "options": [
+          "تطبيقات الويب فقط",
+          "تطبيقات الألعاب فقط",
+          "تطبيقات الموبايل والديسك توب والويب",
+          "تطبيقات قواعد البيانات فقط"
+        ],
+        "answer": "تطبيقات الموبايل والديسك توب والويب",
+        "explanation": "Java متعددة الاستخدامات وبتستخدم في كل دول وأكتر كمان، زي تطبيقات الموبايل والديسك توب والويب والسيرفرات."
+      },
+      {
+        "type": "fitb",
+        "question": "تُستخدم Java بشكل خاص في تطوير تطبيقات _______. (كلمة واحدة)",
+        "options": [],
+        "answer": "Android",
+        "explanation": "من أهم استخدامات Java هي تطبيقات الأندرويد للموبايل."
+      },
+      {
+        "type": "tf",
+        "question": "Java لا تعمل إلا على نظام تشغيل Windows.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "Java بتشتغل على منصات كتير زي Windows و Mac و Linux و Raspberry Pi، يعني 'Multi-platform'."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي إحدى المميزات الرئيسية للغة Java المتعلقة بسوق العمل؟",
+        "options": [
+          "ليس لها طلب كبير",
+          "طلبها محدود",
+          "ليس لها علاقة بسوق العمل",
+          "لها طلب كبير في سوق العمل"
+        ],
+        "answer": "لها طلب كبير في سوق العمل",
+        "explanation": "المحاضرة أكدت إن ليها طلب كبير جداً في سوق العمل الحالي."
+      },
+      {
+        "type": "tf",
+        "question": "Java ليست لغة مجانية ومفتوحة المصدر.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "Java مجانية ومفتوحة المصدر (Open-source and free)، يعني مش هتدفع فيها فلوس."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من الصفات التالية تصف لغة Java بشكل صحيح وفقاً للمحاضرة؟",
+        "options": [
+          "بطيئة وضعيفة",
+          "معقدة وصعبة التعلم",
+          "آمنة وسريعة وقوية",
+          "مغلقة المصدر ومدفوعة"
+        ],
+        "answer": "آمنة وسريعة وقوية",
+        "explanation": "المحاضرة قالت إنها Secure, fast and powerful."
+      },
+      {
+        "type": "fitb",
+        "question": "تتميز Java بدعم مجتمعي ضخم يتكون من عشرات الملايين من الـ ________. (كلمة واحدة)",
+        "options": [],
+        "answer": "Developers",
+        "explanation": "الدعم المجتمعي الضخم بيجي من ملايين المطورين اللي بيستخدموها وبيساعدوا بعض."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي الفائدة الرئيسية لكون Java لغة برمجة كائنية التوجه (Object-Oriented Language)؟",
+        "options": [
+          "تجعلها أسرع في التنفيذ",
+          "تسمح بإعادة استخدام الكود وتخفض التكاليف",
+          "لا توجد فائدة",
+          "تجعلها أكثر تعقيداً"
+        ],
+        "answer": "تسمح بإعادة استخدام الكود وتخفض التكاليف",
+        "explanation": "الـ OOP بتدي تنظيم للكود وبتخليك تقدر تستخدم أجزاء منه تاني، وده بيقلل تكاليف التطوير."
+      },
+      {
+        "type": "tf",
+        "question": "من الصعب على المبرمجين الذين يعرفون C++ أو C# التحول إلى Java.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "المحاضرة قالت إنها قريبة من C++ و C#، وده بيسهل على المبرمجين التحول ليها والعكس."
+      },
+      {
+        "type": "tf",
+        "question": "المحاضرة قدمت شرحاً مفصلاً لآلية عمل Java.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الجزء ده كان مجرد عنوان في المحاضرة (How Java Work)، لكن مفيش أي شرح فعلي لآلية عمل Java تم تقديمه في النص المتاح."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الأمر المستخدم للتحقق من تثبيت Java على جهاز الكمبيوتر في Command Prompt؟",
+        "options": [
+          "`java --version`",
+          "`check java`",
+          "`java -v`",
+          "`java -version`"
+        ],
+        "answer": "`java -version`",
+        "explanation": "الأمر الصحيح للتحقق من إصدار Java في الـ CMD هو `java -version`."
+      },
+      {
+        "type": "fitb",
+        "question": "إذا لم تكن Java مثبتة على جهازك، يمكنك تحميلها مجاناً من موقع ________. (كلمة واحدة)",
+        "options": [],
+        "answer": "oracle.com",
+        "explanation": "المحاضرة وضحت إن التحميل بيكون من الموقع الرسمي لـ Oracle."
+      },
+      {
+        "type": "tf",
+        "question": "إذا رأيت رسالة خطأ عند تشغيل `java -version`، فهذا يعني أن Java مثبتة بشكل صحيح.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لو شفت رسالة خطأ، ده معناه إن Java مش متسطبة أو مش متظبطة صح، لو متسطبة صح هتظهر معلومات الإصدار."
+      },
+      {
+        "type": "mcq",
+        "question": "أي مما يلي يعتبر مثالاً على بيئة تطوير متكاملة (IDE) للغة Java؟",
+        "options": [
+          "Notepad",
+          "Microsoft Word",
+          "IntelliJ IDEA",
+          "Paint"
+        ],
+        "answer": "IntelliJ IDEA",
+        "explanation": "IntelliJ IDEA، Netbeans، و Eclipse أمثلة لـ IDEs خاصة بـ Java اللي بتساعدك تكتب الكود."
+      },
+      {
+        "type": "fitb",
+        "question": "تُستخدم بيئات التطوير المتكاملة (IDE) بشكل خاص لإدارة مجموعات أكبر من ملفات ________. (كلمة واحدة)",
+        "options": [],
+        "answer": "Java",
+        "explanation": "الـ IDEs بتساعد في تنظيم وإدارة ملفات Java الكتير في المشاريع الكبيرة."
+      },
+      {
+        "type": "tf",
+        "question": "في Java، لا يشترط أن يتطابق اسم الكلاس (class name) مع اسم الملف (filename).",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "المحاضرة قالت بوضوح إن اسم الكلاس لازم يتطابق مع اسم الملف (مثلاً `Test.java` لـ `public class Test`)."
+      },
+      {
+        "type": "fitb",
+        "question": "الأمر المستخدم لتجميع (Compile) ملف Java باسم `Test.java` هو ________.",
+        "options": [],
+        "answer": "`javac Test.java`",
+        "explanation": "`javac` هو أمر الـ compiler الخاص بـ Java اللي بيحول الكود بتاعك لـ bytecode."
+      },
+      {
+        "type": "fitb",
+        "question": "الأمر المستخدم لتشغيل (Run) برنامج Java مجمع باسم `Test` هو ________.",
+        "options": [],
+        "answer": "`java Test`",
+        "explanation": "بعد الـ compile، بتستخدم `java` واسم الكلاس (بدون الامتداد .java) عشان تشغل البرنامج."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي الدالة الرئيسية (main method) في برنامج Java والتي يبدأ منها التنفيذ؟",
+        "options": [
+          "`public void main()`",
+          "`public static void start()`",
+          "`public static void main(String[] args)`",
+          "`void main(String args)`"
+        ],
+        "answer": "`public static void main(String[] args)`",
+        "explanation": "ده الـ Signature الكامل والصحيح لدالة الـ main في Java اللي بيبدأ منها تنفيذ أي برنامج."
+      },
+      {
+        "type": "tf",
+        "question": "`System.out.println()` تُستخدم لطباعة رسالة على الشاشة في Java.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "دي الجملة الأساسية لطباعة أي حاجة في الـ console في Java، وبتطبع سطر جديد بعد الرسالة."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الرمز المستخدم لإنشاء تعليق لسطر واحد (single-line comment) في Java؟",
+        "options": [
+          "`/*`",
+          "`//`",
+          "`#`",
+          "`<!--`"
+        ],
+        "answer": "`//`",
+        "explanation": "علامتين السلاش `//` بتخلي أي حاجة بعدها في نفس السطر تعليق، والكومبايلر بيتجاهلها."
+      },
+      {
+        "type": "fitb",
+        "question": "لإنشاء تعليق متعدد الأسطر (multi-line comment) في Java، نستخدم الرمزين ________ و ________.",
+        "options": [],
+        "answer": "`/*` و `*/`",
+        "explanation": "أي حاجة بين `/*` و `*/` بتعتبر تعليق متعدد الأسطر ومبتتنفذش."
+      },
+      {
+        "type": "tf",
+        "question": "التعليقات في Java يتم تنفيذها كجزء من الكود البرمجي.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "التعليقات دي للمبرمجين بس عشان يفهموا الكود، الـ compiler بيتجاهلها تماماً ومبيشوفهاش."
+      },
+      {
+        "type": "mcq",
+        "question": "كم عدد أنواع البيانات الأولية (Primitive Data Types) في Java؟",
+        "options": [
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "answer": "8",
+        "explanation": "المحاضرة قالت بوضوح إن فيه 8 أنواع بيانات أولية في Java (byte, short, int, long, float, double, boolean, char)."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Primitive data type لا تحتوي على أي طرق (methods) إضافية.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "ده تعريف الـ Primitive data type، إنها مجرد قيمة خام بدون أي دوال أو وظائف مرتبطة بيها، عكس الـ Object types."
+      },
+      {
+        "type": "mcq",
+        "question": "أي نوع بيانات أولي (Primitive) يستخدم لتخزين أرقام صحيحة تتراوح من -128 إلى 127؟",
+        "options": [
+          "`short`",
+          "`int`",
+          "`byte`",
+          "`long`"
+        ],
+        "answer": "`byte`",
+        "explanation": "الـ `byte` هو أصغر نوع للأرقام الصحيحة وحجمه 1 بايت بالمدى ده."
+      },
+      {
+        "type": "fitb",
+        "question": "نوع البيانات `float` يستخدم لتخزين الأرقام الكسرية ويكفي لتخزين من 6 إلى 7 أرقام ________. (كلمة واحدة)",
+        "options": [],
+        "answer": "عشرية",
+        "explanation": "الـ `float` دقتها أقل من الـ `double` وبتكفي لـ 6-7 أرقام بعد العلامة العشرية."
+      },
+      {
+        "type": "mcq",
+        "question": "نوع البيانات `double` يستهلك كم بايت من الذاكرة؟",
+        "options": [
+          "1 بايت",
+          "2 بايت",
+          "4 بايت",
+          "8 بايت"
+        ],
+        "answer": "8 بايت",
+        "explanation": "الـ `double` حجمها 8 بايت، ضعف الـ `float`، وده بيديها دقة أعلى في تخزين الأرقام العشرية."
+      },
+      {
+        "type": "tf",
+        "question": "نوع البيانات `boolean` يخزن قيم `true` أو `false` ويستهلك 1 بايت من الذاكرة.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "هو فعلاً بيخزن `true` أو `false`، لكنه بيستهلك 1 بت (Bit) مش 1 بايت (Byte)، عشان كده هو أصغر نوع بيانات."
+      },
+      {
+        "type": "fitb",
+        "question": "نوع البيانات `char` يستخدم لتخزين حرف واحد أو قيم ________. (كلمة واحدة)",
+        "options": [],
+        "answer": "ASCII",
+        "explanation": "الـ `char` ممكن تشيل حرف واحد (بين علامتي تنصيص فردية) أو قيمة ASCII المقابلة ليه، زي رقم 65 اللي بيمثل حرف 'A'."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي الكلمة المفتاحية (keyword) التي تجعل المتغير 'ثابتاً' أو 'للقراءة فقط' (read-only) في Java؟",
+        "options": [
+          "`static`",
+          "`const`",
+          "`final`",
+          "`var`"
+        ],
+        "answer": "`final`",
+        "explanation": "كلمة `final` هي اللي بتخلي المتغير ثابت وميتغيرش قيمته بعد أول مرة ياخد فيها قيمة."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن تغيير قيمة المتغير الذي تم تعريفه بـ `final` بعد إعطائه قيمة أولية.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لو عرفت متغير بـ `final`، قيمته بتبقى ثابتة ومينفعش تتغير بعد كده، ولو حاولت، هيطلعلك خطأ (error) في الكومبايلر."
+      },
+      {
+        "type": "fitb",
+        "question": "عند تعريف متغير من نوع `float`، يجب إضافة الحرف ________ بعد القيمة الرقمية. (حرف واحد)",
+        "options": [],
+        "answer": "`f`",
+        "explanation": "لازم تحط `f` أو `F` بعد الرقم العشري عشان الكومبايلر يعرف إن ده `float` مش `double` افتراضياً."
+      },
+      {
+        "type": "tf",
+        "question": "يتم إحاطة الأحرف (characters) في Java بعلامات تنصيص مزدوجة (`\" \"`).",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الأحرف (`char`) بتتحط بين علامات تنصيص فردية (`' '`)، أما النصوص الكاملة (`String`) هي اللي بتتحط بين مزدوجة (`\" \"`)."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي نتيجة تنفيذ `System.out.println(\"Hello \" + name);` إذا كانت `String name = \"John\";`؟",
+        "options": [
+          "Hello + name",
+          "Hello name",
+          "Hello John",
+          "Error"
+        ],
+        "answer": "Hello John",
+        "explanation": "علامة `+` بتستخدم لربط النصوص مع المتغيرات (Concatenation)، فبتجمع كلمة 'Hello ' مع قيمة المتغير `name`."
+      },
+      {
+        "type": "tf",
+        "question": "عند استخدام علامة `+` بين متغيرين رقميين في `System.out.println()`, يتم طباعة القيمتين جنباً إلى جنب.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لو المتغيرين أرقام، علامة `+` بتعمل عملية جمع حسابي عادية وبتطبع الناتج، مش بتطبعهم جنب بعض."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من العبارات التالية صحيحة لتعريف عدة متغيرات من نفس النوع في سطر واحد؟",
+        "options": [
+          "`int x; int y; int z;`",
+          "`int x, y, z;`",
+          "`int x y z;`",
+          "`multiple int x, y, z;`"
+        ],
+        "answer": "`int x, y, z;`",
+        "explanation": "الطريقة الصحيحة لتعريف أكتر من متغير من نفس النوع في سطر واحد هي بفصلهم بفاصلة (`,`)."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن إسناد نفس القيمة لعدة متغيرات من نفس النوع في سطر واحد باستخدام علامة المساواة المتعددة (مثل `x = y = z = 50;`).",
+        "options": [],
+        "answer": "صح",
+        "explanation": "تقدر تسند نفس القيمة لكذا متغير في سطر واحد بالشكل ده: `x = y = z = 50;`، والقيمة 50 هتتخزن في الـ z، وبعدين في الـ y، وبعدين في الـ x."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من قواعد تسمية المتغيرات (Identifiers) التالية خاطئة في Java؟",
+        "options": [
+          "يجب أن تبدأ بحرف",
+          "يمكن أن تحتوي على أرقام",
+          "يمكن أن تحتوي على مسافات",
+          "حساسة لحالة الأحرف"
+        ],
+        "answer": "يمكن أن تحتوي على مسافات",
+        "explanation": "أسماء المتغيرات مينفعش يكون فيها مسافات، لازم تكون كلمة واحدة أو تستخدم `_` أو `$` للفصل بين الكلمات."
+      },
+      {
+        "type": "fitb",
+        "question": "الكلمات المحجوزة (Reserved words) في Java مثل `int` أو `boolean` لا يمكن استخدامها كـ ________. (كلمة واحدة)",
+        "options": [],
+        "answer": "Identifiers",
+        "explanation": "مينفعش تسمي متغير باسم كلمة Java بتستخدمها لحاجة تانية (كلمة محجوزة)، ده هيعمل لك خطأ في الكومبايلر."
+      },
+      {
+        "type": "tf",
+        "question": "المتغيران `myVar` و `myvar` يعتبران نفس المتغير في Java.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "Java حساسة لحالة الأحرف (Case sensitive)، يعني `myVar` بحرف كبير غير `myvar` بحرف صغير، وبيعتبروا متغيرين مختلفين."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو عدد البايتات التي يستهلكها نوع البيانات `char` في Java؟",
+        "options": [
+          "1 بايت",
+          "2 بايت",
+          "4 بايت",
+          "8 بايت"
+        ],
+        "answer": "2 بايت",
+        "explanation": "نوع البيانات `char` بيستهلك 2 بايت من الذاكرة لتخزين حرف واحد."
+      },
+      {
+        "type": "fitb",
+        "question": "يفضل أن تبدأ أسماء المتغيرات في Java بحرف ________ (صغير/كبير) وفقاً للاتفاقيات الشائعة.",
+        "options": [],
+        "answer": "صغير",
+        "explanation": "دي مجرد convention أو اتفاقية بين المبرمجين عشان الكود يكون مقروء ومنظم أكتر، لكن مش قاعدة إجبارية."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_2",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_2",
+    "title": "المحاضرة الثانية: أساسيات البرمجة في جافا: أنواع البيانات، التحويل، العمليات، المدخلات والشروط",
+    "summary": "يا أهلا بيكم يا دفعة الحاسبات العظيمة في محاضرة النهارده، أو زي ما بنقول عليها **\"الزتونة\"**! لو فاكرين المحاضرة اللي فاتت كانت مراجعة سريعة، النهارده بقى هنخش في الجد ونبني أساسيات قوية في الجافا. ركز معايا عشان الكلام ده هيتبني عليه شغل كتير بعدين.\n\n### أنواع البيانات (Data Types)\nبص يا معلم، أي برنامج في الدنيا بيتعامل مع معلومات، المعلومات دي ليها أنواع. لو فاكرين من أول محاضرة اتكلمنا عن الـ Primitive Data Types زي الأرقام الصحيحة (int, byte, short, long)، والأرقام العشرية (float, double)، والحروف (char)، والقيم المنطقية (boolean). كل نوع من دول ليه حجم معين في الذاكرة.\n\n### تحويل أنواع البيانات (Type Casting)\nساعات بنحتاج نحول قيمة من نوع بيانات لنوع تاني، ودي بنسميها **Type Casting**. فيه منها نوعين:\n*   **التحويل التلقائي (Widening Casting):** وده الجافا بتعمله لوحدها لما تحول من نوع صغير لنوع أكبر منه. الترتيب بيبقى كده: `byte -> short -> char -> int -> long -> float -> double`.\n*   **التحويل اليدوي (Narrowing Casting):** وده بقى لما تحول من نوع كبير لنوع صغير، زي من `double` لـ `int`. هنا لازم أنت اللي تقول للجافا تعمل كده بنفسك، لأن فيه احتمال تفقد جزء من البيانات. عشان تعمله بتحط النوع اللي عايز تحول ليه بين قوسين قبل القيمة، زي `(int) myDouble`. خلي بالك، ده ممكن يسبب **فقدان بيانات**!\n\n### إدخال المستخدم (User Input - Scanner)\nلو عايز تخلي اليوزر يدخل بيانات للبرنامج بتاعك، بنستخدم كلاس اسمه **`Scanner`**. ده موجود في الـ **`java.util`** package، فلازم تعمل له `import` في أول الكود.\nعشان تستخدمه، بتعمل منه `Object` كده: `Scanner myObj = new Scanner(System.in);`.\nوبعدين تستخدم الـ **`methods`** بتاعته عشان تقرا أنواع بيانات مختلفة: `nextLine()` للـ String، `nextInt()` للـ int، `nextDouble()` للـ double، وهكذا.\n\n### المعاملات (Operators)\nالـ **Operators** دي الأدوات اللي بنستخدمها عشان نعمل عمليات على المتغيرات والقيم. الجافا قسمتها لكذا مجموعة:\n*   **معاملات حسابية (Arithmetic Operators):** زي الجمع `+`، الطرح `-`، الضرب `*`، القسمة `/`، **باقي القسمة `%`**، وكمان الزيادة `++` والنقصان `--`.\n*   **معاملات الإسناد (Assignment Operators):** زي `=`، وكمان اختصارات زي `+=` اللي هي `x = x + 3` هي نفسها `x += 3`.\n*   **معاملات المقارنة (Comparison Operators):** ودي بنستخدمها عشان نقارن بين قيمتين. النتيجة دايماً بتكون **`true` أو `false`**.\n*   **المعاملات المنطقية (Logical Operators):** ودي بنستخدمها عشان نحدد المنطق بين الشروط.\n    *   **`&&` (Logical AND):** بترجع `true` لو كل الشروط صحيحة.\n    *   **`||` (Logical OR):** بترجع `true` لو واحد بس من الشروط صحيح.\n    *   **`!` (Logical NOT):** بتعكس النتيجة.\n\n### الجمل الشرطية (Conditional Statements)\nودي بقى اللي بتخلي برنامجك ذكي ويقدر ياخد قرارات بناءً على شروط معينة.\n\n#### جملة IF\nدي أشهر وأبسط جملة شرطية. ممكن تعمل **`Nested IF`** يعني `if` جوا `if` عشان تعمل شروط أكتر تعقيداً.\n\n#### المعامل الثلاثي (Ternary Operator)\nده اختصار لـ `if-else` بسيطة، بيتكون من تلات أجزاء. الـ **Syntax** بتاعه بيكون كده: `variable = (condition) ? expressionTrue : expressionFalse;`.\n\n#### جملة SWITCH\nبديل رائع لو عندك شروط كتير مبنية على قيمة **`expression`** واحدة.\n*   `switch(expression)`: بتحط هنا المتغير أو القيمة اللي عايز تختبرها.\n*   `case x:`: لو قيمة الـ `expression` بتساوي `x`، نفذ الكود ده.\n*   **`break;`**: دي مهمة جداً! بتخلي البرنامج يخرج برا الـ `switch`. لو نسيتها، البرنامج هيفضل ينفذ الـ `cases` اللي بعدها (ودي اسمها **Fall-through**).\n*   `default:`: لو مفيش ولا `case` طابق، نفذ الكود اللي هنا.\n\nوبكده نكون غطينا كل أساسيات التحكم في سير البرنامج وأخدنا فكرة كويسة عن التعامل مع البيانات والمدخلات. ذاكروا الأمثلة كويس جداً عشان تفهموا الموضوع عملي. يلا بينا على الأسئلة عشان نتأكد إن الزتونة وصلت!",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+      "sheet": "/materials/JAV-110/%D8%B4%D9%8A%D8%AA 2.pdf",
+      "assignments": "/materials/JAV-110/%D8%A7%D8%B3%D9%8A%D9%85%D9%86%D8%AA -2.pdf"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هو الغرض الرئيسي من عملية Type Casting في جافا؟",
+        "options": [
+          "تغيير اسم المتغير",
+          "تغيير قيمة المتغير",
+          "تحويل قيمة من نوع بيانات بدائي لآخر",
+          "تعريف متغير جديد"
+        ],
+        "answer": "تحويل قيمة من نوع بيانات بدائي لآخر",
+        "explanation": "Type Casting هي عملية بنحول بيها قيمة من نوع بيانات بدائي (Primitive) لنوع تاني."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من أنواع الـ Casting التالية يتم بشكل تلقائي في جافا؟",
+        "options": [
+          "Narrowing Casting",
+          "Implicit Casting",
+          "Widening Casting",
+          "Explicit Casting"
+        ],
+        "answer": "Widening Casting",
+        "explanation": "الـ Widening Casting بيحصل أوتوماتيك من غير ما تكتب أي حاجة زيادة، لأنك بتحول من نوع صغير لنوع كبير."
+      },
+      {
+        "type": "mcq",
+        "question": "عند تحويل قيمة من نوع `double` إلى `int`، ماذا يسمى هذا النوع من الـ Casting؟",
+        "options": [
+          "Widening Casting",
+          "Automatic Casting",
+          "Implicit Casting",
+          "Narrowing Casting"
+        ],
+        "answer": "Narrowing Casting",
+        "explanation": "لما بتحول من نوع كبير (زي `double`) لنوع صغير (زي `int`)، ده بيكون Narrowing Casting وبيحتاج منك تدخُّل يدوي."
+      },
+      {
+        "type": "fitb",
+        "question": "الترتيب الصحيح للتحويل التلقائي (Widening Casting) هو: byte -> short -> char -> int -> long -> float -> ______.",
+        "options": [],
+        "answer": "double",
+        "explanation": "الـ Widening Casting بيمشي بالترتيب ده من الأصغر للأكبر عشان مفيش فقدان بيانات، والـ `double` هو أكبرهم في الترتيب ده."
+      },
+      {
+        "type": "fitb",
+        "question": "الترتيب الصحيح للتحويل اليدوي (Narrowing Casting) هو: double -> float -> long -> int -> char -> short -> ______.",
+        "options": [],
+        "answer": "byte",
+        "explanation": "الـ Narrowing Casting بيمشي بالعكس من الأكبر للأصغر، والـ `byte` هو أصغر نوع في الترتيب ده."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج الكود التالي: `int myInt = 9; double myDouble = myInt; System.out.println(myDouble);`؟",
+        "options": [
+          "9",
+          "9.0",
+          "Error",
+          "Null"
+        ],
+        "answer": "9.0",
+        "explanation": "هنا حصل Widening Casting من `int` لـ `double` بشكل تلقائي، فالـ `int` اللي قيمته 9 اتحولت لـ `double` قيمته 9.0."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج الكود التالي: `double myDouble = 9.78; int myInt = (int) myDouble; System.out.println(myInt);`؟",
+        "options": [
+          "9.78",
+          "9",
+          "10",
+          "Error"
+        ],
+        "answer": "9",
+        "explanation": "هنا عملنا Narrowing Casting يدوي من `double` لـ `int`، فتم حذف الجزء العشري (0.78) وبقت القيمة 9 بس."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الغرض الرئيسي من استخدام كلاس `Scanner` في جافا؟",
+        "options": [
+          "لعرض البيانات على الشاشة",
+          "لإجراء عمليات حسابية معقدة",
+          "للحصول على مدخلات المستخدم",
+          "لتخزين البيانات في ملف"
+        ],
+        "answer": "للحصول على مدخلات المستخدم",
+        "explanation": "الـ `Scanner` كلاس هو الأداة الأساسية اللي بنستخدمها عشان نقرا أي مدخلات من اليوزر، سواء كانت أرقام أو نصوص."
+      },
+      {
+        "type": "fitb",
+        "question": "كلاس `Scanner` موجود في الحزمة (package) المسماة ______. ",
+        "options": [],
+        "answer": "java.util",
+        "explanation": "لازم تعمل `import java.util.Scanner;` عشان تقدر تستخدم الكلاس ده في الكود بتاعك."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من العبارات التالية تستخدم لإنشاء كائن (object) من كلاس `Scanner`؟",
+        "options": [
+          "Scanner myObj = new Scanner();",
+          "Scanner myObj = new System.in();",
+          "Scanner myObj = new Scanner(System.in);",
+          "Scanner myObj = Scanner(System.in);"
+        ],
+        "answer": "Scanner myObj = new Scanner(System.in);",
+        "explanation": "عشان تعمل أوبجكت من الـ `Scanner`، لازم تديله الـ `System.in` كـ Argument عشان يعرف إنه هيقرا من الكونسول."
+      },
+      {
+        "type": "mcq",
+        "question": "أي method من الـ `Scanner` تُستخدم لقراءة قيمة نصية (String) كاملة من المستخدم؟",
+        "options": [
+          "nextInt()",
+          "next()",
+          "nextLine()",
+          "nextString()"
+        ],
+        "answer": "nextLine()",
+        "explanation": "الـ `nextLine()` بتقرا السطر كله بالمسافات لحد ما اليوزر يدوس Enter."
+      },
+      {
+        "type": "tf",
+        "question": "الـ method `nextDouble()` في `Scanner` تُستخدم لقراءة قيمة رقمية صحيحة (integer) من المستخدم.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ `nextDouble()` بتقرا رقم عشري (double)، أما الـ `nextInt()` هي اللي بتقرا رقم صحيح (integer)."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Operators في جافا تُستخدم فقط لتخزين القيم في المتغيرات.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ Operators بتستخدم عشان تعمل عمليات على المتغيرات والقيم، مش بس عشان تخزنها."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من التالي ليس مجموعة من مجموعات الـ Operators في جافا؟",
+        "options": [
+          "Arithmetic operators",
+          "Logical operators",
+          "Conditional operators",
+          "Bitwise operators"
+        ],
+        "answer": "Conditional operators",
+        "explanation": "مفيش مجموعة اسمها Conditional operators بشكل مباشر، لكن الـ Conditional Statements (زي if و switch) بتستخدم الـ Comparison و Logical operators."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من المعاملات الحسابية التالية يزيد قيمة المتغير بمقدار 1؟",
+        "options": [
+          "+",
+          "-",
+          "++",
+          "--"
+        ],
+        "answer": "++",
+        "explanation": "الـ `++` بيعمل Increment، يعني بيزود قيمة المتغير بواحد."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو المعامل الحسابي الذي يرجع باقي القسمة (division remainder)؟",
+        "options": [
+          "/",
+          "*",
+          "%",
+          "+"
+        ],
+        "answer": "%",
+        "explanation": "الـ Modulus operator (`%`) بيرجع باقي القسمة، ودي مهمة جداً في تطبيقات كتير."
+      },
+      {
+        "type": "mcq",
+        "question": "العبارة `x += 3;` مكافئة لأي من العبارات التالية؟",
+        "options": [
+          "x = 3;",
+          "x = x + 3;",
+          "x = 3 + x;",
+          "x = x * 3;"
+        ],
+        "answer": "x = x + 3;",
+        "explanation": "الـ `+=` هو اختصار لعملية الجمع والإسناد في نفس الوقت."
+      },
+      {
+        "type": "tf",
+        "question": "المعامل `^=` في جافا يستخدم لعملية الـ Bitwise XOR.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "بالرغم من إن المحاضرة ما شرحتهاش بالتفصيل، بس `^=` هي اختصار لـ `x = x ^ 3` واللي بتعمل Bitwise XOR."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من معاملات المقارنة التالية يعني \"لا يساوي\"؟",
+        "options": [
+          "==",
+          "!=",
+          ">=",
+          "<="
+        ],
+        "answer": "!=",
+        "explanation": "الـ `!=` هو المعامل اللي بنستخدمه عشان نقارن إذا كانت قيمتين مش متساويين."
+      },
+      {
+        "type": "fitb",
+        "question": "قيمة الإرجاع (return value) لمعاملات المقارنة تكون دائماً إما `true` أو ______.",
+        "options": [],
+        "answer": "false",
+        "explanation": "أي مقارنة بين قيمتين يا هتطلع صح يا هتطلع غلط، مفيش احتمال تالت."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من المعاملات المنطقية التالية يرجع `true` فقط إذا كانت كل الشروط صحيحة؟",
+        "options": [
+          "||",
+          "!",
+          "&&",
+          "="
+        ],
+        "answer": "&&",
+        "explanation": "الـ Logical AND (`&&`) بتحتاج كل الشروط تكون `true` عشان النتيجة الكلية تكون `true`."
+      },
+      {
+        "type": "tf",
+        "question": "المعامل المنطقي `||` (Logical OR) يرجع `true` إذا كان شرط واحد على الأقل صحيحًا.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "الـ Logical OR (`||`) بتكتفي بشرط واحد بس يكون `true` عشان النتيجة الكلية تكون `true`."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو المعامل المنطقي الذي يعكس النتيجة (يحول `true` إلى `false` والعكس)؟",
+        "options": [
+          "&&",
+          "||",
+          "!",
+          "=="
+        ],
+        "answer": "!",
+        "explanation": "الـ Logical NOT (`!`) بتعكس قيمة الشرط، لو كان صح تخليه غلط ولو كان غلط تخليه صح."
+      },
+      {
+        "type": "tf",
+        "question": "الغرض الوحيد من الجمل الشرطية (Conditional Statements) هو عرض النصوص على الشاشة.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الجمل الشرطية بتخلي البرنامج ياخد قرارات وينفذ أكواد مختلفة بناءً على شروط معينة، مش بس يعرض نصوص."
+      },
+      {
+        "type": "fitb",
+        "question": "الهيكل الأساسي لجملة `if` الشرطية هو: `if (expression) { statements; } else if (expression) { statements; } else { ______; }`",
+        "options": [],
+        "answer": "statements",
+        "explanation": "الـ `else` بلوك بيتنفذ لو كل الـ `if` والـ `else if` اللي قبله كانت شروطهم غلط."
+      },
+      {
+        "type": "mcq",
+        "question": "إذا كانت `myAge = 15` و `votingAge = 18`، فما هو ناتج الكود التالي: `if (myAge >= votingAge) { System.out.println(\"Old enough to vote!\"); } else { System.out.println(\"Not old enough to vote.\"); }`؟",
+        "options": [
+          "Old enough to vote!",
+          "Not old enough to vote.",
+          "Error",
+          "لا شيء"
+        ],
+        "answer": "Not old enough to vote.",
+        "explanation": "الـ 15 مش أكبر من أو تساوي الـ 18، فالشرط غلط، وبالتالي هيتنفذ الكود اللي في الـ `else`."
+      },
+      {
+        "type": "mcq",
+        "question": "إذا كانت `time = 12`، فما هو ناتج الكود التالي: `if (time < 10) { System.out.println(\"Good morning.\"); } else if (time < 18) { System.out.println(\"Good day.\"); } else { System.out.println(\"Good evening.\"); }`؟",
+        "options": [
+          "Good morning.",
+          "Good day.",
+          "Good evening.",
+          "Error"
+        ],
+        "answer": "Good day.",
+        "explanation": "الـ `time < 10` غلط (12 مش أقل من 10)، لكن الـ `time < 18` صح (12 أقل من 18)، فهيطبع \"Good day.\"."
+      },
+      {
+        "type": "tf",
+        "question": "المقصود بـ \"Nested IF Statements\" هو استخدام جملة `if` واحدة فقط في البرنامج.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ Nested IF يعني إنك تحط جملة `if` جوه جملة `if` تانية عشان تعمل شروط أكتر تعقيداً."
+      },
+      {
+        "type": "mcq",
+        "question": "في مثال الـ Nested IF لإيجاد أكبر رقم بين `x=1010, y=170, z=169`، ما هو الرقم الذي سيتم طباعته؟",
+        "options": [
+          "1010",
+          "170",
+          "169",
+          "لا شيء"
+        ],
+        "answer": "1010",
+        "explanation": "الكود هيشوف `x > y` (1010 > 170) وده صح، بعدين هيخش جوه ويشوف `x > z` (1010 > 169) وده كمان صح، فهيطبع `x` اللي هو 1010."
+      },
+      {
+        "type": "mcq",
+        "question": "في مثال إيجاد أكبر رقم باستخدام `&&`، إذا كانت `a=40, b=78, c=19`، ما هو الرقم الذي سيتم طباعته؟",
+        "options": [
+          "40",
+          "78",
+          "19",
+          "لا شيء"
+        ],
+        "answer": "78",
+        "explanation": "الشرط الأول `(a>b && a>c)` غلط (40 مش أكبر من 78). الشرط الثاني `(b>a && b>c)` صح (78 أكبر من 40 و 78 أكبر من 19)، فهيطبع `b` اللي هو 78."
+      },
+      {
+        "type": "mcq",
+        "question": "في مثال إيجاد أكبر رقم من ثلاث مدخلات من المستخدم، إذا أدخل المستخدم `5`, `5`, `5`، فماذا سيكون الناتج؟",
+        "options": [
+          "The largest number is: 5",
+          "The numbers are same.",
+          "Error",
+          "لا شيء"
+        ],
+        "answer": "The numbers are same.",
+        "explanation": "كل الشروط الأولانية هتكون غلط لأن مفيش رقم أكبر من الباقيين، فهيتنفذ الـ `else` الأخير اللي بيقول إن الأرقام متساوية."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الاسم الآخر لـ \"short-hand if else\" والذي يتكون من ثلاثة معاملات؟",
+        "options": [
+          "Binary Operator",
+          "Unary Operator",
+          "Ternary Operator",
+          "Conditional Operator"
+        ],
+        "answer": "Ternary Operator",
+        "explanation": "الـ Ternary Operator هو اختصار لـ `if-else` البسيطة، واسمه جاي من إنه بيستخدم تلات أجزاء (condition, expressionTrue, expressionFalse)."
+      },
+      {
+        "type": "fitb",
+        "question": "الصيغة الصحيحة لـ Ternary Operator هي: `variable = (condition) ? expressionTrue : ______;`",
+        "options": [],
+        "answer": "expressionFalse",
+        "explanation": "لو الشرط صح، المتغير هياخد قيمة `expressionTrue`، ولو غلط هياخد قيمة `expressionFalse`."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج الكود التالي الذي يستخدم Ternary Operator: `int time = 20; String result = (time < 18) ? \"Good day.\" : \"Good evening.\"; System.out.println(result);`؟",
+        "options": [
+          "Good day.",
+          "Good evening.",
+          "Error",
+          "لا شيء"
+        ],
+        "answer": "Good evening.",
+        "explanation": "الـ `time` بـ 20، والشرط `time < 18` غلط (20 مش أقل من 18)، فهياخد القيمة اللي بعد الـ `:` اللي هي \"Good evening.\"."
+      },
+      {
+        "type": "mcq",
+        "question": "في مثال إيجاد أكبر رقم باستخدام Ternary Operator و `temp`، إذا كانت `a=10, b=20, c=5`، فما هي قيمة `largest` النهائية؟",
+        "options": [
+          "10",
+          "20",
+          "5",
+          "Error"
+        ],
+        "answer": "20",
+        "explanation": "أولاً `temp = a > b ? a : b;` هتكون `temp = 10 > 20 ? 10 : 20;` يعني `temp = 20`. ثانياً `largest = c > temp ? c : temp;` هتكون `largest = 5 > 20 ? 5 : 20;` يعني `largest = 20`."
+      },
+      {
+        "type": "fitb",
+        "question": "الصيغة `Result = c > (a > b ? a : b) ? C : ((a > b) ? a : b);` هي مثال على الـ ______.",
+        "options": [],
+        "answer": "Nested Ternary Operator",
+        "explanation": "لما تحط Ternary Operator جوه Ternary Operator تاني، ده اسمه Nested Ternary Operator."
+      },
+      {
+        "type": "mcq",
+        "question": "متى يكون استخدام جملة `switch` مفضلاً على استخدام `if ... else if` المتعددة؟",
+        "options": [
+          "عند وجود شرط واحد فقط",
+          "عند مقارنة قيمتين ببعضهما",
+          "عند وجود شروط متعددة مبنية على قيمة تعبير واحد",
+          "عند تنفيذ عمليات حسابية معقدة"
+        ],
+        "answer": "عند وجود شروط متعددة مبنية على قيمة تعبير واحد",
+        "explanation": "الـ `switch` بتوفر عليك كتابة أكواد كتير لما يكون عندك حالات كتير (cases) بتعتمد على قيمة متغير واحد."
+      },
+      {
+        "type": "tf",
+        "question": "تعبير الـ `switch` يتم تقييمه عدة مرات أثناء تنفيذ الجملة.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "تعبير الـ `switch` بيتم تقييمه مرة واحدة بس، وبعدين قيمته بتتقارن بكل الـ `case`s."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الغرض من الكلمة المفتاحية `break` داخل جملة `switch`؟",
+        "options": [
+          "الاستمرار في تنفيذ الـ cases التالية",
+          "الخروج من جملة الـ switch بعد تنفيذ الـ case المطابق",
+          "تحديد الـ case الافتراضي",
+          "إعادة تقييم تعبير الـ switch"
+        ],
+        "answer": "الخروج من جملة الـ switch بعد تنفيذ الـ case المطابق",
+        "explanation": "الـ `break` بتخلي البرنامج يطلع برا الـ `switch` خالص أول ما يلاقي الـ `case` المطابق وينفذ الكود بتاعه، عشان ميعملش Fall-through."
+      },
+      {
+        "type": "fitb",
+        "question": "الكلمة المفتاحية `default` في جملة `switch` تحدد الكود الذي سيتم تنفيذه إذا لم يكن هناك أي ______ مطابق.",
+        "options": [],
+        "answer": "case",
+        "explanation": "الـ `default` بتشتغل لما مفيش ولا `case` من الـ `cases` اللي عندك تكون مطابقة لقيمة الـ `expression`."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج الكود التالي إذا كانت `day = 4`: `switch (day) { case 6: System.out.println(\"Saturday\"); break; case 7: System.out.println(\"Sunday\"); break; default: System.out.println(\"Looking forward to the Weekend\"); }`؟",
+        "options": [
+          "Saturday",
+          "Sunday",
+          "Looking forward to the Weekend",
+          "Error"
+        ],
+        "answer": "Looking forward to the Weekend",
+        "explanation": "الـ `day` بـ 4، مفيش ولا `case 6` ولا `case 7` هيطابق، فهيتنفذ الكود اللي في الـ `default`."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج الكود التالي إذا كانت `day = 6`: `switch (day) { case 6: System.out.println(\"Today is Saturday\"); case 7: System.out.println(\"Today is Sunday\"); break; default: System.out.println(\"Looking forward to the Weekend\"); }`؟",
+        "options": [
+          "Today is Saturday",
+          "Today is Saturday\\nToday is Sunday",
+          "Today is Saturday\\nToday is Sunday\\nLooking forward to the Weekend",
+          "Error"
+        ],
+        "answer": "Today is Saturday\\nToday is Sunday",
+        "explanation": "الـ `day` بـ 6، هيطابق `case 6` ويطبع \"Today is Saturday\". مفيش `break` بعد `case 6`، فهيكمل تنفيذ الـ `case` اللي بعده (`case 7`) ويطبع \"Today is Sunday\"، بعدين يلاقي `break` ويخرج."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج الكود التالي إذا كانت `day = 6`: `switch (day) { case 6: System.out.println(\"Today is Saturday\"); case 7: System.out.println(\"Today is Sunday\"); default: System.out.println(\"Looking forward to the Weekend\"); }`؟",
+        "options": [
+          "Today is Saturday",
+          "Today is Saturday\\nToday is Sunday",
+          "Today is Saturday\\nToday is Sunday\\nLooking forward to the Weekend",
+          "Error"
+        ],
+        "answer": "Today is Saturday\\nToday is Sunday\\nLooking forward to the Weekend",
+        "explanation": "الـ `day` بـ 6، هيطابق `case 6` ويطبع \"Today is Saturday\". مفيش `break`، فهيكمل تنفيذ `case 7` ويطبع \"Today is Sunday\". مفيش `break`، فهيكمل تنفيذ الـ `default` ويطبع \"Looking forward to the Weekend\"."
+      },
+      {
+        "type": "fitb",
+        "question": "لقراءة قيمة من نوع `long` من المستخدم باستخدام `Scanner`، نستخدم الـ method المسماة ______.",
+        "options": [],
+        "answer": "nextLong()",
+        "explanation": "كل نوع بيانات ليه الـ method الخاصة بيه في الـ `Scanner` عشان تقراه."
+      },
+      {
+        "type": "tf",
+        "question": "المحاضرة قدمت شرحاً مفصلاً لكيفية عمل الـ Bitwise Operators.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "الـ Bitwise Operators اتذكرت كواحدة من مجموعات الـ Operators بس مفيش شرح تفصيلي ليها في المحاضرة دي."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من الـ data types التالية لا يمكن تحويله إلى `double` بشكل تلقائي (Widening Casting)؟",
+        "options": [
+          "`int`",
+          "`long`",
+          "`float`",
+          "`String`"
+        ],
+        "answer": "`String`",
+        "explanation": "الـ Widening Casting بيحصل بين الـ Primitive Data Types بس، والـ `String` مش نوع بدائي."
+      },
+      {
+        "type": "tf",
+        "question": "عند استخدام `Scanner` لقراءة مدخلات من المستخدم، يجب دائماً إغلاق كائن الـ `Scanner` في نهاية البرنامج لتجنب تسرب الموارد (resource leak).",
+        "options": [],
+        "answer": "صح",
+        "explanation": "دي معلومة مهمة مش مذكورة في السلايدز بس هي Best Practice، لازم تقفل الـ `Scanner` بـ `myObj.close();` لما تخلص استخدامه عشان متسربش موارد النظام."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_3",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_3",
+    "title": "المحاضرة الثالثة: Loops Statements and Arrays",
+    "summary": "### يا أهلاً يا أهلاً بجيش حاسبات العظيم!\nالنهاردة يا سيدي المحاضرة دسمة ومهمة جداً، هنتكلم عن **الـ Loops** (التكرار) و **الـ Arrays** (المصفوفات). ركز معايا عشان الكلام ده هو اللي بيفرق بين مبرمج فاهم ومبرمج حافظ.\n\n### أولاً: الـ Loops (حلقات التكرار)\nالـ Loop ببساطة هي طريقة بنخلي بيها الكود يكرر نفسه طول ما فيه **شرط معين** متحقق. وده بيوفر وقت ومجهود وبيخلي الكود شكله شيك. عندنا 3 أنواع أساسية:\n1. **While Loop**: دي \"المترددة\"، بتسأل الأول: هو الشرط صح؟ لو صح تنفذ، لو غلط تخرج.\n2. **Do-While Loop**: دي بقى \"المنطلقة\"، بتنفذ الكود **مرة واحدة على الأقل** وبعدين تسأل عن الشرط. يعني بتضرب الأول وبعدين تفاهم.\n3. **For Loop**: دي \"المنظمة\"، بنستخدمها لما نكون عارفين بالظبط هنكرر الكود كام مرة. بتتكون من 3 أجزاء (البداية، الشرط، والزيادة).\n\n### ثانياً: الـ Nested Loops و الـ Break/Continue\n- **الـ Nested Loops**: يعني لوب جوه لوب. اللوب اللي بره بتلف لفة، واللي جوه تخلص كل لفاتها، وهكذا.\n- **Break**: دي قاطعة طريق، أول ما الكود يشوفها بيخرج من اللوب فوراً.\n- **Continue**: دي \"فوت المرة دي\"، بتخلي اللوب تسيب اللفة الحالية وتروح للي بعدها فوراً.\n\n### ثالثاً: الـ Arrays (الدواليب)\nبدل ما تعرف 100 متغير، إحنا بنعمل **Array** واحد يشيل كل القيم دي. \n- **الـ Index**: أهم معلومة إن العد بيبدأ من **الصفر [0]**. يعني أول عنصر مكانه 0، وتاني عنصر مكانه 1.\n- **Array Length**: بنعرف عدد العناصر عن طريق خاصية اسمها **length**.\n- **For-each Loop**: دي لوب متفصلة مخصوص عشان تمشي على عناصر الـ Array عنصر عنصر بسهولة.\n\n### رابعاً: الـ 2D Arrays (الجداول)\nدي مصفوفات ثنائية الأبعاد، يعني صفوف وأعمدة (Rows and Columns). بنستخدم فيها **اتنين Index**؛ واحد للصف وواحد للعمود. وعشان نطبعها كلها بنحتاج **Nested Loops**.",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%AA%D8%A7%D9%84%D8%AA%D8%A9.pdf",
+      "sheet": "#",
+      "assignments": "#"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "إيه الفائدة الأساسية من استخدام الـ Loops في البرمجة؟",
+        "options": [
+          "توفير الوقت وتقليل الأخطاء",
+          "تغيير نوع البيانات",
+          "تعريف متغيرات جديدة",
+          "إنهاء البرنامج فوراً"
+        ],
+        "answer": "توفير الوقت وتقليل الأخطاء",
+        "explanation": "الـ Loops بتخلينا نكرر الكود بدل ما نكتبه مية مرة، وده بيوفر وقت ويمنع الغلطات اليدوية."
+      },
+      {
+        "type": "tf",
+        "question": "في الـ While loop، يتم التحقق من الشرط بعد تنفيذ الكود.",
+        "answer": "خطأ",
+        "explanation": "الـ While بتسأل الأول عن الشرط، لو طلع صح تنفذ، عكس الـ Do-While."
+      },
+      {
+        "type": "fitb",
+        "question": "في الـ For loop، الجزء المسؤول عن تحديد متى تتوقف اللوب يسمى _______.",
+        "answer": "الشرط",
+        "explanation": "الـ Condition هو اللي بيقول للوب كفاية كدة لما ميبقاش متحقق."
+      },
+      {
+        "type": "mcq",
+        "question": "كم مرة سيتم تنفيذ الكود في Do-While loop إذا كان الشرط خاطئاً من البداية؟",
+        "options": [
+          "0 مرات",
+          "مرة واحدة",
+          "إلى ما لا نهاية",
+          "مرتين"
+        ],
+        "answer": "مرة واحدة",
+        "explanation": "الـ Do-While بتنفذ الكود الأول وبعدين تشيك على الشرط، فكده كدة هتنفذ أول مرة."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن استخدام الـ Break للخروج من الـ While loop.",
+        "answer": "صح",
+        "explanation": "الـ Break وظيفتها تخرجك من أي لوب (For, While, Do-While) فوراً."
+      },
+      {
+        "type": "fitb",
+        "question": "أول عنصر في الـ Array يكون الـ Index الخاص به هو _______.",
+        "answer": "0",
+        "explanation": "في البرمجة بنبدأ عد من الصفر، فـ index[0] هو أول مكان في الدولاب."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي الخاصية المستخدمة لمعرفة عدد عناصر الـ Array في Java؟",
+        "options": [
+          "size()",
+          "count",
+          "length",
+          "elements"
+        ],
+        "answer": "length",
+        "explanation": "بنستخدم arrayName.length عشان نعرف فيها كام عنصر بالظبط."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Nested loop تعني وجود لوب داخل لوب أخرى.",
+        "answer": "صح",
+        "explanation": "بالظبط، اللوب الخارجية بتلف لفة، والداخلية تخلص كل دورتها جواها."
+      },
+      {
+        "type": "fitb",
+        "question": "عند استخدام _______، يتم تخطي اللفة الحالية فقط والانتقال للفة التالية.",
+        "answer": "continue",
+        "explanation": "الـ Continue مش بتوقف اللوب، هي بس بتقولها 'سيبك من اللي فاضل في اللفة دي وروحي للي بعدها'."
+      },
+      {
+        "type": "mcq",
+        "question": "كيف نقوم بتعريف Array من نوع Integer في جافا؟",
+        "options": [
+          "int array = {}",
+          "int[] myNum = {10, 20};",
+          "Array int = []",
+          "Integer[] = 10, 20"
+        ],
+        "answer": "int[] myNum = {10, 20};",
+        "explanation": "بنكتب النوع وبعدين الأقواس المربعة [] وبعدين اسم الـ Array والقيم بين curly braces."
+      },
+      {
+        "type": "tf",
+        "question": "الـ For-each loop تستخدم حصرياً مع المصفوفات (Arrays).",
+        "answer": "صح",
+        "explanation": "هي متصممة عشان تمشي على عناصر الـ Array بسهولة من غير ما نحتاج index."
+      },
+      {
+        "type": "mcq",
+        "question": "في 2D Array، ماذا يمثل الرقم الأول في [myNumbers[1][2؟",
+        "options": [
+          "العمود",
+          "الصف",
+          "القيمة",
+          "الطول"
+        ],
+        "answer": "الصف",
+        "explanation": "دايماً الـ Index الأول للصف (Row) والتاني للعمود (Column)."
+      },
+      {
+        "type": "fitb",
+        "question": "لتمثيل بيانات في شكل جدول (صفوف وأعمدة) نستخدم _______ Array.",
+        "answer": "Two-Dimensional",
+        "explanation": "المصفوفات ثنائية الأبعاد هي الأنسب لتمثيل الجداول."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن تغيير قيمة عنصر معين في الـ Array بعد تعريفه.",
+        "answer": "صح",
+        "explanation": "عادي جداً، بننادي على الـ index ونغير القيمة: cars[0] = 'Opel'."
+      },
+      {
+        "type": "mcq",
+        "question": "ماذا سيحدث لو نفذنا code فيه loop بشرط (true) دائماً بدون break؟",
+        "options": [
+          "سيخرج البرنامج",
+          "سيعطي خطأ في الكود",
+          "Infinite Loop (تكرار لا نهائي)",
+          "سيتجاهل اللوب"
+        ],
+        "answer": "Infinite Loop (تكرار لا نهائي)",
+        "explanation": "طالما الشرط دايماً صح ومفيش حاجة توقفها، اللوب هتفضل شغالة للأبد."
+      },
+      {
+        "type": "tf",
+        "question": "في الـ For loop، الجزء الثالث (Statement 3) يتم تنفيذه قبل بداية الكود.",
+        "answer": "خطأ",
+        "explanation": "الجزء التالت (الزيادة/النقصان) بيتنفذ 'بعد' ما الكود اللي جوه اللوب يخلص."
+      },
+      {
+        "type": "fitb",
+        "question": "إذا كان طول الـ Array يساوي 5، فإن أخر index هو _______.",
+        "answer": "4",
+        "explanation": "لأننا بنبدأ من 0، فأخر مكان دايماً بيكون (الطول - 1)."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من التالي يمثل طريقة صحيحة للوصول للعنصر الثالث في Array اسمه data؟",
+        "options": [
+          "data[3]",
+          "data[2]",
+          "data(3)",
+          "data{2}"
+        ],
+        "answer": "data[2]",
+        "explanation": "العنصر الأول 0، التاني 1، التالت 2. والوصول بيبقى بالأقواس المربعة []."
+      },
+      {
+        "type": "tf",
+        "question": "الـ While loop أفضل من الـ For loop عندما لا نعرف عدد المرات مسبقاً.",
+        "answer": "صح",
+        "explanation": "الـ For بنستخدمها لما نكون عارفين العدد بالظبط، الـ While لما نكون مستنيين شرط معين يتحقق."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج تنفيذ for(int i=0; i<3; i++) { print(i) }؟",
+        "options": [
+          "1, 2, 3",
+          "0, 1, 2, 3",
+          "0, 1, 2",
+          "1, 2"
+        ],
+        "answer": "0, 1, 2",
+        "explanation": "بدأنا من 0، والشرط أقل من 3، يعني هناخد 0 و 1 و 2 بس."
+      },
+      {
+        "type": "fitb",
+        "question": "نستخدم _______ لإنشاء مصفوفة تحتوي على مصفوفات أخرى.",
+        "answer": "Multi-dimensional arrays",
+        "explanation": "المصفوفات متعددة الأبعاد هي عبارة عن Array جواها Arrays."
+      },
+      {
+        "type": "tf",
+        "question": "في جافا، الـ Array يمكن أن يخزن أنواع مختلفة من البيانات في نفس الوقت (مثل int و String معاً).",
+        "answer": "خطأ",
+        "explanation": "الـ Array لازم يكون من نوع واحد بس (Homogeneous)."
+      },
+      {
+        "type": "mcq",
+        "question": "ماذا تطبع الجملة التالية: int[][] x = {{1,2},{3,4}}; System.out.println(x[1][0]);؟",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3",
+        "explanation": "x[1] يعني الصف التاني {3,4}، و [0] يعني أول عنصر فيه وهو 3."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Statement 1 في الـ For loop تتنفذ مرة واحدة فقط في البداية.",
+        "answer": "صح",
+        "explanation": "دي مرحلة الـ Initialization، بتعرف المتغير وتبدأه مرة واحدة بس."
+      },
+      {
+        "type": "fitb",
+        "question": "الكلمة المحجوزة _______ تستخدم لتعريف مصفوفة نصوص.",
+        "answer": "String[]",
+        "explanation": "بنكتب String وبعدها [] عشان نعرف Array بيشيل نصوص."
+      },
+      {
+        "type": "mcq",
+        "question": "إذا أردنا طباعة الأعداد الزوجية فقط من 0 لـ 10، نستخدم في الـ for loop تحديثاً قيمته:",
+        "options": [
+          "i++",
+          "i = i + 2",
+          "i = i + 1",
+          "i--"
+        ],
+        "answer": "i = i + 2",
+        "explanation": "عشان ننط خطوتين كل مرة (0, 2, 4...) لازم نزود 2."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Index في الـ Array يمكن أن يكون رقماً سالباً.",
+        "answer": "خطأ",
+        "explanation": "الـ Index لازم يكون رقم صحيح موجب يبدأ من الصفر."
+      },
+      {
+        "type": "fitb",
+        "question": "في الـ for-each loop: for(String i : cars)، المتغير i يمثل _______ في كل لفة.",
+        "answer": "عنصر",
+        "explanation": "i هنا مش index، دي القيمة نفسها (العنصر) اللي جوه الـ Array."
+      },
+      {
+        "type": "mcq",
+        "question": "أي حلقة تكرار تضمن تنفيذ الكود مرة واحدة على الأقل؟",
+        "options": [
+          "For",
+          "While",
+          "Do-While",
+          "Nested loop"
+        ],
+        "answer": "Do-While",
+        "explanation": "لأنها بتنفذ الجسم بتاع اللوب قبل ما تبص على الشرط أصلاً."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن وضع While loop داخل For loop.",
+        "answer": "صح",
+        "explanation": "عادي جداً، أي نوع لوب ينفع يتحط جوه أي نوع تاني (Nested)."
+      },
+      {
+        "type": "mcq",
+        "question": "ما ناتج: int[] n = {5, 2, 8}; n[1] = n[0]; print(n[1]);؟",
+        "options": [
+          "2",
+          "5",
+          "8",
+          "Error"
+        ],
+        "answer": "5",
+        "explanation": "إحنا خدنا قيمة n[0] اللي هي 5، وحطيناها مكان n[1]، فبقت 5."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Break تنهي اللفة الحالية فقط وتكمل اللوب.",
+        "answer": "خطأ",
+        "explanation": "الـ Break بتدمر اللوب كلها وتخرج، اللي بتنهي لفة واحدة هي الـ Continue."
+      },
+      {
+        "type": "fitb",
+        "question": "لتعريف مصفوفة ثنائية الأبعاد نستخدم من الأقواس المربعة عدد _______.",
+        "answer": "2",
+        "explanation": "بنستخدم [][] عشان نعبر عن البعدين (صف وعمود)."
+      },
+      {
+        "type": "mcq",
+        "question": "في المثال for(int i=1; i<=2; i++) وبداخله for(int j=1; j<=3; j++)، كم مرة يطبع الكود الداخلي؟",
+        "options": [
+          "2",
+          "3",
+          "5",
+          "6"
+        ],
+        "answer": "6",
+        "explanation": "بنضرب عدد لفات اللوب اللي بره (2) في عدد لفات اللي جوه (3)، يبقى 6."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن استخدام الـ Continue داخل الـ While loop.",
+        "answer": "صح",
+        "explanation": "الـ Continue والـ Break شغالين مع كل أنواع الـ Loops."
+      },
+      {
+        "type": "fitb",
+        "question": "إذا كان لدينا int[][] arr = new int[3][4]، فإن عدد الصفوف هو _______.",
+        "answer": "3",
+        "explanation": "الرقم الأول دايماً هو عدد الصفوف (Rows)."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الخطأ في الكود: int[] x = {1, 2}; System.out.println(x[2]);؟",
+        "options": [
+          "لا يوجد خطأ",
+          "سيطبع 0",
+          "ArrayIndexOutOfBoundsException",
+          "سيطبع 2"
+        ],
+        "answer": "ArrayIndexOutOfBoundsException",
+        "explanation": "الـ Array طوله 2، يعني الـ indexes المتاحة 0 و 1 بس. 2 ده بره الحدود."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Arrays تساعد في جعل الكود أكثر قابلية للقراءة (Readable).",
+        "answer": "صح",
+        "explanation": "بدل زحمة المتغيرات، الـ Array بيلمهم في مكان واحد منظم."
+      },
+      {
+        "type": "fitb",
+        "question": "في الـ for loop، يتم تنفيذ Statement 2 قبل _______ الكود.",
+        "answer": "تنفيذ",
+        "explanation": "Statement 2 هي الشرط، لازم يتشيك عليه قبل ما ندخل ننفذ الكود."
+      },
+      {
+        "type": "mcq",
+        "question": "أي جملة مما يلي صحيحة عن الـ Nested Loops؟",
+        "options": [
+          "اللوب الداخلية تتنفذ مرة واحدة فقط",
+          "اللوب الخارجية تتنفذ بالكامل لكل لفة من الداخلية",
+          "اللوب الداخلية تتنفذ بالكامل لكل لفة من الخارجية",
+          "لا يمكن وضع أكثر من لوب داخل بعض"
+        ],
+        "answer": "اللوب الداخلية تتنفذ بالكامل لكل لفة من الخارجية",
+        "explanation": "دي قاعدة الـ Nested: اللوب اللي جوه بتخلص مشوارها كله في كل لفة واحدة من اللي بره."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن استخدام الـ for-each loop لتعديل قيم العناصر داخل الـ Array.",
+        "answer": "خطأ",
+        "explanation": "الـ for-each للقراءة فقط (Read-only) غالباً، لو عايز تعدل استخدم الـ for العادية بالـ index."
+      },
+      {
+        "type": "fitb",
+        "question": "عند تعريف int[][] a = {{1}, {2,3}}، فإن a[1].length تساوي _______.",
+        "answer": "2",
+        "explanation": "a[1] هو الصف التاني {2,3}، وفيه عنصرين، يبقى طوله 2."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الـ Output لكود while يبدأ بـ i=0 والشرط i<0؟",
+        "options": [
+          "يطبع 0",
+          "Infinite loop",
+          "لا يطبع شيء",
+          "Error"
+        ],
+        "answer": "لا يطبع شيء",
+        "explanation": "لأن الشرط (0 < 0) غلط من أول لفة، فمش هيدخل اللوب أصلاً."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Index بتاع أخر عنصر في مصفوفة اسمها arr هو arr.length.",
+        "answer": "خطأ",
+        "explanation": "أخر index هو arr.length - 1."
+      },
+      {
+        "type": "fitb",
+        "question": "الـ Loop التي تستخدم عندما نعرف عدد المرات مسبقاً هي _______.",
+        "answer": "for loop",
+        "explanation": "الـ For loop هي ملكة التكرار المحدد بعدد مرات معروف."
+      }
+    ]
+  },
+  {
+    "id": "jav_110_lecture_4",
+    "subjectId": "JAV-110",
+    "lectureId": "lecture_4",
+    "title": "المحاضرة الرابعة: الدوال والأساليب البرمجية (Methods/Functions)",
+    "summary": "### يا أهلاً يا أهلاً بدفعة حاسبات الجامدة..\nبص يا سيدي، النهاردة موضوعنا عن **الـ Methods** أو الـ Functions، ودي ببساطة عبارة عن \"علبة\" بنحط فيها شوية كود عشان نستخدمهم وقت ما نحب، بدل ما نفضل نكتب نفس الكود مية مرة ونصدع نفسنا. الميثود دي لازم تكون جوه **Class**، وبناديها باسمها عشان تتنفذ.\n\n### مين يشوف الميثود؟ (Access Modifiers)\nالجافا عندها \"أمن\" على الميثودز:\n1. **public**: دي الميثود المشهورة، أي حد في أي حتة يقدر يناديها.\n2. **private**: دي الميثود المنطوية، مفيش حد يقدر يستخدمها غير جوه نفس الكلاس بتاعها.\n3. **protected**: دي بتاعة العيلة، الكلاسات اللي في نفس الباكيدج أو اللي وارثين منها بس اللي يشوفوها.\n4. **default**: لو مكتبتش حاجة، بتبقى متاحة بس للي معاك في نفس الـ Package.\n\n### الـ Static والـ Overloading\nكلمة **static** معناها إن الميثود دي تابعة للكلاس نفسه مش للأوبجيكت، يعني تناديها باسم الكلاس علطول. أما بقى الـ **Method Overloading** فده معناه إننا نعمل كذا ميثود بنفس الاسم، بس الـ Parameters بتاعتهم مختلفة (في النوع أو العدد)، والجافا ذكية كفاية إنها تعرف إنت قصدك أنهي واحدة فيهم.\n\n### حوار الـ Varargs\nلو إنت مش عارف اليوزر هيبعتلك كام رقم، الجافا عملتلك ميزة اسمها **Variable Arguments** وبنرمز لها بـ `...`. دي بتخلي الميثود تستقبل أي عدد من القيم وبتتعامل معاهم جوه كأنهم **Array**. بس خلي بالك، لازم تكون هي آخر حاجة في الـ Parameters، ومينفعش تستخدم أكتر من واحدة في نفس الميثود.\n\n### الـ Scope والـ Recursion\nالـ **Scope** ده يعني \"منطقة النفوذ\"، المتغير اللي بتعرفه جوه ميثود أو جوه بلوك `{}` مبيتشافش بره المكان ده. وأخيراً الـ **Recursion**، وده لما الميثود تقرر \"تنادي نفسها\" عشان تحل مشكلة كبيرة عن طريق تقسيمها لمشاكل أصغر، بس أهم حاجة يكون عندك **Base Case** عشان الميثود متفضلش تنادي نفسها للأبد وتعمل Crash للبرنامج.",
+    "resources": {
+      "pdf": "/materials/JAV-110/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9 %D8%A7%D9%84%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9.pdf",
+      "sheet": "#",
+      "assignments": "/materials/JAV-110/%D8%A7%D8%B3%D9%8A%D9%85%D9%86%D8%AA -4.pdf"
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "question": "ما هو الهدف الأساسي من استخدام الـ Methods؟",
+        "options": [
+          "زيادة حجم الكود",
+          "إعادة استخدام الكود (Code Reuse)",
+          "إبطاء البرنامج",
+          "جعل الكود معقداً"
+        ],
+        "answer": "إعادة استخدام الكود (Code Reuse)",
+        "explanation": "بدل ما نكتب الكود كل شوية، بنكتبه مرة واحدة في الميثود ونناديها كذا مرة."
+      },
+      {
+        "type": "tf",
+        "question": "يجب تعريف الـ Method خارج الـ Class في لغة الجافا.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "في الجافا لازم أي ميثود تكون موجودة جوه كلاس، مفيش ميثودز طايرة في الهواء."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من الـ Access Modifiers التالية تسمح بالوصول للميثود من أي مكان؟",
+        "options": [
+          "private",
+          "protected",
+          "public",
+          "default"
+        ],
+        "answer": "public",
+        "explanation": "الـ public ده يعني متاح للجميع، أي حد في أي كلاس يقدر يشوفه."
+      },
+      {
+        "type": "fitb",
+        "question": "يتم استخدام الكلمة المحجوزة ________ لجعل الميثود تابعة للكلاس وليس للأوبجيكت.",
+        "options": [],
+        "answer": "static",
+        "explanation": "الـ static بيخلي الميثود برنس كدة تابعة للكلاس نفسه، مش محتاج تعمل Instance عشان تناديها."
+      },
+      {
+        "type": "mcq",
+        "question": "ماذا يحدث عند استخدام Modifer من نوع private؟",
+        "options": [
+          "يمكن الوصول للميثود من أي كلاس",
+          "يمكن الوصول للميثود فقط داخل نفس الكلاس",
+          "يمكن الوصول للميثود فقط من الكلاسات الوارثة",
+          "لا يمكن استخدام الميثود أبداً"
+        ],
+        "answer": "يمكن الوصول للميثود فقط داخل نفس الكلاس",
+        "explanation": "الـ private ده خصوصية تامة، محدش يشوف الميثود غير أهل بيتها (نفس الكلاس)."
+      },
+      {
+        "type": "tf",
+        "question": "الـ final method هي ميثود لا يمكن عمل Override لها.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "كلمة final يعني النهاية، خلاص الميثود دي قفلت على كدة ومحدش يقدر يغير تنفيذها في الوراثة."
+      },
+      {
+        "type": "fitb",
+        "question": "المعلومات التي يتم تمريرها للميثود تسمى ________.",
+        "options": [],
+        "answer": "parameters",
+        "explanation": "الـ parameters أو الـ arguments هي البيانات اللي بنبعتها للميثود عشان تشتغل عليها."
+      },
+      {
+        "type": "mcq",
+        "question": "إذا كانت الميثود لا تعيد أي قيمة، نستخدم الكلمة المحجوزة:",
+        "options": [
+          "int",
+          "return",
+          "void",
+          "static"
+        ],
+        "answer": "void",
+        "explanation": "كلمة void يعني 'فراغ' أو 'لا شيء'، بنستخدمها لما الميثود بتنفذ أكشن بس مش بترجع قيمة."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن للميثود أن تأخذ أكثر من Parameter واحد.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "طبعاً، تقدر تبعت للميثود أي عدد إنت عاوزه من الـ parameters وتفصل بينهم بفاصلة (comma)."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي الكلمة المستخدمة لإرجاع قيمة من الميثود؟",
+        "options": [
+          "get",
+          "return",
+          "void",
+          "back"
+        ],
+        "answer": "return",
+        "explanation": "الـ return هي اللي بتوقف الميثود وبتاخد القيمة اللي جنبها ترجعها للمكان اللي نادى الميثود."
+      },
+      {
+        "type": "fitb",
+        "question": "القدرة على تعريف أكثر من ميثود بنفس الاسم ولكن بـ parameters مختلفة تسمى ________.",
+        "options": [],
+        "answer": "Method Overloading",
+        "explanation": "ده الـ Overloading، نفس الاسم بس الشخصية (الـ parameters) مختلفة."
+      },
+      {
+        "type": "mcq",
+        "question": "في الـ Method Overloading، يجب أن تختلف الميثودز في:",
+        "options": [
+          "الاسم فقط",
+          "نوع القيمة المرتجعة فقط",
+          "الـ Parameters (العدد أو النوع)",
+          "مكان التعريف"
+        ],
+        "answer": "الـ Parameters (العدد أو النوع)",
+        "explanation": "الجافا بتفرق بين الميثودز اللي ليهم نفس الاسم عن طريق الـ parameters بتاعتهم."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن عمل Overloading عن طريق تغيير نوع الـ return فقط.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لازم الـ parameters تتغير، لو غيرت الـ return بس الجافا هتتلخبط وتعتبره تكرار."
+      },
+      {
+        "type": "mcq",
+        "question": "كيف يتم تمثيل الـ Variable Arguments (Varargs) في الجافا؟",
+        "options": [
+          "type[] name",
+          "type... name",
+          "type name...",
+          "type* name"
+        ],
+        "answer": "type... name",
+        "explanation": "الـ 3 نقط دول هما علامة الـ Varargs في الجافا."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن للميثود أن تحتوي على أكثر من Varargs parameter.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "مسموح بـ Varargs واحد بس في الميثود الواحدة عشان الكومبيلر ميتوهش."
+      },
+      {
+        "type": "mcq",
+        "question": "أين يجب أن يوضع الـ Varargs parameter في قائمة الـ parameters؟",
+        "options": [
+          "في البداية",
+          "في المنتصف",
+          "في النهاية",
+          "لا يهم المكان"
+        ],
+        "answer": "في النهاية",
+        "explanation": "الـ Varargs لازم يكون آخر واحد في الصف، عشان هو بياخد كل اللي فاضل."
+      },
+      {
+        "type": "fitb",
+        "question": "داخل الميثود، يتم التعامل مع الـ Varargs كأنه ________.",
+        "options": [],
+        "answer": "array",
+        "explanation": "الجافا بتحول الـ Varargs لـ array أوتوماتيك وتقدر تتعامل معاه بـ loop."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الـ Scope؟",
+        "options": [
+          "نوع من أنواع البيانات",
+          "المنطقة التي يكون فيها المتغير متاحاً للاستخدام",
+          "طريقة لاستدعاء الميثود",
+          "اسم كلاس في الجافا"
+        ],
+        "answer": "المنطقة التي يكون فيها المتغير متاحاً للاستخدام",
+        "explanation": "الـ Scope هو حدود المتغير، يعني الحتة اللي المتغير عايش فيها ومسموح نستخدمه فيها."
+      },
+      {
+        "type": "tf",
+        "question": "المتغيرات المعرفة داخل بلوك { } تكون متاحة خارجه.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "المتغير بيموت بمجرد ما نقفل القوس بتاع البلوك اللي هو فيه."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو تعريف الـ Recursion؟",
+        "options": [
+          "استدعاء ميثود من كلاس آخر",
+          "تعريف ميثود داخل ميثود أخرى",
+          "قيام الميثود باستدعاء نفسها",
+          "تكرار الكود باستخدام for loop"
+        ],
+        "answer": "قيام الميثود باستدعاء نفسها",
+        "explanation": "الـ Recursion هو إن الميثود تنادي نفسها عشان تحل جزء من المشكلة."
+      },
+      {
+        "type": "fitb",
+        "question": "في الـ Recursion، الحالة التي تتوقف عندها الميثود عن استدعاء نفسها تسمى ________.",
+        "options": [],
+        "answer": "base case",
+        "explanation": "الـ Base Case دي الفرامل اللي بتوقف الـ Recursion عشان ميفضلش شغال لما لا نهاية."
+      },
+      {
+        "type": "mcq",
+        "question": "ماذا سيطبع الكود التالي؟ \n`static int sum(int k) { if (k > 0) return k + sum(k-1); else return 0; }` \nعند استدعاء `sum(3)`؟",
+        "options": [
+          "3",
+          "6",
+          "5",
+          "0"
+        ],
+        "answer": "6",
+        "explanation": "3 + 2 + 1 + 0 = 6."
+      },
+      {
+        "type": "tf",
+        "question": "الميثود التي نوعها static يمكن استدعاؤها بدون عمل object من الكلاس.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "ده أساس الـ static، إنه مرتبط بالكلاس مش بالأوبجيكت."
+      },
+      {
+        "type": "mcq",
+        "question": "أي Modifier يستخدم للميثود التي يتم تعريفها فقط بدون كتابة كود لها (Implementation)؟",
+        "options": [
+          "static",
+          "final",
+          "abstract",
+          "private"
+        ],
+        "answer": "abstract",
+        "explanation": "الـ abstract ميثود هي ميثود 'على الورق' بس، بنكتب اسمها بس وتنفذها في الكلاسات اللي هتورث منها."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن استدعاء الميثود الواحدة أكثر من مرة في الـ main method.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "طبعاً، ده أصلاً فايدتها، تناديها وقت ما تحب وبأي عدد من المرات."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الـ Access Modifier الافتراضي (Default) في الجافا إذا لم نكتب أي شيء؟",
+        "options": [
+          "public",
+          "private",
+          "package-private (default)",
+          "protected"
+        ],
+        "answer": "package-private (default)",
+        "explanation": "لو مكتبتش حاجة بتبقى default، يعني متشافة بس جوه نفس الـ package."
+      },
+      {
+        "type": "tf",
+        "question": "المتغيرات المعرفة داخل الـ main method يمكن استخدامها في ميثود أخرى مباشرة.",
+        "options": [],
+        "answer": "خطأ",
+        "explanation": "لأ طبعاً، كل ميثود ليها الـ Scope بتاعها، لو عاوز تبعت قيمة لازم تستخدم الـ parameters."
+      },
+      {
+        "type": "mcq",
+        "question": "في الكود `void myMethod(String fname, int age)`، ما هي أنواع الـ parameters؟",
+        "options": [
+          "String فقط",
+          "int فقط",
+          "String و int",
+          "لا يوجد parameters"
+        ],
+        "answer": "String و int",
+        "explanation": "الميثود دي بتاخد اتنين parameters، الأول نوعه String والتاني int."
+      },
+      {
+        "type": "fitb",
+        "question": "يتم فصل الـ parameters عند تعريف الميثود باستخدام ________.",
+        "options": [],
+        "answer": "comma",
+        "explanation": "الفاصلة (,) هي اللي بتفصل بين كل Parameter والتاني."
+      },
+      {
+        "type": "tf",
+        "question": "الـ protected modifier يجعل الميثود متاحة للكلاسات الوارثة (subclasses).",
+        "options": [],
+        "answer": "صح",
+        "explanation": "الـ protected معمولة أساساً عشان الوراثة والـ package."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هي نتيجة تنفيذ `System.out.println(10 + 5)` إذا كانت في ميثود تعيد int؟",
+        "options": [
+          "105",
+          "15",
+          "Error",
+          "10 + 5"
+        ],
+        "answer": "15",
+        "explanation": "الجافا هتجمع الرقمين عادي وتطبع النتيجة اللي هي 15."
+      },
+      {
+        "type": "tf",
+        "question": "الـ static method لا يمكنها الوصول مباشرة لمتغيرات غير static (instance variables).",
+        "options": [],
+        "answer": "صح",
+        "explanation": "الـ static مبيشوفش غير الـ static زيه، عشان الـ instance variables بتحتاج أوبجيكت وهو مش محتاج."
+      },
+      {
+        "type": "mcq",
+        "question": "أي مما يلي يعتبر توقيعاً (Signature) صحيحاً لميثود تستقبل Varargs؟",
+        "options": [
+          "void test(int... nums)",
+          "void test(...int nums)",
+          "void test(int nums...)",
+          "void test(int... nums, int x)"
+        ],
+        "answer": "void test(int... nums)",
+        "explanation": "النوع ثم الثلاث نقاط ثم الاسم، ولازم تكون في الآخر."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Block Scope ينطبق على الكود الموجود بين { } حتى لو كان داخل if statement.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "أي قوسين مجموعة { } بيعملوا Scope جديد للمتغيرات اللي جواهم."
+      },
+      {
+        "type": "mcq",
+        "question": "ماذا يحدث لو لم نضع Base Case في الـ Recursion؟",
+        "options": [
+          "سيعمل البرنامج بشكل أسرع",
+          "سيتوقف البرنامج فوراً",
+          "سيحدث Stack Overflow Error",
+          "لن يحدث شيء"
+        ],
+        "answer": "سيحدث Stack Overflow Error",
+        "explanation": "الميثود هتفضل تنادي نفسها لحد ما الذاكرة (Stack) تتملي وتنفجر في وشنا."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن تخزين القيمة المرتجعة من ميثود في متغير.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "وده الأفضل عشان تقدر تستخدم القيمة دي تاني في الكود بتاعك."
+      },
+      {
+        "type": "mcq",
+        "question": "عند استدعاء ميثود `printMax(34, 3, 56.5)`، أي نوع Varargs يجب أن تستخدم؟",
+        "options": [
+          "int...",
+          "double...",
+          "String...",
+          "float..."
+        ],
+        "answer": "double...",
+        "explanation": "بما إن فيه رقم عشري (56.5)، يبقى لازم نستخدم double عشان يشمل الكل."
+      },
+      {
+        "type": "fitb",
+        "question": "الميثود التي يتم استدعاؤها داخل الـ main يجب أن تكون ________ إذا لم ننشئ object.",
+        "options": [],
+        "answer": "static",
+        "explanation": "عشان الـ main ميثود نفسها static، فلازم تنادي حاجات static زيها لو مفيش أوبجيكت."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو ناتج `plusMethod(8, 5)` إذا كانت الميثود تجمع الرقمين؟",
+        "options": [
+          "13",
+          "85",
+          "3",
+          "40"
+        ],
+        "answer": "13",
+        "explanation": "8 + 5 = 13، عملية جمع بسيطة."
+      },
+      {
+        "type": "tf",
+        "question": "الـ Parameters تعتبر متغيرات محلية (local variables) داخل الميثود.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "الـ parameters بتتعامل معاملة المتغيرات اللي متعرفة جوه الميثود بالضبط."
+      },
+      {
+        "type": "mcq",
+        "question": "أي من التالي ليس من أنواع الـ Modifiers؟",
+        "options": [
+          "public",
+          "static",
+          "void",
+          "final"
+        ],
+        "answer": "void",
+        "explanation": "الـ void ده Return Type مش Modifier."
+      },
+      {
+        "type": "tf",
+        "question": "يمكن للميثود أن تعيد Array.",
+        "options": [],
+        "answer": "صح",
+        "explanation": "الميثود تقدر ترجع أي نوع بيانات، سواء primitive أو reference زي الـ Array."
+      },
+      {
+        "type": "mcq",
+        "question": "متى يتم تنفيذ الكود الموجود داخل الميثود؟",
+        "options": [
+          "عند كتابته",
+          "عند عمل Compile للبرنامج",
+          "عند استدعاء الميثود (Calling)",
+          "تلقائياً عند تشغيل البرنامج"
+        ],
+        "answer": "عند استدعاء الميثود (Calling)",
+        "explanation": "الميثود كود مركون، مش هيتحرك ولا يتنفذ غير لما حد ينادي عليه."
+      },
+      {
+        "type": "fitb",
+        "question": "الكلمة المحجوزة ________ تمنع توريث الميثود أو التعديل عليها.",
+        "options": [],
+        "answer": "final",
+        "explanation": "الـ final بيخلي الميثود نهائية وغير قابلة للتغيير."
+      },
+      {
+        "type": "mcq",
+        "question": "ما هو الترتيب الصحيح لتعريف ميثود؟",
+        "options": [
+          "Modifier -> ReturnType -> Name -> Parameters",
+          "Name -> Modifier -> ReturnType -> Parameters",
+          "ReturnType -> Name -> Modifier -> Parameters",
+          "Parameters -> Name -> ReturnType -> Modifier"
+        ],
+        "answer": "Modifier -> ReturnType -> Name -> Parameters",
+        "explanation": "ده الترتيب المنطقي: بنقول مين يشوفها، هترجع إيه، اسمها إيه، وهتاخد إيه."
+      }
+    ]
+  }
+]
