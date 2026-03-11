@@ -4649,7 +4649,7 @@
     "summary": "### يا أهلاً يا دكاترة.. إيه هي الـ Data Structure أصلاً؟\nبص يا سيدي، **هياكل البيانات** أو الـ Data Structure هي ببساطة الطريقة اللي بنرتب وننظم بيها البيانات في الكمبيوتر عشان نعرف نستخدمها بـ **كفاءة** عالية. الموضوع مش مجرد تخزين، لا ده بيشمل إزاي بنوصل للبيانات (Access)، وإزاي بنعمل عليها عمليات زي الـ (Insertion) و الـ (Deletion) و الـ (Searching).\n\n### البرنامج بيتكون من إيه؟\nالدحيح بيقولك احفظ المعادلة دي زي اسمك: **Program = Algorithm + Data Structure**. الـ Algorithm هو الخطوات اللي بنمشي عليها عشان نحل مشكلة معينة، والـ Data Structure هي الوعاء اللي شايل البيانات دي. والبرنامج اللي بيبني الـ DS بنسميه **Implementation**، أما اللي بيستخدمها فبنسميه **Client Program**.\n\n### أنواع هياكل البيانات\nالـ Data Structure بتنقسم لعيلتين كبار:\n1. **Primitive**: ودول الحاجات الأساسية اللي لغة البرمجة عارفاها جاهزة زي الـ (Integer, Float, Char, Pointer).\n2. **Non-primitive**: ودول اللي إحنا بنبنيهم، وبينقسموا لـ:\n   - **Linear (خطية)**: البيانات ورا بعضها زي الطابور، زي الـ (Array, Linked list, Stack, Queue).\n   - **Non-linear (غير خطية)**: البيانات متفرعة، زي الـ (Trees, Graphs).\n\n### إزاي بنقيس شطارة الكود؟ (Performance)\nعشان نقول الكود ده \"عاش\" ولا \"أي كلام\"، بنبص على حاجتين: الـ **Space** (واخد مكان قد إيه في الميموري) والـ **Time** (خد وقت قد إيه عشان يتنفذ). \nومثلاً لو عايز تجمع الأرقام من 1 لـ n، ممكن تعمل Loop ودي هتاخد وقت، أو تستخدم قانون **n*(n+1)/2** وده طبعاً أسرع بكتير وأكفأ.\n\n### حالات التعقيد (Complexity Analysis)\nلما بنيجي نحلل سرعة الخوارزمية، عندنا 3 حالات:\n1. **Best Case**: أحسن حالة ممكنة، وبنرمز لها بالرمز **Omega (Ω)**.\n2. **Average Case**: الحالة المتوسطة، وبنرمز لها بالرمز **Theta (Θ)**.\n3. **Worst Case**: أسوأ حالة (ودي اللي تهمنا كمهندسين)، وبنرمز لها بالرمز **Big O notation (O)**.\nكل ده بنسميه **Asymptotic analysis**، وده علم دراسة أداء الدوال لما البيانات تكبر جداً.",
     "resources": {
       "pdf": "/materials/DS-401/%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%B6%D8%B1%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89.pdf",
-      "sheet": "/materials/DS-401/%D8%A7%D9%84%D8%B4%D9%8A%D8%AA%201.pdf",
+      "sheet": "/materials/DS-401/sheet_1.pdf",
       "assignments": "#"
     },
     "quiz": [
@@ -5511,6 +5511,43 @@
         "options": [],
         "answer": "خطأ",
         "explanation": "العكس هو الصحيح، كل ما قل التعقيد زادت الكفاءة."
+      }
+    ],
+    "sheetSolutions": [
+      {
+        "question": "Write a C++ program that reads 5 elements into an array, then displays the elements in the same order they were entered.",
+        "answer": "```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int arr[5];\n    for(int i=0; i<5; i++) cin >> arr[i];\n    for(int i=0; i<5; i++) cout << arr[i] << \" \";\n    return 0;\n}\n```",
+        "explanation": "بنعمل array يشيل 5 أرقام، وبنعمل لوب (for loop) عشان ندخل الأرقام من اليوزر، ولوب تانية عشان نطبعهم بنفس الترتيب.",
+        "type": "essay",
+        "pdfPage": 2
+      },
+      {
+        "question": "Write a C++ program to determine and display the maximum element stored in an array.",
+        "answer": "```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int arr[5] = {1, 5, 3, 9, 2};\n    int max_val = arr[0];\n    for(int i=1; i<5; i++) {\n        if(arr[i] > max_val) max_val = arr[i];\n    }\n    cout << max_val;\n    return 0;\n}\n```",
+        "explanation": "بنفترض إن أول رقم هو الأكبر (max_val)، وبعدين بنلف على باقي الأرقام نقارنهم بيه، لو لقينا رقم أكبر منه، بنخليه هو الـ max الجديد.",
+        "type": "essay",
+        "pdfPage": 2
+      },
+      {
+        "question": "Write a C++ program that reads n elements into an array, then uses a separate function to calculate the sum of the array elements, and finally displays the result.",
+        "answer": "```cpp\n#include <iostream>\nusing namespace std;\nint calcSum(int arr[], int n) {\n    int sum = 0;\n    for(int i=0; i<n; i++) sum += arr[i];\n    return sum;\n}\nint main() {\n    int n; cin >> n;\n    int arr[100];\n    for(int i=0; i<n; i++) cin >> arr[i];\n    cout << calcSum(arr, n);\n    return 0;\n}\n```",
+        "explanation": "بنعمل دالة (Function) بتاخد الأراي وحجمه، وتلف عليهم وتجمعهم في متغير اسمه sum وترجعه لبرة.",
+        "type": "essay",
+        "pdfPage": 3
+      },
+      {
+        "question": "Write a C++ function that calculates and returns the average value of elements stored in an array initialized with the values {10, 20, 30, 40, 50}.",
+        "answer": "```cpp\n#include <iostream>\nusing namespace std;\ndouble calcAverage(int arr[], int n) {\n    int sum = 0;\n    for(int i=0; i<n; i++) sum += arr[i];\n    return (double)sum / n;\n}\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    cout << calcAverage(arr, 5);\n    return 0;\n}\n```",
+        "explanation": "عشان نجيب المتوسط (Average)، بنجمع كل الأرقام ونقسمهم على عددهم. وزي ما عملنا في الجمع، عملنا دالة بس المرة دي بتقسم المجموع على n في الآخر.",
+        "type": "essay",
+        "pdfPage": 3
+      },
+      {
+        "question": "Write a C++ program that uses an array initialized with the values {1, 2, 3, 2, 1}, then uses a function to determine whether the array is a palindrome (same forward and backward), and prints the result.",
+        "answer": "```cpp\n#include <iostream>\nusing namespace std;\nbool isPalindrome(int arr[], int n) {\n    for(int i=0; i<n/2; i++) {\n        if(arr[i] != arr[n-i-1]) return false;\n    }\n    return true;\n}\nint main() {\n    int arr[] = {1, 2, 3, 2, 1};\n    if(isPalindrome(arr, 5)) cout << \"Palindrome\";\n    else cout << \"Not Palindrome\";\n    return 0;\n}\n```",
+        "explanation": "عشان نعرف هو بيلاندروم (يتقري من اليمين زي الشمال) ولا لأ، بنقارن أول عنصر بآخر عنصر، وتاني عنصر باللي قبل الأخير، وهكذا. لو كله زي بعضه يبقى تمام!",
+        "type": "essay",
+        "pdfPage": 3
       }
     ]
   },
