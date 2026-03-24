@@ -22,14 +22,26 @@
         ],
         "answer": "Software development is a complex process, especially for 'hard' systems.",
         "explanation": "The lecture states that software development is hard and distinguishes between 'easy' and 'hard' systems, implying that Software Engineering is needed to manage this complexity.",
-        "topic": "Why Software Engineering?"
+        "topic": "Why Software Engineering?",
+        "question_ar": "أي العبارات التالية تصف بشكل أفضل الفرضية الكامنة وراء الحاجة إلى هندسة البرمجيات؟",
+        "options_ar": [
+          "تطوير البرمجيات بسيط بطبيعته لمعظم المشاريع.",
+          "معظم أنظمة البرمجيات 'سهلة' وتتطلب تخطيطًا أدنى.",
+          "تطوير البرمجيات عملية معقدة، خاصة بالنسبة للأنظمة 'الصعبة'.",
+          "الخبرة المكتسبة من الأنظمة 'السهلة' تترجم مباشرة إلى النجاح مع الأنظمة 'الصعبة'."
+        ],
+        "answer_ar": "تطوير البرمجيات عملية معقدة، خاصة بالنسبة للأنظمة 'الصعبة'.",
+        "explanation_ar": "تذكر المحاضرة أن تطوير البرمجيات صعب ويميز بين الأنظمة 'السهلة' و'الصعبة'، مما يعني أن هندسة البرمجيات ضرورية لإدارة هذا التعقيد."
       },
       {
         "type": "tf",
         "question": "Experience gained from developing 'easy' systems is generally sufficient for successfully developing 'hard' systems.",
         "answer": "false",
         "explanation": "The lecture explicitly states, 'Experience with “easy” systems is False,' in the context of developing 'hard' systems.",
-        "topic": "Why Software Engineering?"
+        "topic": "Why Software Engineering?",
+        "question_ar": "الخبرة المكتسبة من تطوير الأنظمة 'السهلة' كافية بشكل عام لتطوير الأنظمة 'الصعبة' بنجاح.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تذكر المحاضرة صراحةً أن 'الخبرة في الأنظمة “السهلة” خاطئة' في سياق تطوير الأنظمة 'الصعبة'."
       },
       {
         "type": "fitb",
@@ -37,7 +49,10 @@
         "options": [],
         "answer": "hard",
         "explanation": "The lecture distinguishes 'easy' systems (one developer, one user, experimental) from 'hard' systems (multiple developers, multiple users, products).",
-        "topic": "Why Software Engineering?"
+        "topic": "Why Software Engineering?",
+        "question_ar": "الأنظمة التي تتميز بوجود عدة مطورين، وعدة مستخدمين، وأهداف للمنتج، تصنف على أنها أنظمة _______.",
+        "answer_ar": "صعبة",
+        "explanation_ar": "تميز المحاضرة بين الأنظمة 'السهلة' (مطور واحد، مستخدم واحد، استخدام تجريبي) والأنظمة 'الصعبة' (عدة مطورين، عدة مستخدمين، منتجات)."
       },
       {
         "type": "mcq",
@@ -50,7 +65,16 @@
         ],
         "answer": "One developer, one user, experimental use only.",
         "explanation": "The lecture defines 'easy' systems as those involving one developer, one user, and experimental use only.",
-        "topic": "Why Software Engineering?"
+        "topic": "Why Software Engineering?",
+        "question_ar": "أي خيار يصف بدقة خصائص النظام 'السهل' كما هو محدد في المحاضرة؟",
+        "options_ar": [
+          "عدة مطورين، عدة مستخدمين، أهداف المنتج.",
+          "مطور واحد، مستخدم واحد، استخدام تجريبي فقط.",
+          "موثوقية عالية، صيانة منخفضة، تسليم في الوقت المحدد.",
+          "متطلبات معقدة، فريق تطوير موزع."
+        ],
+        "answer_ar": "مطور واحد، مستخدم واحد، استخدام تجريبي فقط.",
+        "explanation_ar": "تُعرّف المحاضرة الأنظمة 'السهلة' بأنها تلك التي تتضمن مطورًا واحدًا ومستخدمًا واحدًا واستخدامًا تجريبيًا فقط."
       },
       {
         "type": "mcq",
@@ -63,14 +87,26 @@
         ],
         "answer": "High initial production cost.",
         "explanation": "Low production costs is a goal, not high initial production costs.",
-        "topic": "Goals of Software Development"
+        "topic": "Goals of Software Development",
+        "question_ar": "أي مما يلي لم يُذكر كهدف أساسي لتطوير البرمجيات؟",
+        "options_ar": [
+          "تلبية متطلبات المستخدمين.",
+          "أداء عالٍ.",
+          "تكلفة إنتاج أولية عالية.",
+          "تكاليف صيانة منخفضة."
+        ],
+        "answer_ar": "تكلفة إنتاج أولية عالية.",
+        "explanation_ar": "تكاليف الإنتاج المنخفضة هي هدف، وليست تكاليف الإنتاج الأولية العالية."
       },
       {
         "type": "tf",
         "question": "Achieving delivery on time is considered a fundamental goal of software development.",
         "answer": "true",
         "explanation": "Delivery on time is explicitly listed as one of the goals of software development.",
-        "topic": "Goals of Software Development"
+        "topic": "Goals of Software Development",
+        "question_ar": "يُعتبر تحقيق التسليم في الوقت المحدد هدفًا أساسيًا لتطوير البرمجيات.",
+        "answer_ar": "صح",
+        "explanation_ar": "التسليم في الوقت المحدد مدرج صراحةً كأحد أهداف تطوير البرمجيات."
       },
       {
         "type": "fitb",
@@ -78,14 +114,20 @@
         "options": [],
         "answer": "reliability",
         "explanation": "High reliability is one of the explicitly stated goals of software development.",
-        "topic": "Goals of Software Development"
+        "topic": "Goals of Software Development",
+        "question_ar": "أحد الأهداف الرئيسية لتطوير البرمجيات هو تحقيق _______ عالية لضمان أن يؤدي البرنامج وظائفه المقصودة باستمرار دون أخطاء.",
+        "answer_ar": "الموثوقية",
+        "explanation_ar": "الموثوقية العالية هي أحد الأهداف المعلنة صراحةً لتطوير البرمجيات."
       },
       {
         "type": "tf",
         "question": "Ease of reuse is an important goal in modern software development.",
         "answer": "true",
         "explanation": "Ease of reuse is listed as one of the primary goals of software development.",
-        "topic": "Goals of Software Development"
+        "topic": "Goals of Software Development",
+        "question_ar": "سهولة إعادة الاستخدام هدف مهم في تطوير البرمجيات الحديثة.",
+        "answer_ar": "صح",
+        "explanation_ar": "سهولة إعادة الاستخدام مدرجة كأحد الأهداف الأساسية لتطوير البرمجيات."
       },
       {
         "type": "mcq",
@@ -98,14 +140,26 @@
         ],
         "answer": "45%",
         "explanation": "The lecture states that 45% of large-scale ordered systems are 'delivered but not used'.",
-        "topic": "Satisfying User Requirements"
+        "topic": "Satisfying User Requirements",
+        "question_ar": "وفقًا للنسب المئوية النموذجية للأنظمة الكبيرة المطلوبة، ما هي نسبة الأنظمة التي يتم تسليمها ولكن لا يتم استخدامها؟",
+        "options_ar": [
+          "5%",
+          "17%",
+          "27%",
+          "45%"
+        ],
+        "answer_ar": "45%",
+        "explanation_ar": "تذكر المحاضرة أن 45% من الأنظمة الكبيرة المطلوبة يتم 'تسليمها ولكن لا يتم استخدامها'."
       },
       {
         "type": "tf",
         "question": "Users typically find it straightforward and easy to describe their exact requirements for a software system.",
         "answer": "false",
         "explanation": "The lecture notes that 'Users find it hard to describe what they want.'",
-        "topic": "Satisfying User Requirements"
+        "topic": "Satisfying User Requirements",
+        "question_ar": "عادةً ما يجد المستخدمون أنه من السهل والمباشر وصف متطلباتهم الدقيقة لنظام برمجي.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تلاحظ المحاضرة أن 'المستخدمين يجدون صعوبة في وصف ما يريدون'."
       },
       {
         "type": "fitb",
@@ -113,7 +167,10 @@
         "options": [],
         "answer": "understand",
         "explanation": "The lecture highlights 'Developers find it hard to understand what users say!' as a challenge.",
-        "topic": "Satisfying User Requirements"
+        "topic": "Satisfying User Requirements",
+        "question_ar": "أحد التحديات الهامة في تلبية متطلبات المستخدمين هو أن المطورين غالبًا ما يجدون صعوبة في _______ ما يقوله المستخدمون.",
+        "answer_ar": "فهم",
+        "explanation_ar": "تسلط المحاضرة الضوء على أن 'المطورين يجدون صعوبة في فهم ما يقوله المستخدمون!' كتحدي."
       },
       {
         "type": "mcq",
@@ -126,21 +183,36 @@
         ],
         "answer": "27%",
         "explanation": "The lecture specifies that 27% of large-scale ordered systems are 'paid for but not delivered'.",
-        "topic": "Satisfying User Requirements"
+        "topic": "Satisfying User Requirements",
+        "question_ar": "وفقًا للمحاضرة، ما هي النسبة المئوية للأنظمة الكبيرة المطلوبة التي يتم دفع ثمنها ولكن لا يتم تسليمها عادةً؟",
+        "options_ar": [
+          "6%",
+          "17%",
+          "27%",
+          "45%"
+        ],
+        "answer_ar": "27%",
+        "explanation_ar": "تحدد المحاضرة أن 27% من الأنظمة الكبيرة المطلوبة يتم 'دفع ثمنها ولكن لا يتم تسليمها'."
       },
       {
         "type": "tf",
         "question": "A small minority, only 5%, of large-scale ordered systems are typically used as delivered, without any changes.",
         "answer": "true",
         "explanation": "The lecture indicates that only 5% of large-scale ordered systems are 'used as delivered'.",
-        "topic": "Satisfying User Requirements"
+        "topic": "Satisfying User Requirements",
+        "question_ar": "نسبة قليلة، 5% فقط، من الأنظمة الكبيرة المطلوبة تستخدم عادة كما تم تسليمها، دون أي تغييرات.",
+        "answer_ar": "صح",
+        "explanation_ar": "تشير المحاضرة إلى أن 5% فقط من الأنظمة الكبيرة المطلوبة يتم 'استخدامها كما تم تسليمها'."
       },
       {
         "type": "tf",
         "question": "Mistakes in computer programs are generically referred to as 'viruses'.",
         "answer": "false",
         "explanation": "Mistakes in programs are generically known as 'bugs', not viruses.",
-        "topic": "High Reliability"
+        "topic": "High Reliability",
+        "question_ar": "الأخطاء في برامج الكمبيوتر يشار إليها عمومًا باسم 'الفيروسات'.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "الأخطاء في البرامج تُعرف عمومًا باسم 'الأخطاء البرمجية' (bugs)، وليست فيروسات."
       },
       {
         "type": "mcq",
@@ -153,7 +225,16 @@
         ],
         "answer": "Loss of human lives.",
         "explanation": "The lecture states bugs can be expensive in terms of 'Human lives: in safety critical systems, e.g., nuclear reactor control and fly-by-wire aircraft'.",
-        "topic": "High Reliability"
+        "topic": "High Reliability",
+        "question_ar": "أي مما يلي يُقدم كنتيجة محتملة للأخطاء البرمجية (bugs)، خاصة في الأنظمة الحرجة للسلامة؟",
+        "options_ar": [
+          "زيادة تكاليف الإنتاج.",
+          "أوقات تسليم أسرع.",
+          "فقدان أرواح بشرية.",
+          "تحسين علاقات العملاء."
+        ],
+        "answer_ar": "فقدان أرواح بشرية.",
+        "explanation_ar": "تذكر المحاضرة أن الأخطاء البرمجية يمكن أن تكون مكلفة من حيث 'الأرواح البشرية: في الأنظمة الحرجة للسلامة، مثل التحكم في المفاعلات النووية وطائرات التحكم بالسلك'."
       },
       {
         "type": "fitb",
@@ -161,7 +242,10 @@
         "options": [],
         "answer": "500",
         "explanation": "The lecture cites the Ariane 5 launch cost as US$500 Million due to a software bug.",
-        "topic": "High Reliability"
+        "topic": "High Reliability",
+        "question_ar": "الخطأ البرمجي في إطلاق أريان 5 الفاشل أدى إلى تكلفة مالية قدرها _______ مليون دولار أمريكي.",
+        "answer_ar": "500",
+        "explanation_ar": "تذكر المحاضرة أن تكلفة إطلاق أريان 5 بلغت 500 مليون دولار أمريكي بسبب خطأ برمجي."
       },
       {
         "type": "mcq",
@@ -174,14 +258,26 @@
         ],
         "answer": "Microsoft's original Windows release.",
         "explanation": "The lecture mentions 'Microsoft problems with original Windows release caused the company huge problems' as an example of poor customer relations.",
-        "topic": "High Reliability"
+        "topic": "High Reliability",
+        "question_ar": "تمثلت علاقات العملاء السيئة بسبب مشاكل البرمجيات في المحاضرة بمشاكل تتعلق بـ:",
+        "options_ar": [
+          "تحديثات iOS من Apple.",
+          "خوارزمية بحث Google.",
+          "الإصدار الأصلي من Windows من Microsoft.",
+          "منصة التجارة الإلكترونية من Amazon."
+        ],
+        "answer_ar": "الإصدار الأصلي من Windows من Microsoft.",
+        "explanation_ar": "تذكر المحاضرة 'مشاكل Microsoft مع الإصدار الأصلي من Windows التي سببت للشركة مشاكل ضخمة' كمثال على سوء علاقات العملاء."
       },
       {
         "type": "tf",
         "question": "Software maintenance refers to the activities performed on software before it is released to users.",
         "answer": "false",
         "explanation": "Maintenance is defined as 'what is done to software after it starts being used'.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "تشير صيانة البرمجيات إلى الأنشطة التي تتم على البرامج قبل إطلاقها للمستخدمين.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تُعرف الصيانة بأنها 'ما يتم إجراؤه على البرنامج بعد بدء استخدامه'."
       },
       {
         "type": "mcq",
@@ -194,7 +290,16 @@
         ],
         "answer": "65%",
         "explanation": "The lecture states, 'Maintenance typically accounts for 65% of overall project costs.'",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "ما هي النسبة المئوية من إجمالي تكاليف المشروع التي تمثلها صيانة البرمجيات عادة؟",
+        "options_ar": [
+          "21%",
+          "25%",
+          "50%",
+          "65%"
+        ],
+        "answer_ar": "65%",
+        "explanation_ar": "تذكر المحاضرة أن 'الصيانة تمثل عادة 65% من إجمالي تكاليف المشروع'."
       },
       {
         "type": "fitb",
@@ -202,7 +307,10 @@
         "options": [],
         "answer": "Adaptive",
         "explanation": "Adaptive maintenance is defined as 'altering software to fit changing software'.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "صيانة _______ تتضمن تعديل البرمجيات لتناسب بيئات أو منصات برمجية متغيرة.",
+        "answer_ar": "التكيفية",
+        "explanation_ar": "تُعرّف الصيانة التكيفية بأنها 'تعديل البرمجيات لتناسب البرمجيات المتغيرة'."
       },
       {
         "type": "mcq",
@@ -215,14 +323,26 @@
         ],
         "answer": "Perfective",
         "explanation": "Perfective maintenance is defined as 'to meet new requirements'.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "أي نوع من صيانة البرمجيات يركز على تلبية متطلبات جديدة أو تحسين الميزات الحالية؟",
+        "options_ar": [
+          "التصحيحية",
+          "التكيفية",
+          "التكميلية/التحسينية",
+          "الوقائية"
+        ],
+        "answer_ar": "التكميلية/التحسينية",
+        "explanation_ar": "تُعرّف الصيانة التكميلية/التحسينية بأنها 'لتلبية متطلبات جديدة'."
       },
       {
         "type": "tf",
         "question": "Corrective maintenance typically accounts for the largest percentage of overall maintenance costs.",
         "answer": "false",
         "explanation": "Perfective maintenance accounts for the largest percentage (50%), while Corrective maintenance accounts for 21%.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "عادةً ما تمثل الصيانة التصحيحية النسبة الأكبر من إجمالي تكاليف الصيانة.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تمثل الصيانة التكميلية/التحسينية النسبة الأكبر (50%)، بينما تمثل الصيانة التصحيحية 21%."
       },
       {
         "type": "mcq",
@@ -235,7 +355,16 @@
         ],
         "answer": "To reduce further maintenance efforts.",
         "explanation": "Preventative maintenance is described as 'to reduce further maintenance'.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "ما هو الهدف الأساسي للصيانة الوقائية؟",
+        "options_ar": [
+          "لإصلاح الأخطاء الموجودة.",
+          "لتكييف البرنامج مع بيئات جديدة.",
+          "لتقليل جهود الصيانة المستقبلية.",
+          "لإضافة ميزات جديدة للمستخدم."
+        ],
+        "answer_ar": "لتقليل جهود الصيانة المستقبلية.",
+        "explanation_ar": "تُوصف الصيانة الوقائية بأنها 'لتقليل الصيانة المستقبلية'."
       },
       {
         "type": "fitb",
@@ -243,14 +372,20 @@
         "options": [],
         "answer": "Corrective",
         "explanation": "Corrective maintenance is defined as 'fixing bugs'.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "تصنيف إصلاح الأخطاء الموجودة في البرامج بعد نشرها هو صيانة _______.",
+        "answer_ar": "التصحيحية",
+        "explanation_ar": "تُعرّف الصيانة التصحيحية بأنها 'إصلاح الأخطاء'."
       },
       {
         "type": "tf",
         "question": "Preventative maintenance constitutes the smallest percentage of maintenance types, at 4%.",
         "answer": "true",
         "explanation": "The lecture lists Preventative maintenance at 4%, which is the smallest percentage among the types mentioned.",
-        "topic": "Low Maintenance Costs"
+        "topic": "Low Maintenance Costs",
+        "question_ar": "تشكل الصيانة الوقائية أصغر نسبة من أنواع الصيانة، وهي 4%.",
+        "answer_ar": "صح",
+        "explanation_ar": "تدرج المحاضرة الصيانة الوقائية بنسبة 4%، وهي أصغر نسبة بين الأنواع المذكورة."
       },
       {
         "type": "fitb",
@@ -258,7 +393,10 @@
         "options": [],
         "answer": "Life",
         "explanation": "SDLC is an acronym for Software Development Life Cycle.",
-        "topic": "The Software Process (SDLC)"
+        "topic": "The Software Process (SDLC)",
+        "question_ar": "يرمز SDLC إلى دورة حياة تطوير الـ _______ للبرمجيات.",
+        "answer_ar": "حياة",
+        "explanation_ar": "SDLC هو اختصار لدورة حياة تطوير البرمجيات (Software Development Life Cycle)."
       },
       {
         "type": "mcq",
@@ -271,14 +409,26 @@
         ],
         "answer": "To provide a structured process for designing, developing, and testing good-quality software.",
         "explanation": "The SDLC is defined as 'A structured process used for design, develop, and test good-quality software'.",
-        "topic": "The Software Process (SDLC)"
+        "topic": "The Software Process (SDLC)",
+        "question_ar": "ما هو الغرض الأساسي لدورة حياة تطوير البرمجيات (SDLC)؟",
+        "options_ar": [
+          "للتركيز حصريًا على اختبار البرمجيات.",
+          "لتوفير عملية منظمة لتصميم وتطوير واختبار برمجيات ذات جودة جيدة.",
+          "لتحديد لغات البرمجة لتطوير البرمجيات.",
+          "لإدارة ميزانيات البرمجيات دون النظر إلى الجودة."
+        ],
+        "answer_ar": "لتوفير عملية منظمة لتصميم وتطوير واختبار برمجيات ذات جودة جيدة.",
+        "explanation_ar": "تُعرف دورة حياة تطوير البرمجيات (SDLC) بأنها 'عملية منظمة تُستخدم لتصميم وتطوير واختبار برمجيات ذات جودة جيدة'."
       },
       {
         "type": "tf",
         "question": "The SDLC ensures that a product meets customer expectations regardless of the overall budget.",
         "answer": "false",
         "explanation": "The SDLC ensures the product meets customer expectations 'within the overall budget'.",
-        "topic": "The Software Process (SDLC)"
+        "topic": "The Software Process (SDLC)",
+        "question_ar": "تضمن دورة حياة تطوير البرمجيات (SDLC) أن المنتج يلبي توقعات العميل بغض النظر عن الميزانية الإجمالية.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تضمن دورة حياة تطوير البرمجيات (SDLC) أن المنتج يلبي توقعات العميل 'ضمن الميزانية الإجمالية'."
       },
       {
         "type": "mcq",
@@ -291,7 +441,16 @@
         ],
         "answer": "To ensure the product meets customer expectations within the overall budget.",
         "explanation": "The lecture states, 'Hence, it’s vital for a software developer to have prior knowledge of this software development process' because 'It ensures that the product is able to meet the customer’s expectations within the overall budget'.",
-        "topic": "The Software Process (SDLC)"
+        "topic": "The Software Process (SDLC)",
+        "question_ar": "لماذا يعتبر امتلاك مطور البرمجيات معرفة مسبقة بدورة حياة تطوير البرمجيات (SDLC) أمرًا حيويًا؟",
+        "options_ar": [
+          "لضمان ميزانية غير محدودة للمشروع.",
+          "لتسريع مرحلة الترميز حصريًا.",
+          "لضمان تلبية المنتج لتوقعات العميل ضمن الميزانية الإجمالية.",
+          "لتجنب أي حاجة للتوثيق."
+        ],
+        "answer_ar": "لضمان تلبية المنتج لتوقعات العميل ضمن الميزانية الإجمالية.",
+        "explanation_ar": "تذكر المحاضرة أنه 'لذا، من الحيوي لمطور البرمجيات أن يكون لديه معرفة مسبقة بعملية تطوير البرمجيات هذه' لأنها 'تضمن أن المنتج قادر على تلبية توقعات العميل ضمن الميزانية الإجمالية'."
       },
       {
         "type": "fitb",
@@ -299,7 +458,10 @@
         "options": [],
         "answer": "SRS",
         "explanation": "The lecture specifies, 'We use a special document (SRS) to keep everything clear' in Stage-2.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "في المرحلة الثانية من دورة حياة تطوير البرمجيات (SDLC)، تحديد المتطلبات، تُستخدم وثيقة خاصة تُعرف باسم الـ _______ للحفاظ على كل شيء واضحًا ومعتمدًا من قبل أصحاب المصلحة.",
+        "answer_ar": "SRS",
+        "explanation_ar": "تحدد المحاضرة 'نحن نستخدم وثيقة خاصة (SRS) للحفاظ على كل شيء واضحًا' في المرحلة الثانية."
       },
       {
         "type": "mcq",
@@ -312,14 +474,26 @@
         ],
         "answer": "Stage-1: Planning and Requirement Analysis",
         "explanation": "Stage-1 is described as where 'Planning is important' and 'Requirement analysis helps in understanding what's needed for the project'.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "خلال أي مرحلة من مراحل دورة حياة تطوير البرمجيات (SDLC) يتم إنشاء الخطة الأساسية للمشروع وتحليل المتطلبات الأولية؟",
+        "options_ar": [
+          "المرحلة الثانية: تحديد المتطلبات",
+          "المرحلة الأولى: التخطيط وتحليل المتطلبات",
+          "المرحلة الثالثة: تصميم البنية",
+          "المرحلة الرابعة: تطوير المنتج"
+        ],
+        "answer_ar": "المرحلة الأولى: التخطيط وتحليل المتطلبات",
+        "explanation_ar": "تُوصَف المرحلة الأولى بأنها حيث يكون 'التخطيط مهمًا' و'يساعد تحليل المتطلبات في فهم ما هو مطلوب للمشروع'."
       },
       {
         "type": "tf",
         "question": "The DDS document, created during Stage-3: Designing Architecture, is primarily used to list down everything the software needs to do for customer and stakeholder approval.",
         "answer": "false",
         "explanation": "The SRS document (in Stage-2) lists requirements. The DDS (in Stage-3) contains different ideas for building the software based on the SRS.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "تُستخدم وثيقة الـ DDS، التي تُنشأ خلال المرحلة الثالثة: تصميم البنية، بشكل أساسي لسرد كل ما يحتاجه البرنامج ليقوم به من أجل موافقة العميل وأصحاب المصلحة.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "وثيقة الـ SRS (في المرحلة الثانية) تسرد المتطلبات. وثيقة الـ DDS (في المرحلة الثالثة) تحتوي على أفكار مختلفة لبناء البرنامج بناءً على وثيقة الـ SRS."
       },
       {
         "type": "mcq",
@@ -332,7 +506,16 @@
         ],
         "answer": "Building the actual software based on the chosen design.",
         "explanation": "Stage-4 is where 'we start building the actual software based on the chosen design'.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "ما هو النشاط الرئيسي الذي يتم تنفيذه خلال المرحلة الرابعة: تطوير المنتج؟",
+        "options_ar": [
+          "إنشاء الخطة الأساسية للمشروع.",
+          "سرد جميع متطلبات البرمجيات في وثيقة SRS.",
+          "بناء البرنامج الفعلي بناءً على التصميم المختار.",
+          "فحص البرنامج بدقة بحثًا عن الأخطاء."
+        ],
+        "answer_ar": "بناء البرنامج الفعلي بناءً على التصميم المختار.",
+        "explanation_ar": "المرحلة الرابعة هي حيث 'نبدأ في بناء البرنامج الفعلي بناءً على التصميم المختار'."
       },
       {
         "type": "fitb",
@@ -340,14 +523,20 @@
         "options": [],
         "answer": "documents",
         "explanation": "Stage-5 includes 'making documents (manual) to help people use the software and offer support'. 'Manual' would also be acceptable, but 'documents' is more general and inclusive of 'manual'.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "في المرحلة الخامسة: اختبار المنتج والدمج، مهمة هامة هي إعداد _______ لمساعدة الأشخاص على استخدام البرنامج وتقديم الدعم.",
+        "answer_ar": "وثائق",
+        "explanation_ar": "تشمل المرحلة الخامسة 'إعداد وثائق (أدلة) لمساعدة الأشخاص على استخدام البرنامج وتقديم الدعم'."
       },
       {
         "type": "tf",
         "question": "The Deployment and Maintenance stage of the SDLC involves releasing the software in parts and continuously monitoring it for improvements based on user suggestions.",
         "answer": "true",
         "explanation": "Stage-6 describes releasing software in parts, checking its real-world performance, and making improvements based on suggestions.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "تتضمن مرحلة النشر والصيانة في دورة حياة تطوير البرمجيات (SDLC) إطلاق البرنامج على أجزاء ومراقبته باستمرار لإجراء تحسينات بناءً على اقتراحات المستخدمين.",
+        "answer_ar": "صح",
+        "explanation_ar": "تصف المرحلة السادسة إطلاق البرنامج على أجزاء، والتحقق من أدائه في العالم الحقيقي، وإجراء تحسينات بناءً على الاقتراحات."
       },
       {
         "type": "mcq",
@@ -360,7 +549,16 @@
         ],
         "answer": "Stage-3: Designing Architecture",
         "explanation": "Stage-3 involves using the SRS to decide how software will be built, putting ideas in DDS, and picking the best idea.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "أي مرحلة من مراحل دورة حياة تطوير البرمجيات (SDLC) تركز على كيفية بناء البرنامج، بما في ذلك استكشاف أفكار مختلفة واختيار الأفضل منها؟",
+        "options_ar": [
+          "المرحلة الأولى: التخطيط وتحليل المتطلبات",
+          "المرحلة الثانية: تحديد المتطلبات",
+          "المرحلة الثالثة: تصميم البنية",
+          "المرحلة الرابعة: تطوير المنتج"
+        ],
+        "answer_ar": "المرحلة الثالثة: تصميم البنية",
+        "explanation_ar": "تتضمن المرحلة الثالثة استخدام وثيقة الـ SRS لتحديد كيفية بناء البرنامج، ووضع الأفكار في وثيقة الـ DDS، واختيار أفضل فكرة."
       },
       {
         "type": "fitb",
@@ -368,14 +566,20 @@
         "options": [],
         "answer": "Defining",
         "explanation": "Stage-2 is titled 'Defining Requirements' and focuses on listing everything the software needs to do.",
-        "topic": "SDLC Stages"
+        "topic": "SDLC Stages",
+        "question_ar": "تركز المرحلة الثانية من دورة حياة تطوير البرمجيات (SDLC) بشكل أساسي على _______ المتطلبات، لضمان توثيق جميع احتياجات البرنامج بوضوح.",
+        "answer_ar": "تحديد",
+        "explanation_ar": "المرحلة الثانية بعنوان 'تحديد المتطلبات' وتركز على سرد كل ما يحتاجه البرنامج للقيام به."
       },
       {
         "type": "tf",
         "question": "Software development models define the various steps of the process but do not specify the order in which they are executed.",
         "answer": "false",
         "explanation": "Models specify 'the various step of the process and the order in which they are executed'.",
-        "topic": "Software Development Models"
+        "topic": "Software Development Models",
+        "question_ar": "تُعرّف نماذج تطوير البرمجيات الخطوات المختلفة للعملية ولكنها لا تحدد الترتيب الذي يتم تنفيذها به.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تحدد النماذج 'الخطوات المختلفة للعملية والترتيب الذي يتم تنفيذها به'."
       },
       {
         "type": "mcq",
@@ -388,7 +592,16 @@
         ],
         "answer": "To achieve various essential objectives depending on the project's goals.",
         "explanation": "Models are chosen 'depending on the objectives and goals of the project' to 'achieve various essential objectives'.",
-        "topic": "Software Development Models"
+        "topic": "Software Development Models",
+        "question_ar": "ما هو السبب الرئيسي لوجود وتنوع نماذج تطوير البرمجيات المختلفة؟",
+        "options_ar": [
+          "لفرض نهج واحد عالمي لجميع المشاريع.",
+          "للتوحيد القياسي للغات البرمجة المستخدمة في التطوير.",
+          "لتحقيق أهداف أساسية مختلفة اعتمادًا على أهداف المشروع.",
+          "لإلغاء الحاجة إلى تخطيط المشروع."
+        ],
+        "answer_ar": "لتحقيق أهداف أساسية مختلفة اعتمادًا على أهداف المشروع.",
+        "explanation_ar": "يتم اختيار النماذج 'اعتمادًا على أهداف وغايات المشروع' لتحقيق 'أهداف أساسية مختلفة'."
       },
       {
         "type": "fitb",
@@ -396,7 +609,10 @@
         "options": [],
         "answer": "linear",
         "explanation": "The lecture states, 'It is also referred to as a linear-sequential lifecycle model.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "يُشار إلى نموذج الشلال (Waterfall Model) بشكل شائع أيضًا باسم نموذج دورة الحياة الـ _______-متسلسلة.",
+        "answer_ar": "خطي",
+        "explanation_ar": "تذكر المحاضرة أنه 'يُشار إليه أيضًا باسم نموذج دورة الحياة المتسلسلة الخطية'."
       },
       {
         "type": "mcq",
@@ -409,14 +625,26 @@
         ],
         "answer": "Each phase must be completed before the next phase can begin.",
         "explanation": "The lecture notes, 'In a waterfall model, each phase must be completed before the next phase can begin and there is no overlapping in the phases.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "من السمات المميزة لنموذج الشلال (Waterfall Model) هو أن:",
+        "options_ar": [
+          "يمكن أن تتداخل المراحل بشكل كبير لتسريع التطوير.",
+          "يجب إكمال كل مرحلة قبل أن تبدأ المرحلة التالية.",
+          "مشاركة العميل تكون ثابتة طوال جميع المراحل.",
+          "إنه قابل للتكيف بدرجة كبيرة مع المتطلبات المتغيرة بشكل متكرر."
+        ],
+        "answer_ar": "يجب إكمال كل مرحلة قبل أن تبدأ المرحلة التالية.",
+        "explanation_ar": "تلاحظ المحاضرة أنه 'في نموذج الشلال، يجب إكمال كل مرحلة قبل أن تبدأ المرحلة التالية ولا يوجد تداخل في المراحل'."
       },
       {
         "type": "tf",
         "question": "The Waterfall Model is characterized by significant overlapping between its sequential phases.",
         "answer": "false",
         "explanation": "The lecture clearly states there is 'no overlapping in the phases' of the Waterfall Model.",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "يتميز نموذج الشلال (Waterfall Model) بتداخل كبير بين مراحله المتسلسلة.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تذكر المحاضرة بوضوح أنه 'لا يوجد تداخل في المراحل' في نموذج الشلال."
       },
       {
         "type": "mcq",
@@ -429,7 +657,16 @@
         ],
         "answer": "Well-defined phases with clear milestones.",
         "explanation": "Well-Defined Phases and Clear Milestones are explicitly listed as advantages of the Waterfall Model.",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "أي مما يلي يُعتبر ميزة لنموذج الشلال (Waterfall Model)؟",
+        "options_ar": [
+          "مرونة عالية للتغييرات خلال المراحل اللاحقة.",
+          "مشاركة واسعة للعميل طوال المشروع.",
+          "مراحل محددة جيدًا مع معالم واضحة.",
+          "وقت تسليم قصير للمنتجات الوظيفية."
+        ],
+        "answer_ar": "مراحل محددة جيدًا مع معالم واضحة.",
+        "explanation_ar": "المراحل المحددة جيدًا والمعالم الواضحة مدرجة صراحةً كمزايا لنموذج الشلال."
       },
       {
         "type": "fitb",
@@ -437,14 +674,20 @@
         "options": [],
         "answer": "Inflexibility",
         "explanation": "Inflexibility to Changes is listed as a disadvantage of the Waterfall Model.",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "أحد العيوب الرئيسية لنموذج الشلال (Waterfall Model) هو _______ للتغييرات بمجرد اكتمال المرحلة.",
+        "answer_ar": "عدم المرونة",
+        "explanation_ar": "عدم المرونة تجاه التغييرات مدرج كعيب من عيوب نموذج الشلال."
       },
       {
         "type": "tf",
         "question": "Client involvement in the Waterfall Model is typically consistent and high across all development phases.",
         "answer": "false",
         "explanation": "A disadvantage listed is 'Limited Client Involvement: Client input mainly at the beginning and end, restricting feedback.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "عادةً ما تكون مشاركة العميل في نموذج الشلال (Waterfall Model) ثابتة وعالية عبر جميع مراحل التطوير.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "أحد العيوب المذكورة هو 'مشاركة العميل المحدودة: تكون مدخلات العميل بشكل رئيسي في البداية والنهاية، مما يقيد التغذية الراجعة'."
       },
       {
         "type": "mcq",
@@ -457,7 +700,16 @@
         ],
         "answer": "It may result in a longer time to deliver a functional product.",
         "explanation": "Long Delivery Time is listed as a disadvantage, stating 'Sequential nature may result in a longer time to deliver a functional product.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "ما هو العيب المحتمل للطبيعة المتسلسلة الصارمة لنموذج الشلال (Waterfall Model)؟",
+        "options_ar": [
+          "يجعل مراقبة التقدم صعبة.",
+          "يعمل بشكل سيء مع المتطلبات المستقرة.",
+          "قد يؤدي إلى وقت أطول لتسليم منتج وظيفي.",
+          "يشجع على التغييرات المتكررة بعد اكتمال المرحلة."
+        ],
+        "answer_ar": "قد يؤدي إلى وقت أطول لتسليم منتج وظيفي.",
+        "explanation_ar": "وقت التسليم الطويل مدرج كعيب، حيث يذكر أن 'الطبيعة المتسلسلة قد تؤدي إلى وقت أطول لتسليم منتج وظيفي'."
       },
       {
         "type": "fitb",
@@ -465,7 +717,10 @@
         "options": [],
         "answer": "first",
         "explanation": "The lecture states, 'The Waterfall Model was the first Process Model to be introduced.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "كان نموذج الشلال (Waterfall Model) هو الـ _______ نموذج عملية يتم تقديمه في تطوير البرمجيات.",
+        "answer_ar": "أول",
+        "explanation_ar": "تذكر المحاضرة أن 'نموذج الشلال كان أول نموذج عملية يتم تقديمه'."
       },
       {
         "type": "mcq",
@@ -478,21 +733,36 @@
         ],
         "answer": "Simplicity",
         "explanation": "Simplicity is listed as an advantage: 'Easy to understand with a straightforward sequential approach.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "أي ميزة لنموذج الشلال (Waterfall Model) تسلط الضوء على طبيعته المباشرة والخطوة بخطوة، مما يجعله سهل الفهم؟",
+        "options_ar": [
+          "مشاركة عميل محدودة",
+          "متطلبات مستقرة",
+          "البساطة",
+          "مخاطر عدم اليقين"
+        ],
+        "answer_ar": "البساطة",
+        "explanation_ar": "البساطة مدرجة كميزة: 'سهل الفهم بنهج متسلسل ومباشر'."
       },
       {
         "type": "tf",
         "question": "The Waterfall Model is generally well-suited for projects with highly uncertain or rapidly changing requirements.",
         "answer": "false",
         "explanation": "A disadvantage is 'Risk of Uncertainty: May not adapt well to uncertain or changing requirements.'",
-        "topic": "Waterfall Model"
+        "topic": "Waterfall Model",
+        "question_ar": "نموذج الشلال (Waterfall Model) مناسب بشكل عام للمشاريع ذات المتطلبات غير المؤكدة أو المتغيرة بسرعة.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "أحد العيوب هو 'مخاطر عدم اليقين: قد لا يتكيف جيدًا مع المتطلبات غير المؤكدة أو المتغيرة'."
       },
       {
         "type": "tf",
         "question": "The lecture provides a comprehensive overview of the advantages and disadvantages of Agile SDLC Models.",
         "answer": "false",
         "explanation": "The lecture only mentions 'Agile SDLC Models' by name but does not provide any detailed information about their advantages or disadvantages.",
-        "topic": "Agile SDLC Models"
+        "topic": "Agile SDLC Models",
+        "question_ar": "تقدم المحاضرة نظرة عامة شاملة على مزايا وعيوب نماذج دورة حياة تطوير البرمجيات الرشيقة (Agile SDLC Models).",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تذكر المحاضرة 'نماذج دورة حياة تطوير البرمجيات الرشيقة (Agile SDLC Models)' بالاسم فقط ولكنها لا تقدم أي معلومات مفصلة عن مزاياها أو عيوبها."
       }
     ],
     "sheetSolutions": [
@@ -1130,7 +1400,15 @@
         ],
         "answer": "for",
         "explanation": "الـ for loop هو الأنسب لما بنكون عارفين عدد المرات مسبقاً.",
-        "topic": "Loop Types"
+        "topic": "Loop Types",
+        "question_ar": "أي حلقة تكرار (Loop) هي الأفضل للاستخدام عندما تعرف عدد المرات بالضبط؟",
+        "options_ar": [
+          "while",
+          "do-while",
+          "for",
+          "foreach"
+        ],
+        "explanation_ar": "الـ for loop هو الأنسب لما بنكون عارفين عدد المرات مسبقاً (زي ما نلف 10 مرات)."
       }
     ],
     "sheetSolutions": [
@@ -1176,7 +1454,7 @@
     "quiz": [
       {
         "type": "mcq",
-        "question": "ماذا يرمز اختصار LAN؟",
+        "question": "What does LAN stand for?",
         "options": [
           "Local Area Network",
           "Large Area Network",
@@ -1184,18 +1462,31 @@
           "Low Area Network"
         ],
         "answer": "Local Area Network",
-        "explanation": "دي الشبكة المحلية اللي بتبقى في مكان واحد زي البيت أو المكتب."
+        "explanation": "LAN stands for Local Area Network, which is a network in a single physical location like a home or office.",
+        "question_ar": "ماذا يرمز اختصار LAN؟",
+        "options_ar": [
+          "Local Area Network",
+          "Large Area Network",
+          "Link Access Network",
+          "Low Area Network"
+        ],
+        "answer_ar": "Local Area Network",
+        "explanation_ar": "دي الشبكة المحلية اللي بتبقى في مكان واحد زي البيت أو المكتب."
       },
       {
         "type": "tf",
-        "question": "الـ LAN يمكن أن تتكون من مستخدم واحد فقط.",
+        "question": "A LAN can consist of only one user.",
         "options": [],
-        "answer": "صح",
-        "explanation": "فعلاً، الـ LAN بتبدأ من جهاز واحد في البيت لحد آلاف الأجهزة في الشركات."
+        "answer": "true",
+        "explanation": "A LAN can range from a single device in a home to thousands in a large organization.",
+        "question_ar": "الـ LAN يمكن أن تتكون من مستخدم واحد فقط.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "فعلاً، الـ LAN بتبدأ من جهاز واحد في البيت لحد آلاف الأجهزة في الشركات."
       },
       {
         "type": "mcq",
-        "question": "أي نوع من الشبكات يربط عدة شبكات LAN داخل حرم جامعي؟",
+        "question": "Which type of network connects multiple LANs within a campus?",
         "options": [
           "PAN",
           "WAN",
@@ -1203,18 +1494,31 @@
           "MAN"
         ],
         "answer": "CAN",
-        "explanation": "الـ CAN هي Campus Area Network ودي مخصصة للجامعات أو الشركات اللي ليها كذا مبنى."
+        "explanation": "CAN stands for Campus Area Network, designed for universities or large corporate campuses.",
+        "question_ar": "أي نوع من الشبكات يربط عدة شبكات LAN داخل حرم جامعي؟",
+        "options_ar": [
+          "PAN",
+          "WAN",
+          "CAN",
+          "MAN"
+        ],
+        "answer_ar": "CAN",
+        "explanation_ar": "الـ CAN هي Campus Area Network ودي مخصصة للجامعات أو الشركات اللي ليها كذا مبنى."
       },
       {
         "type": "fitb",
-        "question": "تعتبر شبكة ........ أكبر شبكة WAN في العالم.",
+        "question": "The ........ network is considered the largest WAN in the world.",
         "options": [],
-        "answer": "الإنترنت",
-        "explanation": "الإنترنت هو المثال الحي والأكبر للـ Wide Area Network."
+        "answer": "Internet",
+        "explanation": "The Internet is the prime example of a Wide Area Network (WAN) covering the entire globe.",
+        "question_ar": "تعتبر شبكة ........ أكبر شبكة WAN في العالم.",
+        "options_ar": [],
+        "answer_ar": "الإنترنت",
+        "explanation_ar": "الإنترنت هو المثال الحي والأكبر للـ Wide Area Network."
       },
       {
         "type": "mcq",
-        "question": "ما هي الشبكة التي تغطي مسافة أمتار قليلة فقط؟",
+        "question": "Which network covers a distance of only a few meters?",
         "options": [
           "LAN",
           "PAN",
@@ -1222,7 +1526,16 @@
           "CAN"
         ],
         "answer": "PAN",
-        "explanation": "الـ PAN هي Personal Area Network، يعني شبكتك الشخصية اللي حوليك."
+        "explanation": "PAN stands for Personal Area Network, covering a very small area around an individual.",
+        "question_ar": "ما هي الشبكة التي تغطي مسافة أمتار قليلة فقط؟",
+        "options_ar": [
+          "LAN",
+          "PAN",
+          "WAN",
+          "CAN"
+        ],
+        "answer_ar": "PAN",
+        "explanation_ar": "الـ PAN هي Personal Area Network، يعني شبكتك الشخصية اللي حوليك."
       },
       {
         "type": "tf",
@@ -7915,14 +8228,27 @@
           "Notepad"
         ],
         "answer": "draw.io",
-        "explanation": "المحاضرة رشحت موقع draw.io كطريقة حديثة وسهلة لرسم الـ ERD."
+        "explanation": "المحاضرة رشحت موقع draw.io كطريقة حديثة وسهلة لرسم الـ ERD.",
+        "question_ar": "ما هي الأداة التي يمكن استخدامها لرسم الـ ERD عبر الإنترنت؟",
+        "options_ar": [
+          "SSMS",
+          "draw.io",
+          "Excel",
+          "Notepad"
+        ],
+        "answer_ar": "draw.io",
+        "explanation_ar": "المحاضرة رشحت موقع draw.io كطريقة حديثة وسهلة لرسم الـ ERD."
       },
       {
         "type": "tf",
         "question": "طريقة رسم الـ ERD باستخدام SSMS لم تعد صالحة للاستخدام حالياً.",
         "options": [],
         "answer": "خطأ",
-        "explanation": "المحاضرة قالت إنها Old Approach بس Still Valid يعني لسه شغالة عادي."
+        "explanation": "المحاضرة قالت إنها Old Approach بس Still Valid يعني لسه شغالة عادي.",
+        "question_ar": "طريقة رسم الـ ERD باستخدام SSMS لم تعد صالحة للاستخدام حالياً.",
+        "options_ar": [],
+        "answer_ar": "خطأ",
+        "explanation_ar": "المحاضرة قالت إنها (Old Approach) بس (Still Valid) يعني لسه شغالة عادي."
       },
       {
         "type": "mcq",
@@ -7934,21 +8260,38 @@
           "دعم التوسع (Scalability)"
         ],
         "answer": "زيادة تكرار البيانات (Redundancy)",
-        "explanation": "الهدف الأساسي هو مسح التكرار (Eliminate Redundancy) مش زيادته يا دحيح!"
+        "explanation": "الهدف الأساسي هو مسح التكرار (Eliminate Redundancy) مش زيادته يا دحيح!",
+        "question_ar": "أي مما يلي ليس من أهداف تصميم قاعدة البيانات الجيدة؟",
+        "options_ar": [
+          "تقليل تكرار البيانات",
+          "تحسين الأداء",
+          "زيادة تكرار البيانات (التكرارية)",
+          "دعم التوسع (قابلية التوسع)"
+        ],
+        "answer_ar": "زيادة تكرار البيانات (التكرارية)",
+        "explanation_ar": "الهدف الأساسي هو مسح التكرار (Eliminate Redundancy) مش زيادته يا دحيح!"
       },
       {
         "type": "fitb",
         "question": "الخاصية التي تميز كل سجل في الجدول بشكل فريد تسمى الـ _______.",
         "options": [],
         "answer": "Primary Key",
-        "explanation": "الـ Primary Key أو المفتاح الأساسي هو اللي بيميز كل صف عن التاني."
+        "explanation": "الـ Primary Key أو المفتاح الأساسي هو اللي بيميز كل صف عن التاني.",
+        "question_ar": "الخاصية التي تميز كل سجل في الجدول بشكل فريد تسمى الـ _______.",
+        "options_ar": [],
+        "answer_ar": "المفتاح الأساسي (Primary Key)",
+        "explanation_ar": "الـ Primary Key أو المفتاح الأساسي هو اللي بيميز كل صف عن التاني."
       },
       {
         "type": "tf",
         "question": "يجب أن يسمح الـ Primary Key بوجود قيم NULL.",
         "options": [],
         "answer": "خطأ",
-        "explanation": "من شروط الـ PK إنه لازم يكون Not NULL و Unique."
+        "explanation": "من شروط الـ PK إنه لازم يكون Not NULL و Unique.",
+        "question_ar": "يجب أن يسمح الـ Primary Key بوجود قيم NULL.",
+        "options_ar": [],
+        "answer_ar": "خطأ",
+        "explanation_ar": "من شروط الـ PK إنه لازم يكون Not NULL و Unique."
       },
       {
         "type": "mcq",
@@ -7960,7 +8303,16 @@
           "الخطوة الثانية"
         ],
         "answer": "الخطوة الخامسة",
-        "explanation": "بعد ما بنحدد الكيانات والخصائص والمفاتيح، بنبدأ نربط بينهم في الخطوة الخامسة."
+        "explanation": "بعد ما بنحدد الكيانات والخصائص والمفاتيح، بنبدأ نربط بينهم في الخطوة الخامسة.",
+        "question_ar": "في أي خطوة من خطوات التصميم نقوم بتحديد العلاقات (1:M, M:N)؟",
+        "options_ar": [
+          "الخطوة الأولى",
+          "الخطوة الخامسة",
+          "الخطوة السابعة",
+          "الخطوة الثانية"
+        ],
+        "answer_ar": "الخطوة الخامسة",
+        "explanation_ar": "بعد ما بنحدد الكيانات والخصائص والمفاتيح، بنبدأ نربط بينهم في الخطوة الخامسة."
       },
       {
         "type": "mcq",
@@ -7972,14 +8324,27 @@
           "Programming"
         ],
         "answer": "Normalization",
-        "explanation": "الـ Normalization هو السحر اللي بينضف الجداول ويمنع التكرار."
+        "explanation": "الـ Normalization هو السحر اللي بينضف الجداول ويمنع التكرار.",
+        "question_ar": "ماذا تسمى العملية التي تهدف لتقليل التكرار وتحسين كفاءة قاعدة البيانات؟",
+        "options_ar": [
+          "الفهرسة (Indexing)",
+          "التطبيع (Normalization)",
+          "التحجيم (Scaling)",
+          "البرمجة (Programming)"
+        ],
+        "answer_ar": "التطبيع (Normalization)",
+        "explanation_ar": "الـ Normalization هو السحر اللي بينضف الجداول ويمنع التكرار."
       },
       {
         "type": "tf",
         "question": "الـ Insertion Anomaly تعني عدم القدرة على إضافة بيانات جديدة بسبب نقص بيانات أخرى مرتبطة.",
         "options": [],
         "answer": "صح",
-        "explanation": "بالظبط، زي لو مش عارف أضيف قسم جديد عشان معنديش موظف حالياً أربطه بيه."
+        "explanation": "بالظبط، زي لو مش عارف أضيف قسم جديد عشان معنديش موظف حالياً أربطه بيه.",
+        "question_ar": "شذوذ الإضافة (Insertion Anomaly) تعني عدم القدرة على إضافة بيانات جديدة بسبب نقص بيانات أخرى مرتبطة.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "بالظبط، زي لو مش عارف أضيف قسم جديد عشان معنديش موظف حالياً أربطه بيه."
       },
       {
         "type": "mcq",
@@ -7991,14 +8356,27 @@
           "Data Integrity"
         ],
         "answer": "Update Anomaly",
-        "explanation": "دي مشكلة التعديل، لو غيرت في مكان ونسيت التاني الداتا هتبوظ."
+        "explanation": "دي مشكلة التعديل، لو غيرت في مكان ونسيت التاني الداتا هتبوظ.",
+        "question_ar": "إذا تغير عنوان القسم واضطررنا لتعديله في 100 صف، فهذا يسمى _____.",
+        "options_ar": [
+          "شذوذ التعديل (Update Anomaly)",
+          "شذوذ الإضافة (Insertion Anomaly)",
+          "شذوذ الحذف (Deletion Anomaly)",
+          "سلامة البيانات (Data Integrity)"
+        ],
+        "answer_ar": "شذوذ التعديل (Update Anomaly)",
+        "explanation_ar": "دي مشكلة التعديل، لو غيرت في مكان ونسيت التاني الداتا هتبوظ."
       },
       {
         "type": "fitb",
         "question": "الـ _______ Anomaly تحدث عندما يؤدي حذف سجل واحد إلى فقدان بيانات أخرى هامة بالخطأ.",
         "options": [],
         "answer": "Deletion",
-        "explanation": "دي مشكلة الحذف، بمسح موظف بقوم ماسح بيانات القسم معاه بالمرة."
+        "explanation": "دي مشكلة الحذف، بمسح موظف بقوم ماسح بيانات القسم معاه بالمرة.",
+        "question_ar": "الـ _______ Anomaly تحدث عندما يؤدي حذف سجل واحد إلى فقدان بيانات أخرى هامة بالخطأ.",
+        "options_ar": [],
+        "answer_ar": "حذف (Deletion)",
+        "explanation_ar": "دي مشكلة الحذف، بمسح موظف بقوم ماسح بيانات القسم معاه بالمرة."
       },
       {
         "type": "mcq",
@@ -8010,14 +8388,27 @@
           "ثنائية"
         ],
         "answer": "Atomic (ذرية/وحيدة)",
-        "explanation": "يعني مفعش الخانة الواحدة يكون فيها قيمتين، لازم قيمة واحدة بس."
+        "explanation": "يعني مفعش الخانة الواحدة يكون فيها قيمتين، لازم قيمة واحدة بس.",
+        "question_ar": "الشرط الأساسي في الـ 1NF هو أن تكون القيم في كل عمود _____.",
+        "options_ar": [
+          "متكررة",
+          "نصية فقط",
+          "ذرية/وحيدة (Atomic)",
+          "ثنائية"
+        ],
+        "answer_ar": "ذرية/وحيدة (Atomic)",
+        "explanation_ar": "يعني ماينفعش الخانة الواحدة يكون فيها قيمتين، لازم قيمة واحدة بس."
       },
       {
         "type": "tf",
         "question": "الجدول في الـ 2NF يجب أن يكون بالضرورة في الـ 1NF أولاً.",
         "options": [],
         "answer": "صح",
-        "explanation": "دي قواعد تراكمية، مينفعش تطلع التاني من غير ما تعدي على الأول."
+        "explanation": "دي قواعد تراكمية، مينفعش تطلع التاني من غير ما تعدي على الأول.",
+        "question_ar": "الجدول في الـ 2NF يجب أن يكون بالضرورة في الـ 1NF أولاً.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "دي قواعد تراكمية، مينفعش تطلع التاني من غير ما تعدي على الأول."
       },
       {
         "type": "mcq",
@@ -8029,21 +8420,38 @@
           "جدول آخر"
         ],
         "answer": "جزء من الـ Composite PK",
-        "explanation": "دي مشكلة الـ 2NF، إن عمود يعتمد على حتة بس من المفتاح المركب."
+        "explanation": "دي مشكلة الـ 2NF، إن عمود يعتمد على حتة بس من المفتاح المركب.",
+        "question_ar": "التبعية الجزئية (Partial Dependency) تعني اعتماد عمود على _____.",
+        "options_ar": [
+          "كل المفتاح الأساسي (PK)",
+          "جزء من المفتاح الأساسي المركب (Composite PK)",
+          "عمود ليس مفتاحاً أساسياً (PK)",
+          "جدول آخر"
+        ],
+        "answer_ar": "جزء من المفتاح الأساسي المركب (Composite PK)",
+        "explanation_ar": "دي مشكلة الـ 2NF، إن عمود يعتمد على حتة بس من المفتاح المركب."
       },
       {
         "type": "fitb",
         "question": "الـ _______ Dependency تعني اعتماد عمود غير مفتاحي على عمود آخر غير مفتاحي.",
         "options": [],
         "answer": "Transitive",
-        "explanation": "دي التبعية الانتقالية اللي بنحاول نخلص منها في الـ 3NF."
+        "explanation": "دي التبعية الانتقالية اللي بنحاول نخلص منها في الـ 3NF.",
+        "question_ar": "الـ _______ Dependency تعني اعتماد عمود غير مفتاحي على عمود آخر غير مفتاحي.",
+        "options_ar": [],
+        "answer_ar": "انتقالية (Transitive)",
+        "explanation_ar": "دي التبعية الانتقالية اللي بنحاول نخلص منها في الـ 3NF."
       },
       {
         "type": "tf",
         "question": "الـ Composite Primary Key هو مفتاح يتكون من أكثر من عمود.",
         "options": [],
         "answer": "صح",
-        "explanation": "تمام، لما عمود واحد ميكفيش بنجمع عمودين مع بعض يعملوا PK."
+        "explanation": "تمام، لما عمود واحد ميكفيش بنجمع عمودين مع بعض يعملوا PK.",
+        "question_ar": "المفتاح الأساسي المركب (Composite Primary Key) هو مفتاح يتكون من أكثر من عمود.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "تمام، لما عمود واحد ما يكفيش بنجمع عمودين مع بعض يعملوا PK."
       },
       {
         "type": "mcq",
@@ -8055,14 +8463,27 @@
           "وصف العلاقات منطقياً"
         ],
         "answer": "تحديد الـ Data Types في SQL",
-        "explanation": "الـ Physical يعني التنفيذ الفعلي على الداتا بيز بأنواع البيانات والجداول."
+        "explanation": "الـ Physical يعني التنفيذ الفعلي على الداتا بيز بأنواع البيانات والجداول.",
+        "question_ar": "أي مما يلي يعتبر جزءاً من التصميم المادي (Physical Design)؟",
+        "options_ar": [
+          "رسم مخطط الكيانات والعلاقات (ERD)",
+          "تحديد قواعد العمل",
+          "تحديد أنواع البيانات (Data Types) في SQL",
+          "وصف العلاقات منطقياً"
+        ],
+        "answer_ar": "تحديد أنواع البيانات (Data Types) في SQL",
+        "explanation_ar": "الـ Physical يعني التنفيذ الفعلي على قاعدة البيانات بأنواع البيانات والجداول."
       },
       {
         "type": "tf",
         "question": "من أخطاء التصميم الشائعة تخزين عدة قيم في عمود واحد.",
         "options": [],
         "answer": "صح",
-        "explanation": "صح جداً، وده بيكسر قاعدة الـ 1NF."
+        "explanation": "صح جداً، وده بيكسر قاعدة الـ 1NF.",
+        "question_ar": "من أخطاء التصميم الشائعة تخزين عدة قيم في عمود واحد.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "صح جداً، وده بيكسر قاعدة الـ 1NF."
       },
       {
         "type": "mcq",
@@ -8074,14 +8495,27 @@
           "Relationships"
         ],
         "answer": "Transitive dependency",
-        "explanation": "الـ 3NF عدوها اللدود هو الـ Transitive Dependency."
+        "explanation": "الـ 3NF عدوها اللدود هو الـ Transitive Dependency.",
+        "question_ar": "لتحقيق الـ 3NF، يجب التخلص من الـ _____.",
+        "options_ar": [
+          "القيم الذرية (Atomic values)",
+          "التبعية الانتقالية (Transitive dependency)",
+          "المفاتيح الأساسية (Primary Keys)",
+          "العلاقات (Relationships)"
+        ],
+        "answer_ar": "التبعية الانتقالية (Transitive dependency)",
+        "explanation_ar": "الـ 3NF عدوها اللدود هو الـ Transitive Dependency."
       },
       {
         "type": "fitb",
         "question": "في الـ 1NF، يجب ألا يكون هناك _______ Groups.",
         "options": [],
         "answer": "Repeating",
-        "explanation": "ممنوع تكرار المجموعات في الـ First Normal Form."
+        "explanation": "ممنوع تكرار المجموعات في الـ First Normal Form.",
+        "question_ar": "في الـ 1NF، يجب ألا يكون هناك مجموعات _______.",
+        "options_ar": [],
+        "answer_ar": "متكررة (Repeating)",
+        "explanation_ar": "ممنوع تكرار المجموعات في الـ First Normal Form."
       },
       {
         "type": "mcq",
@@ -8093,14 +8527,27 @@
           "Composite"
         ],
         "answer": "Stable",
-        "explanation": "Stable يعني مستقر، مش كل يوم نغير الـ ID بتاع الموظف."
+        "explanation": "Stable يعني مستقر، مش كل يوم نغير الـ ID بتاع الموظف.",
+        "question_ar": "أي خاصية من خصائص المفتاح الأساسي (PK) تعني أنه لا يتغير بمرور الوقت؟",
+        "options_ar": [
+          "فريد (Unique)",
+          "غير فارغ (Not NULL)",
+          "مستقر (Stable)",
+          "مركب (Composite)"
+        ],
+        "answer_ar": "مستقر (Stable)",
+        "explanation_ar": "Stable يعني مستقر، مش كل يوم نغير الـ ID بتاع الموظف."
       },
       {
         "type": "tf",
         "question": "الـ Logical Design يركز على الـ Business Rules.",
         "options": [],
         "answer": "صح",
-        "explanation": "الـ Logical هو اللي بيوصف المنطق وقواعد الشغل بعيداً عن الكود."
+        "explanation": "الـ Logical هو اللي بيوصف المنطق وقواعد الشغل بعيداً عن الكود.",
+        "question_ar": "التصميم المنطقي (Logical Design) يركز على قواعد العمل (Business Rules).",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "الـ Logical هو اللي بيوصف المنطق وقواعد الشغل بعيداً عن الكود."
       },
       {
         "type": "mcq",
@@ -8112,14 +8559,27 @@
           "جزء من الـ 3NF"
         ],
         "answer": "خطأ في التصميم",
-        "explanation": "الأسماء ممكن تتكرر أو تتغير، الأصح نستخدم الـ IDs."
+        "explanation": "الأسماء ممكن تتكرر أو تتغير، الأصح نستخدم الـ IDs.",
+        "question_ar": "استخدام الأسماء بدلاً من المعرفات (IDs) لربط الجداول يعتبر _____.",
+        "options_ar": [
+          "ممارسة جيدة",
+          "خطأ في التصميم",
+          "طريقة أسرع",
+          "جزء من الـ 3NF"
+        ],
+        "answer_ar": "خطأ في التصميم",
+        "explanation_ar": "الأسماء ممكن تتكرر أو تتغير، الأصح نستخدم الـ IDs."
       },
       {
         "type": "tf",
         "question": "الـ Normalization يساعد في الحفاظ على الـ Functional Dependencies.",
         "options": [],
         "answer": "صح",
-        "explanation": "بالظبط، بيضمن إن العلاقات بين البيانات تفضل سليمة ومحفوظة."
+        "explanation": "بالظبط، بيضمن إن العلاقات بين البيانات تفضل سليمة ومحفوظة.",
+        "question_ar": "التطبيع (Normalization) يساعد في الحفاظ على التبعيات الوظيفية (Functional Dependencies).",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "بالظبط، بيضمن إن العلاقات بين البيانات تفضل سليمة ومحفوظة."
       },
       {
         "type": "mcq",
@@ -8131,14 +8591,27 @@
           "تكرار البيانات"
         ],
         "answer": "عدم فقدان أي بيانات عند تقسيم الجداول",
-        "explanation": "يعني لما أقسم جدول لجدولين أصغر، أقدر أرجعهم تاني زي ما كانوا من غير ما أخسر معلومة."
+        "explanation": "يعني لما أقسم جدول لجدولين أصغر، أقدر أرجعهم تاني زي ما كانوا من غير ما أخسر معلومة.",
+        "question_ar": "عملية التفكيك غير الفاقد (Lossless Decomposition) تعني _____.",
+        "options_ar": [
+          "فقدان بعض البيانات أثناء التقسيم",
+          "عدم فقدان أي بيانات عند تقسيم الجداول",
+          "مسح البيانات القديمة",
+          "تكرار البيانات"
+        ],
+        "answer_ar": "عدم فقدان أي بيانات عند تقسيم الجداول",
+        "explanation_ar": "يعني لما أقسم جدول لجدولين أصغر، أقدر أرجعهم تاني زي ما كانوا من غير ما أخسر معلومة."
       },
       {
         "type": "fitb",
         "question": "الـ _______ هو أي عمود ليس جزءاً من الـ Primary Key.",
         "options": [],
         "answer": "Non-key attribute",
-        "explanation": "أي عمود غلبان مش تبع المفتاح بنسميه Non-key attribute."
+        "explanation": "أي عمود غلبان مش تبع المفتاح بنسميه Non-key attribute.",
+        "question_ar": "الـ _______ هو أي عمود ليس جزءاً من المفتاح الأساسي (Primary Key).",
+        "options_ar": [],
+        "answer_ar": "الخاصية غير المفتاحية (Non-key attribute)",
+        "explanation_ar": "أي عمود غلبان مش تبع المفتاح بنسميه Non-key attribute."
       },
       {
         "type": "mcq",
@@ -8150,14 +8623,27 @@
           "Scalability"
         ],
         "answer": "Data Redundancy",
-        "explanation": "تكرار نفس المعلومة (مكان القسم) كذا مرة هو ده الـ Redundancy."
+        "explanation": "تكرار نفس المعلومة (مكان القسم) كذا مرة هو ده الـ Redundancy.",
+        "question_ar": "ما هي المشكلة التي تحدث عندما نكرر مكان القسم لكل موظف؟",
+        "options_ar": [
+          "تكرار البيانات (Data Redundancy)",
+          "القيم الذرية (Atomic values)",
+          "خطأ في المفتاح الأساسي (Primary Key error)",
+          "قابلية التوسع (Scalability)"
+        ],
+        "answer_ar": "تكرار البيانات (Data Redundancy)",
+        "explanation_ar": "تكرار نفس المعلومة (مكان القسم) كذا مرة هو ده الـ Redundancy."
       },
       {
         "type": "tf",
         "question": "الـ 2NF تتعامل بشكل أساسي مع الجداول التي لها Composite Primary Key.",
         "options": [],
         "answer": "صح",
-        "explanation": "لأن الـ Partial dependency مش هتظهر أصلاً لو المفتاح عمود واحد."
+        "explanation": "لأن الـ Partial dependency مش هتظهر أصلاً لو المفتاح عمود واحد.",
+        "question_ar": "الـ 2NF تتعامل بشكل أساسي مع الجداول التي لها مفتاح أساسي مركب (Composite Primary Key).",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "لأن الـ Partial dependency مش هتظهر أصلاً لو المفتاح عمود واحد."
       },
       {
         "type": "mcq",
@@ -8169,14 +8655,27 @@
           "Email Address"
         ],
         "answer": "Student",
-        "explanation": "الـ Student هو الكيان نفسه، لكن الباقي خصائص (Attributes) ليه."
+        "explanation": "الـ Student هو الكيان نفسه، لكن الباقي خصائص (Attributes) ليه.",
+        "question_ar": "أي مما يلي يعتبر كياناً (Entity)؟",
+        "options_ar": [
+          "اسم الطالب (Student Name)",
+          "رقم هوية الطالب (Student ID)",
+          "الطالب (Student)",
+          "عنوان البريد الإلكتروني (Email Address)"
+        ],
+        "answer_ar": "الطالب (Student)",
+        "explanation_ar": "الـ Student هو الكيان نفسه، لكن الباقي خصائص (Attributes) له."
       },
       {
         "type": "fitb",
         "question": "الـ Constraints مثل NOT NULL و UNIQUE تضاف في الخطوة رقم _______.",
         "options": [],
         "answer": "7",
-        "explanation": "دي الخطوة اللي بنحط فيها اللمسات الأخيرة والقيود (Constraints)."
+        "explanation": "دي الخطوة اللي بنحط فيها اللمسات الأخيرة والقيود (Constraints).",
+        "question_ar": "الـ Constraints (القيود) مثل NOT NULL و UNIQUE تضاف في الخطوة رقم _______.",
+        "options_ar": [],
+        "answer_ar": "7",
+        "explanation_ar": "دي الخطوة اللي بنحط فيها اللمسات الأخيرة والقيود (Constraints)."
       },
       {
         "type": "mcq",
@@ -8188,14 +8687,27 @@
           "لتغيير أنواع البيانات"
         ],
         "answer": "لتحسين الأداء (Performance)",
-        "explanation": "الـ Index زي فهرس الكتاب، بيخلي الوصول للمعلومة أسرع بكتير."
+        "explanation": "الـ Index زي فهرس الكتاب، بيخلي الوصول للمعلومة أسرع بكتير.",
+        "question_ar": "لماذا نستخدم الفهارس (Indexes) في قاعدة البيانات؟",
+        "options_ar": [
+          "لتقليل المساحة",
+          "لتحسين الأداء (Performance)",
+          "لمنع الحذف",
+          "لتغيير أنواع البيانات"
+        ],
+        "answer_ar": "لتحسين الأداء (Performance)",
+        "explanation_ar": "الـ Index زي فهرس الكتاب، بيخلي الوصول للمعلومة أسرع بكتير."
       },
       {
         "type": "tf",
         "question": "يجب مراجعة الـ ERD بالكامل بعد الانتهاء من خطوات التصميم.",
         "options": [],
         "answer": "صح",
-        "explanation": "طبعاً، لازم نراجع كل حاجة عشان نتأكد إنها مطابقة للمتطلبات."
+        "explanation": "طبعاً، لازم نراجع كل حاجة عشان نتأكد إنها مطابقة للمتطلبات.",
+        "question_ar": "يجب مراجعة مخطط الكيانات والعلاقات (ERD) بالكامل بعد الانتهاء من خطوات التصميم.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "طبعاً، لازم نراجع كل حاجة عشان نتأكد إنها مطابقة للمتطلبات."
       },
       {
         "type": "mcq",
@@ -8207,14 +8719,27 @@
           "0NF"
         ],
         "answer": "3NF",
-        "explanation": "ده تعريف منع الـ Transitive Dependency وده شغل الـ 3NF."
+        "explanation": "ده تعريف منع الـ Transitive Dependency وده شغل الـ 3NF.",
+        "question_ar": "أي مستوى من مستويات التطبيع (Normalization) يمنع وجود عمود يعتمد على عمود آخر غير المفتاح الأساسي (PK)؟",
+        "options_ar": [
+          "1NF",
+          "2NF",
+          "3NF",
+          "0NF"
+        ],
+        "answer_ar": "3NF",
+        "explanation_ar": "ده تعريف منع التبعية الانتقالية (Transitive Dependency) وده شغل الـ 3NF."
       },
       {
         "type": "fitb",
         "question": "الـ ERD هو اختصار لـ _______ Relationship Diagram.",
         "options": [],
         "answer": "Entity",
-        "explanation": "Entity Relationship Diagram يعني مخطط علاقات الكيانات."
+        "explanation": "Entity Relationship Diagram يعني مخطط علاقات الكيانات.",
+        "question_ar": "الـ ERD هو اختصار لـ _______ Relationship Diagram.",
+        "options_ar": [],
+        "answer_ar": "Entity (كيان)",
+        "explanation_ar": "Entity Relationship Diagram يعني مخطط علاقات الكيانات."
       },
       {
         "type": "mcq",
@@ -8226,14 +8751,27 @@
           "لا شيء يحدث"
         ],
         "answer": "تضيع بيانات القسم ومكانه",
-        "explanation": "دي الـ Deletion Anomaly، المعلومة بتتمسح خالص لو مفيش جدول منفصل للقسم."
+        "explanation": "دي الـ Deletion Anomaly، المعلومة بتتمسح خالص لو مفيش جدول منفصل للقسم.",
+        "question_ar": "ماذا يحدث لو تم حذف جميع موظفي قسم الـ IT في جدول غير منظم؟",
+        "options_ar": [
+          "تضيع بيانات القسم ومكانه",
+          "تتحسن سرعة قاعدة البيانات",
+          "يتم إنشاء قسم جديد تلقائياً",
+          "لا شيء يحدث"
+        ],
+        "answer_ar": "تضيع بيانات القسم ومكانه",
+        "explanation_ar": "دي الـ Deletion Anomaly (شذوذ الحذف)، المعلومة بتتمسح خالص لو مافيش جدول منفصل للقسم."
       },
       {
         "type": "tf",
         "question": "تعتبر الجداول في SQL جزءاً من الـ Logical Design.",
         "options": [],
         "answer": "خطأ",
-        "explanation": "الجداول والكود جزء من الـ Physical Design."
+        "explanation": "الجداول والكود جزء من الـ Physical Design.",
+        "question_ar": "تعتبر الجداول في SQL جزءاً من التصميم المنطقي (Logical Design).",
+        "options_ar": [],
+        "answer_ar": "خطأ",
+        "explanation_ar": "الجداول والكود جزء من التصميم المادي (Physical Design)."
       },
       {
         "type": "mcq",
@@ -8245,14 +8783,27 @@
           "Stable"
         ],
         "answer": "Mutable (متغير)",
-        "explanation": "الـ PK لازم يكون Stable مش Mutable يعني مش بيتغير."
+        "explanation": "الـ PK لازم يكون Stable مش Mutable يعني مش بيتغير.",
+        "question_ar": "أي مما يلي ليس من خصائص المفتاح الأساسي (Primary Key)؟",
+        "options_ar": [
+          "فريد (Unique)",
+          "غير فارغ (Not NULL)",
+          "متغير (Mutable)",
+          "مستقر (Stable)"
+        ],
+        "answer_ar": "متغير (Mutable)",
+        "explanation_ar": "الـ PK لازم يكون Stable مش Mutable يعني مش بيتغير."
       },
       {
         "type": "fitb",
         "question": "قاعدة البيانات التي تتبع قواعد الـ Normalization تكون أسهل في الـ _______.",
         "options": [],
         "answer": "Maintenance",
-        "explanation": "Maintenance يعني صيانة، الجداول المنظمة صيانتها وتعديلها أسهل بكتير."
+        "explanation": "Maintenance يعني صيانة، الجداول المنظمة صيانتها وتعديلها أسهل بكتير.",
+        "question_ar": "قاعدة البيانات التي تتبع قواعد التطبيع (Normalization) تكون أسهل في الـ _______.",
+        "options_ar": [],
+        "answer_ar": "صيانة (Maintenance)",
+        "explanation_ar": "Maintenance يعني صيانة، الجداول المنظمة صيانتها وتعديلها أسهل بكتير."
       },
       {
         "type": "mcq",
@@ -8264,14 +8815,27 @@
           "لا توجد علاقة"
         ],
         "answer": "1:M",
-        "explanation": "القسم الواحد (1) فيه موظفين كتير (M)."
+        "explanation": "القسم الواحد (1) فيه موظفين كتير (M).",
+        "question_ar": "عندما يكون هناك علاقة بين الموظف والقسم (موظف واحد يتبع لقسم واحد، والقسم فيه موظفين كتير)، نوع العلاقة هو:",
+        "options_ar": [
+          "1:1",
+          "M:N",
+          "1:M",
+          "لا توجد علاقة"
+        ],
+        "answer_ar": "1:M",
+        "explanation_ar": "القسم الواحد (1) فيه موظفين كتير (M)."
       },
       {
         "type": "tf",
         "question": "الـ Normalization يجعل قاعدة البيانات تتكيف مع احتياجات العمل المتغيرة.",
         "options": [],
         "answer": "صح",
-        "explanation": "فعلاً، التصميم المرن المنظم بيخلي أي تغيير في البيزنس سهل يتنفذ."
+        "explanation": "فعلاً، التصميم المرن المنظم بيخلي أي تغيير في البيزنس سهل يتنفذ.",
+        "question_ar": "التطبيع (Normalization) يجعل قاعدة البيانات تتكيف مع احتياجات العمل المتغيرة.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "فعلاً، التصميم المرن المنظم بيخلي أي تغيير في البيزنس سهل يتنفذ."
       },
       {
         "type": "mcq",
@@ -8283,14 +8847,27 @@
           "تحديد الـ PK"
         ],
         "answer": "تحليل المتطلبات",
-        "explanation": "مينفعش تبني بيت من غير ما تعرف أصحابه عاوزين إيه، لازم نفهم المتطلبات الأول."
+        "explanation": "مينفعش تبني بيت من غير ما تعرف أصحابه عاوزين إيه، لازم نفهم المتطلبات الأول.",
+        "question_ar": "ما هو أول شيء يجب فعله في عملية تصميم قاعدة البيانات؟",
+        "options_ar": [
+          "رسم مخطط الكيانات والعلاقات (ERD)",
+          "تحليل المتطلبات",
+          "كتابة كود SQL",
+          "تحديد المفتاح الأساسي (PK)"
+        ],
+        "answer_ar": "تحليل المتطلبات",
+        "explanation_ar": "ما ينفعش تبني بيت من غير ما تعرف أصحابه عايزين إيه، لازم نفهم المتطلبات الأول."
       },
       {
         "type": "fitb",
         "question": "خلط بيانات غير مرتبطة في جدول واحد يعتبر من أخطاء الـ _______.",
         "options": [],
         "answer": "Design",
-        "explanation": "ده خطأ تصميمي فادح بيعمل مشاكل تكرار وأنومالي."
+        "explanation": "ده خطأ تصميمي فادح بيعمل مشاكل تكرار وأنومالي.",
+        "question_ar": "خلط بيانات غير مرتبطة في جدول واحد يعتبر من أخطاء الـ _______.",
+        "options_ar": [],
+        "answer_ar": "تصميم (Design)",
+        "explanation_ar": "ده خطأ تصميمي فادح بيعمل مشاكل تكرار وأنومالي."
       },
       {
         "type": "mcq",
@@ -8302,14 +8879,27 @@
           "قيمة متغيرة"
         ],
         "answer": "قيمة لا يمكن تقسيمها لأصغر منها",
-        "explanation": "Atomic يعني ذرية، يعني الخانة فيها حاجة واحدة بس متتقسمش."
+        "explanation": "Atomic يعني ذرية، يعني الخانة فيها حاجة واحدة بس متتقسمش.",
+        "question_ar": "ماذا تعني كلمة Atomic (ذرية) في سياق الـ 1NF؟",
+        "options_ar": [
+          "قيمة كبيرة",
+          "قيمة مشفرة",
+          "قيمة لا يمكن تقسيمها لأصغر منها",
+          "قيمة متغيرة"
+        ],
+        "answer_ar": "قيمة لا يمكن تقسيمها لأصغر منها",
+        "explanation_ar": "Atomic يعني ذرية، يعني الخانة فيها حاجة واحدة بس ما تتقسمش."
       },
       {
         "type": "tf",
         "question": "الـ Foreign Key هو أداة لربط الجداول ببعضها.",
         "options": [],
         "answer": "صح",
-        "explanation": "بالظبط، الـ FK هو اللي بيعمل العلاقات بين الجداول."
+        "explanation": "بالظبط، الـ FK هو اللي بيعمل العلاقات بين الجداول.",
+        "question_ar": "المفتاح الأجنبي (Foreign Key) هو أداة لربط الجداول ببعضها.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "بالظبط، الـ FK هو اللي بيعمل العلاقات بين الجداول."
       },
       {
         "type": "mcq",
@@ -8321,14 +8911,27 @@
           "كل ما سبق"
         ],
         "answer": "كل ما سبق",
-        "explanation": "الـ Normalization هو بطل الأبطال اللي بيحل كل المشاكل دي."
+        "explanation": "الـ Normalization هو بطل الأبطال اللي بيحل كل المشاكل دي.",
+        "question_ar": "أي من هذه المشاكل يحلها التطبيع (Normalization)؟",
+        "options_ar": [
+          "التكرار",
+          "مشاكل التعديل",
+          "مشاكل الحذف",
+          "كل ما سبق"
+        ],
+        "answer_ar": "كل ما سبق",
+        "explanation_ar": "الـ Normalization هو بطل الأبطال اللي بيحل كل المشاكل دي."
       },
       {
         "type": "fitb",
         "question": "للانتقال من 2NF إلى 3NF، يجب إزالة التبعية الـ _______.",
         "options": [],
         "answer": "Transitive",
-        "explanation": "التبعية الانتقالية هي اللي بنشيلها عشان نوصل للـ 3NF."
+        "explanation": "التبعية الانتقالية هي اللي بنشيلها عشان نوصل للـ 3NF.",
+        "question_ar": "للانتقال من 2NF إلى 3NF، يجب إزالة التبعية الـ _______.",
+        "options_ar": [],
+        "answer_ar": "انتقالية (Transitive)",
+        "explanation_ar": "التبعية الانتقالية هي اللي بنشيلها عشان نوصل للـ 3NF."
       }
     ]
   }

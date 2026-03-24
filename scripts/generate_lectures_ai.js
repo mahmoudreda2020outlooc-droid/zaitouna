@@ -92,7 +92,11 @@ Strict Rules:
     "options": ["Option 1", "Option 2", "Option 3", "Option 4"], // Only for mcq
     "answer": "Exact text of the correct answer", // Must match one of the options for mcq, "true"/"false" for tf, or the exact word for fitb
     "explanation": "Brief explanation of why this is correct",
-    "topic": "The specific topic or concept this question covers (e.g., Software Architecture, Loops, etc.)"
+    "topic": "The specific topic or concept this question covers (e.g., Software Architecture, Loops, etc.)",
+    "question_ar": "ترجمة السؤال بالعربي",
+    "options_ar": ["الاختيار الأول", "الاختيار الثاني", "الاختيار الثالث", "الاختيار الرابع"], // Only for mcq
+    "answer_ar": "ترجمة الإجابة الصحيحة",
+    "explanation_ar": "ترجمة الشرح (الزتونة) بالعربي"
   }
 ]
 
@@ -228,7 +232,14 @@ async function processLectures() {
                     lectureId: lectureId,
                     title: `المحاضرة ${lectureNum}: أهم المفاهيم والشرح`,
                     summary: summary,
-                    quiz: quiz,
+                    quiz: quiz.map(q => ({
+                        ...q,
+                        // Ensure Arabic fields exist if AI missed them
+                        question_ar: q.question_ar || "",
+                        options_ar: q.options_ar || [],
+                        answer_ar: q.answer_ar || "",
+                        explanation_ar: q.explanation_ar || ""
+                    })),
                     resources: {
                         pdf: pdfPathStr,
                         sheet: sheetPathStr,
