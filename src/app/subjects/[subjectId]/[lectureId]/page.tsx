@@ -238,33 +238,8 @@ export default function LectureDetailsPage() {
                                 </div>
                             )}
 
-                            <Link href={`/subjects/${subjectId}/${lectureId}/quiz`} className="flex flex-col items-center justify-between p-8 rounded-[40px] bg-gradient-to-b from-indigo-500/10 to-indigo-500/5 border border-indigo-500/20 hover:bg-indigo-500/15 hover:border-indigo-400/40 transition-all duration-500 group cursor-pointer hover:scale-[1.02] relative overflow-hidden min-h-[300px] text-center">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            {/* Removed "اختبر نفسك" (Quiz) option */}
 
-                                <div className="relative z-10 w-full mb-4">
-                                    <div className="inline-block px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
-                                        CHALLENGE
-                                    </div>
-                                    <h3 className="text-white font-black text-2xl group-hover:text-indigo-400 transition-colors mb-2">اختبر نفسك</h3>
-                                    <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest leading-relaxed">
-                                        تحدى نفسك وشوف مستواك الحقيقي في المحاضرة دي مع الدحيح!
-                                    </p>
-                                </div>
-
-                                <div className="relative z-10 w-48 h-48 transform group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-700 ease-out">
-                                    <img
-                                        src="/images/premium_trophy_challenge.png"
-                                        alt="Trophy"
-                                        className="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(99,102,241,0.3)]"
-                                    />
-                                </div>
-
-                                <div className="relative z-10 w-full mt-6">
-                                    <div className="w-full py-4 rounded-2xl bg-indigo-500 text-black font-black text-sm uppercase tracking-widest shadow-lg shadow-indigo-500/20 group-hover:bg-indigo-400 transition-colors">
-                                        ابدأ التحدي الآن
-                                    </div>
-                                </div>
-                            </Link>
                         </div>
                     </aside>
                 </div>
