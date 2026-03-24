@@ -107,6 +107,16 @@ export default function QuizPage() {
         const currentQ = activeQuiz[currentQuestionIndex];
         if (!currentQ) return;
 
+        // Reset states for new question
+        setEnglishQuestion(null);
+        setEnglishOptions(null);
+        setTranslatedQuestion(null);
+        setTranslatedOptions(null);
+        setTranslatedAnswer(null);
+        setTranslatedExplanation(null);
+        setShowTranslation(false);
+        setTranslationError(null);
+
         if (isArabic(currentQ.question)) {
             const fetchEnglish = async () => {
                 setIsTranslatingToEnglish(true);
@@ -126,10 +136,23 @@ export default function QuizPage() {
                         })
                     });
                     const data = await response.json();
-                    const cleanReply = (data.result || "").replace(/```json|```/g, '').trim();
-                    const parsed = JSON.parse(cleanReply);
-                    setEnglishQuestion(parsed.question);
-                    setEnglishOptions(parsed.options);
+
+                    if (data.error) {
+                        setTranslationError("Automatic English translation failed. Showing original.");
+                        console.error("Auto-English translation failed:", data.error);
+                    } else {
+                        const reply = data.result || "";
+                        const cleanReply = reply.replace(/```json|```/g, '').trim();
+                        try {
+                            const parsed = JSON.parse(cleanReply);
+                            setEnglishQuestion(parsed.question);
+                            setEnglishOptions(parsed.options);
+                        } catch (parseErr) {
+                            console.error("JSON Parse error in auto-translation:", cleanReply);
+                            // Fallback to result if not JSON
+                            setEnglishQuestion(reply);
+                        }
+                    }
                 } catch (err) {
                     console.error("Auto-English translation failed:", err);
                 } finally {
@@ -139,6 +162,7 @@ export default function QuizPage() {
             fetchEnglish();
         }
     }, [currentQuestionIndex, activeQuiz]);
+
 
 
     const translateQuestion = async () => {
@@ -386,13 +410,16 @@ export default function QuizPage() {
                         <div className="inline-block px-4 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-[10px] font-black uppercase tracking-[0.3em] mb-2">
                             {currentQ.topic}
                         </div>
-                        <h2 className="text-lg md:text-2xl font-black text-white leading-[1.3] tracking-tight max-w-3xl mx-auto">
+                        <h2 className="text-lg md:text-2xl font-black text-white leading-[1.3] tracking-tight max-w-3xl mx-auto min-h-[1.5em] flex items-center justify-center">
                             {isTranslatingToEnglish ? (
-                                <span className="opacity-50 italic animate-pulse">Translating to English...</span>
+                                <span className="opacity-50 italic animate-pulse flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                                    Translating to English...
+                                </span>
                             ) : (
                                 showTranslation && translatedQuestion
                                     ? translatedQuestion
-                                    : (englishQuestion || currentQ.question)
+                                    : (englishQuestion || (isArabic(currentQ.question) ? "..." : currentQ.question))
                             )}
                         </h2>
 
@@ -436,10 +463,13 @@ export default function QuizPage() {
                                             }`}
                                     >
                                         <span className="text-xs md:text-sm font-black leading-[1.1]">
-                                            {showTranslation && translatedOptions && translatedOptions[idx]
-                                                ? translatedOptions[idx]
-                                                : (englishOptions && englishOptions[idx] ? englishOptions[idx] : option)}
+                                            {isTranslatingToEnglish
+                                                ? "..."
+                                                : (showTranslation && translatedOptions && translatedOptions[idx]
+                                                    ? translatedOptions[idx]
+                                                    : (englishOptions && englishOptions[idx] ? englishOptions[idx] : option))}
                                         </span>
+
 
                                     </button>
                                 ))}
