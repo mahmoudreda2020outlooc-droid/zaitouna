@@ -7,22 +7,25 @@ export async function POST(req: Request) {
             apiKey: process.env.GEMINI_API_KEY || "",
         });
 
-        const { text, type } = await req.json();
+        const { text, type, targetLang = "ar" } = await req.json();
 
         if (!text) {
             return NextResponse.json({ error: "No text provided" }, { status: 400 });
         }
 
         // Use a more compact instructions set for speed
-        const systemInstruction = "You are an expert educational translator. Convert English educational text to simple, direct Egyptian Arabic colloquial (عامية مصرية). No introductions or side comments. Return ONLY JSON.";
+        const systemInstruction = targetLang === "en"
+            ? "You are an expert educational translator. Convert Arabic educational text into clear, academic English. No introductions or side comments. Return ONLY JSON."
+            : "You are an expert educational translator. Convert English educational text to simple, direct Egyptian Arabic colloquial (عامية مصرية). No introductions or side comments. Return ONLY JSON.";
+
         const prompt = type === "quiz_item"
             ? `${systemInstruction}
-
-Translate ALL fields of this quiz item into simple Egyptian Arabic. Return ONLY a JSON object with the exact same keys:
+ 
+Translate ALL fields of this quiz item into ${targetLang === "en" ? "clear academic English" : "simple Egyptian Arabic"}. Return ONLY a JSON object with the exact same keys:
 ${text}`
             : `${systemInstruction}
-
-Translate this text into simple Egyptian Arabic:
+ 
+Translate this text into ${targetLang === "en" ? "clear academic English" : "simple Egyptian Arabic"}:
 ${text}`;
 
         const modelsToTry = [

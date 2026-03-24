@@ -29,7 +29,15 @@ export default function QuizPage() {
     const [isTranslating, setIsTranslating] = useState(false);
     const [translatedQuestion, setTranslatedQuestion] = useState<string | null>(null);
     const [translatedOptions, setTranslatedOptions] = useState<string[] | null>(null);
+    const [translatedAnswer, setTranslatedAnswer] = useState<string | null>(null);
+    const [translatedExplanation, setTranslatedExplanation] = useState<string | null>(null);
     const [translationError, setTranslationError] = useState<string | null>(null);
+
+    // Default English state for Arabic questions
+    const [englishQuestion, setEnglishQuestion] = useState<string | null>(null);
+    const [englishOptions, setEnglishOptions] = useState<string[] | null>(null);
+    const [isTranslatingToEnglish, setIsTranslatingToEnglish] = useState(false);
+
 
     // Translation for review items
     const [translatedReviewItems, setTranslatedReviewItems] = useState<Record<number, any>>({});
@@ -63,7 +71,8 @@ export default function QuizPage() {
         }
 
         const newUserAnswers = [...userAnswers, {
-            question: currentQ.question,
+            question: englishQuestion || currentQ.question,
+            originalQuestion: currentQ.question,
             userAnswer: selectedAnswer,
             correctAnswer: currentQ.answer,
             explanation: currentQ.explanation,
@@ -72,6 +81,7 @@ export default function QuizPage() {
             pageHint: currentQ.pageHint,
             isCorrect
         }];
+
         setUserAnswers(newUserAnswers);
 
         if (currentQuestionIndex < activeQuiz.length - 1) {
@@ -80,11 +90,56 @@ export default function QuizPage() {
             setShowTranslation(false);
             setTranslatedQuestion(null);
             setTranslatedOptions(null);
+            setTranslatedAnswer(null);
+            setTranslatedExplanation(null);
+            setEnglishQuestion(null);
+            setEnglishOptions(null);
             setTranslationError(null);
         } else {
             setIsQuizFinished(true);
         }
     };
+
+    const isArabic = (text: string) => /[\u0600-\u06FF]/.test(text);
+
+    // Auto-translate to English if original is Arabic
+    useEffect(() => {
+        const currentQ = activeQuiz[currentQuestionIndex];
+        if (!currentQ) return;
+
+        if (isArabic(currentQ.question)) {
+            const fetchEnglish = async () => {
+                setIsTranslatingToEnglish(true);
+                try {
+                    const response = await fetch('/api/translate-quiz', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            text: JSON.stringify({
+                                question: currentQ.question,
+                                options: currentQ.options || [],
+                                answer: currentQ.answer,
+                                explanation: currentQ.explanation
+                            }),
+                            type: "quiz_item",
+                            targetLang: "en"
+                        })
+                    });
+                    const data = await response.json();
+                    const cleanReply = (data.result || "").replace(/```json|```/g, '').trim();
+                    const parsed = JSON.parse(cleanReply);
+                    setEnglishQuestion(parsed.question);
+                    setEnglishOptions(parsed.options);
+                } catch (err) {
+                    console.error("Auto-English translation failed:", err);
+                } finally {
+                    setIsTranslatingToEnglish(false);
+                }
+            };
+            fetchEnglish();
+        }
+    }, [currentQuestionIndex, activeQuiz]);
+
 
     const translateQuestion = async () => {
         if (translatedQuestion) {
@@ -96,19 +151,18 @@ export default function QuizPage() {
         setTranslationError(null);
         try {
             const currentQ = activeQuiz[currentQuestionIndex];
-            const optionsPrompt = currentQ.options && currentQ.options.length > 0
-                ? `والاختيارات دي كمان:\n${currentQ.options.join('\n')}`
-                : "السؤال ده ملوش اختيارات (صح أو غلط).";
-
             const response = await fetch('/api/translate-quiz', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     text: JSON.stringify({
                         question: currentQ.question,
-                        options: currentQ.options || []
+                        options: currentQ.options || [],
+                        answer: currentQ.answer,
+                        explanation: currentQ.explanation
                     }),
-                    type: "quiz_item"
+                    type: "quiz_item",
+                    targetLang: "ar"
                 })
             });
             const data = await response.json();
@@ -120,13 +174,12 @@ export default function QuizPage() {
                     const cleanReply = reply.replace(/```json|```/g, '').trim();
                     const parsed = JSON.parse(cleanReply);
                     setTranslatedQuestion(parsed.question);
-                    if (parsed.options) {
-                        setTranslatedOptions(parsed.options);
-                    }
+                    setTranslatedOptions(parsed.options);
+                    setTranslatedAnswer(parsed.answer);
+                    setTranslatedExplanation(parsed.explanation);
                 } catch (parseError) {
-                    console.error("JSON Parse error:", data.reply);
-                    // Fallback to old behavior if JSON fails but we have text
-                    setTranslatedQuestion(data.reply);
+                    console.error("JSON Parse error:", data.result);
+                    setTranslatedQuestion(data.result);
                 }
             }
             setShowTranslation(true);
@@ -137,6 +190,7 @@ export default function QuizPage() {
             setIsTranslating(false);
         }
     };
+
 
     const getStudyPlan = () => {
         const mistakes = userAnswers.filter(a => !a.isCorrect);
@@ -333,8 +387,15 @@ export default function QuizPage() {
                             {currentQ.topic}
                         </div>
                         <h2 className="text-lg md:text-2xl font-black text-white leading-[1.3] tracking-tight max-w-3xl mx-auto">
-                            {showTranslation && translatedQuestion ? translatedQuestion : currentQ.question}
+                            {isTranslatingToEnglish ? (
+                                <span className="opacity-50 italic animate-pulse">Translating to English...</span>
+                            ) : (
+                                showTranslation && translatedQuestion
+                                    ? translatedQuestion
+                                    : (englishQuestion || currentQ.question)
+                            )}
                         </h2>
+
 
                         {/* Translation Button */}
                         <div className="flex flex-col items-center gap-4 pt-4">
@@ -349,8 +410,9 @@ export default function QuizPage() {
                                     <span className="text-base">🌍</span>
                                 )}
                                 <span className="font-bold text-xs uppercase tracking-tighter">
-                                    {showTranslation ? "عرض بالإنجليزي" : "ترجمة (الدحيح)"}
+                                    {showTranslation ? "عرض بالإنجليزي" : "ترجمة (عربي)"}
                                 </span>
+
                             </button>
 
                             {translationError && (
@@ -376,8 +438,9 @@ export default function QuizPage() {
                                         <span className="text-xs md:text-sm font-black leading-[1.1]">
                                             {showTranslation && translatedOptions && translatedOptions[idx]
                                                 ? translatedOptions[idx]
-                                                : option}
+                                                : (englishOptions && englishOptions[idx] ? englishOptions[idx] : option)}
                                         </span>
+
                                     </button>
                                 ))}
                             </div>
