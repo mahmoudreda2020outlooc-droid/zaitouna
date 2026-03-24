@@ -832,195 +832,309 @@
       {
         "type": "mcq",
         "question": "What type of language is PHP primarily described as in the lecture?",
+        "question_ar": "ما هو نوع اللغة التي توصف بها PHP بشكل أساسي في المحاضرة؟",
         "options": [
           "Client-side scripting language",
           "Server-side scripting language",
           "Markup language",
           "Query language"
         ],
+        "options_ar": [
+          "لغة برمجة نصية من جانب العميل",
+          "لغة برمجة نصية من جانب الخادم",
+          "لغة ترميز",
+          "لغة استعلام"
+        ],
         "answer": "Server-side scripting language",
+        "answer_ar": "لغة برمجة نصية من جانب الخادم",
         "explanation": "The lecture explicitly states, 'PHP is a server side scripting language that is embedded in HTML.'",
+        "explanation_ar": "تنص المحاضرة صراحة على أن 'PHP هي لغة برمجة نصية من جانب الخادم يتم تضمينها في HTML'.",
         "topic": "Introduction to PHP"
       },
       {
         "type": "tf",
         "question": "PHP is primarily used for managing static web content.",
+        "question_ar": "تُستخدم PHP بشكل أساسي لإدارة محتوى الويب الثابت.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture states PHP is used to 'manage dynamic content,' indicating it's not primarily for static content.",
+        "explanation_ar": "تنص المحاضرة على أن PHP تُستخدم لـ 'إدارة المحتوى الديناميكي'، مما يشير إلى أنها ليست للمحتوى الثابت بشكل أساسي.",
         "topic": "Introduction to PHP"
       },
       {
         "type": "fitb",
         "question": "PHP scripts are typically embedded in _____ documents.",
+        "question_ar": "عادةً ما يتم تضمين نصوص PHP البرمجية في مستندات _____.",
         "options": [],
+        "options_ar": [],
         "answer": "HTML",
+        "answer_ar": "HTML",
         "explanation": "The introduction defines PHP as a 'server side scripting language that is embedded in HTML.'",
+        "explanation_ar": "تُعرف المقدمة PHP بأنها 'لغة برمجة نصية من جانب الخادم مدمجة في HTML'.",
         "topic": "Introduction to PHP"
       },
       {
         "type": "mcq",
         "question": "Which of the following is NOT listed as a capability of PHP according to the lecture?",
+        "question_ar": "أي مما يلي ليس مدرجاً كإحدى قدرات PHP وفقاً للمحاضرة؟",
         "options": [
           "Building entire e-commerce sites",
           "Operating system development",
           "Session tracking",
           "Managing dynamic content"
         ],
+        "options_ar": [
+          "بناء مواقع تجارة إلكترونية كاملة",
+          "تطوير أنظمة التشغيل",
+          "تتبع الجلسات",
+          "إدارة المحتوى الديناميكي"
+        ],
         "answer": "Operating system development",
+        "answer_ar": "تطوير أنظمة التشغيل",
         "explanation": "The lecture lists dynamic content, databases, session tracking, and e-commerce as uses, but not operating system development.",
+        "explanation_ar": "تسرد المحاضرة المحتوى الديناميكي، وقواعد البيانات، وتتبع الجلسات، والتجارة الإلكترونية كاستخدامات، ولكن ليس تطوير أنظمة التشغيل.",
         "topic": "Introduction to PHP"
       },
       {
         "type": "mcq",
         "question": "PHP is integrated with a number of popular databases, including which of the following?",
+        "question_ar": "تتكامل PHP مع عدد من قواعد البيانات الشهيرة، بما في ذلك أي مما يلي؟",
         "options": [
           "MongoDB",
           "Cassandra",
           "MySQL",
           "Redis"
         ],
+        "options_ar": [
+          "MongoDB",
+          "Cassandra",
+          "MySQL",
+          "Redis"
+        ],
         "answer": "MySQL",
+        "answer_ar": "MySQL",
         "explanation": "The lecture specifically lists MySQL, PostgreSQL, Oracle, Sybase, Informix, and Microsoft SQL Server as integrated databases.",
+        "explanation_ar": "تسرد المحاضرة تحديداً MySQL و PostgreSQL و Oracle و Sybase و Informix و Microsoft SQL Server كقواعد بيانات متكاملة.",
         "topic": "Introduction to PHP"
       },
       {
         "type": "tf",
         "question": "PHP can only read existing files, not create or write new ones on a system.",
+        "question_ar": "يمكن لـ PHP فقط قراءة الملفات الموجودة، وليس إنشاء أو كتابة ملفات جديدة على النظام.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture states PHP can perform system functions such as 'create, open, read, write, and close' files.",
+        "explanation_ar": "تنص المحاضرة على أن PHP يمكنها أداء وظائف النظام مثل 'إنشاء، فتح، قراءة، كتابة، وإغلاق' الملفات.",
         "topic": "PHP System Functions"
       },
       {
         "type": "fitb",
         "question": "PHP can handle forms by gathering data, saving it to a file, and sending data through _____.",
+        "question_ar": "يمكن لـ PHP التعامل مع النماذج عن طريق جمع البيانات، وحفظها في ملف، وإرسال البيانات عبر _____.",
         "options": [],
+        "options_ar": [],
         "answer": "email",
+        "answer_ar": "البريد الإلكتروني",
         "explanation": "The lecture mentions PHP can 'gather data from files, save data to a file, through email you can send data, return data to the user.'",
+        "explanation_ar": "تذكر المحاضرة أن PHP يمكنها 'جمع البيانات من الملفات، وحفظ البيانات في ملف، ومن خلال البريد الإلكتروني يمكنك إرسال البيانات، وإعادة البيانات إلى المستخدم'.",
         "topic": "PHP Form Handling"
       },
       {
         "type": "mcq",
         "question": "What database operations can PHP facilitate according to the lecture?",
+        "question_ar": "ما هي عمليات قاعدة البيانات التي يمكن لـ PHP تسهيلها وفقاً للمحاضرة؟",
         "options": [
           "Only adding elements",
           "Only modifying elements",
           "Adding, deleting, and modifying elements",
           "Only deleting elements"
         ],
+        "options_ar": [
+          "إضافة العناصر فقط",
+          "تعديل العناصر فقط",
+          "إضافة وحذف وتعديل العناصر",
+          "حذف العناصر فقط"
+        ],
         "answer": "Adding, deleting, and modifying elements",
+        "answer_ar": "إضافة وحذف وتعديل العناصر",
         "explanation": "The lecture states, 'You add, delete, modify elements within your database through PHP.'",
+        "explanation_ar": "تنص المحاضرة على أنه 'يمكنك إضافة وحذف وتعديل العناصر داخل قاعدة البيانات الخاصة بك من خلال PHP'.",
         "topic": "PHP Database Operations"
       },
       {
         "type": "tf",
         "question": "PHP can restrict user access to specific pages of a website.",
+        "question_ar": "يمكن لـ PHP تقييد وصول المستخدم إلى صفحات معينة من موقع الويب.",
         "answer": "true",
+        "answer_ar": "صح",
         "explanation": "The lecture explicitly states, 'Using PHP, you can restrict users to access some pages of your website.'",
+        "explanation_ar": "تنص المحاضرة صراحة على أنه 'باستخدام PHP، يمكنك تقييد المستخدمين من الوصول إلى بعض صفحات موقع الويب الخاص بك'.",
         "topic": "PHP Security"
       },
       {
         "type": "fitb",
         "question": "PHP has the capability to _____ data for security purposes.",
+        "question_ar": "لدى PHP القدرة على _____ البيانات لأغراض أمنية.",
         "options": [],
+        "options_ar": [],
         "answer": "encrypt",
+        "answer_ar": "تشفير",
         "explanation": "The lecture lists 'It can encrypt data' as one of PHP's capabilities.",
+        "explanation_ar": "تدرج المحاضرة 'يمكنها تشفير البيانات' كواحدة من قدرات PHP.",
         "topic": "PHP Security"
       },
       {
         "type": "mcq",
         "question": "Regarding cookies, PHP allows you to perform which actions?",
+        "question_ar": "فيما يتعلق بملفات تعريف الارتباط (Cookies)، ما هي الإجراءات التي تسمح لك لغة PHP بالقيام بها؟",
         "options": [
           "Only access cookie variables",
           "Only set new cookies",
           "Access cookie variables and set cookies",
           "Neither access nor set cookies"
         ],
+        "options_ar": [
+          "الوصول إلى متغيرات ملفات تعريف الارتباط فقط",
+          "تعيين ملفات تعريف ارتباط جديدة فقط",
+          "الوصول إلى متغيرات ملفات تعريف الارتباط وتعيينها",
+          "لا يمكن الوصول إليها ولا تعيينها"
+        ],
         "answer": "Access cookie variables and set cookies",
+        "answer_ar": "الوصول إلى متغيرات ملفات تعريف الارتباط وتعيينها",
         "explanation": "The lecture states PHP can 'Access cookies variables and set cookies.'",
+        "explanation_ar": "تنص المحاضرة على أن PHP يمكنها \"الوصول إلى متغيرات ملفات تعريف الارتباط وتعيينها\".",
         "topic": "PHP Cookies"
       },
       {
         "type": "tf",
         "question": "The lecture provides a detailed 'Hello World' script example for PHP.",
+        "question_ar": "تقدم المحاضرة مثالاً مفصلاً لبرنامج 'Hello World' بلغة PHP.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture mentions 'Hello World Script in PHP' as a heading but provides no code example or details for it.",
+        "explanation_ar": "تذكر المحاضرة 'Hello World Script in PHP' كعنوان ولكنها لا تقدم أي مثال برمجى أو تفاصيل له.",
         "topic": "Hello World Script"
       },
       {
         "type": "mcq",
         "question": "What is the first step mentioned in the 'PHP - Environment Setup' section?",
+        "question_ar": "ما هي الخطوة الأولى المذكورة في قسم 'إعداد بيئة PHP' (PHP - Environment Setup)؟",
         "options": [
           "Configure Apache",
           "Install php",
           "Set up MariaDB",
           "Write a 'Hello World' script"
         ],
+        "options_ar": [
+          "تكوين Apache",
+          "تثبيت PHP",
+          "إعداد MariaDB",
+          "كتابة برنامج 'Hello World'"
+        ],
         "answer": "Install php",
+        "answer_ar": "تثبيت PHP",
         "explanation": "The first bullet point under 'PHP - Environment Setup' is 'Install php'.",
+        "explanation_ar": "النقطة الأولى تحت عنوان 'إعداد بيئة PHP' هي 'تثبيت PHP'.",
         "topic": "PHP Environment Setup"
       },
       {
         "type": "tf",
         "question": "The lecture provides comprehensive details about the software and hardware requirements for PHP environment setup.",
+        "question_ar": "توفر المحاضرة تفاصيل شاملة حول متطلبات البرمجيات والأجهزة لإعداد بيئة PHP.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture lists 'SOFTWARE REQUIREMENT' and 'HARDWARE REQUIREMENTS' as headings but provides no actual details under them.",
+        "explanation_ar": "تسرد المحاضرة 'متطلبات البرمجيات' و 'متطلبات الأجهزة' كعناوين ولكنها لا تقدم أي تفاصيل فعلية تحتها.",
         "topic": "PHP Environment Setup"
       },
       {
         "type": "fitb",
         "question": "Wamp is described as an easy-to-install Apache distribution containing MariaDB and _____.",
+        "question_ar": "يُوصف Wamp بأنه توزيعة Apache سهلة التثبيت تحتوي على MariaDB و _____.",
         "options": [],
+        "options_ar": [],
         "answer": "PHP",
+        "answer_ar": "PHP",
         "explanation": "The lecture describes Wamp as 'Easy to install Apache distribution containing MariaDB, PHP'.",
+        "explanation_ar": "تصف المحاضرة Wamp بأنه 'توزيعة Apache سهلة التثبيت تحتوي على MariaDB و PHP'.",
         "topic": "PHP Bundles"
       },
       {
         "type": "mcq",
         "question": "Which of the following components is typically part of a Wamp bundle, according to the lecture?",
+        "question_ar": "أي من المكونات التالية هو جزء عادةً من حزمة Wamp، وفقاً للمحاضرة؟",
         "options": [
           "PostgreSQL",
           "Apache",
           "Oracle",
           "Node.js"
         ],
+        "options_ar": [
+          "PostgreSQL",
+          "Apache",
+          "Oracle",
+          "Node.js"
+        ],
         "answer": "Apache",
+        "answer_ar": "Apache",
         "explanation": "Wamp is explicitly mentioned as an 'Apache distribution containing MariaDB, PHP'.",
+        "explanation_ar": "يتم ذكر Wamp صراحةً كـ 'توزيعة Apache تحتوي على MariaDB و PHP'.",
         "topic": "PHP Bundles"
       },
       {
         "type": "tf",
         "question": "A PHP script must always be placed at the beginning of an HTML document.",
+        "question_ar": "يجب دائماً وضع سكريبت PHP في بداية مستند HTML.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture states, 'A PHP script can be placed anywhere in the document.'",
+        "explanation_ar": "تنص المحاضرة على أنه 'يمكن وضع سكريبت PHP في أي مكان في المستند'.",
         "topic": "Basic PHP Syntax"
       },
       {
         "type": "fitb",
-        "question": "A PHP script block starts with `<?php` and ends with _____.",
+        "question": "A PHP script block starts with <?php and ends with _____.",
+        "question_ar": "تبدأ كتلة سكريبت PHP بـ <?php وتنتهي بـ _____.",
         "options": [],
+        "options_ar": [],
         "answer": "?>",
+        "answer_ar": "?>",
         "explanation": "The lecture explicitly states this syntax for PHP scripts.",
+        "explanation_ar": "تنص المحاضرة صراحةً على بناء الجملة (syntax) هذا لسكريبتات PHP.",
         "topic": "Basic PHP Syntax"
       },
       {
         "type": "mcq",
         "question": "What is the correct way to start a PHP script block?",
+        "question_ar": "ما هي الطريقة الصحيحة لبدء كتلة سكريبت PHP؟",
         "options": [
           "<%php",
           "<?php",
           "<!--php",
           "<script php>"
         ],
+        "options_ar": [
+          "<%php",
+          "<?php",
+          "<!--php",
+          "<script php>"
+        ],
         "answer": "<?php",
+        "answer_ar": "<?php",
         "explanation": "The lecture specifies that 'A PHP script starts with <?php'.",
+        "explanation_ar": "تحدد المحاضرة أن 'سكريبت PHP يبدأ بـ <?php'.",
         "topic": "Basic PHP Syntax"
       },
       {
         "type": "fitb",
         "question": "All PHP variables must start with the _____ sign.",
+        "question_ar": "يجب أن تبدأ جميع متغيرات PHP بعلامة _____.",
         "options": [],
+        "options_ar": [],
         "answer": "$",
+        "answer_ar": "$",
         "explanation": "The lecture rule states, 'A variable starts with the $ sign, followed by the name of the variable'.",
+        "explanation_ar": "تنص قاعدة المحاضرة على أن 'المتغير يبدأ بعلامة $، متبوعة باسم المتغير'.",
         "topic": "PHP Variables"
       },
       {
@@ -1034,14 +1148,26 @@
         ],
         "answer": "A-z or _",
         "explanation": "The rule states, 'A variable name must start with a letter or the underscore character'.",
-        "topic": "PHP Variables"
+        "topic": "PHP Variables",
+        "question_ar": "أي مما يلي يعتبر حرف بداية صحيح لاسم متغير في PHP؟",
+        "options_ar": [
+          "0-9",
+          "#",
+          "A-z أو _",
+          "$"
+        ],
+        "answer_ar": "A-z أو _",
+        "explanation_ar": "تنص القاعدة على أن 'يجب أن يبدأ اسم المتغير بحرف أو بشرطة سفلية'."
       },
       {
         "type": "tf",
         "question": "A PHP variable name can start with a number.",
         "answer": "false",
         "explanation": "The rule explicitly states, 'A variable name cannot start with a number'.",
-        "topic": "PHP Variables"
+        "topic": "PHP Variables",
+        "question_ar": "يمكن لاسم متغير PHP أن يبدأ برقم.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تنص القاعدة صراحةً على أن 'اسم المتغير لا يمكن أن يبدأ برقم'."
       },
       {
         "type": "mcq",
@@ -1054,14 +1180,26 @@
         ],
         "answer": "Alphanumeric characters and underscores (A-z, 0-9, and _)",
         "explanation": "The lecture specifies, 'A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _)'.",
-        "topic": "PHP Variables"
+        "topic": "PHP Variables",
+        "question_ar": "ما هي الأحرف المسموح بها داخل اسم متغير PHP بعد الحرف الأول؟",
+        "options_ar": [
+          "الحروف فقط",
+          "الأرقام فقط",
+          "الأحرف الأبجدية الرقمية والشرطات السفلية (A-z، 0-9، و _)",
+          "أي أحرف خاصة"
+        ],
+        "answer_ar": "الأحرف الأبجدية الرقمية والشرطات السفلية (A-z، 0-9، و _)",
+        "explanation_ar": "تحدد المحاضرة أن 'اسم المتغير يمكن أن يحتوي فقط على أحرف أبجدية رقمية وشرطات سفلية (A-z، 0-9، و _)'."
       },
       {
         "type": "tf",
         "question": "PHP variable names are not case-sensitive.",
         "answer": "false",
         "explanation": "The lecture clearly states, 'Variable names are case-sensitive ($age and $AGE are two different variables)'.",
-        "topic": "PHP Variables"
+        "topic": "PHP Variables",
+        "question_ar": "أسماء متغيرات PHP ليست حساسة لحالة الأحرف.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "تنص المحاضرة بوضوح على أن 'أسماء المتغيرات حساسة لحالة الأحرف ($age و $AGE هما متغيران مختلفان)'."
       },
       {
         "type": "mcq",
@@ -1073,239 +1211,379 @@
           "Only `$age` is a valid variable name."
         ],
         "answer": "They are two different variables due to case-sensitivity.",
-        "explanation": "The lecture explains, 'Variablenamesarecase-sensitive($age and$AGE aretwo differentvariables)'.",
-        "topic": "PHP Variables"
+        "explanation": "The lecture explains, 'Variable names are case-sensitive ($age and $AGE are two different variables)'.",
+        "topic": "PHP Variables",
+        "question_ar": "بافتراض وجود `$age = 30;` و `$AGE = 40;` في PHP، ما هو الصحيح بشأن هذه المتغيرات؟",
+        "options_ar": [
+          "هما يشيران إلى نفس المتغير، مع الأخذ بالتعيين الأخير.",
+          "هذا خطأ في بناء الجملة.",
+          "هما متغيران مختلفان بسبب حساسية حالة الأحرف.",
+          "فقط `$age` هو اسم متغير صحيح."
+        ],
+        "answer_ar": "هما متغيران مختلفان بسبب حساسية حالة الأحرف.",
+        "explanation_ar": "تشرح المحاضرة أن 'أسماء المتغيرات حساسة لحالة الأحرف ($age و $AGE متغيران مختلفان)'."
       },
       {
         "type": "fitb",
         "question": "The variable declaration `$x = 5;` assigns an _____ value to `$x`.",
+        "question_ar": "يؤدي التصريح عن المتغير `$x = 5;` إلى تعيين قيمة _____ للمتغير `$x`.",
         "options": [],
+        "options_ar": [],
         "answer": "integer",
+        "answer_ar": "عدد صحيح (integer)",
         "explanation": "The example `$x = 5;` shows an integer assignment, which is a fundamental data type.",
+        "explanation_ar": "يوضح المثال `$x = 5;` تعيين عدد صحيح، وهو نوع بيانات أساسي.",
         "topic": "PHP Variables"
       },
       {
         "type": "fitb",
         "question": "The variable `$y = \"John\";` assigns a _____ value to `$y`.",
+        "question_ar": "يؤدي المتغير `$y = \"John\";` إلى تعيين قيمة _____ للمتغير `$y`.",
         "options": [],
+        "options_ar": [],
         "answer": "string",
+        "answer_ar": "سلسلة نصية (string)",
         "explanation": "The example `$y = \"John\";` clearly shows a string assignment, where text is enclosed in quotes.",
+        "explanation_ar": "يوضح المثال `$y = \"John\";` بوضوح تعيين سلسلة نصية، حيث يتم وضع النص بين علامات اقتباس.",
         "topic": "PHP Variables"
       },
       {
         "type": "mcq",
         "question": "What is the primary purpose of both `echo` and `print` statements in PHP?",
+        "question_ar": "ما هو الغرض الأساسي من جملتي `echo` و `print` في PHP؟",
         "options": [
           "To declare variables",
           "To perform calculations",
           "To output data to the screen",
           "To define functions"
         ],
+        "options_ar": [
+          "للتصريح عن المتغيرات",
+          "لإجراء العمليات الحسابية",
+          "لعرض البيانات على الشاشة",
+          "لتعريف الدوال"
+        ],
         "answer": "To output data to the screen",
+        "answer_ar": "لعرض البيانات على الشاشة",
         "explanation": "The lecture states, 'echo and print are more or less the same. They are both used to output data to the screen.'",
+        "explanation_ar": "تنص المحاضرة على أن: 'echo و print هما نفس الشيء تقريبًا. كلاهما يستخدم لعرض البيانات على الشاشة'.",
         "topic": "PHP echo and print Statements"
       },
       {
         "type": "tf",
         "question": "The `echo` and `print` statements in PHP have significant functional differences.",
+        "question_ar": "توجد فروق وظيفية كبيرة بين جملتي `echo` و `print` في PHP.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture states, 'echo and print are more or less the same.'",
+        "explanation_ar": "تنص المحاضرة على أن: 'echo و print هما نفس الشيء تقريبًا'.",
         "topic": "PHP echo and print Statements"
       },
       {
         "type": "fitb",
         "question": "To output a string, concatenate it with a variable, and then output an arithmetic sum, you would typically use the _____ statement.",
+        "question_ar": "لعرض سلسلة نصية، وربطها بمتغير، ثم عرض مجموع حسابي، فإنك تستخدم عادةً جملة _____.",
         "options": [],
+        "options_ar": [],
         "answer": "echo",
+        "answer_ar": "echo",
         "explanation": "The example provided uses `echo` for all these types of outputs: `echo '<h2>' . $txt1 . '</h2>';` and `echo $x + $y;` (also acceptable 'print').",
+        "explanation_ar": "يستخدم المثال المقدم `echo` لجميع أنواع المخرجات هذه: `echo '<h2>' . $txt1 . '</h2>';` و `echo $x + $y;` (ويمكن استخدام 'print' أيضًا).",
         "topic": "PHP echo and print Statements"
       },
       {
         "type": "mcq",
         "question": "Which of the following accurately shows how to concatenate strings and variables for output using `echo`?",
+        "question_ar": "أي مما يلي يوضح بدقة كيفية دمج النصوص والمتغيرات للمخرجات باستخدام `echo`؟",
         "options": [
           "`echo $txt1 + $txt2;`",
           "`echo '$txt1' . '$txt2';`",
           "`echo \"Hello\" . $name;`",
           "`echo \"Hello\", $name;`"
         ],
+        "options_ar": [
+          "`echo $txt1 + $txt2;`",
+          "`echo '$txt1' . '$txt2';`",
+          "`echo \"Hello\" . $name;`",
+          "`echo \"Hello\", $name;`"
+        ],
         "answer": "`echo \"Hello\" . $name;`",
+        "answer_ar": "`echo \"Hello\" . $name;`",
         "explanation": "The lecture examples demonstrate string concatenation using the `.` operator, as in `echo 'Study PHP at ' . $txt2 . '<br>';`",
+        "explanation_ar": "توضح أمثلة المحاضرة دمج النصوص باستخدام معامل الربط `.`، كما في `echo 'Study PHP at ' . $txt2 . '<br>';`",
         "topic": "PHP echo and print Statements"
       },
       {
         "type": "tf",
         "question": "PHP variables are restricted to storing only one specific data type throughout their lifetime.",
+        "question_ar": "متغيرات PHP مقيدة بتخزين نوع بيانات واحد محدد فقط طوال دورة حياتها.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture states, 'Variables can store data of different types, and different data types can do different things.'",
+        "explanation_ar": "تنص المحاضرة على أن 'المتغيرات يمكنها تخزين بيانات من أنواع مختلفة، وأنواع البيانات المختلفة يمكنها القيام بأشياء مختلفة'.",
         "topic": "PHP Data Types"
       },
       {
         "type": "mcq",
         "question": "Which of the following is NOT listed as a standard PHP data type?",
+        "question_ar": "أي مما يلي ليس مدرجاً كنوع بيانات قياسي في PHP؟",
         "options": [
           "Character",
           "String",
           "Integer",
           "Boolean"
         ],
+        "options_ar": [
+          "Character (حرف)",
+          "String (نص)",
+          "Integer (رقم صحيح)",
+          "Boolean (قيمة منطقية)"
+        ],
         "answer": "Character",
+        "answer_ar": "Character",
         "explanation": "The listed data types are String, Integer, Float, Boolean, Array, Object, NULL, Resource. 'Character' is not explicitly listed.",
+        "explanation_ar": "أنواع البيانات المدرجة هي String، Integer، Float، Boolean، Array، Object، NULL، Resource. لم يتم إدراج 'Character' بشكل صريح كنوع منفصل.",
         "topic": "PHP Data Types"
       },
       {
         "type": "tf",
         "question": "The `Float` data type in PHP is also commonly referred to as `double`.",
+        "question_ar": "يُشار أيضاً إلى نوع البيانات `Float` في PHP عادةً باسم `double`.",
         "answer": "true",
+        "answer_ar": "صحيح",
         "explanation": "The lecture explicitly states, 'Float (floating point numbers - also called double)'.",
+        "explanation_ar": "تنص المحاضرة صراحةً على أن: 'Float (أرقام الفاصلة العائمة - تسمى أيضاً double)'.",
         "topic": "PHP Data Types"
       },
       {
         "type": "fitb",
         "question": "Variables that store true or false values are of the _____ data type.",
+        "question_ar": "المتغيرات التي تخزن قيم true (صواب) أو false (خطأ) هي من نوع البيانات _____.",
         "options": [],
         "answer": "Boolean",
+        "answer_ar": "Boolean (منطقي)",
         "explanation": "Boolean is a fundamental data type for logical true/false values.",
+        "explanation_ar": "Boolean هو نوع بيانات أساسي للقيم المنطقية (صواب/خطأ).",
         "topic": "PHP Data Types"
       },
       {
         "type": "mcq",
         "question": "What data type is typically used to store a collection of items or values?",
+        "question_ar": "ما هو نوع البيانات الذي يُستخدم عادةً لتخزين مجموعة من العناصر أو القيم؟",
         "options": [
           "Object",
           "Resource",
           "Array",
           "NULL"
         ],
+        "options_ar": [
+          "Object (كائن)",
+          "Resource (مورد)",
+          "Array (مصفوفة)",
+          "NULL (قيمة فارغة)"
+        ],
         "answer": "Array",
+        "answer_ar": "Array (مصفوفة)",
         "explanation": "Array is listed as a PHP data type and is generally used for collections.",
+        "explanation_ar": "تُدرج المصفوفة (Array) كنوع بيانات في PHP وتُستخدم بشكل عام للمجموعات.",
         "topic": "PHP Data Types"
       },
       {
         "type": "fitb",
         "question": "A variable that has no value assigned or has been explicitly unset would be of the _____ data type.",
+        "question_ar": "المتغير الذي لا توجد له قيمة محددة أو تم إلغاء تعيينه صراحةً سيكون من نوع البيانات _____.",
         "options": [],
+        "options_ar": [],
         "answer": "NULL",
+        "answer_ar": "NULL",
         "explanation": "NULL is a special data type indicating no value.",
+        "explanation_ar": "NULL هو نوع بيانات خاص يشير إلى عدم وجود قيمة.",
         "topic": "PHP Data Types"
       },
       {
         "type": "tf",
         "question": "An `Object` is a valid and supported PHP data type.",
+        "question_ar": "الـ `Object` (الكائن) هو نوع بيانات صالح ومدعوم في PHP.",
         "answer": "true",
+        "answer_ar": "صح",
         "explanation": "The lecture lists 'Object' among the supported PHP data types.",
+        "explanation_ar": "تدرج المحاضرة 'Object' ضمن أنواع البيانات المدعومة في PHP.",
         "topic": "PHP Data Types"
       },
       {
         "type": "mcq",
         "question": "Which PHP function is used to return both the data type and the value of a variable?",
+        "question_ar": "أي دالة في PHP تُستخدم لإرجاع كل من نوع البيانات وقيمة المتغير؟",
         "options": [
           "gettype()",
           "typeof()",
           "var_dump()",
           "print_r()"
         ],
+        "options_ar": [
+          "gettype()",
+          "typeof()",
+          "var_dump()",
+          "print_r()"
+        ],
         "answer": "var_dump()",
+        "answer_ar": "var_dump()",
         "explanation": "The lecture states, 'The var_dump() function returns the data type and the value'.",
+        "explanation_ar": "تنص المحاضرة على أن 'دالة var_dump() ترجع نوع البيانات والقيمة'.",
         "topic": "Getting Data Type"
       },
       {
         "type": "fitb",
         "question": "If `$x = 5;` and `var_dump($x);` is called, the output would indicate that `$x` is an _____.",
+        "question_ar": "إذا كان `$x = 5;` وتم استدعاء `var_dump($x);` فسيشير المخرج إلى أن `$x` هو _____.",
         "options": [],
+        "options_ar": [],
         "answer": "integer",
+        "answer_ar": "integer (عدد صحيح)",
         "explanation": "`var_dump()` shows the type, and `5` is an integer value.",
+        "explanation_ar": "تُظهر `var_dump()` النوع، و `5` هي قيمة من نوع عدد صحيح (integer).",
         "topic": "Getting Data Type"
       },
       {
         "type": "fitb",
         "question": "The `pi()` function in PHP returns the value of _____.",
+        "question_ar": "تعيد الدالة `pi()` في PHP قيمة _____.",
         "options": [],
+        "options_ar": [],
         "answer": "PI",
+        "answer_ar": "PI",
         "explanation": "The lecture states, 'The pi() function returns the value of PI'.",
+        "explanation_ar": "تذكر المحاضرة أن 'الدالة pi() تعيد قيمة PI'.",
         "topic": "PHP Math Functions"
       },
       {
         "type": "mcq",
         "question": "Which PHP function is used to find the smallest value among a set of arguments?",
+        "question_ar": "أي من دوال PHP تُستخدم لإيجاد أصغر قيمة بين مجموعة من الوسائط؟",
         "options": [
           "highest()",
           "max()",
           "min()",
           "smallest()"
         ],
+        "options_ar": [
+          "highest()",
+          "max()",
+          "min()",
+          "smallest()"
+        ],
         "answer": "min()",
+        "answer_ar": "min()",
         "explanation": "The lecture mentions 'PHP min() and max() Functions', with `min()` logically being for the smallest value.",
+        "explanation_ar": "تذكر المحاضرة 'دوال min() و max() في PHP'، حيث تُستخدم `min()` منطقياً لأصغر قيمة.",
         "topic": "PHP Math Functions"
       },
       {
         "type": "tf",
         "question": "The `round()` function in PHP is primarily used to truncate the decimal part of a floating-point number.",
+        "question_ar": "تُستخدم الدالة `round()` في PHP بشكل أساسي لاقتطاع الجزء العشري من رقم الفاصلة العائمة.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The `round()` function rounds a number to the nearest integer or a specified number of decimal places, it does not truncate.",
+        "explanation_ar": "تقوم الدالة `round()` بتقريب الرقم إلى أقرب عدد صحيح أو لعدد محدد من المنازل العشرية، ولا تقوم بالاقتطاع.",
         "topic": "PHP Math Functions"
       },
       {
         "type": "tf",
         "question": "The lecture provides detailed syntax and multiple examples for PHP `if` statements.",
+        "question_ar": "تقدم المحاضرة بناء جملة مفصلاً وأمثلة متعددة لجمل `if` في PHP.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The lecture mentions 'PHP if Statements' and 'PHP - The if Statement' but provides no syntax or examples, unlike the `switch` statement.",
+        "explanation_ar": "تذكر المحاضرة 'جمل if في PHP' ولكنها لا تقدم بناء جملة أو أمثلة، على عكس جملة `switch`.",
         "topic": "PHP if Statements"
       },
       {
         "type": "fitb",
         "question": "In a PHP `switch` statement, the `break` keyword is used to exit the _____ block.",
+        "question_ar": "في جملة `switch` في PHP، تُستخدم الكلمة المفتاحية `break` للخروج من كتلة الـ _____.",
         "options": [],
+        "options_ar": [],
         "answer": "switch",
+        "answer_ar": "switch",
         "explanation": "The lecture explains, 'The break keyword breaks out of the switch block'.",
+        "explanation_ar": "توضح المحاضرة أن 'الكلمة المفتاحية break تخرج من كتلة switch'.",
         "topic": "PHP switch Statement"
       },
       {
         "type": "mcq",
         "question": "What happens in a PHP `switch` statement if no `case` label matches the expression and a `default` block is present?",
+        "question_ar": "ماذا يحدث في تعليمة `switch` في PHP إذا لم يتطابق أي ملصق `case` مع التعبير وكان هناك كتلة `default` موجودة؟",
         "options": [
           "A runtime error occurs.",
           "The script terminates.",
           "The code block within the `default` is executed.",
           "The next `case` block (if any) is executed by default."
         ],
+        "options_ar": [
+          "يحدث خطأ وقت التشغيل.",
+          "يتوقف السكريبت.",
+          "يتم تنفيذ كتلة الكود داخل الـ `default`.",
+          "يتم تنفيذ كتلة الـ `case` التالية (إن وجدت) افتراضيًا."
+        ],
         "answer": "The code block within the `default` is executed.",
+        "answer_ar": "يتم تنفيذ كتلة الكود داخل الـ `default`.",
         "explanation": "The lecture states, 'The default code block is executed if there is no match'.",
+        "explanation_ar": "تذكر المحاضرة أن 'كتلة كود default تُنفذ إذا لم يكن هناك تطابق'.",
         "topic": "PHP switch Statement"
       },
       {
         "type": "tf",
         "question": "The `default` code block in a PHP `switch` statement is always mandatory.",
+        "question_ar": "كتلة الكود `default` في تعليمة `switch` في PHP إلزامية دائمًا.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The `default` block is optional; if omitted and no cases match, nothing happens.",
+        "explanation_ar": "كتلة `default` اختيارية؛ إذا تم حذفها ولم تتطابق أي حالة، فلن يحدث شيء.",
         "topic": "PHP switch Statement"
       },
       {
         "type": "mcq",
         "question": "Which keyword is essential in a `switch` statement to prevent 'fall-through' to subsequent `case` blocks after a match is found?",
+        "question_ar": "ما هي الكلمة المفتاحية الأساسية في تعليمة `switch` لمنع 'السقوط' (التنفيذ المتتالي) لكتل الـ `case` اللاحقة بعد العثور على تطابق؟",
         "options": [
           "stop",
           "exit",
           "continue",
           "break"
         ],
+        "options_ar": [
+          "stop",
+          "exit",
+          "continue",
+          "break"
+        ],
         "answer": "break",
+        "answer_ar": "break",
         "explanation": "The lecture highlights that 'The break keyword breaks out of the switch block', preventing fall-through.",
+        "explanation_ar": "توضح المحاضرة أن 'كلمة break تخرج من كتلة switch'، مما يمنع التنفيذ المتتالي للحالات.",
         "topic": "PHP switch Statement"
       },
       {
         "type": "fitb",
         "question": "In the provided `switch` example, if `$favcolor` was 'yellow', the _____ code block would be executed.",
+        "question_ar": "في مثال `switch` المقدم، إذا كانت قيمة `$favcolor` هي 'yellow'، فسيتم تنفيذ كتلة الكود _____.",
         "options": [],
+        "options_ar": [],
         "answer": "default",
+        "answer_ar": "default",
         "explanation": "Since 'yellow' does not match 'red', 'blue', or 'green', the `default` block would execute.",
+        "explanation_ar": "بما أن 'yellow' لا يطابق 'red' أو 'blue' أو 'green'، فسيتم تنفيذ كتلة `default`.",
         "topic": "PHP switch Statement"
       },
       {
         "type": "tf",
         "question": "The lecture refers to 'W3Schools.com' as a scientific reference for PHP.",
+        "question_ar": "تشير المحاضرة إلى موقع 'W3Schools.com' كمرجع علمي لـ PHP.",
         "answer": "false",
+        "answer_ar": "خطأ",
         "explanation": "The scientific references section only lists 'https://www.geeksforgeeks.org/'. W3Schools.com is used in an example for `echo`/`print` but not as a reference.",
+        "explanation_ar": "يسرد قسم المراجع العلمية فقط 'https://www.geeksforgeeks.org/'. تم استخدام W3Schools.com في مثال لـ `echo`/`print` ولكن ليس كمرجع علمي.",
         "topic": "Scientific References"
       }
     ],
@@ -1465,12 +1743,12 @@
         "explanation": "LAN stands for Local Area Network, which is a network in a single physical location like a home or office.",
         "question_ar": "ماذا يرمز اختصار LAN؟",
         "options_ar": [
-          "Local Area Network",
-          "Large Area Network",
-          "Link Access Network",
-          "Low Area Network"
+          "شبكة المنطقة المحلية (Local Area Network)",
+          "شبكة المنطقة الكبيرة (Large Area Network)",
+          "شبكة الوصول للروابط (Link Access Network)",
+          "شبكة المنطقة المنخفضة (Low Area Network)"
         ],
-        "answer_ar": "Local Area Network",
+        "answer_ar": "شبكة المنطقة المحلية (Local Area Network)",
         "explanation_ar": "دي الشبكة المحلية اللي بتبقى في مكان واحد زي البيت أو المكتب."
       },
       {
@@ -1497,12 +1775,12 @@
         "explanation": "CAN stands for Campus Area Network, designed for universities or large corporate campuses.",
         "question_ar": "أي نوع من الشبكات يربط عدة شبكات LAN داخل حرم جامعي؟",
         "options_ar": [
-          "PAN",
-          "WAN",
-          "CAN",
-          "MAN"
+          "شبكة المنطقة الشخصية (PAN)",
+          "شبكة المنطقة الواسعة (WAN)",
+          "شبكة الحرم الجامعي (CAN)",
+          "شبكة المنطقة الحضرية (MAN)"
         ],
-        "answer_ar": "CAN",
+        "answer_ar": "شبكة الحرم الجامعي (CAN)",
         "explanation_ar": "الـ CAN هي Campus Area Network ودي مخصصة للجامعات أو الشركات اللي ليها كذا مبنى."
       },
       {
@@ -1529,388 +1807,649 @@
         "explanation": "PAN stands for Personal Area Network, covering a very small area around an individual.",
         "question_ar": "ما هي الشبكة التي تغطي مسافة أمتار قليلة فقط؟",
         "options_ar": [
-          "LAN",
-          "PAN",
-          "WAN",
-          "CAN"
+          "شبكة المنطقة المحلية (LAN)",
+          "شبكة المنطقة الشخصية (PAN)",
+          "شبكة المنطقة الواسعة (WAN)",
+          "شبكة الحرم الجامعي (CAN)"
         ],
-        "answer_ar": "PAN",
+        "answer_ar": "شبكة المنطقة الشخصية (PAN)",
         "explanation_ar": "الـ PAN هي Personal Area Network، يعني شبكتك الشخصية اللي حوليك."
       },
       {
         "type": "tf",
-        "question": "الـ WAN هي في الأساس مجموعة من شبكات الـ LAN المتصلة ببعضها.",
+        "question": "A WAN is essentially a collection of interconnected LANs.",
+        "question_ar": "الـ WAN هي في الأساس مجموعة من شبكات الـ LAN المتصلة ببعضها.",
         "options": [],
-        "answer": "صح",
-        "explanation": "بالظبط، الـ WAN هي Network of networks."
+        "options_ar": [],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "Correct, a WAN is a network of networks.",
+        "explanation_ar": "بالظبط، الـ WAN هي Network of networks."
       },
       {
         "type": "mcq",
-        "question": "مصطلح SOHO يشير إلى:",
+        "question": "The term SOHO refers to:",
+        "question_ar": "مصطلح SOHO يشير إلى:",
         "options": [
           "Small Office Home Office",
           "Single Office Home Office",
           "Small Operation Home Office",
           "Server Office High Output"
         ],
+        "options_ar": [
+          "Small Office Home Office",
+          "Single Office Home Office",
+          "Small Operation Home Office",
+          "Server Office High Output"
+        ],
         "answer": "Small Office Home Office",
-        "explanation": "ده اختصار للمكاتب الصغيرة أو الشغل اللي من البيت."
+        "answer_ar": "Small Office Home Office",
+        "explanation": "This is an abbreviation for small offices or working from home.",
+        "explanation_ar": "ده اختصار للمكاتب الصغيرة أو الشغل اللي من البيت."
       },
       {
         "type": "fitb",
-        "question": "الترتيب المادي للعناصر (الوصلات والعقد) في الشبكة يسمى ........",
+        "question": "The physical arrangement of elements (links and nodes) in a network is called ........",
+        "question_ar": "الترتيب المادي للعناصر (الوصلات والعقد) في الشبكة يسمى ........",
         "options": [],
+        "options_ar": [],
         "answer": "Topology",
-        "explanation": "التوبولوجي هو 'الرسمة' أو 'الهندسة' بتاعة توصيل الأجهزة."
+        "answer_ar": "Topology",
+        "explanation": "Topology is the 'layout' or 'geometry' of device connections.",
+        "explanation_ar": "التوبولوجي هو 'الرسمة' أو 'الهندسة' بتاعة توصيل الأجهزة."
       },
       {
         "type": "mcq",
-        "question": "في الـ Ring Topology، كل جهاز يتصل بـ كم جهاز آخر؟",
+        "question": "In a Ring Topology, how many other devices does each device connect to?",
+        "question_ar": "في الـ Ring Topology، كل جهاز يتصل بـ كم جهاز آخر؟",
         "options": [
+          "One device",
+          "Only two devices",
+          "Three devices",
+          "All devices in the network"
+        ],
+        "options_ar": [
           "جهاز واحد",
           "جهازين فقط",
           "ثلاثة أجهزة",
           "كل الأجهزة في الشبكة"
         ],
-        "answer": "جهازين فقط",
-        "explanation": "عشان تعمل شكل الدايرة المقفولة، لازم كل واحد يمسك إيد اتنين جيرانه."
+        "answer": "Only two devices",
+        "answer_ar": "جهازين فقط",
+        "explanation": "To form a closed circle, each device must connect to its two neighbors.",
+        "explanation_ar": "عشان تعمل شكل الدايرة المقفولة، لازم كل واحد يمسك إيد اتنين جيرانه."
       },
       {
         "type": "tf",
-        "question": "الـ PAN يمكن أن تكون سلكية (Wired) أو لاسلكية (Wireless).",
+        "question": "A PAN can be either wired or wireless.",
+        "question_ar": "الـ PAN يمكن أن تكون سلكية (Wired) أو لاسلكية (Wireless).",
         "options": [],
-        "answer": "صح",
-        "explanation": "سواء وصلت تليفونك باللابتوب بسلك أو بالبلوتوث، دي اسمها PAN."
+        "options_ar": [],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "Whether you connect your phone to the laptop via a cable or Bluetooth, it is called a PAN.",
+        "explanation_ar": "سواء وصلت تليفونك باللابتوب بسلك أو بالبلوتوث، دي اسمها PAN."
       },
       {
         "type": "mcq",
-        "question": "الـ CAN تربط الشبكات داخل منطقة جغرافية:",
+        "question": "A CAN connects networks within a geographic area that is:",
+        "question_ar": "الـ CAN تربط الشبكات داخل منطقة جغرافية:",
         "options": [
+          "Unlimited",
+          "Limited",
+          "Global",
+          "Unknown"
+        ],
+        "options_ar": [
           "غير محدودة",
           "محدودة",
           "عالمية",
           "مجهولة"
         ],
-        "answer": "محدودة",
-        "explanation": "الـ CAN بتبقى محكومة بمساحة الحرم الجامعي أو الشركة."
+        "answer": "Limited",
+        "answer_ar": "محدودة",
+        "explanation": "A CAN (Campus Area Network) is restricted to a specific area such as a university campus or a company site.",
+        "explanation_ar": "الـ CAN بتبقى محكومة بمساحة الحرم الجامعي أو الشركة."
       },
       {
         "type": "fitb",
-        "question": "الـ Ring Topology تكون مساراً ........ لنقل البيانات.",
+        "question": "The Ring Topology forms a ........ path for data transmission.",
+        "question_ar": "الـ Ring Topology تكون مساراً ........ لنقل البيانات.",
         "options": [],
-        "answer": "مغلقاً",
-        "explanation": "البيانات بتلف في Closed Loop أو دايرة مقفولة."
+        "options_ar": [],
+        "answer": "Closed",
+        "answer_ar": "مغلقاً",
+        "explanation": "Data travels in a closed loop or a circular path in a Ring topology.",
+        "explanation_ar": "البيانات بتلف في Closed Loop أو دايرة مقفولة."
       },
       {
         "type": "mcq",
-        "question": "أي مما يلي لا يعتبر مكاناً فيزيائياً واحداً لشبكة LAN؟",
+        "question": "Which of the following is NOT considered a single physical location for a LAN?",
+        "question_ar": "أي مما يلي لا يعتبر مكاناً فيزيائياً واحداً لشبكة LAN؟",
         "options": [
+          "Building",
+          "Office",
+          "Home",
+          "Two different continents"
+        ],
+        "options_ar": [
           "مبنى",
           "مكتب",
           "منزل",
           "قارتين مختلفتين"
         ],
-        "answer": "قارتين مختلفتين",
-        "explanation": "القارات دي محتاجة WAN مش LAN يا بطل."
+        "answer": "Two different continents",
+        "answer_ar": "قارتين مختلفتين",
+        "explanation": "Connecting different continents requires a WAN (Wide Area Network), not a LAN.",
+        "explanation_ar": "القارات دي محتاجة WAN مش LAN يا بطل."
       },
       {
         "type": "tf",
-        "question": "معظم شبكات الـ CAN تتصل بالإنترنت العام.",
-        "options": [],
-        "answer": "صح",
-        "explanation": "أكيد، الجامعة لازم توصل شبكتها الداخلية بالإنترنت."
+        "question": "Most CAN networks connect to the public Internet.",
+        "question_ar": "معظم شبكات الـ CAN تتصل بالإنترنت العام.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صح",
+          "خطأ"
+        ],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "Typically, institutions like universities connect their internal CAN to the global Internet.",
+        "explanation_ar": "أكيد، الجامعة لازم توصل شبكتها الداخلية بالإنترنت."
       },
       {
         "type": "mcq",
-        "question": "الهدف النهائي من معالجة البيانات في الشبكة هو عرضها بشكل يفهمه:",
+        "question": "The ultimate goal of processing data in a network is to display it in a form understood by:",
+        "question_ar": "الهدف النهائي من معالجة البيانات في الشبكة هو عرضها بشكل يفهمه:",
         "options": [
+          "The computer",
+          "The human",
+          "The router",
+          "The wire"
+        ],
+        "options_ar": [
           "الكمبيوتر",
           "الإنسان",
           "الراوتر",
           "السلك"
         ],
-        "answer": "الإنسان",
-        "explanation": "في الآخر إحنا اللي بنستخدم الداتا دي، فلازم تكون مفهومة لينا (Human understood form)."
+        "answer": "The human",
+        "answer_ar": "الإنسان",
+        "explanation": "The end goal of networking and data processing is to provide information in a human-understood form.",
+        "explanation_ar": "في الآخر إحنا اللي بنستخدم الداتا دي، فلازم تكون مفهومة لينا (Human understood form)."
       },
       {
         "type": "fitb",
-        "question": "الـ WAN هي اختصار لـ ........ Area Network.",
+        "question": "WAN stands for ........ Area Network.",
+        "question_ar": "الـ WAN هي اختصار لـ ........ Area Network.",
         "options": [],
+        "options_ar": [],
         "answer": "Wide",
-        "explanation": "Wide يعني واسعة المدى."
+        "answer_ar": "واسعة",
+        "explanation": "WAN stands for Wide Area Network, which covers large geographical areas.",
+        "explanation_ar": "Wide يعني واسعة المدى، وتستخدم لربط شبكات في مساحات جغرافية كبيرة."
       },
       {
         "type": "mcq",
-        "question": "ما هو النوع المناسب لربط أجهزة داخل مدرسة واحدة؟",
+        "question": "What is the appropriate network type for connecting devices within a single school?",
+        "question_ar": "ما هو النوع المناسب لربط أجهزة داخل مدرسة واحدة؟",
         "options": [
           "PAN",
           "LAN",
           "WAN",
           "Internet"
         ],
+        "options_ar": [
+          "PAN",
+          "LAN",
+          "WAN",
+          "الإنترنت"
+        ],
         "answer": "LAN",
-        "explanation": "المدرسة مكان واحد، يبقى LAN هي الحل."
+        "answer_ar": "LAN",
+        "explanation": "A school is considered a single location, so a LAN (Local Area Network) is the correct solution.",
+        "explanation_ar": "المدرسة تعتبر مكاناً واحداً (نطاق ضيق)، لذا فإن شبكة الـ LAN هي الحل."
       },
       {
         "type": "tf",
-        "question": "الـ Topology تصف فقط ترتيب الأسلاك ولا تصف ترتيب العقد (Nodes).",
+        "question": "Topology describes only the arrangement of wires and does not describe the arrangement of nodes.",
+        "question_ar": "الـ Topology تصف فقط ترتيب الأسلاك ولا تصف ترتيب العقد (Nodes).",
         "options": [],
-        "answer": "خطأ",
-        "explanation": "التوبولوجي بتوصف ترتيب كل حاجة (Links and Nodes)."
+        "options_ar": [],
+        "answer": "False",
+        "answer_ar": "خطأ",
+        "explanation": "Topology describes the arrangement of all elements in a network, including links (wires) and nodes.",
+        "explanation_ar": "التوبولوجي تصف ترتيب كل شيء في الشبكة، بما في ذلك الروابط (الأسلاك) والعقد (الأجهزة)."
       },
       {
         "type": "mcq",
-        "question": "في أي توبولوجي تترتب الأجهزة بشكل دائري؟",
+        "question": "In which topology are devices arranged in a circular fashion?",
+        "question_ar": "في أي توبولوجي تترتب الأجهزة بشكل دائري؟",
         "options": [
           "Bus",
           "Star",
           "Ring",
           "Mesh"
         ],
+        "options_ar": [
+          "Bus",
+          "Star",
+          "Ring",
+          "Mesh"
+        ],
         "answer": "Ring",
-        "explanation": "من اسمها 'حلقة' يعني دايرة."
+        "answer_ar": "Ring",
+        "explanation": "As the name 'Ring' suggests, devices are connected in a circle.",
+        "explanation_ar": "من اسمها 'Ring' أي حلقة، مما يعني أن الأجهزة متصلة بشكل دائري."
       },
       {
         "type": "fitb",
-        "question": "الـ CAN اختصار لـ ........ Area Network.",
+        "question": "CAN stands for ........ Area Network.",
+        "question_ar": "الـ CAN اختصار لـ ........ Area Network.",
         "options": [],
+        "options_ar": [],
         "answer": "Campus",
-        "explanation": "Campus يعني حرم جامعي."
+        "answer_ar": "Campus",
+        "explanation": "CAN stands for Campus Area Network, which connects multiple buildings within a specific area like a university.",
+        "explanation_ar": "CAN اختصار لـ Campus Area Network وتعني شبكة الحرم الجامعي، وتستخدم لربط عدة مبانٍ في منطقة محددة."
       },
       {
         "type": "mcq",
-        "question": "الشبكة التي تسمح بمشاركة الموارد والبيانات في بيئة SOHO هي:",
+        "question": "The network that allows sharing resources and data in a SOHO environment is:",
+        "question_ar": "الشبكة التي تسمح بمشاركة الموارد والبيانات في بيئة SOHO هي:",
         "options": [
           "PAN",
           "WAN",
           "CAN",
           "LAN"
         ],
+        "options_ar": [
+          "PAN",
+          "WAN",
+          "CAN",
+          "LAN"
+        ],
         "answer": "PAN",
-        "explanation": "حسب النص، الـ PAN هي اللي بتخدم الـ SOHO لمشاركة الموارد."
+        "answer_ar": "PAN",
+        "explanation": "According to the text, PAN is the network that serves SOHO for resource sharing.",
+        "explanation_ar": "حسب النص، الـ PAN هي التي تخدم الـ SOHO لمشاركة الموارد."
       },
       {
         "type": "tf",
-        "question": "الإنترنت يعتبر أصغر شبكة WAN في العالم.",
+        "question": "The Internet is considered the smallest WAN in the world.",
+        "question_ar": "الإنترنت يعتبر أصغر شبكة WAN في العالم.",
         "options": [],
-        "answer": "خطأ",
-        "explanation": "ده أكبر WAN في الكوكب يا صديقي."
+        "options_ar": [],
+        "answer": "False",
+        "answer_ar": "خطأ",
+        "explanation": "The Internet is actually the largest WAN on the planet.",
+        "explanation_ar": "الإنترنت هو في الواقع أكبر شبكة WAN على هذا الكوكب."
       },
       {
         "type": "mcq",
-        "question": "ماذا يمثل الـ Node في التوبولوجي؟",
+        "question": "What does a 'Node' represent in topology?",
+        "question_ar": "ماذا يمثل الـ Node في التوبولوجي؟",
         "options": [
+          "Wire only",
+          "Any device connected to the network",
+          "Electricity",
+          "Internet speed"
+        ],
+        "options_ar": [
           "السلك فقط",
           "أي جهاز متصل بالشبكة",
           "الكهرباء",
           "سرعة الإنترنت"
         ],
-        "answer": "أي جهاز متصل بالشبكة",
-        "explanation": "الـ Node هي النقطة أو الجهاز (كمبيوتر، طابعة، راوتر)."
+        "answer": "Any device connected to the network",
+        "answer_ar": "أي جهاز متصل بالشبكة",
+        "explanation": "A Node is any point or device (such as a computer, printer, or router) connected to the network.",
+        "explanation_ar": "الـ Node هي أي نقطة أو جهاز (مثل الكمبيوتر أو الطابعة أو الراوتر) متصل بالشبكة."
       },
       {
         "type": "fitb",
-        "question": "الـ PAN تربط الأجهزة في نطاق ........ فقط.",
+        "question": "A PAN connects devices within a range of ........ only.",
+        "question_ar": "الـ PAN تربط الأجهزة في نطاق ........ فقط.",
         "options": [],
-        "answer": "أمتار قليلة",
-        "explanation": "مدى صغير جداً مخصص للاستخدام الشخصي."
+        "options_ar": [],
+        "answer": "A few meters",
+        "answer_ar": "أمتار قليلة",
+        "explanation": "A PAN has a very small range intended for personal use within a few meters.",
+        "explanation_ar": "تمتلك الـ PAN مدى صغير جداً مخصص للاستخدام الشخصي في حدود أمتار قليلة."
       },
       {
         "type": "mcq",
-        "question": "أي من هؤلاء هم أساتذة المادة حسب الملف؟",
+        "question": "Who are the instructors of the course according to the file?",
+        "question_ar": "أي من هؤلاء هم أساتذة المادة حسب الملف؟",
         "options": [
+          "Dr. Osama El-Nahhas and Dr. Nihal El-Azaly",
+          "Dr. Mohamed Salah and Dr. Nihal",
+          "Dr. Osama El-Nahhas and Dr. Ahmed",
+          "Dr. Ali and Dr. Laila"
+        ],
+        "options_ar": [
           "د. أسامة النحاس ود. نهال العزلي",
           "د. محمد صلاح ود. نهال",
           "د. أسامة النحاس ود. أحمد",
           "د. علي ود. ليلى"
         ],
-        "answer": "د. أسامة النحاس ود. نهال العزلي",
-        "explanation": "مكتوبين في أول صفحة في المحاضرة."
+        "answer": "Dr. Osama El-Nahhas and Dr. Nihal El-Azaly",
+        "answer_ar": "د. أسامة النحاس ود. نهال العزلي",
+        "explanation": "Their names are mentioned on the first page of the lecture materials.",
+        "explanation_ar": "أسماؤهم مذكورة في الصفحة الأولى من مواد المحاضرة."
       },
       {
         "type": "tf",
-        "question": "الـ Ring Topology لا تحتوي على نهايات مفتوحة.",
+        "question": "Ring Topology does not contain open ends.",
+        "question_ar": "الـ Ring Topology لا تحتوي على نهايات مفتوحة.",
         "options": [],
-        "answer": "صح",
-        "explanation": "لأنها Closed Loop (حلقة مغلقة)."
+        "options_ar": [],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "Because it is a closed loop.",
+        "explanation_ar": "لأنها Closed Loop (حلقة مغلقة)."
       },
       {
         "type": "mcq",
-        "question": "كلمة Interconnect تعني:",
+        "question": "The word 'Interconnect' means:",
+        "question_ar": "كلمة Interconnect تعني:",
         "options": [
+          "Separation",
+          "Interconnection",
+          "Destruction",
+          "Cancellation"
+        ],
+        "options_ar": [
           "فصل",
           "ربط بيني",
           "تدمير",
           "إلغاء"
         ],
-        "answer": "ربط بيني",
-        "explanation": "يعني بنوصل الحاجات ببعضها."
+        "answer": "Interconnection",
+        "answer_ar": "ربط بيني",
+        "explanation": "It means connecting components together.",
+        "explanation_ar": "يعني بنوصل الحاجات ببعضها."
       },
       {
         "type": "fitb",
-        "question": "الـ LAN يمكن أن تخدم آلاف ........ في مكتب أو مدرسة.",
+        "question": "A LAN can serve thousands of ........ in an office or school.",
+        "question_ar": "الـ LAN يمكن أن تخدم آلاف ........ في مكتب أو مدرسة.",
         "options": [],
-        "answer": "المستخدمين",
-        "explanation": "الـ LAN بتكبر وتصغر حسب الحاجة."
+        "options_ar": [],
+        "answer": "Users",
+        "answer_ar": "المستخدمين",
+        "explanation": "A LAN can scale up or down based on the need.",
+        "explanation_ar": "الـ LAN بتكبر وتصغر حسب الحاجة."
       },
       {
         "type": "mcq",
-        "question": "ما هو النوع الذي يربط عدة LANs مع بعضها؟",
+        "question": "Which type connects multiple LANs together?",
+        "question_ar": "ما هو النوع الذي يربط عدة LANs مع بعضها؟",
         "options": [
+          "PAN",
+          "CAN",
+          "LAN",
+          "None of the above"
+        ],
+        "options_ar": [
           "PAN",
           "CAN",
           "LAN",
           "لا شيء مما سبق"
         ],
         "answer": "CAN",
-        "explanation": "الـ CAN بتعمل Interconnect لـ Multiple LANs."
+        "answer_ar": "CAN",
+        "explanation": "A CAN (Campus Area Network) interconnects multiple LANs.",
+        "explanation_ar": "الـ CAN بتعمل Interconnect لـ Multiple LANs."
       },
       {
         "type": "tf",
-        "question": "الـ Topology تستخدم لتعريف ترتيب شبكات الاتصالات.",
+        "question": "Topology is used to define the arrangement of communication networks.",
+        "question_ar": "الـ Topology تستخدم لتعريف ترتيب شبكات الاتصالات.",
         "options": [],
-        "answer": "صح",
-        "explanation": "ده تعريفها الأساسي."
+        "options_ar": [],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "This is its basic definition.",
+        "explanation_ar": "ده تعريفها الأساسي."
       },
       {
         "type": "mcq",
-        "question": "البيانات في الـ Ring Topology تسير في مسار:",
+        "question": "Data in a Ring Topology travels in a path that is:",
         "options": [
+          "Intermittent",
+          "Continuous",
+          "Random",
+          "Always in one direction only"
+        ],
+        "answer": "Continuous",
+        "explanation": "Data continues to circulate in the ring (Continuous pathway).",
+        "question_ar": "البيانات في الـ Ring Topology تسير في مسار:",
+        "options_ar": [
           "متقطع",
           "مستمر",
           "عشوائي",
           "باتجاه واحد فقط دائماً"
         ],
-        "answer": "مستمر",
-        "explanation": "بتفضل تلف في الدايرة (Continuous pathway)."
+        "answer_ar": "مستمر",
+        "explanation_ar": "تستمر البيانات في الدوران داخل الحلقة (مسار مستمر)."
       },
       {
         "type": "fitb",
-        "question": "الـ PAN اختصار لـ ........ Area Network.",
+        "question": "PAN stands for ........ Area Network.",
         "options": [],
         "answer": "Personal",
-        "explanation": "Personal يعني شخصي."
+        "explanation": "PAN stands for Personal Area Network.",
+        "question_ar": "الـ PAN اختصار لـ ........ Area Network.",
+        "options_ar": [],
+        "answer_ar": "Personal",
+        "explanation_ar": "PAN تعني Personal (شخصي)."
       },
       {
         "type": "mcq",
-        "question": "أي شبكة تستخدم في المنزل (Home)؟",
+        "question": "Which network type can be used in a home?",
         "options": [
+          "LAN",
+          "PAN",
+          "Both are possible",
+          "WAN"
+        ],
+        "answer": "Both are possible",
+        "explanation": "A home can be considered a LAN, and PAN can also be used for personal devices.",
+        "question_ar": "أي نوع من الشبكات يمكن استخدامه في المنزل (Home)؟",
+        "options_ar": [
           "LAN",
           "PAN",
           "كلاهما ممكن",
           "WAN"
         ],
-        "answer": "كلاهما ممكن",
-        "explanation": "البيت ممكن نعتبر شبكته LAN وممكن نستخدم PAN للأجهزة الشخصية."
+        "answer_ar": "كلاهما ممكن",
+        "explanation_ar": "البيت يمكن اعتباره شبكة LAN، ويمكن أيضاً استخدام PAN للأجهزة الشخصية."
       },
       {
         "type": "tf",
-        "question": "الـ LAN محصورة دائماً في موقع فيزيائي واحد.",
+        "question": "A LAN is always confined to one physical location.",
         "options": [],
-        "answer": "صح",
-        "explanation": "ده شرطها الأساسي 'One physical location'."
+        "answer": "True",
+        "explanation": "This is the primary characteristic of a LAN: 'One physical location'.",
+        "question_ar": "الـ LAN محصورة دائماً في موقع فيزيائي واحد.",
+        "options_ar": [],
+        "answer_ar": "صح",
+        "explanation_ar": "هذا هو شرطها الأساسي (موقع فيزيائي واحد)."
       },
       {
         "type": "mcq",
-        "question": "الـ WAN تعتبر:",
+        "question": "A WAN is considered:",
         "options": [
+          "A single large network",
+          "A collection of connected networks",
+          "A wireless-only network",
+          "A network inside a single building"
+        ],
+        "answer": "A collection of connected networks",
+        "explanation": "A WAN is a collection of LANs or other networks.",
+        "question_ar": "الـ WAN تعتبر:",
+        "options_ar": [
           "شبكة واحدة كبيرة",
           "مجموعة شبكات متصلة",
-          "شبكة بدون أسلاك فقط",
-          "شبكة داخل مبنى"
+          "شبكة لاسلكية فقط",
+          "شبكة داخل مبنى واحد"
         ],
-        "answer": "مجموعة شبكات متصلة",
-        "explanation": "هي 'Collection of LANs or other networks'."
+        "answer_ar": "مجموعة شبكات متصلة",
+        "explanation_ar": "الـ WAN هي عبارة عن مجموعة من شبكات الـ LAN أو شبكات أخرى."
       },
       {
         "type": "fitb",
-        "question": "الـ Ring Topology تعتبر نوعاً من ........ الشبكة.",
+        "question": "Ring Topology is considered a type of network ........",
+        "question_ar": "الـ Ring Topology تعتبر نوعاً من ........ الشبكة.",
         "options": [],
-        "answer": "توبولوجي",
-        "explanation": "هي شكل من أشكال الـ Network Configuration."
+        "options_ar": [],
+        "answer": "Topology",
+        "answer_ar": "توبولوجي",
+        "explanation": "It is a form of Network Configuration.",
+        "explanation_ar": "هي شكل من أشكال الـ Network Configuration."
       },
       {
         "type": "mcq",
-        "question": "ما هو الاختصار الذي يعني 'شبكة الحرم الجامعي'؟",
+        "question": "What is the abbreviation that means 'Campus Area Network'?",
+        "question_ar": "ما هو الاختصار الذي يعني 'شبكة الحرم الجامعي'؟",
         "options": [
           "LAN",
           "CAN",
           "WAN",
           "PAN"
         ],
+        "options_ar": [
+          "LAN",
+          "CAN",
+          "WAN",
+          "PAN"
+        ],
         "answer": "CAN",
-        "explanation": "CAN = Campus Area Network."
+        "answer_ar": "CAN",
+        "explanation": "CAN stands for Campus Area Network.",
+        "explanation_ar": "CAN = Campus Area Network."
       },
       {
         "type": "tf",
-        "question": "الـ PAN لا يمكنها مشاركة التطبيقات.",
+        "question": "PAN cannot share applications.",
+        "question_ar": "الـ PAN لا يمكنها مشاركة التطبيقات.",
         "options": [],
-        "answer": "خطأ",
-        "explanation": "بالعكس، هي مصممة لمشاركة الموارد والبيانات والتطبيقات."
+        "options_ar": [],
+        "answer": "False",
+        "answer_ar": "خطأ",
+        "explanation": "On the contrary, it is designed to share resources, data, and applications.",
+        "explanation_ar": "بالعكس، هي مصممة لمشاركة الموارد والبيانات والتطبيقات."
       },
       {
         "type": "mcq",
-        "question": "الـ Enterprise Network (شبكة المؤسسات) هي مثال على الـ:",
+        "question": "The Enterprise Network is an example of:",
+        "question_ar": "الـ Enterprise Network (شبكة المؤسسات) هي مثال على الـ:",
         "options": [
+          "PAN",
+          "LAN",
+          "Ring",
+          "None of the above"
+        ],
+        "options_ar": [
           "PAN",
           "LAN",
           "Ring",
           "لا شيء مما سبق"
         ],
         "answer": "LAN",
-        "explanation": "النص ذكر إن الـ LAN ممكن تكون Enterprise Network فيها آلاف الأجهزة."
+        "answer_ar": "LAN",
+        "explanation": "The text mentioned that a LAN can be an Enterprise Network containing thousands of devices.",
+        "explanation_ar": "النص ذكر إن الـ LAN ممكن تكون Enterprise Network فيها آلاف الأجهزة."
       },
       {
         "type": "fitb",
-        "question": "في الـ Ring Topology، الأجهزة متصلة بطريقة ........",
+        "question": "In Ring Topology, devices are connected in a ........ manner.",
+        "question_ar": "في الـ Ring Topology، الأجهزة متصلة بطريقة ........",
         "options": [],
-        "answer": "دائرية",
-        "explanation": "Connected in a circular manner."
+        "options_ar": [],
+        "answer": "Circular",
+        "answer_ar": "دائرية",
+        "explanation": "Connected in a circular manner.",
+        "explanation_ar": "متصلة بشكل دائري."
       },
       {
         "type": "mcq",
-        "question": "أي شبكة هي الأنسب لمكتب صغير (Small Office)؟",
+        "question": "Which network is most suitable for a Small Office (SOHO)?",
+        "question_ar": "أي شبكة هي الأنسب لمكتب صغير (Small Office)؟",
         "options": [
           "PAN",
           "WAN",
           "CAN",
           "Global Network"
         ],
+        "options_ar": [
+          "PAN",
+          "WAN",
+          "CAN",
+          "الشبكة العالمية (Global Network)"
+        ],
         "answer": "PAN",
-        "explanation": "النص ربط الـ PAN ببيئة الـ SOHO."
+        "answer_ar": "PAN",
+        "explanation": "The text associates PAN with the SOHO (Small Office/Home Office) environment.",
+        "explanation_ar": "النص ربط الـ PAN ببيئة الـ SOHO."
       },
       {
         "type": "tf",
-        "question": "الشبكة الواسعة (WAN) تتواصل فيها الشبكات مع بعضها البعض.",
+        "question": "In a Wide Area Network (WAN), networks communicate with each other.",
+        "question_ar": "الشبكة الواسعة (WAN) تتواصل فيها الشبكات مع بعضها البعض.",
         "options": [],
-        "answer": "صح",
-        "explanation": "ده تعريف الـ WAN، تواصل بين شبكات مختلفة."
+        "options_ar": [],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "This is the definition of a WAN: communication between different, geographically dispersed networks.",
+        "explanation_ar": "هذا تعريف الـ WAN، وهو تواصل بين شبكات مختلفة ومتباعدة."
       },
       {
         "type": "mcq",
-        "question": "ما هو العنصر الذي يربط الأجهزة في التوبولوجي؟",
+        "question": "What is the element that connects devices in a topology?",
+        "question_ar": "ما هو العنصر الذي يربط الأجهزة في التوبولوجي؟",
         "options": [
+          "Links",
+          "Air only",
+          "Electricity only",
+          "Nothing"
+        ],
+        "options_ar": [
           "الروابط (Links)",
           "الهواء فقط",
           "الكهرباء فقط",
           "لا يوجد شيء"
         ],
-        "answer": "الروابط (Links)",
-        "explanation": "الـ Links هي الأسلاك أو الوصلات اللي بتربط الـ Nodes."
+        "answer": "Links",
+        "answer_ar": "الروابط (Links)",
+        "explanation": "Links are the wires or connections that connect the Nodes (devices) together.",
+        "explanation_ar": "الـ Links هي الأسلاك أو الوصلات التي تربط الـ Nodes (الأجهزة) ببعضها."
       },
       {
         "type": "fitb",
-        "question": "الهدف من الشبكة هو تقديم ........ في شكل يفهمه البشر.",
+        "question": "The goal of a network is to provide ........ in a form that humans can understand.",
+        "question_ar": "الهدف من الشبكة هو تقديم ........ في شكل يفهمه البشر.",
         "options": [],
-        "answer": "البيانات",
-        "explanation": "البيانات (Data) هي اللي بنحاول نوصلها ونعرضها."
+        "options_ar": [],
+        "answer": "Data",
+        "answer_ar": "البيانات",
+        "explanation": "Data is what we attempt to transmit and present via the network.",
+        "explanation_ar": "البيانات (Data) هي التي نحاول إيصالها وعرضها عبر الشبكة."
       },
       {
         "type": "tf",
-        "question": "يمكن للـ LAN أن تغطي مدرسة كاملة.",
+        "question": "A LAN can cover an entire school.",
+        "question_ar": "يمكن للـ LAN أن تغطي مدرسة كاملة.",
         "options": [],
-        "answer": "صح",
-        "explanation": "مظبوط، المدرسة بتعتبر موقع فيزيائي واحد."
+        "options_ar": [],
+        "answer": "True",
+        "answer_ar": "صح",
+        "explanation": "Correct, a school is typically considered a single physical site or location, which fits the definition of a LAN.",
+        "explanation_ar": "مضبوط، المدرسة تُعتبر موقعاً فيزيائياً واحداً، وهذا يندرج تحت تعريف الـ LAN."
       }
     ]
   },
@@ -6868,29 +7407,44 @@
     "quiz": [
       {
         "type": "mcq",
-        "question": "ما هو تعريف الـ Data بناءً على المحاضرة؟",
+        "question": "What is the definition of Data based on the lecture?",
         "options": [
+          "Processed information ready for decision making",
+          "Raw facts, numbers, or text with no meaning on their own",
+          "Specialized programs for managing tables",
+          "Physical storage devices like hard disks"
+        ],
+        "answer": "Raw facts, numbers, or text with no meaning on their own",
+        "explanation": "Data is the raw material that hasn't undergone any processing yet, like the number 25 by itself having no meaning.",
+        "question_ar": "ما هو تعريف الـ Data بناءً على المحاضرة؟",
+        "options_ar": [
           "معلومات معالجة وجاهزة لاتخاذ القرار",
           "حقائق خام، أرقام، أو نصوص ليس لها معنى بمفردها",
           "برامج متخصصة في إدارة الجداول",
           "أجهزة تخزين فيزيائية مثل الهارد ديسك"
         ],
-        "answer": "حقائق خام، أرقام، أو نصوص ليس لها معنى بمفردها",
-        "explanation": "الـ Data هي المادة الخام اللي لسه متعملش عليها أي معالجة، زي رقم 25 لوحده كده ملوش معنى."
+        "answer_ar": "حقائق خام، أرقام، أو نصوص ليس لها معنى بمفردها",
+        "explanation_ar": "الـ Data هي المادة الخام اللي لسه متعملش عليها أي معالجة، زي رقم 25 لوحده كده ملوش معنى."
       },
       {
         "type": "tf",
-        "question": "نظام الملفات (File System) يتميز بوجود علاقات قوية وواضحة بين البيانات.",
+        "question": "The File System (File System) is characterized by the presence of strong and clear relationships between data.",
         "options": [],
-        "answer": "خطأ",
-        "explanation": "بالعكس، نظام الملفات مشاكله إن مفيش روابط (No relationships) والبيانات فيه بتبقى تايهة عن بعضها."
+        "answer": "false",
+        "explanation": "On the contrary, the file system's problems include the lack of relationships and the data in it remains lost from each other.",
+        "question_ar": "نظام الملفات (File System) يتميز بوجود علاقات قوية وواضحة بين البيانات.",
+        "answer_ar": "خطأ",
+        "explanation_ar": "بالعكس، نظام الملفات مشاكله إن مفيش روابط (No relationships) والبيانات فيه بتبقى تايهة عن بعضها."
       },
       {
         "type": "fitb",
-        "question": "يؤدي استخدام نظام الملفات التقليدي إلى حدوث ما يسمى بـ _______ (تكرار البيانات).",
+        "question": "The use of the traditional file system leads to what is called _______ (data duplication).",
         "options": [],
         "answer": "Redundancy",
-        "explanation": "الـ Redundancy يعني إن البيانات متكررة في كذا ملف، وده بيضيع مساحة وبيعمل لخبطة."
+        "explanation": "Redundancy means that data is duplicated in several files, which wastes space and causes confusion.",
+        "question_ar": "يؤدي استخدام نظام الملفات التقليدي إلى حدوث ما يسمى بـ _______ (تكرار البيانات).",
+        "answer_ar": "Redundancy",
+        "explanation_ar": "الـ Redundancy يعني إن البيانات متكررة في كذا ملف، وده بيضيع مساحة وبيعمل لخبطة."
       },
       {
         "type": "mcq",

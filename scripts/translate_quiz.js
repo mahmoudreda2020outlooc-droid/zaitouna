@@ -3,136 +3,99 @@ const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
 require('dotenv').config({ path: path.join(__dirname, '../.env.local') });
 
-// Configuration
 const apiKey = process.env.GEMINI_API_KEY;
 if (!apiKey) {
     console.error("❌ ERROR: GEMINI_API_KEY is missing from .env.local file.");
     process.exit(1);
 }
 
-const ai = new GoogleGenAI({ apiKey: apiKey });
+const client = new GoogleGenAI({ apiKey: apiKey });
 const DATA_FILE = path.join(__dirname, '../src/data/lectures.json');
 
-// Helper for delay to respect rate limits
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function translateQuiz(quiz, lectureTitle, retryCount = 0) {
-    console.log(`   🌍 ${retryCount > 0 ? '🔄 Retrying' : 'Translating'} Quiz for: ${lectureTitle}...`);
-
+async function normalizeChunk(quizChunk, lectureTitle, retryCount = 0) {
     const prompt = `
-You are an expert bilingual education assistant (English & Arabic).
-Your task is to take a quiz for a university lecture titled: "${lectureTitle}" and ensure it is perfectly bilingual.
+You are an expert bilingual education assistant.
+Convert this JSON array of quiz questions for "${lectureTitle}" to a perfectly bilingual EN-First format.
 
-For each question in the provided JSON array:
-1. Ensure these fields are in ENGLISH: "question", "options", "answer", "explanation". (If they are currently in Arabic, translate them to English).
-2. Ensure these fields are in ARABIC: "question_ar", "options_ar", "answer_ar", "explanation_ar". (If they are missing or currently in English, translate them to Arabic).
-3. "options_ar" must match the index/order of "options".
-4. For True/False (tf), "answer_ar" should be "صح" for true and "خطأ" for false.
-5. Maintain all other fields (type, topic, etc.) exactly as they are.
-6. Return ONLY the JSON array, no markdown or extra text.
+RULES:
+1. "question", "options", "answer", "explanation" fields MUST be in ENGLISH.
+2. "question_ar", "options_ar", "answer_ar", "explanation_ar" fields MUST be in ARABIC.
+3. If original is Arabic, translate to EN for main fields.
+4. Keep the exact same structure.
 
-Quiz Data:
-${JSON.stringify(quiz, null, 2)}
+Data:
+${JSON.stringify(quizChunk)}
+
+Return ONLY a valid JSON array.
 `;
 
     try {
-        const result = await ai.models.generateContent({
-            model: "gemini-2.0-flash-lite",
-            contents: prompt,
+        const result = await client.models.generateContent({
+            model: "gemini-flash-latest",
+            contents: [{ role: "user", parts: [{ text: prompt }] }]
         });
 
-        if (!result || !result.text) {
-            console.error(`   ❌ AI returned empty response for ${lectureTitle}.`);
-            return null;
-        }
+        if (!result || !result.text) throw new Error("Empty response");
 
-        let responseText = result.text;
-        // Clean up markdown if any
-        responseText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
-
-        try {
-            const translatedQuiz = JSON.parse(responseText);
-            return translatedQuiz;
-        } catch (e) {
-            console.error(`   ❌ JSON Parse Error for ${lectureTitle}:`, e.message);
-            console.debug(`   Raw response prefix: ${responseText.substring(0, 100)}...`);
-            return null;
-        }
+        let text = result.text.replace(/```json/g, '').replace(/```/g, '').trim();
+        return JSON.parse(text);
     } catch (error) {
         if ((error.message.includes("429") || error.message.includes("quota")) && retryCount < 3) {
-            console.log(`   ⏳ Quota hit. Waiting 35s (Retry ${retryCount + 1})...`);
-            await sleep(35000);
-            return translateQuiz(quiz, lectureTitle, retryCount + 1);
+            console.log("   ⏳ Quota hit. Waiting 30s...");
+            await sleep(30000);
+            return normalizeChunk(quizChunk, lectureTitle, retryCount + 1);
         }
-        console.error(`   ❌ API Error for ${lectureTitle}:`, error.message);
+        console.error("   ❌ API Error:", error.message);
         return null;
     }
 }
 
 async function run() {
-    console.log("🚀 Starting Quiz Translation Process...\n");
+    let db = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    const isArabic = (t) => t && /[\u0600-\u06FF]/.test(t);
 
-    if (!fs.existsSync(DATA_FILE)) {
-        console.error(`❌ Data file not found: ${DATA_FILE}`);
-        return;
-    }
-
-    let db = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8') || "[]");
-    let updated = false;
-
-    // Process each lecture
     for (let lecture of db) {
         if (!lecture.quiz || lecture.quiz.length === 0) continue;
 
-        console.log(`📄 Processing: ${lecture.lectureId} (${lecture.title})`);
+        // Use a more aggressive check
+        const needsFix = lecture.quiz.some(q => isArabic(q.question) || !q.question_ar);
+        if (!needsFix) continue;
 
-        const CHUNK_SIZE = 5;
-        let translatedQuiz = [];
+        console.log(`\n🚀 Normalizing: ${lecture.lectureId} (${lecture.title})`);
 
+        let normalized = [];
+        const CHUNK_SIZE = 15; // Increased chunk size for speed
         for (let i = 0; i < lecture.quiz.length; i += CHUNK_SIZE) {
             const chunk = lecture.quiz.slice(i, i + CHUNK_SIZE);
-            console.log(`   ⏳ Translating chunk ${Math.floor(i / CHUNK_SIZE) + 1}/${Math.ceil(lecture.quiz.length / CHUNK_SIZE)}...`);
+            console.log(`   ⏳ Chunk ${Math.floor(i / CHUNK_SIZE) + 1}/${Math.ceil(lecture.quiz.length / CHUNK_SIZE)}...`);
 
-            const translatedChunk = await translateQuiz(chunk, lecture.title);
-            if (translatedChunk && Array.isArray(translatedChunk) && translatedChunk.length === chunk.length) {
-                translatedQuiz = translatedQuiz.concat(translatedChunk);
+            const result = await normalizeChunk(chunk, lecture.title);
+            if (result && Array.isArray(result) && result.length === chunk.length) {
+                normalized = normalized.concat(result);
             } else {
-                console.log(`   ⚠️ Failed to translate chunk starting at ${i}. Retrying once...`);
-                await sleep(2000);
-                const retryChunk = await translateQuiz(chunk, lecture.title);
-                if (retryChunk && Array.isArray(retryChunk)) {
-                    translatedQuiz = translatedQuiz.concat(retryChunk);
-                } else {
-                    console.log(`   ❌ Failed to translate chunk at ${i} after retry.`);
-                    break;
+                console.log("   🛑 Chunk failure. Retrying with size 5...");
+                for (let j = 0; j < chunk.length; j += 5) {
+                    const subChunk = chunk.slice(j, j + 5);
+                    const subResult = await normalizeChunk(subChunk, lecture.title);
+                    if (subResult) normalized = normalized.concat(subResult);
+                    await sleep(1000);
                 }
             }
+            await sleep(1000);
         }
 
-        if (translatedQuiz.length === lecture.quiz.length) {
-            // Merge translations
-            lecture.quiz = lecture.quiz.map((q, idx) => ({
-                ...q,
-                question_ar: translatedQuiz[idx].question_ar,
-                options_ar: translatedQuiz[idx].options_ar,
-                answer_ar: translatedQuiz[idx].answer_ar,
-                explanation_ar: translatedQuiz[idx].explanation_ar
+        if (normalized.length === lecture.quiz.length) {
+            lecture.quiz = normalized.map((nq, idx) => ({
+                ...lecture.quiz[idx],
+                ...nq
             }));
-
             fs.writeFileSync(DATA_FILE, JSON.stringify(db, null, 2));
-            console.log(`   💾 Saved ALL translations for ${lecture.lectureId}`);
-            updated = true;
-            await sleep(2000);
-        } else {
-            console.log(`   ⚠️ Incomplete translation for ${lecture.lectureId}. Skip saving.`);
+            console.log(`   ✅ Normalized ${lecture.lectureId}`);
         }
     }
-
-    if (updated) {
-        console.log("\n✨ All done! lectures.json updated with Arabic translations.");
-    } else {
-        console.log("\nℹ️ No new translations needed.");
-    }
+    console.log("\n✨ Done!");
 }
 
 run();
