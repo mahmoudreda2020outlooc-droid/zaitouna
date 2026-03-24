@@ -94,14 +94,19 @@ export async function POST(req: Request) {
 
         let lastError = "";
         const modelsToTry = [
-            "gemini-2.5-flash",
-            "gemini-2.0-flash"
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+            "gemini-1.5-pro"
         ];
 
         for (const modelName of modelsToTry) {
             try {
                 console.log(`Beeba Chat: Trying model ${modelName}...`);
 
+                // Create the generateContent request
+                // In @google/genai (V2), we can't use systemInstruction directly in generateContent 
+                // in some versions, but we can prepend it.
+                // However, let's keep the existing logic but with CORRECT models.
                 const result = await client.models.generateContent({
                     model: modelName,
                     contents: finalContents
