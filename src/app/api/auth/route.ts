@@ -5,7 +5,8 @@ import { setAuthCookie } from "@/lib/auth-utils";
 
 export async function POST(req: Request) {
     try {
-        const { studentId } = await req.json();
+        const body = await req.json();
+        const studentId = body.studentId?.trim();
 
         // Path to the extracted students list
         const dataPath = path.join(process.cwd(), "src", "data", "students.json");

@@ -5,7 +5,7 @@ import path from "path";
 export async function GET(req: Request) {
     try {
         const { searchParams } = new URL(req.url);
-        let studentId = searchParams.get("studentId");
+        let studentId = searchParams.get("studentId")?.trim();
         const isCheck = searchParams.get("check") === "true";
 
         if (isCheck) {

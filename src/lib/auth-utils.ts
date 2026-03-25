@@ -6,8 +6,8 @@ export async function setAuthCookie(studentData: any) {
     const cookieStore = await cookies();
     cookieStore.set(AUTH_COOKIE_NAME, JSON.stringify(studentData), {
         httpOnly: true,
-        secure: process.env.NODE_BIT === 'production',
-        sameSite: 'strict',
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
         maxAge: 60 * 60 * 24 * 7, // 1 week
         path: '/',
     });
