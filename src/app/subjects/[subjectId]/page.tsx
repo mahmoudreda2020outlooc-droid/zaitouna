@@ -100,10 +100,9 @@ export default function SubjectLecturesPage() {
 
                 {/* Lectures List or Empty State */}
                 {lectures.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center min-h-[40vh] text-center gap-4">
-                        <div className="text-6xl">🤖</div>
-                        <h2 className="text-2xl font-black text-white">الزتونة جاية قريباً!</h2>
-                        <p className="text-white/40 max-w-sm">لم يتم رفع محاضرات لهذه المادة بعد. بمجرد رفع الـ PDF يقوم الذكاء الاصطناعي بتلخيصها فوراً.</p>
+                    <div className="flex flex-col items-center justify-center min-h-[40vh] text-center gap-4 animate-in fade-in duration-700">
+                        <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">لم يتم رفعة اى محاضرة حتى الان</h2>
+                        <p className="text-white/50 text-base md:text-lg">ترقب الزتونة يصحبى</p>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-5">
