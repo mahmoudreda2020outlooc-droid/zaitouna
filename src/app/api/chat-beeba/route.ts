@@ -136,6 +136,15 @@ export async function POST(req: Request) {
         }
 
         console.error("Beeba Chat: All models failed. Last Error:", lastError);
+        // Specifically check for 429 rate limit
+        if (lastError.includes("429") || lastError.includes("exceeded your current quota")) {
+            return NextResponse.json({
+                reply: `معلش يا صاحبي، خلصنا رصيد الذكاء الاصطناعي المجاني للنهاردة من كتر الأسئلة ورفع المحاضرات. جرب تسألني تاني بكرة يا بطل! ⏳`,
+                error: "Quota Exceeded (429)",
+                debug: { lastError, modelTried: modelsToTry }
+            });
+        }
+
         return NextResponse.json({
             reply: `معلش يا صاحبي، فيه مشكلة فنية دلوقتي. جرب كمان شوية يا بطل!`,
             error: lastError,
