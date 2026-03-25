@@ -1,11 +1,16 @@
 "use client";
 
 // v1.5 - Absolute Final Group 2 Precision & ID Sync
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import studentsData from '@/data/students.json';
 
 export default function StudentsReviewPage() {
     const [searchTerm, setSearchTerm] = useState('');
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const normalizeArabic = (text: string) => {
         return text
@@ -119,7 +124,7 @@ export default function StudentsReviewPage() {
 
                 <div className="print-only mb-8 text-center" dir="rtl">
                     <h1 className="text-2xl font-bold mb-2">تقرير بيانات الطلاب</h1>
-                    <p className="text-gray-600">التاريخ: {new Date().toLocaleDateString('ar-EG')}</p>
+                    <p className="text-gray-600">التاريخ: {isMounted ? new Date().toLocaleDateString('ar-EG') : ''}</p>
                 </div>
 
                 {groupedStudents.map(([group, students]) => (
