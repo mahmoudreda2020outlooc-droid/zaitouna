@@ -93,10 +93,11 @@ export async function POST(req: Request) {
         ];
 
         let lastError = "";
+        let hasQuotaError = false;
         const modelsToTry = [
-            "models/gemini-2.0-flash",
-            "models/gemini-1.5-flash",
-            "models/gemini-1.5-pro"
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+            "gemini-1.5-pro"
         ];
 
         for (const modelName of modelsToTry) {
@@ -126,6 +127,9 @@ export async function POST(req: Request) {
                 }
             } catch (err: any) {
                 lastError = err.message || JSON.stringify(err);
+                if (lastError.includes("429") || lastError.includes("exceeded your current quota")) {
+                    hasQuotaError = true;
+                }
                 console.error(`Beeba Chat: ${modelName} error details:`, {
                     message: err.message,
                     status: err.status,
@@ -137,7 +141,7 @@ export async function POST(req: Request) {
 
         console.error("Beeba Chat: All models failed. Last Error:", lastError);
         // Specifically check for 429 rate limit
-        if (lastError.includes("429") || lastError.includes("exceeded your current quota")) {
+        if (hasQuotaError) {
             return NextResponse.json({
                 reply: `معلش يا صاحبي، خلصنا رصيد الذكاء الاصطناعي المجاني للنهاردة من كتر الأسئلة ورفع المحاضرات. جرب تسألني تاني بكرة يا بطل! ⏳`,
                 error: "Quota Exceeded (429)",
