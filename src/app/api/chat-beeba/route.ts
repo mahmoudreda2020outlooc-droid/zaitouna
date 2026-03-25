@@ -5,8 +5,11 @@ import path from "path";
 
 export async function POST(req: Request) {
     try {
+        const apiKey = process.env.GEMINI_API_KEY || "";
+        console.log(`Beeba Chat: Using API Key [${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)}]`);
+
         const client = new GoogleGenAI({
-            apiKey: process.env.GEMINI_API_KEY || "",
+            apiKey: apiKey,
         });
 
         const { message, history, attachments, systemContext } = await req.json();
@@ -25,8 +28,24 @@ export async function POST(req: Request) {
         const lecturesPath = path.join(process.cwd(), "src/data/lectures.json");
         const lecturesData = JSON.parse(fs.readFileSync(lecturesPath, "utf8"));
 
+        // Optimization: Keyword-based search to reduce token usage
+        const messageKeywords = message.toLowerCase().split(/\s+/).filter((k: string) => k.length > 2);
+
+        // Find lectures that match keywords in the message
+        let relevantLectures = lecturesData.filter((lect: any) => {
+            const searchText = `${lect.title} ${lect.summary}`.toLowerCase();
+            return messageKeywords.some((kw: string) => searchText.includes(kw));
+        });
+
+        // Fallback or limit to top 5 relevant matches
+        if (relevantLectures.length === 0) {
+            relevantLectures = lecturesData.slice(0, 5); // Fallback to first 5 if no keywords match
+        } else {
+            relevantLectures = relevantLectures.slice(0, 5); // Limit to top 5 relevant matches
+        }
+
         // Format curriculum context with Metadata and URLs
-        const curriculumContext = lecturesData.slice(0, 15).map((lect: any) => {
+        const curriculumContext = relevantLectures.map((lect: any) => {
             const subjectName = subjects[lect.subjectId] || lect.subjectId;
             const lectureUrl = `/subjects/${lect.subjectId}/${lect.id}`;
             return `المادة: ${subjectName}\nالمحاضرة: ${lect.title}\nالمحتوى الأساسي: ${lect.summary.substring(0, 1500)}\nرابط المصدر: ${lectureUrl}\n`;
@@ -95,9 +114,14 @@ export async function POST(req: Request) {
         let lastError = "";
         let hasQuotaError = false;
         const modelsToTry = [
-            "gemini-2.0-flash",
             "gemini-1.5-flash",
-            "gemini-1.5-pro"
+            "models/gemini-1.5-flash",
+            "gemini-1.5-flash-latest",
+            "models/gemini-1.5-flash-latest",
+            "gemini-2.0-flash",
+            "models/gemini-2.0-flash",
+            "gemini-1.5-pro",
+            "models/gemini-1.5-pro"
         ];
 
         for (const modelName of modelsToTry) {
@@ -123,7 +147,10 @@ export async function POST(req: Request) {
 
                 if (generatedText) {
                     console.log(`Beeba Chat: Success with ${modelName}`);
-                    return NextResponse.json({ reply: generatedText });
+                    return NextResponse.json({
+                        reply: generatedText,
+                        sources: relevantLectures.length
+                    });
                 }
             } catch (err: any) {
                 lastError = err.message || JSON.stringify(err);
@@ -140,24 +167,17 @@ export async function POST(req: Request) {
         }
 
         console.error("Beeba Chat: All models failed. Last Error:", lastError);
-        // Specifically check for 429 rate limit
-        if (hasQuotaError) {
-            return NextResponse.json({
-                reply: `معلش يا صاحبي، خلصنا رصيد الذكاء الاصطناعي المجاني للنهاردة من كتر الأسئلة ورفع المحاضرات. جرب تسألني تاني بكرة يا بطل! ⏳`,
-                error: "Quota Exceeded (429)",
-                debug: { lastError, modelTried: modelsToTry }
-            });
-        }
+        const apiKeyInfo = `[Key: ${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)}]`;
 
         return NextResponse.json({
-            reply: `معلش يا صاحبي، فيه مشكلة فنية دلوقتي. جرب كمان شوية يا بطل!`,
+            reply: `معلش يا صاحبي، عندي مشكلة فنية. (Debug: status=${lastError.substring(0, 50)} | ${apiKeyInfo})`,
             error: lastError,
             debug: { lastError, modelTried: modelsToTry }
         });
     } catch (error: any) {
         console.error("Beeba Chat Global Error:", error);
         return NextResponse.json({
-            reply: "معلش يا صاحبي، السيرفر مهنج خالص دلوقتي، جرب كمان شوية.",
+            reply: `السيرفر مهنج خالص! (Global Error: ${error.message})`,
             error: error.message
         });
     }
