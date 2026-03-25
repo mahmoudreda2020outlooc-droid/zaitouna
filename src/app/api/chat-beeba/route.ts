@@ -114,16 +114,10 @@ export async function POST(req: Request) {
         let lastError = "";
         let hasQuotaError = false;
         const modelsToTry = [
-            "gemini-1.5-flash",
-            "models/gemini-1.5-flash",
-            "gemini-1.5-flash-latest",
-            "models/gemini-1.5-flash-latest",
+            "gemini-2.5-flash",
             "gemini-2.0-flash",
-            "models/gemini-2.0-flash",
-            "gemini-1.5-pro",
-            "models/gemini-1.5-pro"
+            "gemini-flash-latest"
         ];
-
         for (const modelName of modelsToTry) {
             try {
                 console.log(`Beeba Chat: Trying model ${modelName}...`);
