@@ -219,7 +219,7 @@ export default function LectureDetailsPage() {
                                 <a href={lecture.resources.activity} target="_blank" className="resource-card activity-card group">
                                     <div className="resource-icon bg-violet-500/10 text-violet-400">⚡</div>
                                     <div className="text-right flex-1">
-                                        <h3 className="text-white font-black text-base group-hover:text-violet-400 transition-colors">الأكتفيتي</h3>
+                                        <h3 className="text-white font-black text-base group-hover:text-violet-400 transition-colors">Activity</h3>
                                         <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">ACTIVITY</p>
                                     </div>
                                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
