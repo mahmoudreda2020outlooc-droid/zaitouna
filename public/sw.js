@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zaitouna-cache-v3';
+const CACHE_NAME = 'zaitouna-cache-v4'; // Timestamp: 1712241800
 const ASSETS_TO_CACHE = [
     '/',
     '/manifest.json',
