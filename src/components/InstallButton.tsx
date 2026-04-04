@@ -15,15 +15,14 @@ export default function InstallButton() {
     }
 
     const handleBeforeInstallPrompt = (e: any) => {
-      console.log("PWA Install Prompt Ready");
       e.preventDefault();
       setInstallPrompt(e);
-      setIsVisible(true);
+      // Faster delay for inline appearance
+      setTimeout(() => setIsVisible(true), 500);
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
-    // Fallback detection if already installed but not standalone (e.g. mobile home screen)
     window.addEventListener("appinstalled", () => {
       setIsStandalone(true);
       setIsVisible(false);
@@ -33,10 +32,7 @@ export default function InstallButton() {
   }, []);
 
   const handleInstallClick = async () => {
-    if (!installPrompt) {
-      alert("المتصفح لسه بيجهز عملية التثبيت.. جرب تضغط تاني بعد ثانية");
-      return;
-    }
+    if (!installPrompt) return;
     installPrompt.prompt();
     const { outcome } = await installPrompt.userChoice;
     if (outcome === "accepted") {
@@ -45,26 +41,24 @@ export default function InstallButton() {
     }
   };
 
-  // If already installed, definitely hide
-  if (isStandalone) return null;
-
-  // We show the button even if prompt isn't ready yet, but with a "loading" or "waiting" state if needed
-  // OR just show it once ready. Let's try to show it as soon as we have the prompt.
-  if (!installPrompt || !isVisible) return null;
+  if (isStandalone || !installPrompt || !isVisible) return null;
 
   return (
     <AnimatePresence>
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="w-full md:w-auto"
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="w-full sm:w-auto"
       >
         <button
           onClick={handleInstallClick}
-          className="w-full md:w-auto bg-black/40 backdrop-blur-md border-2 border-primary/50 shadow-[0_0_20px_rgba(0,242,255,0.2)] rounded-2xl px-10 py-5 flex items-center justify-center hover:bg-primary/10 hover:border-primary transition-all active:scale-95 group relative overflow-hidden"
+          className="w-full sm:w-auto bg-[#111] border-2 border-primary/40 rounded-2xl px-6 py-4 md:px-10 md:py-5 flex items-center justify-center shadow-[0_0_40px_rgba(0,242,255,0.2)] hover:shadow-[0_0_50px_rgba(0,242,255,0.4)] transition-all active:scale-95 group relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-          <span className="text-primary text-lg md:text-xl font-bold" dir="rtl">
+          {/* Shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+          <span className="text-primary text-lg md:text-xl font-black tracking-wide whitespace-nowrap" dir="rtl">
             ثبت الآن 📲
           </span>
         </button>

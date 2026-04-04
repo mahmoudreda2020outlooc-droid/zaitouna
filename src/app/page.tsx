@@ -98,16 +98,16 @@ export default function HomePage() {
                   "{currentQuote.quote}"
                 </p>
 
-                <div className="flex flex-wrap gap-6 items-center">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-center justify-center lg:justify-start">
                   <button
                     onClick={() => router.push("/subjects")}
-                    className="btn-premium px-10 py-5 text-base shadow-[0_0_30px_rgba(0,242,255,0.3)]"
+                    className="btn-premium w-full sm:w-auto px-10 py-5 text-base shadow-[0_0_30px_rgba(0,242,255,0.3)]"
                   >
                     زتونة المواد
                   </button>
                   <button
                     onClick={() => router.push("/beeba")}
-                    className="btn-ai group/ai relative"
+                    className="btn-ai w-full sm:w-auto group/ai relative"
                   >
                     <span className="relative z-10">اسأل الدحيح يابية</span>
                     <svg className="w-5 h-5 ai-icon text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
