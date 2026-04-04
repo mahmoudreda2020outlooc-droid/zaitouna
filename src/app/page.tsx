@@ -72,8 +72,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-4">
-            <InstallButton />
-            {/* Indicators removed */}
+            {/* InstallButton removed from here */}
           </div>
         </header>
 

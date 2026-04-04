@@ -64,7 +64,6 @@ export default function RootLayout({
 
         <ClientLayout>
           {children}
-          <InstallPrompt />
 
           <footer className="w-full flex justify-center py-8 pb-12 relative z-50">
             <DeveloperCard />
