@@ -459,3 +459,9 @@ body {
     background-position: 200% center;
   }
 }
+/* Hide install button when running as installed PWA */
+@media (display-mode: standalone) {
+  .install-btn-wrapper {
+    display: none !important;
+  }
+}
