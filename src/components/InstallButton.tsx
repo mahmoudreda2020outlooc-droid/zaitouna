@@ -19,7 +19,7 @@ export default function InstallButton() {
       e.preventDefault();
       setInstallPrompt(e);
       // Wait a bit before showing to feel "premium"
-      setTimeout(() => setIsVisible(true), 2000);
+      setTimeout(() => setIsVisible(true), 1500);
     };
 
     const handleAppInstalled = () => {
@@ -29,10 +29,6 @@ export default function InstallButton() {
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     window.addEventListener("appinstalled", handleAppInstalled);
-
-    // If it's already eligible (prompt won't fire again), but we want to know
-    // Browsers don't always fire beforeinstallprompt if it already fired.
-    // However, on refresh it should fire.
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -52,49 +48,29 @@ export default function InstallButton() {
     }
   };
 
-  if (isStandalone) return null;
+  // If already installed or prompt not ready yet, don't show anything at all
+  if (isStandalone || !installPrompt || !isVisible) return null;
 
   return (
     <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] w-full max-w-[340px] px-4"
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        className="fixed bottom-6 right-6 z-[9999] w-auto"
+      >
+        <button
+          onClick={handleInstallClick}
+          className="bg-[#111] border border-primary/30 rounded-2xl px-8 py-4 flex items-center justify-center shadow-[0_0_30px_rgba(0,242,255,0.2)] hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] transition-all active:scale-95 group relative overflow-hidden"
         >
-          <button
-            onClick={handleInstallClick}
-            className="w-full bg-[#0d1117] border border-white/20 rounded-[2rem] p-4 flex items-center justify-between gap-4 shadow-[0_0_50px_rgba(0,242,255,0.15)] group transition-all active:scale-95"
-          >
-            <div className="flex flex-col text-right items-end flex-1" dir="rtl">
-              <span className="text-white/80 text-sm font-bold">تطبيق الزتونة</span>
-              <span className="text-primary text-lg font-black tracking-tight">
-                {installPrompt ? "تثبيت الآن" : "جاري التفعيل.."}
-              </span>
-            </div>
+          {/* Shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary border border-primary/20 group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-              <svg
-                className="w-7 h-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2.5"
-                  d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-            </div>
-
-            {/* Animated Glow Border */}
-            <div className="absolute inset-0 rounded-[2rem] border border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity blur shadow-[0_0_15px_rgba(0,242,255,0.3)]" />
-          </button>
-        </motion.div>
-      )}
+          <span className="text-primary text-base font-black tracking-wide" dir="rtl">
+            ثبت الآن 📲
+          </span>
+        </button>
+      </motion.div>
     </AnimatePresence>
   );
 }
