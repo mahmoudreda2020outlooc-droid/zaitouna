@@ -1792,7 +1792,8 @@
     "resources": {
       "pdf": "/materials/JAV-110/المحاضرة الثانية.pdf",
       "sheet": "/materials/JAV-110/شيت 2.pdf",
-      "assignments": "#"
+      "assignments": "#",
+      "activity": "/materials/JAV-110/a1.pdf"
     },
     "quiz": []
   },
@@ -1805,7 +1806,8 @@
     "resources": {
       "pdf": "/materials/JAV-110/المحاضرة التالتة.pdf",
       "sheet": "/materials/JAV-110/شيت 3.pdf",
-      "assignments": "#"
+      "assignments": "#",
+      "activity": "/materials/JAV-110/a2.pdf"
     },
     "quiz": [
       {
@@ -2229,7 +2231,8 @@
     "resources": {
       "pdf": "/materials/JAV-110/المحاضرة الرابعة.pdf",
       "sheet": "/materials/JAV-110/شيت 4.pdf",
-      "assignments": "#"
+      "assignments": "#",
+      "activity": "/materials/JAV-110/a3.pdf"
     },
     "quiz": []
   },

@@ -27,6 +27,7 @@ type Lecture = {
         pdf: string;
         sheet: string;
         assignments: string;
+        activity?: string;
     };
 };
 
@@ -214,8 +215,20 @@ export default function LectureDetailsPage() {
                                 </div>
                             )}
 
-                            {/* Removed "حل الشيت" (Sheet Solution) option */}
+                            {lecture.resources.activity && lecture.resources.activity !== "#" ? (
+                                <a href={lecture.resources.activity} target="_blank" className="resource-card activity-card group">
+                                    <div className="resource-icon bg-violet-500/10 text-violet-400">⚡</div>
+                                    <div className="text-right flex-1">
+                                        <h3 className="text-white font-black text-base group-hover:text-violet-400 transition-colors">الأكتفيتي</h3>
+                                        <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">ACTIVITY</p>
+                                    </div>
+                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                                        <svg className="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
+                                    </div>
+                                </a>
+                            ) : null}
 
+                            {/* Removed "حل الشيت" (Sheet Solution) option */}
 
                             {lecture.resources.assignments && lecture.resources.assignments !== "#" ? (
                                 <a href={lecture.resources.assignments} target="_blank" className="resource-card assign-card group">
@@ -304,6 +317,7 @@ export default function LectureDetailsPage() {
                 .sheet-card:hover { border-right: 4px solid #22c55e; }
                 .solve-card:hover { border-right: 4px solid #f59e0b; }
                 .assign-card:hover { border-right: 4px solid #06b6d4; }
+                .activity-card:hover { border-right: 4px solid #8b5cf6; }
                 .quiz-card:hover { border-right: 4px solid #818cf8; }
 
                 .resource-icon {
