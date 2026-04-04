@@ -1,12 +1,28 @@
-self.addEventListener('install', (event) => {
+const CACHE_NAME = 'zaitouna-cache-v1';
+const ASSETS_TO_CACHE = [
+    '/',
+    '/manifest.webmanifest',
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
+];
+
+self.addEventListener('install', (event: any) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(ASSETS_TO_CACHE);
+        })
+    );
     self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', (event: any) => {
     event.waitUntil(clients.claim());
 });
 
-self.addEventListener('fetch', (event) => {
-    // Simple fetch handler to satisfy PWA requirements
-    event.respondWith(fetch(event.request));
+self.addEventListener('fetch', (event: any) => {
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
+        })
+    );
 });
