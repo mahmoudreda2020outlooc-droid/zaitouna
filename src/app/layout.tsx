@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import DeveloperCard from "@/components/DeveloperCard";
 import ClientLayout from "./ClientLayout";
+import InstallPrompt from "@/components/InstallPrompt";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
 
         <ClientLayout>
           {children}
+          <InstallPrompt />
 
           <footer className="w-full flex justify-center py-8 pb-12 relative z-50">
             <DeveloperCard />
