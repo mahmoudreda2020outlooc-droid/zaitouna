@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import InstallButton from "@/components/InstallButton";
 
 const baladiQuotes = [
   { main: "عافر هتوصل،", subMain: "مفيش حاجة تيجي بالساهل!", quote: "اتعب النهاردة عشان ترتاح بكرة، ومستقبلك يستاهل العافرة." },
@@ -71,6 +72,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-4">
+            <InstallButton />
             {/* Indicators removed */}
           </div>
         </header>
