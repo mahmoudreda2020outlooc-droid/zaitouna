@@ -1,12 +1,12 @@
 const CACHE_NAME = 'zaitouna-cache-v1';
 const ASSETS_TO_CACHE = [
     '/',
-    '/manifest.webmanifest',
+    '/manifest.json',
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png',
 ];
 
-self.addEventListener('install', (event: any) => {
+self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll(ASSETS_TO_CACHE);
@@ -15,11 +15,11 @@ self.addEventListener('install', (event: any) => {
     self.skipWaiting();
 });
 
-self.addEventListener('activate', (event: any) => {
-    event.waitUntil(clients.claim());
+self.addEventListener('activate', (event) => {
+    event.waitUntil(self.clients.claim());
 });
 
-self.addEventListener('fetch', (event: any) => {
+self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request);
