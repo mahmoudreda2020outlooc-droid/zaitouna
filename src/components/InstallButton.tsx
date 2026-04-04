@@ -15,7 +15,6 @@ export default function InstallButton() {
         }
 
         const handleBeforeInstallPrompt = (e: any) => {
-            console.log("Install prompt ready");
             e.preventDefault();
             setInstallPrompt(e);
         };
@@ -29,8 +28,8 @@ export default function InstallButton() {
 
     const handleInstallClick = async () => {
         if (!installPrompt) {
-            // If prompt not available, maybe remind user to use a compatible browser
-            alert("الخاصية متاحة على متصفح Chrome أو Edge حالياً.");
+            // Manual instructions if the automated prompt isn't ready
+            alert("لتحميل التطبيق:\n1. تأكد إنك بتستخدم متصفح Chrome أو Edge.\n2. اضغط على علامة التثبيت في شريط العنوان فوق.");
             return;
         }
 
@@ -54,10 +53,10 @@ export default function InstallButton() {
                 onClick={handleInstallClick}
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
-                className={`relative flex items-center justify-center w-12 h-12 md:w-auto md:px-6 md:h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/10 border border-white/10 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden group ${!installPrompt ? 'opacity-50 grayscale hover:grayscale-0' : ''}`}
+                className="relative flex items-center justify-center w-12 h-12 md:w-auto md:px-6 md:h-12 rounded-2xl bg-gradient-to-br from-primary/30 to-secondary/20 border border-white/20 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden group"
             >
-                {/* Animated Background Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                {/* Animated Glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
                 <div className="flex items-center gap-3 relative z-10">
                     <div className="relative">
@@ -80,7 +79,7 @@ export default function InstallButton() {
                         exit={{ opacity: 0, y: 10 }}
                         className="absolute top-full mt-4 right-0 w-48 p-3 rounded-xl bg-card/90 border border-white/10 backdrop-blur-2xl shadow-2xl text-[10px] text-white/70 text-right z-[100] pointer-events-none"
                     >
-                        {installPrompt ? "ثبت الزتونة على موبايلك دلوقتي!" : "استخدم متصفح Chrome أو Edge لتحميل التطبيق"}
+                        {installPrompt ? "ثبت الزتونة على موبايلك دلوقتي!" : "تحميل الموقع كتطبيق على موبايلك"}
                         <div className="absolute top-0 right-5 -mt-1 w-2 h-2 bg-card/90 border-t border-l border-white/10 rotate-45" />
                     </motion.div>
                 )}
