@@ -99,7 +99,7 @@ export default function HomePage() {
                   "{currentQuote.quote}"
                 </p>
 
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap gap-6 items-center">
                   <button
                     onClick={() => router.push("/subjects")}
                     className="btn-premium px-10 py-5 text-base shadow-[0_0_30px_rgba(0,242,255,0.3)]"
@@ -116,6 +116,9 @@ export default function HomePage() {
                     </svg>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 translate-x-[-100%] group-hover/ai:translate-x-[100%] transition-transform duration-1000" />
                   </button>
+                  <div className="md:mr-4">
+                    <InstallButton />
+                  </div>
                 </div>
               </div>
 
