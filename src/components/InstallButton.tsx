@@ -5,70 +5,53 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function InstallButton() {
     const [installPrompt, setInstallPrompt] = useState<any>(null);
-    const [isStandalone, setIsStandalone] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
     useEffect(() => {
-        if (window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone) {
-            setIsStandalone(true);
-            return;
-        }
+        console.log("Zaitouna Install Button Mounted");
 
         const handleBeforeInstallPrompt = (e: any) => {
+            console.log("beforeinstallprompt fired!");
             e.preventDefault();
             setInstallPrompt(e);
         };
 
         window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
-        return () => {
-            window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-        };
+        return () => window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     }, []);
 
     const handleInstallClick = async () => {
         if (!installPrompt) {
-            // Manual instructions if the automated prompt isn't ready
-            alert("لتحميل التطبيق:\n1. تأكد إنك بتستخدم متصفح Chrome أو Edge.\n2. اضغط على علامة التثبيت في شريط العنوان فوق.");
+            alert("لتحميل التطبيق على موبايلك:\n1. افتح الموقع من Chrome.\n2. اضغط على الـ 3 نقط فوق واختار 'Install App' أو 'Add to Home Screen'.");
             return;
         }
 
         installPrompt.prompt();
         const { outcome } = await installPrompt.userChoice;
-
-        if (outcome === "accepted") {
-            setInstallPrompt(null);
-        }
+        if (outcome === "accepted") setInstallPrompt(null);
     };
 
-    if (isStandalone) return null;
-
     return (
-        <div className="relative">
+        <div className="relative inline-block">
             <motion.button
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                whileHover={{ scale: 1.1, shadow: "0 0 20px rgba(0,242,255,0.4)" }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={handleInstallClick}
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
-                className="relative flex items-center justify-center w-12 h-12 md:w-auto md:px-6 md:h-12 rounded-2xl bg-gradient-to-br from-primary/30 to-secondary/20 border border-white/20 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden group"
+                className="relative flex items-center justify-center px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 via-primary to-secondary text-white font-black text-lg shadow-[0_0_40px_rgba(255,0,0,0.5)] border-2 border-white/50 animate-pulse transition-all duration-300 z-[9999]"
             >
-                {/* Animated Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-
-                <div className="flex items-center gap-3 relative z-10">
-                    <div className="relative">
-                        <svg className="w-6 h-6 text-primary group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                        <div className="absolute -top-1 -right-1 w-2 h-2 bg-secondary rounded-full animate-ping" />
-                    </div>
-                    <span className="text-xs font-black uppercase tracking-widest hidden md:block text-white group-hover:text-primary transition-colors">
-                        تحميل التطبيق
-                    </span>
+                <div className="flex items-center gap-3">
+                    <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span className="whitespace-nowrap">ثبت التطبيق الآن 📲</span>
                 </div>
+
+                {/* Extreme Glow Effect */}
+                <div className="absolute inset-0 bg-white/20 blur-xl rounded-2xl -z-10" />
             </motion.button>
 
             <AnimatePresence>
@@ -76,11 +59,9 @@ export default function InstallButton() {
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full mt-4 right-0 w-48 p-3 rounded-xl bg-card/90 border border-white/10 backdrop-blur-2xl shadow-2xl text-[10px] text-white/70 text-right z-[100] pointer-events-none"
+                        className="absolute top-full mt-4 left-1/2 -translate-x-1/2 w-64 p-4 rounded-2xl bg-black border-2 border-primary shadow-2xl text-center z-[10000]"
                     >
-                        {installPrompt ? "ثبت الزتونة على موبايلك دلوقتي!" : "تحميل الموقع كتطبيق على موبايلك"}
-                        <div className="absolute top-0 right-5 -mt-1 w-2 h-2 bg-card/90 border-t border-l border-white/10 rotate-45" />
+                        <p className="text-white text-sm font-bold">اضغط هنا لتحميل الزتونة على موبايلك فوراً!</p>
                     </motion.div>
                 )}
             </AnimatePresence>
