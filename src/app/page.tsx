@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import InstallButton from "@/components/InstallButton";
 
 const baladiQuotes = [
   { main: "عافر هتوصل،", subMain: "مفيش حاجة تيجي بالساهل!", quote: "اتعب النهاردة عشان ترتاح بكرة، ومستقبلك يستاهل العافرة." },
@@ -115,9 +114,6 @@ export default function HomePage() {
                     </svg>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 translate-x-[-100%] group-hover/ai:translate-x-[100%] transition-transform duration-1000" />
                   </button>
-                  <div className="md:mr-4">
-                    <InstallButton />
-                  </div>
                 </div>
               </div>
 
