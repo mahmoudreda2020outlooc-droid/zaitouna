@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import DeveloperCard from "@/components/DeveloperCard";
 import ClientLayout from "./ClientLayout";
-import InstallButton from "@/components/InstallButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,7 +54,7 @@ export default function RootLayout({
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw-v5.js');
+                  navigator.serviceWorker.register('/sw-v6.js');
                 });
               }
             `,
@@ -69,7 +68,6 @@ export default function RootLayout({
             <DeveloperCard />
           </footer>
 
-          <InstallButton />
         </ClientLayout>
       </body>
     </html>

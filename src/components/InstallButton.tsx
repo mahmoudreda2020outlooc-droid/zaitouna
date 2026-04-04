@@ -18,8 +18,8 @@ export default function InstallButton() {
     const handleBeforeInstallPrompt = (e: any) => {
       e.preventDefault();
       setInstallPrompt(e);
-      // Wait a bit before showing to feel "premium"
-      setTimeout(() => setIsVisible(true), 1500);
+      // Faster delay for inline appearance
+      setTimeout(() => setIsVisible(true), 500);
     };
 
     const handleAppInstalled = () => {
@@ -54,19 +54,19 @@ export default function InstallButton() {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 50, opacity: 0 }}
-        className="fixed bottom-6 right-6 z-[9999] w-auto"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        className="w-full md:w-auto"
       >
         <button
           onClick={handleInstallClick}
-          className="bg-[#111] border border-primary/30 rounded-2xl px-8 py-4 flex items-center justify-center shadow-[0_0_30px_rgba(0,242,255,0.2)] hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] transition-all active:scale-95 group relative overflow-hidden"
+          className="w-full md:w-auto bg-[#111] border-2 border-primary/40 rounded-2xl px-10 py-5 flex items-center justify-center shadow-[0_0_40px_rgba(0,242,255,0.2)] hover:shadow-[0_0_50px_rgba(0,242,255,0.4)] transition-all active:scale-95 group relative overflow-hidden"
         >
           {/* Shimmer effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-          <span className="text-primary text-base font-black tracking-wide" dir="rtl">
+          <span className="text-primary text-lg md:text-xl font-black tracking-wide" dir="rtl">
             ثبت الآن 📲
           </span>
         </button>
