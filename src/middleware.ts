@@ -25,9 +25,7 @@ export function middleware(request: NextRequest) {
                 if (isAdminPath && !sessionData.isAdmin) {
                     return NextResponse.redirect(new URL('/', request.url));
                 }
-                if (isLoginPage) {
-                    return NextResponse.redirect(new URL('/', request.url));
-                }
+                // Removed: auto-redirect from login page to allow switching
             } else if (!isLoginPage) {
                 // Invalid cookie format
                 const response = NextResponse.redirect(new URL('/login', request.url));
