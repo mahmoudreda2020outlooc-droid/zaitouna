@@ -32,7 +32,7 @@ export default function AppearanceSettings({ isOpen, setIsOpen }: { isOpen: bool
                         initial={{ opacity: 0, scale: 0.9, y: 20, x: '-50%' }}
                         animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
                         exit={{ opacity: 0, scale: 0.9, y: 20, x: '-50%' }}
-                        className="fixed bottom-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm glass-card border border-white/10 p-6 z-[102] overflow-hidden"
+                        className="fixed bottom-24 left-1/2 -translate-x-1/2 w-[95%] max-w-sm glass-card border border-white/10 p-6 z-[102]"
                         dir="rtl"
                     >
                         {/* Header */}
