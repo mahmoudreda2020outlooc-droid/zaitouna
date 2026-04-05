@@ -1714,7 +1714,7 @@
     ],
     "resources": {
       "pdf": "/materials/WEB-201/المحاضرة التالتة.pdf",
-      "sheet": "#",
+      "sheet": "/materials/WEB-201/شيت 3.pdf",
       "assignments": "#"
     }
   },
@@ -5533,7 +5533,7 @@
     "quiz": [],
     "resources": {
       "pdf": "/materials/WEB-201/المحاضرة الرابعة.pdf",
-      "sheet": "#",
+      "sheet": "/materials/WEB-201/شيت 4.pdf",
       "assignments": "#"
     }
   }
