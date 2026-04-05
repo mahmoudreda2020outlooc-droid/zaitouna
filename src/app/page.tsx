@@ -72,7 +72,15 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* InstallButton removed from here */}
+            <button
+              onClick={() => window.dispatchEvent(new Event('open-appearance'))}
+              className="glass-card px-4 py-2 flex items-center gap-2 text-xs font-black text-primary hover:scale-105 active:scale-95 transition-all border-primary/20"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+              <span>إعدادات المظهر</span>
+            </button>
           </div>
         </header>
 
@@ -137,8 +145,8 @@ export default function HomePage() {
                         <stop offset="100%" stopColor="#14532d" />
                       </linearGradient>
                       <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#a855f7" />
-                        <stop offset="100%" stopColor="#d946ef" />
+                        <stop offset="0%" stopColor="var(--primary)" />
+                        <stop offset="100%" stopColor="var(--secondary)" />
                       </linearGradient>
                       <linearGradient id="paperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#e2e8f0" />
@@ -189,10 +197,10 @@ export default function HomePage() {
 
                     {/* Sparkles/Stars - Reduced for performance */}
                     <g className="sparkles hidden md:block">
-                      <circle cx="100" cy="150" r="4" fill="#00f2ff" className="glow-pulse" />
-                      <circle cx="300" cy="120" r="6" fill="#00f2ff" className="glow-pulse" style={{ animationDelay: '0.5s' }} />
-                      <circle cx="280" cy="280" r="3" fill="#a855f7" className="glow-pulse" style={{ animationDelay: '1s' }} />
-                      <circle cx="120" cy="270" r="5" fill="#a855f7" className="glow-pulse" style={{ animationDelay: '1.5s' }} />
+                      <circle cx="100" cy="150" r="4" fill="var(--primary)" className="glow-pulse" />
+                      <circle cx="300" cy="120" r="6" fill="var(--primary)" className="glow-pulse" style={{ animationDelay: '0.5s' }} />
+                      <circle cx="280" cy="280" r="3" fill="var(--secondary)" className="glow-pulse" style={{ animationDelay: '1s' }} />
+                      <circle cx="120" cy="270" r="5" fill="var(--secondary)" className="glow-pulse" style={{ animationDelay: '1.5s' }} />
                     </g>
                     <g className="sparkles md:hidden">
                       <circle cx="100" cy="150" r="3" fill="#00f2ff" />

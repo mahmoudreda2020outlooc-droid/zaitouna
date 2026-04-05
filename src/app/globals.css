@@ -125,6 +125,7 @@ body {
   overflow: hidden;
   border: none;
   box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--primary) 20%, transparent);
   will-change: transform;
 }
 
@@ -144,22 +145,22 @@ body {
   right: 0;
   bottom: 0;
   border-radius: inherit;
-  box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.4);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent);
   animation: btn-pulse 2s infinite;
   z-index: -1;
 }
 
 @keyframes btn-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 70%, transparent);
   }
 
   70% {
-    box-shadow: 0 0 0 20px rgba(0, 242, 255, 0);
+    box-shadow: 0 0 0 20px color-mix(in srgb, var(--primary) 0%, transparent);
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 0%, transparent);
   }
 }
 
@@ -248,7 +249,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 242, 255, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 10%, transparent) 0%, color-mix(in srgb, var(--secondary) 10%, transparent) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -256,7 +257,7 @@ body {
 .btn-ai:hover {
   transform: translateY(-4px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3), inset 0 0 30px rgba(168, 85, 247, 0.1);
+  box-shadow: 0 20px 40px color-mix(in srgb, var(--secondary) 30%, transparent), inset 0 0 30px color-mix(in srgb, var(--secondary) 10%, transparent);
 }
 
 .btn-ai:hover::after {
@@ -424,12 +425,12 @@ body {
 
 @keyframes brain-glow {
   0% {
-    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+    filter: drop-shadow(0 0 10px color-mix(in srgb, var(--secondary) 40%, transparent));
     transform: scale(1) translateY(0);
   }
 
   100% {
-    filter: drop-shadow(0 0 25px rgba(217, 70, 239, 0.8));
+    filter: drop-shadow(0 0 25px color-mix(in srgb, var(--secondary) 80%, transparent));
     transform: scale(1.02) translateY(-5px);
   }
 }

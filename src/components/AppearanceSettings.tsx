@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme, accentColors, AccentColor } from './ThemeContext';
 
-export default function AppearanceSettings() {
-    const [isOpen, setIsOpen] = useState(false);
+export default function AppearanceSettings({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: boolean) => void }) {
     const { theme, setTheme, accentColor, setAccentColor } = useTheme();
 
     const toggleOpen = () => setIsOpen(!isOpen);
@@ -17,116 +16,104 @@ export default function AppearanceSettings() {
     ] as const;
 
     return (
-        <>
-            {/* Trigger Button */}
-            <button
-                onClick={toggleOpen}
-                className="fixed bottom-6 left-6 w-12 h-12 bg-card border border-white/10 rounded-full flex items-center justify-center text-primary shadow-2xl z-[100] hover:scale-110 active:scale-95 transition-all group"
-                aria-label="Appearance Settings"
-            >
-                <BrushIcon className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                <div className="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity" />
-            </button>
+        <AnimatePresence>
+            {isOpen && (
+                <>
+                    {/* Backdrop */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={toggleOpen}
+                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[101]"
+                    />
 
-            <AnimatePresence>
-                {isOpen && (
-                    <>
-                        {/* Backdrop */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={toggleOpen}
-                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[101]"
-                        />
-
-                        {/* Modal */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 20, x: '-50%' }}
-                            animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
-                            exit={{ opacity: 0, scale: 0.9, y: 20, x: '-50%' }}
-                            className="fixed bottom-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm glass-card border border-white/10 p-6 z-[102] overflow-hidden"
-                            dir="rtl"
-                        >
-                            {/* Header */}
-                            <div className="flex items-center gap-3 mb-8">
-                                <div className="p-2 bg-primary/10 rounded-lg">
-                                    <BrushIcon className="w-5 h-5 text-primary" />
-                                </div>
-                                <h3 className="text-xl font-black text-foreground">إعدادات المظهر</h3>
+                    {/* Modal */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20, x: '-50%' }}
+                        animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
+                        exit={{ opacity: 0, scale: 0.9, y: 20, x: '-50%' }}
+                        className="fixed bottom-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm glass-card border border-white/10 p-6 z-[102] overflow-hidden"
+                        dir="rtl"
+                    >
+                        {/* Header */}
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="p-2 bg-primary/10 rounded-lg">
+                                <BrushIcon className="w-5 h-5 text-primary" />
                             </div>
+                            <h3 className="text-xl font-black text-foreground">إعدادات المظهر</h3>
+                        </div>
 
-                            {/* Theme Section */}
-                            <div className="mb-8">
-                                <p className="text-sm font-bold text-foreground/50 mb-4 mr-1">الثيم</p>
-                                <div className="grid grid-cols-3 gap-2 bg-foreground/5 p-1 rounded-2xl border border-white/5">
-                                    {themeOptions.map((opt) => (
+                        {/* Theme Section */}
+                        <div className="mb-8">
+                            <p className="text-sm font-bold text-foreground/50 mb-4 mr-1">الثيم</p>
+                            <div className="grid grid-cols-3 gap-2 bg-foreground/5 p-1 rounded-2xl border border-white/5">
+                                {themeOptions.map((opt) => (
+                                    <button
+                                        key={opt.id}
+                                        onClick={() => setTheme(opt.id)}
+                                        className={`relative flex flex-col items-center gap-2 py-3 rounded-xl transition-all ${theme === opt.id
+                                            ? 'text-primary'
+                                            : 'text-foreground/40 hover:text-foreground/60'
+                                            }`}
+                                    >
+                                        {theme === opt.id && (
+                                            <motion.div
+                                                layoutId="activeTheme"
+                                                className="absolute inset-0 bg-card border border-white/10 shadow-lg rounded-xl"
+                                                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                                            />
+                                        )}
+                                        <span className="relative z-10">{opt.icon}</span>
+                                        <span className="relative z-10 text-[10px] font-black">{opt.label}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Accent Color Section */}
+                        <div>
+                            <p className="text-sm font-bold text-foreground/50 mb-4 mr-1">اللون الأساسي</p>
+                            <div className="grid grid-cols-3 gap-4">
+                                {(Object.keys(accentColors) as AccentColor[]).map((key) => {
+                                    const color = accentColors[key];
+                                    const isActive = accentColor === key;
+                                    return (
                                         <button
-                                            key={opt.id}
-                                            onClick={() => setTheme(opt.id)}
-                                            className={`relative flex flex-col items-center gap-2 py-3 rounded-xl transition-all ${theme === opt.id
-                                                    ? 'text-primary'
-                                                    : 'text-foreground/40 hover:text-foreground/60'
+                                            key={key}
+                                            onClick={() => setAccentColor(key)}
+                                            className={`group flex flex-col items-center gap-2 p-2 rounded-2xl transition-all ${isActive ? 'bg-foreground/5 border border-white/5 shadow-inner' : 'hover:bg-foreground/5'
                                                 }`}
                                         >
-                                            {theme === opt.id && (
-                                                <motion.div
-                                                    layoutId="activeTheme"
-                                                    className="absolute inset-0 bg-card border border-white/10 shadow-lg rounded-xl"
-                                                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                                            <div className="relative">
+                                                <div
+                                                    className="w-10 h-10 rounded-full shadow-lg transition-transform group-hover:scale-110"
+                                                    style={{ backgroundColor: color.color }}
                                                 />
-                                            )}
-                                            <span className="relative z-10">{opt.icon}</span>
-                                            <span className="relative z-10 text-[10px] font-black">{opt.label}</span>
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Accent Color Section */}
-                            <div>
-                                <p className="text-sm font-bold text-foreground/50 mb-4 mr-1">اللون الأساسي</p>
-                                <div className="grid grid-cols-3 gap-4">
-                                    {(Object.keys(accentColors) as AccentColor[]).map((key) => {
-                                        const color = accentColors[key];
-                                        const isActive = accentColor === key;
-                                        return (
-                                            <button
-                                                key={key}
-                                                onClick={() => setAccentColor(key)}
-                                                className={`group flex flex-col items-center gap-2 p-2 rounded-2xl transition-all ${isActive ? 'bg-foreground/5 border border-white/5 shadow-inner' : 'hover:bg-foreground/5'
-                                                    }`}
-                                            >
-                                                <div className="relative">
-                                                    <div
-                                                        className="w-10 h-10 rounded-full shadow-lg transition-transform group-hover:scale-110"
-                                                        style={{ backgroundColor: color.color }}
+                                                {isActive && (
+                                                    <motion.div
+                                                        layoutId="activeColor"
+                                                        className="absolute -inset-1 border-2 border-primary rounded-full"
+                                                        transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
                                                     />
-                                                    {isActive && (
-                                                        <motion.div
-                                                            layoutId="activeColor"
-                                                            className="absolute -inset-1 border-2 border-primary rounded-full"
-                                                            transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
-                                                        />
-                                                    )}
-                                                </div>
-                                                <span className={`text-[10px] font-black transition-colors ${isActive ? 'text-foreground' : 'text-foreground/40'
-                                                    }`}>
-                                                    {color.name}
-                                                </span>
-                                            </button>
-                                        );
-                                    })}
-                                </div>
+                                                )}
+                                            </div>
+                                            <span className={`text-[10px] font-black transition-colors ${isActive ? 'text-foreground' : 'text-foreground/40'
+                                                }`}>
+                                                {color.name}
+                                            </span>
+                                        </button>
+                                    );
+                                })}
                             </div>
+                        </div>
 
-                            {/* Bottom Decoration */}
-                            <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/10 blur-[50px] rounded-full pointer-events-none" />
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
-        </>
+                        {/* Bottom Decoration */}
+                        <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/10 blur-[50px] rounded-full pointer-events-none" />
+                    </motion.div>
+                </>
+            )}
+        </AnimatePresence>
     );
 }
 
