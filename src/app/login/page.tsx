@@ -97,6 +97,15 @@ export default function LoginPage() {
                     {/* Subtle patterns */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
 
+                    <div className="text-center mb-10">
+                        <h1 className="text-6xl font-black mb-4 tracking-tighter text-white">الزتـونـة</h1>
+                        <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6 neon-glow"></div>
+                        <p className="text-white/50 text-sm font-medium leading-relaxed max-w-xs mx-auto">
+                            نهدف لتيسير المذاكرة ومساعدة زملائنا الطلاب <br />
+                            <span className="text-white/20 text-[10px] mt-2 block italic uppercase tracking-widest">Powered by Advanced AI</span>
+                        </p>
+                    </div>
+
                     {step === 1 ? (
                         <form onSubmit={handleLookup} className="space-y-8">
                             <div className="relative group">
