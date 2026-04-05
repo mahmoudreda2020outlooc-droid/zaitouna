@@ -7,7 +7,11 @@ export function middleware(request: NextRequest) {
     const isAdminPath = request.nextUrl.pathname.startsWith('/admin');
 
     // Basic session presence check (signature verification happens in APIs/Server Components)
-    if (!authCookie && !isLoginPage && !request.nextUrl.pathname.startsWith('/api/auth')) {
+    const isAuthApi = request.nextUrl.pathname.startsWith('/api/auth');
+    const isLookupApi = request.nextUrl.pathname === '/api/student-lookup';
+
+    // Basic session presence check (signature verification happens in APIs/Server Components)
+    if (!authCookie && !isLoginPage && !isAuthApi && !isLookupApi) {
         return NextResponse.redirect(new URL('/login', request.url));
     }
 
