@@ -7,10 +7,24 @@ export async function POST(req: Request) {
     try {
         const body = await req.json();
         const studentId = body.studentId?.trim();
+        const adminKey = body.adminKey?.trim();
 
-        // Path to the extracted students list
+        // Admin Login Case
+        if (adminKey && adminKey === process.env.ADMIN_KEY) {
+            const adminData = { id: "admin", name: "المسؤول (Admin)" };
+            await setAuthCookie(adminData, true);
+            return NextResponse.json({
+                success: true,
+                user: { ...adminData, isAdmin: true }
+            });
+        }
+
+        // Student Login Case
+        if (!studentId) {
+            return NextResponse.json({ message: "كود الطالب مطلوب" }, { status: 400 });
+        }
+
         const dataPath = path.join(process.cwd(), "src", "data", "students.json");
-
         if (!fs.existsSync(dataPath)) {
             return NextResponse.json({ message: "قاعدة بيانات الطلاب غير متوفرة" }, { status: 500 });
         }
@@ -20,7 +34,7 @@ export async function POST(req: Request) {
 
         if (student) {
             const userData = { id: student.id, name: student.name };
-            await setAuthCookie(userData);
+            await setAuthCookie(userData, false);
             return NextResponse.json({
                 success: true,
                 user: userData

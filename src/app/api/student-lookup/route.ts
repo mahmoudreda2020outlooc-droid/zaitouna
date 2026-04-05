@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { getAuthUser } from "@/lib/auth-utils";
 
 export async function GET(req: Request) {
     try {
@@ -8,16 +9,18 @@ export async function GET(req: Request) {
         let studentId = searchParams.get("studentId")?.trim();
         const isCheck = searchParams.get("check") === "true";
 
-        if (isCheck) {
-            const { getAuthUser } = await import("@/lib/auth-utils");
-            const authUser = await getAuthUser();
-            if (authUser) {
-                studentId = authUser.id;
-            }
+        const authUser = await getAuthUser();
+        if (!authUser) {
+            return NextResponse.json({ message: "غير مصرح لك بالدخول" }, { status: 401 });
         }
 
-        if (!studentId) {
-            return NextResponse.json({ message: "كود الطالب مطلوب" }, { status: 400 });
+        // If not checking, and providing a studentId, ensure requester is admin OR looking for self
+        if (!isCheck && studentId && studentId !== authUser.id && !authUser.isAdmin) {
+            return NextResponse.json({ message: "لا تملك صلاحية البحث عن طلاب آخرين" }, { status: 403 });
+        }
+
+        if (isCheck || !studentId) {
+            studentId = authUser.id;
         }
 
         const dataPath = path.join(process.cwd(), "src", "data", "students.json");
@@ -37,7 +40,8 @@ export async function GET(req: Request) {
                     name: student.name,
                     group: student.group,
                     section: student.section,
-                    subGroup: student.subGroup
+                    subGroup: student.subGroup,
+                    isAdmin: authUser.isAdmin
                 }
             });
         }

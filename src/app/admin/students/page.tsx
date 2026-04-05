@@ -2,14 +2,39 @@
 
 // v1.5 - Absolute Final Group 2 Precision & ID Sync
 import { useState, useEffect, useMemo } from 'react';
-import studentsData from '@/data/students.json';
+// Removed: import studentsData from '@/data/students.json';
 
 export default function StudentsReviewPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [isMounted, setIsMounted] = useState(false);
+    const [studentsData, setStudentsData] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    interface Student {
+        id: string;
+        name: string;
+        group: string;
+        section: string;
+        subGroup: string;
+        serial: string;
+    }
 
     useEffect(() => {
         setIsMounted(true);
+        const fetchStudents = async () => {
+            try {
+                const res = await fetch('/api/admin/students');
+                if (!res.ok) throw new Error('فشل في تحميل البيانات. تأكد من صلاحياتك.');
+                const data = await res.json();
+                setStudentsData(data);
+            } catch (err: any) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchStudents();
     }, []);
 
     const normalizeArabic = (text: string) => {
@@ -30,13 +55,13 @@ export default function StudentsReviewPage() {
         );
     }, [searchTerm]);
 
-    const groupedStudents = useMemo(() => {
-        const groups = filteredStudents.reduce((acc, student) => {
+    const groupedStudents: [string, Student[]][] = useMemo(() => {
+        const groups = (filteredStudents as Student[]).reduce((acc, student) => {
             const group = student.group || 'غير محدد';
             if (!acc[group]) acc[group] = [];
             acc[group].push(student);
             return acc;
-        }, {} as Record<string, typeof filteredStudents>);
+        }, {} as Record<string, Student[]>);
 
         return Object.entries(groups).sort(([a], [b]) => Number(a) - Number(b));
     }, [filteredStudents]);
@@ -127,7 +152,19 @@ export default function StudentsReviewPage() {
                     <p className="text-gray-600">التاريخ: {isMounted ? new Date().toLocaleDateString('ar-EG') : ''}</p>
                 </div>
 
-                {groupedStudents.map(([group, students]) => (
+                {loading && (
+                    <div className="p-20 text-center text-cyan-400 no-print animate-pulse">
+                        جاري تحميل بيانات الطلاب الحساسة...
+                    </div>
+                )}
+
+                {error && (
+                    <div className="p-20 text-center text-red-500 no-print">
+                        خطأ: {error}
+                    </div>
+                )}
+
+                {!loading && !error && groupedStudents.map(([group, students]) => (
                     <div key={group} className="mb-12 break-inside-avoid">
                         <h2 className="text-2xl font-bold text-white mb-4 bg-[#111] p-4 rounded-lg border border-gray-800 flex items-center justify-between">
                             <span>المجموعة {group}</span>
@@ -147,7 +184,7 @@ export default function StudentsReviewPage() {
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-800">
-                                    {students.map((student) => (
+                                    {(students as Student[]).map((student: Student) => (
                                         <tr key={student.id} className="hover:bg-white/5 transition-colors">
                                             <td className="px-6 py-4 font-mono text-cyan-400">{student.id}</td>
                                             <td className="px-6 py-4 text-white text-lg">{student.name}</td>
@@ -170,7 +207,7 @@ export default function StudentsReviewPage() {
                     </div>
                 ))}
 
-                {filteredStudents.length === 0 && (
+                {!loading && !error && filteredStudents.length === 0 && (
                     <div className="p-20 text-center text-gray-500 no-print">
                         لم يتم العثور على أي نتائج للبحث
                     </div>

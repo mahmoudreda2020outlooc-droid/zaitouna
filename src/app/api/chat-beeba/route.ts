@@ -2,17 +2,24 @@ import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { getAuthUser } from "@/lib/auth-utils";
+import { SYSTEM_PROMPT } from "@/lib/prompts";
 
 export async function POST(req: Request) {
     try {
+        const authUser = await getAuthUser();
+        if (!authUser) {
+            return NextResponse.json({ reply: "لازم تسجل دخول الأول يا صاحبي!" }, { status: 401 });
+        }
+
         const apiKey = process.env.GEMINI_API_KEY || "";
-        console.log(`Beeba Chat: Using API Key [${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)}]`);
+        console.log(`Beeba Chat: User ${authUser.name} (${authUser.id}) using API Key [${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)}]`);
 
         const client = new GoogleGenAI({
             apiKey: apiKey,
         });
 
-        const { message, history, attachments, systemContext } = await req.json();
+        const { message, history, attachments } = await req.json();
 
         // Subject Mapping
         const subjects: Record<string, string> = {
@@ -52,12 +59,7 @@ export async function POST(req: Request) {
         }).join("\n---\n");
 
         const systemPrompt = `
-        أنت "الدحيح"، مساعد ذكي مخصص للطلاب. أنت (ولد) وتتحدث بالعامية المصرية الجدعة بطريقة "صاحب لصحبه".
-        قواعد أساسية:
-        1. الإجابة بالعامية المصرية الجدعة في الكلام العادي.
-        2. لو السؤال بره المنهج، ابذل جهدك تربطه بالمنهج أو اعتذر بذوق وقوله إنك متخصص في المنهج ده بس.
-        3. **قاعدة التعريف بالنفس**: لما الطالب يسألك "إنت مين؟" أو "مين اللي بيكلمني؟" أو أي سؤال عن هويتك، عرف نفسك إنك "الدحيح" صاحبهم الجدع اللي بيذاكر معاهم، وبس. 
-        4. **تحليل الصور**: لو الطالب بعتلك صورة، حللها بشكل احترافي وطلّع منها كل تفصيلة واربطها بالمنهج. يمكنك استخدام **اللغة العربية الفصحى البسيطة** في جزء الشرح التقني للمفاهيم داخل الصورة لضمان "الاحترافية"، ثم عد للعامية المصرية في باقي الكلام.
+        ${SYSTEM_PROMPT}
 
         المعلومات المتاحة لك من المنهج:
         ${curriculumContext}
@@ -98,7 +100,7 @@ export async function POST(req: Request) {
             return NextResponse.json({ reply: "قول حاجة يا زميلي عشان أقدر أرد عليك!" });
         }
 
-        const combinedMessage = `[SYSTEM: ${systemContext || systemPrompt}]\n\nUSER MESSAGE: ${message}`;
+        const combinedMessage = `[SYSTEM: ${systemPrompt}]\n\nUSER MESSAGE: ${message}`;
 
         // Keep the inlineData parts (images etc.) and prepend the combined text message
         const finalCurrentParts = [

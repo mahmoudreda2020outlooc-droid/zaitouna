@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const [studentId, setStudentId] = useState("");
+    const [adminKey, setAdminKey] = useState("");
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [step, setStep] = useState(1); // 1: Enter ID, 2: Confirm Info
     const [studentInfo, setStudentInfo] = useState<any>(null);
+    const [mode, setMode] = useState<"student" | "admin">("student");
     const router = useRouter();
 
     useEffect(() => {
@@ -19,6 +21,27 @@ export default function LoginPage() {
         e.preventDefault();
         setIsLoading(true);
         setError("");
+
+        if (mode === "admin") {
+            try {
+                const response = await fetch("/api/auth", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ adminKey }),
+                });
+                if (response.ok) {
+                    router.push("/admin/students");
+                } else {
+                    const data = await response.json();
+                    setError(data.message || "كود المسؤول غير صحيح");
+                }
+            } catch (err) {
+                setError("حدث خطأ ما");
+            } finally {
+                setIsLoading(false);
+            }
+            return;
+        }
 
         try {
             const response = await fetch(`/api/student-lookup?studentId=${studentId}`);
@@ -74,31 +97,49 @@ export default function LoginPage() {
                     {/* Subtle patterns */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
 
-                    <div className="text-center mb-12">
-                        <h1 className="text-6xl font-black mb-4 tracking-tighter text-white">الزتـونـة</h1>
-                        <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6 neon-glow"></div>
-                        <p className="text-white/50 text-base font-medium leading-relaxed max-w-xs mx-auto">
-                            نهدف لتيسير المذاكرة ومساعدة زملائنا الطلاب <br />
-                            <span className="text-white/20 text-[10px] mt-2 block">مبادرة تعليمية مستقلة - غير تابعة للكلية بشكل رسمي</span>
-                        </p>
+                    <div className="flex justify-center mb-10 gap-2 p-1 bg-white/[0.03] rounded-xl border border-white/5 no-print">
+                        <button
+                            onClick={() => setMode("student")}
+                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold transition-all ${mode === "student" ? "bg-primary/20 text-primary border border-primary/20" : "text-white/40 font-medium"}`}
+                        >
+                            دخول الطلاب 🎓
+                        </button>
+                        <button
+                            onClick={() => setMode("admin")}
+                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold transition-all ${mode === "admin" ? "bg-secondary/20 text-secondary border border-secondary/20" : "text-white/40 font-medium"}`}
+                        >
+                            دخول المسؤول ✨
+                        </button>
                     </div>
 
                     {step === 1 ? (
                         <form onSubmit={handleLookup} className="space-y-8">
                             <div className="relative group">
                                 <label htmlFor="studentId" className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-3 mr-1 text-right">
-                                    كود الطالب الشخصي
+                                    {mode === "student" ? "كود الطالب الشخصي" : "كود المسؤول السري"}
                                 </label>
                                 <div className="relative">
-                                    <input
-                                        type="text"
-                                        id="studentId"
-                                        value={studentId}
-                                        onChange={(e) => setStudentId(e.target.value)}
-                                        className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all text-center text-3xl font-black tracking-[0.2em]"
-                                        placeholder="0000000"
-                                        required
-                                    />
+                                    {mode === "student" ? (
+                                        <input
+                                            type="text"
+                                            id="studentId"
+                                            value={studentId}
+                                            onChange={(e) => setStudentId(e.target.value)}
+                                            className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all text-center text-3xl font-black tracking-[0.2em]"
+                                            placeholder="0000000"
+                                            required
+                                        />
+                                    ) : (
+                                        <input
+                                            type="password"
+                                            id="adminKey"
+                                            value={adminKey}
+                                            onChange={(e) => setAdminKey(e.target.value)}
+                                            className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-secondary/40 focus:border-secondary/30 transition-all text-center text-xl font-bold"
+                                            placeholder="••••••••"
+                                            required
+                                        />
+                                    )}
                                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-focus-within:w-1/2 transition-all duration-500 opacity-50"></div>
                                 </div>
                             </div>
@@ -118,7 +159,7 @@ export default function LoginPage() {
                                     <div className="btn-loader"></div>
                                 ) : (
                                     <>
-                                        <span className="relative z-10">تحقق من الكود</span>
+                                        <span className="relative z-10">{mode === "student" ? "تحقق من الكود" : "دخول المسؤول"}</span>
                                         <svg className="w-6 h-6 z-10 group-hover:translate-x-[-10px] transition-transform duration-300"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             style={{ filter: 'invert(1)' }}>
