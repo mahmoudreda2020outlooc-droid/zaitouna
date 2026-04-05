@@ -46,7 +46,7 @@ export default function AppearanceSettings({ isOpen, setIsOpen }: { isOpen: bool
                         {/* Theme Section */}
                         <div className="mb-8">
                             <p className="text-sm font-bold text-foreground/50 mb-4 mr-1">الثيم</p>
-                            <div className="grid grid-cols-3 gap-2 bg-foreground/5 p-1 rounded-2xl border border-white/5">
+                            <div className="grid grid-cols-2 gap-2 bg-foreground/5 p-1 rounded-2xl border border-white/5">
                                 {themeOptions.map((opt) => (
                                     <button
                                         key={opt.id}
@@ -73,7 +73,7 @@ export default function AppearanceSettings({ isOpen, setIsOpen }: { isOpen: bool
                         {/* Accent Color Section */}
                         <div>
                             <p className="text-sm font-bold text-foreground/50 mb-4 mr-1">اللون الأساسي</p>
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-3 gap-2 md:gap-4 justify-items-center">
                                 {(Object.keys(accentColors) as AccentColor[]).map((key) => {
                                     const color = accentColors[key];
                                     const isActive = accentColor === key;
