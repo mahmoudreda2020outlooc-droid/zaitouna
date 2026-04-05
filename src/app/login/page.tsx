@@ -97,21 +97,6 @@ export default function LoginPage() {
                     {/* Subtle patterns */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
 
-                    <div className="flex justify-center mb-10 gap-2 p-1 bg-white/[0.03] rounded-xl border border-white/5 no-print">
-                        <button
-                            onClick={() => setMode("student")}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold transition-all ${mode === "student" ? "bg-primary/20 text-primary border border-primary/20" : "text-white/40 font-medium"}`}
-                        >
-                            دخول الطلاب 🎓
-                        </button>
-                        <button
-                            onClick={() => setMode("admin")}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold transition-all ${mode === "admin" ? "bg-secondary/20 text-secondary border border-secondary/20" : "text-white/40 font-medium"}`}
-                        >
-                            دخول المسؤول ✨
-                        </button>
-                    </div>
-
                     {step === 1 ? (
                         <form onSubmit={handleLookup} className="space-y-8">
                             <div className="relative group">
@@ -124,21 +109,39 @@ export default function LoginPage() {
                                             type="text"
                                             id="studentId"
                                             value={studentId}
-                                            onChange={(e) => setStudentId(e.target.value)}
+                                            onChange={(e) => {
+                                                const val = e.target.value;
+                                                setStudentId(val);
+                                                // Hidden trigger: typing "admin" switches to admin mode
+                                                if (val.toLowerCase() === "admin") {
+                                                    setMode("admin");
+                                                    setStudentId("");
+                                                }
+                                            }}
                                             className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all text-center text-3xl font-black tracking-[0.2em]"
                                             placeholder="0000000"
                                             required
                                         />
                                     ) : (
-                                        <input
-                                            type="password"
-                                            id="adminKey"
-                                            value={adminKey}
-                                            onChange={(e) => setAdminKey(e.target.value)}
-                                            className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-secondary/40 focus:border-secondary/30 transition-all text-center text-xl font-bold"
-                                            placeholder="••••••••"
-                                            required
-                                        />
+                                        <div className="fade-in space-y-4">
+                                            <input
+                                                type="password"
+                                                id="adminKey"
+                                                value={adminKey}
+                                                autoFocus
+                                                onChange={(e) => setAdminKey(e.target.value)}
+                                                className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-secondary/40 focus:border-secondary/30 transition-all text-center text-xl font-bold"
+                                                placeholder="••••••••"
+                                                required
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => setMode("student")}
+                                                className="w-full text-[10px] text-white/10 uppercase hover:text-white/30 transition-colors"
+                                            >
+                                                Back to Student Login
+                                            </button>
+                                        </div>
                                     )}
                                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-focus-within:w-1/2 transition-all duration-500 opacity-50"></div>
                                 </div>
