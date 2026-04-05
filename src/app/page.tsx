@@ -79,7 +79,7 @@ export default function HomePage() {
         {/* Bento Dashboard */}
         <div className="bento-grid">
           {/* Motivational Quote Hero */}
-          <div className="col-span-full glass-card p-6 md:p-12 lg:p-20 relative overflow-hidden flex flex-col justify-end min-h-[400px] md:min-h-[450px] border-white/5 shadow-2xl">
+          <div className="col-span-full glass-card p-6 md:p-12 lg:p-20 relative overflow-visible flex flex-col justify-end min-h-[400px] md:min-h-[450px] border-white/5 shadow-2xl">
             {/* Premium Mesh Gradients */}
             <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(0,242,255,0.15),transparent_50%)] -z-10" />
             <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(189,101,255,0.1),transparent_50%)] -z-10" />

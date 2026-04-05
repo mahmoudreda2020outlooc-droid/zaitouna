@@ -56,9 +56,9 @@ export default function InstallButton() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-full mb-4 w-72 p-4 bg-[#161b22] border border-primary/30 rounded-2xl shadow-2xl z-[100] text-right"
+            className="absolute bottom-full mb-6 w-80 p-5 bg-[#161b22] border-2 border-primary/40 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-[9999] text-right backdrop-blur-xl"
           >
-            <p className="text-white text-sm mb-3 font-bold">عشان تنزل التطبيق على آيفون: 🍏</p>
+            <p className="text-white text-base mb-4 font-black flex items-center justify-end gap-2">عشان تنزل التطبيق على آيفون: 🍏</p>
             <ol className="text-white/80 text-xs space-y-2 pr-2 border-r-2 border-primary/20">
               <li>1. دوس على زرار المشاركة (Share) المربع اللي فيه سهم لفوق. 📤</li>
               <li>2. انزل تحت ودوس على "إضافة إلى الشاشة الرئيسية" (Add to Home Screen). ➕</li>
@@ -75,9 +75,9 @@ export default function InstallButton() {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           onClick={handleIOSClick}
-          className="w-full sm:w-auto bg-[#0d1117] border-2 border-primary/50 rounded-2xl px-6 py-4 md:px-10 md:py-5 text-primary text-lg md:text-xl font-black shadow-[0_0_30px_rgba(0,242,255,0.15)] hover:shadow-[0_0_50px_rgba(0,242,255,0.3)] hover:border-primary/80 transition-all active:scale-95 whitespace-nowrap"
+          className="w-full sm:w-auto bg-[#0d1117]/80 backdrop-blur-md border-2 border-primary/50 rounded-2xl px-6 py-4 md:px-10 md:py-5 text-primary text-lg md:text-xl font-black shadow-[0_0_30px_rgba(0,242,255,0.15)] hover:shadow-[0_0_50px_rgba(0,242,255,0.3)] hover:border-primary transition-all active:scale-95 whitespace-nowrap relative z-50"
         >
-          {showIOSInstructions ? "قفل التعليمات ❌" : "نزّل التطبيق ع الآيفون 🍏"}
+          {showIOSInstructions ? "قفل التعليمات ❌" : "تنزيل الأبلكيشن 🍏"}
         </motion.button>
       ) : (
         installPrompt && (
@@ -85,9 +85,9 @@ export default function InstallButton() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             onClick={handleAndroidClick}
-            className="w-full sm:w-auto bg-[#0d1117] border-2 border-primary/50 rounded-2xl px-6 py-4 md:px-10 md:py-5 text-primary text-lg md:text-xl font-black shadow-[0_0_30px_rgba(0,242,255,0.15)] hover:shadow-[0_0_50px_rgba(0,242,255,0.3)] hover:border-primary/80 transition-all active:scale-95 whitespace-nowrap"
+            className="w-full sm:w-auto bg-[#0d1117]/80 backdrop-blur-md border-2 border-primary/50 rounded-2xl px-6 py-4 md:px-10 md:py-5 text-primary text-lg md:text-xl font-black shadow-[0_0_30px_rgba(0,242,255,0.15)] hover:shadow-[0_0_50px_rgba(0,242,255,0.3)] hover:border-primary transition-all active:scale-95 whitespace-nowrap relative z-50"
           >
-            ثبت التطبيق 📲
+            تنزيل الأبلكيشن 📲
           </motion.button>
         )
       )}
