@@ -265,7 +265,7 @@ export default function BeebaChatPage() {
     };
 
     return (
-        <div className="min-h-screen flex bg-background relative overflow-hidden text-white font-sans" dir="rtl">
+        <div className="min-h-screen flex bg-background relative overflow-hidden text-foreground font-sans" dir="rtl">
             {/* Aesthetic Background */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full" />
@@ -281,16 +281,16 @@ export default function BeebaChatPage() {
             )}
 
             {/* Sidebar */}
-            <aside className={`fixed top-0 right-0 h-full ${isSidebarOpen ? 'w-[320px] shadow-[0_0_50px_rgba(0,0,0,0.8)]' : 'w-0'} bg-[#0a0a0a]/95 backdrop-blur-3xl border-l border-white/5 transition-all duration-500 flex flex-col z-40 overflow-hidden`}>
+            <aside className={`fixed top-0 right-0 h-full ${isSidebarOpen ? 'w-[320px] shadow-[0_0_50px_rgba(0,0,0,0.5)]' : 'w-0'} bg-card/95 backdrop-blur-3xl border-l border-foreground/5 transition-all duration-500 flex flex-col z-40 overflow-hidden`}>
                 <div className="p-6 border-b border-white/5 flex flex-col gap-4">
                     <button
                         onClick={createNewChat}
-                        className="w-full py-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-primary/30 transition-all font-black text-sm uppercase tracking-widest text-primary shadow-lg shadow-primary/5 group"
+                        className="w-full py-4 bg-foreground/5 border border-foreground/10 rounded-2xl flex items-center justify-center gap-3 hover:bg-foreground/10 hover:border-primary/30 transition-all font-black text-sm uppercase tracking-widest text-primary shadow-lg shadow-primary/5 group"
                     >
                         <svg className="w-5 h-5 group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
                         محادثة جديدة
                     </button>
-                    <p className="text-[10px] text-white/20 font-black uppercase tracking-[0.4em] mr-2">المحادثات السابقة</p>
+                    <p className="text-[10px] text-foreground/20 font-black uppercase tracking-[0.4em] mr-2">المحادثات السابقة</p>
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-4 space-y-2 scrollbar-hide">
@@ -316,13 +316,13 @@ export default function BeebaChatPage() {
             </aside>
 
             {/* Main Chat Area */}
-            <div className="flex-1 flex flex-col relative z-10 overflow-hidden h-screen bg-[#050505]">
+            <div className="flex-1 flex flex-col relative z-10 overflow-hidden h-screen bg-background">
                 {/* Header - Now in flex flow to avoid overlapping content */}
-                <header className="flex-none h-20 md:h-24 flex justify-between items-center bg-black/80 backdrop-blur-3xl px-6 md:px-12 border-b border-white/10 z-50">
+                <header className="flex-none h-20 md:h-24 flex justify-between items-center bg-card/80 backdrop-blur-3xl px-6 md:px-12 border-b border-foreground/10 z-50">
                     <div className="flex items-center gap-6">
                         <button
                             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                            className="p-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 transition-all active:scale-95"
+                            className="p-3 bg-foreground/5 hover:bg-foreground/10 rounded-xl border border-foreground/5 transition-all active:scale-95"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
@@ -358,8 +358,8 @@ export default function BeebaChatPage() {
                                 >
                                     <div
                                         className={`max-w-[85%] md:max-w-[70%] p-4 md:p-6 rounded-3xl text-base md:text-xl leading-[1.6] shadow-xl relative group ${msg.role === "user"
-                                            ? "bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-white rounded-tr-none"
-                                            : "bg-gradient-to-br from-white/10 to-white/5 border border-white/10 text-white/95 rounded-tl-none backdrop-blur-2xl"
+                                            ? "bg-primary/10 border border-primary/20 text-foreground rounded-tr-none"
+                                            : "glass-card text-foreground/95 rounded-tl-none backdrop-blur-2xl"
                                             }`}
                                     >
                                         <div className="relative z-10 whitespace-pre-wrap">
@@ -426,18 +426,18 @@ export default function BeebaChatPage() {
                     )}
 
                     <div className="w-full max-w-4xl">
-                        <div className="relative group p-[1px] rounded-[2rem] bg-gradient-to-r from-white/10 via-white/5 to-white/10 focus-within:from-primary/40 focus-within:to-secondary/40 transition-all duration-700">
-                            <div className="flex flex-col md:flex-row gap-3 bg-[#080808]/95 backdrop-blur-3xl rounded-[1.9rem] p-3 md:p-4">
+                        <div className="relative group p-[1px] rounded-[2rem] bg-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 focus-within:from-primary/40 focus-within:to-secondary/40 transition-all duration-700">
+                            <div className="flex flex-col md:flex-row gap-3 bg-card/95 backdrop-blur-3xl rounded-[1.9rem] p-3 md:p-4">
                                 <div className="flex items-center gap-2">
                                     <input type="file" hidden ref={fileInputRef} onChange={handleFileChange} multiple accept="image/*" />
-                                    <button onClick={() => fileInputRef.current?.click()} className="p-3 bg-white/5 rounded-xl hover:bg-white/10 border border-white/10 transition-all group/btn">
-                                        <svg className="w-6 h-6 text-white/40 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                    <button onClick={() => fileInputRef.current?.click()} className="p-3 bg-foreground/5 rounded-xl hover:bg-foreground/10 border border-foreground/10 transition-all group/btn">
+                                        <svg className="w-6 h-6 text-foreground/40 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                                     </button>
                                     <button
                                         onMouseDown={startRecording} onMouseUp={stopRecording} onMouseLeave={stopRecording}
-                                        className={`p-3 rounded-xl border transition-all ${isRecording ? 'bg-red-500/20 border-red-500 animate-pulse' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                        className={`p-3 rounded-xl border transition-all ${isRecording ? 'bg-red-500/20 border-red-500 animate-pulse' : 'bg-foreground/5 border-foreground/10 hover:bg-foreground/10'}`}
                                     >
-                                        <svg className={`w-6 h-6 ${isRecording ? 'text-red-500' : 'text-white/40'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-20a3 3 0 00-3 3v10a3 3 0 006 0V3a3 3 0 00-3-3z" /></svg>
+                                        <svg className={`w-6 h-6 ${isRecording ? 'text-red-500' : 'text-foreground/40'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-20a3 3 0 00-3 3v10a3 3 0 006 0V3a3 3 0 00-3-3z" /></svg>
                                     </button>
                                 </div>
 
@@ -457,7 +457,7 @@ export default function BeebaChatPage() {
                                             }
                                         }}
                                         placeholder={isRecording ? "جاري التسجيل..." : "إسأل الدحيح..."}
-                                        className="w-full bg-transparent border-none px-3 py-3 text-lg text-white placeholder:text-white/10 focus:outline-none transition-all resize-none max-h-[120px] scrollbar-hide min-h-[48px]"
+                                        className="w-full bg-transparent border-none px-3 py-3 text-lg text-foreground placeholder:text-foreground/10 focus:outline-none transition-all resize-none max-h-[120px] scrollbar-hide min-h-[48px]"
                                     />
                                 </div>
                                 <div className="flex items-end justify-end">
