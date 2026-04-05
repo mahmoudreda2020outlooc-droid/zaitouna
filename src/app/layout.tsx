@@ -52,9 +52,15 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              window.deferredPrompt = null;
+              window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                window.deferredPrompt = e;
+                window.dispatchEvent(new Event('pwa-prompt-ready'));
+              });
+
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  // Unregister any old workers to be safe
                   navigator.serviceWorker.getRegistrations().then(function(registrations) {
                     for(let registration of registrations) {
                       if (!registration.active?.scriptURL.includes('sw-final.js')) {
