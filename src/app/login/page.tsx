@@ -88,9 +88,11 @@ export default function LoginPage() {
     return (
         <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
             {/* Dynamic Background Effects */}
-            <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[150px] animate-pulse"></div>
-            <div className="absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] bg-secondary/15 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute top-[30%] right-[10%] w-[20%] h-[20%] bg-primary/5 rounded-full blur-[80px]"></div>
+            <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-primary/20 rounded-full blur-[180px] animate-pulse"></div>
+            <div className="absolute bottom-[-15%] right-[-10%] w-[60%] h-[60%] bg-secondary/20 rounded-full blur-[180px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-[30%] left-[40%] w-[30%] h-[30%] bg-purple-500/10 rounded-full blur-[120px] animate-bounce-slow"></div>
+            <div className="absolute top-[10%] right-[20%] w-[40px] h-[40px] bg-white/5 rounded-full blur-[2px] animate-float"></div>
+            <div className="absolute bottom-[20%] left-[10%] w-[60px] h-[60px] bg-white/5 rounded-full blur-[2px] animate-float-delayed"></div>
 
             <div className="fade-in w-full max-w-lg px-6 relative z-10">
                 <div className="glass-card p-10 md:p-14 border border-white/5 relative overflow-hidden">
@@ -132,23 +134,28 @@ export default function LoginPage() {
                                             required
                                         />
                                     ) : (
-                                        <div className="fade-in space-y-4">
-                                            <input
-                                                type="password"
-                                                id="adminKey"
-                                                value={adminKey}
-                                                autoFocus
-                                                onChange={(e) => setAdminKey(e.target.value)}
-                                                className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-secondary/40 focus:border-secondary/30 transition-all text-center text-xl font-bold"
-                                                placeholder="••••••••"
-                                                required
-                                            />
+                                        <div className="space-y-6">
+                                            <div className="relative">
+                                                <input
+                                                    type="password"
+                                                    id="adminKey"
+                                                    value={adminKey}
+                                                    autoFocus
+                                                    onChange={(e) => setAdminKey(e.target.value)}
+                                                    className="w-full px-6 py-6 bg-white/[0.03] border-2 border-secondary/30 rounded-3xl text-white placeholder:text-white/10 focus:outline-none focus:ring-4 focus:ring-secondary/20 focus:border-secondary/50 transition-all text-center text-2xl font-black tracking-widest shadow-[0_0_40px_rgba(236,72,153,0.1)]"
+                                                    placeholder="••••••••"
+                                                    required
+                                                />
+                                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 bg-[#0d1117] text-[10px] font-black text-secondary uppercase tracking-[0.3em] border border-secondary/20 rounded-full">
+                                                    Secret Access
+                                                </div>
+                                            </div>
                                             <button
                                                 type="button"
                                                 onClick={() => setMode("student")}
-                                                className="w-full text-[10px] text-white/10 uppercase hover:text-white/30 transition-colors"
+                                                className="w-full py-3 text-[11px] text-white/20 font-bold uppercase hover:text-secondary/60 hover:bg-secondary/5 border border-transparent hover:border-secondary/10 rounded-xl transition-all tracking-widest"
                                             >
-                                                Back to Student Login
+                                                ← Back to Student Portal
                                             </button>
                                         </div>
                                     )}
