@@ -61,13 +61,13 @@ export default function HomePage() {
           <div className="flex items-center gap-4">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-primary to-secondary rounded-full blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-              <div className="w-14 h-14 bg-card rounded-full flex items-center justify-center text-white text-xl font-bold relative border border-white/10">
+              <div className="w-14 h-14 bg-card rounded-full flex items-center justify-center text-foreground text-xl font-bold relative border border-white/10">
                 {user.name.charAt(0)}
               </div>
             </div>
             <div>
-              <h2 className="text-2xl md:text-3xl font-black text-white leading-tight mb-1 py-1 md:py-2 text-gradient drop-shadow-[0_2px_10px_rgba(0,242,255,0.15)]">{user.name}</h2>
-              <p className="text-[9px] md:text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mt-1 pr-1 border-r-2 border-primary/20">فرقة تانية - قسم تكنولوجيا المعلومات</p>
+              <h2 className="text-2xl md:text-3xl font-black text-foreground leading-tight mb-1 py-1 md:py-2 text-gradient drop-shadow-[0_2px_10px_rgba(0,242,255,0.15)]">{user.name}</h2>
+              <p className="text-[9px] md:text-[10px] font-bold text-foreground/30 uppercase tracking-[0.2em] mt-1 pr-1 border-r-2 border-primary/20">فرقة تانية - قسم تكنولوجيا المعلومات</p>
             </div>
           </div>
 
@@ -98,11 +98,11 @@ export default function HomePage() {
               <div className="max-w-3xl pr-2">
                 <div className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-primary/20 backdrop-blur-md">إلهام اليوم</div>
 
-                <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight drop-shadow-2xl">
+                <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight drop-shadow-2xl text-foreground">
                   {currentQuote.main} <span className="text-gradient block md:inline-block mt-2 md:mt-0">{currentQuote.subMain}</span>
                 </h1>
 
-                <p className="text-white/70 text-sm md:text-xl font-medium mb-8 leading-relaxed max-w-2xl border-r-2 border-primary/30 pr-4 md:pr-6">
+                <p className="text-foreground/70 text-sm md:text-xl font-medium mb-8 leading-relaxed max-w-2xl border-r-2 border-primary/30 pr-4 md:pr-6">
                   "{currentQuote.quote}"
                 </p>
 
@@ -225,7 +225,7 @@ export default function HomePage() {
             {/* DeveloperCard moved to RootLayout */}
           </div>
 
-          <div className="text-[10px] font-bold text-white/10 uppercase tracking-[0.2em]">
+          <div className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.2em]">
             © {new Date().getFullYear()} Independent Student Initiative
           </div>
         </footer>
