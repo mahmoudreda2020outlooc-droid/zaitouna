@@ -100,18 +100,18 @@ export default function LoginPage() {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
 
                     <div className="text-center mb-10">
-                        <h1 className="text-6xl font-black mb-4 tracking-tighter text-white">الزتـونـة</h1>
+                        <h1 className="text-6xl font-black mb-4 tracking-tighter text-foreground">الزتـونـة</h1>
                         <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-6 neon-glow"></div>
-                        <p className="text-white/50 text-sm font-medium leading-relaxed max-w-xs mx-auto">
+                        <p className="text-foreground/50 text-sm font-medium leading-relaxed max-w-xs mx-auto">
                             نهدف لتيسير المذاكرة ومساعدة زملائنا الطلاب <br />
-                            <span className="text-white/20 text-[10px] mt-2 block italic uppercase tracking-widest">Powered by Advanced AI</span>
+                            <span className="text-foreground/20 text-[10px] mt-2 block italic uppercase tracking-widest">Powered by Advanced AI</span>
                         </p>
                     </div>
 
                     {step === 1 ? (
                         <form onSubmit={handleLookup} className="space-y-8">
                             <div className="relative group">
-                                <label htmlFor="studentId" className="block text-xs font-bold text-white/40 uppercase tracking-widest mb-3 mr-1 text-right">
+                                <label htmlFor="studentId" className="block text-xs font-bold text-foreground/40 uppercase tracking-widest mb-3 mr-1 text-right">
                                     {mode === "student" ? "كود الطالب الشخصي" : "كود المسؤول السري"}
                                 </label>
                                 <div className="relative">
@@ -129,7 +129,7 @@ export default function LoginPage() {
                                                     setStudentId("");
                                                 }
                                             }}
-                                            className="w-full px-6 py-5 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all text-center text-3xl font-black tracking-[0.2em]"
+                                            className="w-full px-6 py-5 bg-foreground/[0.03] border border-foreground/10 rounded-2xl text-foreground placeholder:text-foreground/10 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all text-center text-3xl font-black tracking-[0.2em]"
                                             placeholder="0000000"
                                             required
                                         />
@@ -142,7 +142,7 @@ export default function LoginPage() {
                                                     value={adminKey}
                                                     autoFocus
                                                     onChange={(e) => setAdminKey(e.target.value)}
-                                                    className="w-full px-6 py-6 bg-white/[0.03] border-2 border-secondary/30 rounded-3xl text-white placeholder:text-white/10 focus:outline-none focus:ring-4 focus:ring-secondary/20 focus:border-secondary/50 transition-all text-center text-2xl font-black tracking-widest shadow-[0_0_40px_rgba(236,72,153,0.1)]"
+                                                    className="w-full px-6 py-6 bg-foreground/[0.03] border-2 border-secondary/30 rounded-3xl text-foreground placeholder:text-foreground/10 focus:outline-none focus:ring-4 focus:ring-secondary/20 focus:border-secondary/50 transition-all text-center text-2xl font-black tracking-widest shadow-[0_0_40px_rgba(236,72,153,0.1)]"
                                                     placeholder="••••••••"
                                                     required
                                                 />
@@ -190,9 +190,9 @@ export default function LoginPage() {
                         </form>
                     ) : (
                         <div className="space-y-8 fade-in">
-                            <div className="bg-white/[0.03] border border-white/5 p-8 rounded-3xl text-center space-y-4">
-                                <div className="text-white/40 text-[10px] uppercase tracking-widest font-bold">بيانات الطالب</div>
-                                <h2 className="text-2xl font-bold text-white">{studentInfo.name}</h2>
+                            <div className="bg-foreground/[0.03] border border-foreground/5 p-8 rounded-3xl text-center space-y-4">
+                                <div className="text-foreground/40 text-[10px] uppercase tracking-widest font-bold">بيانات الطالب</div>
+                                <h2 className="text-2xl font-bold text-foreground">{studentInfo.name}</h2>
                                 <div className="flex justify-center gap-4 text-sm">
                                     <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary">
                                         مجموعة {studentInfo.group}
@@ -225,11 +225,11 @@ export default function LoginPage() {
                         </div>
                     )}
 
-                    <div className="mt-14 pt-8 border-t border-white/5 text-center flex flex-col gap-4">
-                        <p className="text-white/20 text-[10px] uppercase tracking-widest font-bold">
+                    <div className="mt-14 pt-8 border-t border-foreground/5 text-center flex flex-col gap-4">
+                        <p className="text-foreground/20 text-[10px] uppercase tracking-widest font-bold">
                             Developed for the next generation of engineers
                         </p>
-                        <div className="text-white/10 text-xs">
+                        <div className="text-foreground/10 text-xs">
                             © {new Date().getFullYear()} Az-Zaitouna LMS
                         </div>
                     </div>
