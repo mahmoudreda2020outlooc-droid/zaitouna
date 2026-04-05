@@ -10,12 +10,14 @@ export async function GET(req: Request) {
         const isCheck = searchParams.get("check") === "true";
 
         const authUser = await getAuthUser();
-        if (!authUser) {
+
+        // Allow lookup without session for initial login (if studentId provided and not a check)
+        if (!authUser && isCheck) {
             return NextResponse.json({ message: "غير مصرح لك بالدخول" }, { status: 401 });
         }
 
-        // If not checking, and providing a studentId, ensure requester is admin OR looking for self
-        if (!isCheck && studentId && studentId !== authUser.id && !authUser.isAdmin) {
+        // If logged in as student, prevent looking up others
+        if (authUser && !authUser.isAdmin && studentId && studentId !== authUser.id && !isCheck) {
             return NextResponse.json({ message: "لا تملك صلاحية البحث عن طلاب آخرين" }, { status: 403 });
         }
 
@@ -41,7 +43,7 @@ export async function GET(req: Request) {
                     group: student.group,
                     section: student.section,
                     subGroup: student.subGroup,
-                    isAdmin: authUser.isAdmin
+                    isAdmin: authUser?.isAdmin || false
                 }
             });
         }
