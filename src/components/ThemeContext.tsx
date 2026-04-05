@@ -2,15 +2,15 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = 'dark' | 'system';
 
 export const accentColors = {
-    mint: { name: 'نعناع', color: '#2dd4bf', secondary: '#0d9488' },
-    grape: { name: 'عنب', color: '#a855f7', secondary: '#7e22ce' },
-    banana: { name: 'موز', color: '#facc15', secondary: '#ca8a04' },
-    ocean: { name: 'محيط', color: '#38bdf8', secondary: '#0284c7' },
-    bubblegum: { name: 'علكة', color: '#f472b6', secondary: '#db2777' },
-    sunset: { name: 'غروب', color: '#fb923c', secondary: '#ea580c' },
+    mint: { name: 'تركواز', color: '#2dd4bf', secondary: '#0d9488' },
+    grape: { name: 'بنفسجي', color: '#a855f7', secondary: '#7e22ce' },
+    banana: { name: 'أصفر', color: '#facc15', secondary: '#ca8a04' },
+    ocean: { name: 'أزرق', color: '#38bdf8', secondary: '#0284c7' },
+    bubblegum: { name: 'وردي', color: '#f472b6', secondary: '#db2777' },
+    sunset: { name: 'برتقالي', color: '#fb923c', secondary: '#ea580c' },
 };
 
 export type AccentColor = keyof typeof accentColors;
@@ -25,7 +25,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-    const [theme, setThemeState] = useState<Theme>('system');
+    const [theme, setThemeState] = useState<Theme>('dark');
     const [accentColor, setAccentColorState] = useState<AccentColor>('mint');
 
     // Load from localStorage on mount
@@ -41,14 +41,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         const root = window.document.documentElement;
 
-        // Handle Light/Dark/System
+        // Handle Dark/System
         const applyTheme = (t: Theme) => {
             root.classList.remove('light', 'dark');
             if (t === 'system') {
                 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 root.classList.add(systemTheme);
             } else {
-                root.classList.add(t);
+                root.classList.add('dark');
             }
         };
 

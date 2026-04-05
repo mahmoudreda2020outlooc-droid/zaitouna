@@ -10,7 +10,6 @@ export default function AppearanceSettings({ isOpen, setIsOpen }: { isOpen: bool
     const toggleOpen = () => setIsOpen(!isOpen);
 
     const themeOptions = [
-        { id: 'light', label: 'فاتح', icon: <SunIcon /> },
         { id: 'system', label: 'تلقائي', icon: <MonitorIcon /> },
         { id: 'dark', label: 'غامق', icon: <MoonIcon /> },
     ] as const;
