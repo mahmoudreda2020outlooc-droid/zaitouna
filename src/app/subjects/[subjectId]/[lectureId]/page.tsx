@@ -52,16 +52,14 @@ const SummaryRenderer = ({ content }: { content: string }) => {
 
     const renderText = (text: string) => {
         const parts = text.split(/(\*\*.*?\*\*)/g);
-        const highlighterColors = ['#fbbf24', '#00f2ff', '#bd65ff', '#4ade80'];
 
         return parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
-                const color = highlighterColors[i % highlighterColors.length];
                 return (
                     <span
                         key={i}
                         className="premium-highlighter inline-block mx-1 leading-none"
-                        style={{ '--hl-color': color } as any}
+                        style={{ '--hl-color': 'var(--primary)' } as any}
                     >
                         {part.slice(2, -2)}
                     </span>
@@ -151,7 +149,7 @@ export default function LectureDetailsPage() {
                         {lecture.title}
                     </h1>
                     <div className="flex items-center justify-center gap-4">
-                        <span className="glass-pill px-6 py-2 text-xs md:text-sm text-cyan-400 font-black uppercase tracking-[0.3em] shadow-inner">
+                        <span className="glass-pill px-6 py-2 text-xs md:text-sm text-primary font-black uppercase tracking-[0.3em] shadow-inner">
                             {subjectId.split('-')[0]}
                         </span>
                         <span className="glass-pill px-6 py-2 text-xs md:text-sm text-amber-500 font-black uppercase tracking-[0.3em] shadow-inner">
@@ -232,13 +230,13 @@ export default function LectureDetailsPage() {
 
                             {lecture.resources.assignments && lecture.resources.assignments !== "#" ? (
                                 <a href={lecture.resources.assignments} target="_blank" className="resource-card assign-card group">
-                                    <div className="resource-icon bg-cyan-500/10 text-cyan-500">⚡</div>
+                                    <div className="resource-icon bg-primary/10 text-primary">⚡</div>
                                     <div className="text-right flex-1">
-                                        <h3 className="text-white font-black text-base group-hover:text-cyan-400 transition-colors">المهام المطلوبة</h3>
+                                        <h3 className="text-white font-black text-base group-hover:text-primary/80 transition-colors">المهام المطلوبة</h3>
                                         <p className="text-white/30 text-[11px] font-bold uppercase tracking-wider">SUBMISSIONS</p>
                                     </div>
                                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-                                        <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
+                                        <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" /></svg>
                                     </div>
                                 </a>
                             ) : (
@@ -268,7 +266,7 @@ export default function LectureDetailsPage() {
                     background: rgba(255,255,255,0.03);
                     border: 1px solid rgba(255,255,255,0.08);
                     border-radius: 99px;
-                    backdrop-blur: 8px;
+                    backdrop-filter: blur(8px);
                 }
                 .friendly-card {
                     background: rgba(255,255,255,0.015);
@@ -276,6 +274,18 @@ export default function LectureDetailsPage() {
                     border-radius: 48px;
                     box-shadow: 0 4px 24px -1px rgba(0,0,0,0.2);
                     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+                    /* Optimize for mobile */
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                }
+                @media (max-width: 768px) {
+                    .friendly-card {
+                        border-radius: 24px;
+                        padding: 24px !important;
+                        backdrop-filter: none;
+                        -webkit-backdrop-filter: none;
+                        background: rgba(255,255,255,0.03);
+                    }
                 }
                 .friendly-card:hover {
                     background: rgba(255,255,255,0.025);
@@ -316,7 +326,7 @@ export default function LectureDetailsPage() {
                 .pdf-card:hover { border-right: 4px solid #ef4444; }
                 .sheet-card:hover { border-right: 4px solid #22c55e; }
                 .solve-card:hover { border-right: 4px solid #f59e0b; }
-                .assign-card:hover { border-right: 4px solid #06b6d4; }
+                .assign-card:hover { border-right: 4px solid var(--primary); }
                 .activity-card:hover { border-right: 4px solid #8b5cf6; }
                 .quiz-card:hover { border-right: 4px solid #818cf8; }
 
