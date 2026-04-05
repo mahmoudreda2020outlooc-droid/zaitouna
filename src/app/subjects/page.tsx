@@ -58,7 +58,7 @@ export default function SubjectsPage() {
     if (!user) return null;
 
     return (
-        <main className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8 lg:p-12 font-[Outfit,system-ui,sans-serif]" dir="rtl">
+        <main className="min-h-screen bg-background text-foreground p-4 md:p-8 lg:p-12 font-[Outfit,system-ui,sans-serif]" dir="rtl">
             {/* Background mesh */}
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,242,255,0.05),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(189,101,255,0.05),transparent_50%)] pointer-events-none -z-10" />
 
@@ -69,10 +69,10 @@ export default function SubjectsPage() {
                         <Link href="/" className="text-primary/70 hover:text-primary mb-4 inline-block transition-colors text-sm font-bold flex items-center gap-2">
                             <span>←</span> العودة للرئيسية
                         </Link>
-                        <h1 className="text-2xl md:text-5xl font-black tracking-tight mb-2">
+                        <h1 className="text-2xl md:text-5xl font-black tracking-tight mb-2 text-foreground">
                             زتونة <span className="text-gradient">المواد</span>
                         </h1>
-                        <p className="text-white/50 text-sm md:text-base">هنا تلاقي الخلاصة لكل مادة دراسية شايل همها.</p>
+                        <p className="text-foreground/50 text-sm md:text-base">هنا تلاقي الخلاصة لكل مادة دراسية شايل همها.</p>
                     </div>
 
                     <div className="glass-card px-6 py-4 flex items-center gap-4 border-white/5">
@@ -80,8 +80,8 @@ export default function SubjectsPage() {
                             {user.name.charAt(0)}
                         </div>
                         <div>
-                            <div className="text-sm text-white/40 font-bold uppercase tracking-wider">الطالب</div>
-                            <div className="font-bold text-white/90">{user.name}</div>
+                            <div className="text-sm text-foreground/40 font-bold uppercase tracking-wider">الطالب</div>
+                            <div className="font-bold text-foreground/90">{user.name}</div>
                         </div>
                     </div>
                 </div>
@@ -103,8 +103,8 @@ export default function SubjectsPage() {
                             </div>
 
                             <div className="mb-auto w-full">
-                                <h3 className="text-lg md:text-2xl font-black mb-3 md:mb-4 group-hover:text-primary transition-colors truncate">{subject.title}</h3>
-                                <p className="text-white/40 text-[12px] md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-white/60 transition-colors line-clamp-3 md:line-clamp-none">{renderTextWithHighlights(subject.summary)}</p>
+                                <h3 className="text-lg md:text-2xl font-black mb-3 md:mb-4 group-hover:text-primary transition-colors truncate text-foreground">{subject.title}</h3>
+                                <p className="text-foreground/40 text-[12px] md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-foreground/60 transition-colors line-clamp-3 md:line-clamp-none">{renderTextWithHighlights(subject.summary)}</p>
                             </div>
                         </Link>
                     ))}
@@ -113,15 +113,15 @@ export default function SubjectsPage() {
 
             <style jsx>{`
         .text-gradient {
-          background: linear-gradient(135deg, #00f2ff 0%, #bd65ff 100%);
+          background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
         .glass-card {
-           background: rgba(255, 255, 255, 0.03);
+           background: var(--glass);
            backdrop-filter: blur(12px);
            border-radius: 24px;
-           border: 1px solid rgba(255, 255, 255, 0.05);
+           border: 1px solid var(--glass-border);
         }
       `}</style>
         </main>
