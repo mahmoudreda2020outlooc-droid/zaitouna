@@ -25,8 +25,8 @@ export async function POST(req: Request) {
 
         const admin = createAdminClient();
         const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'MainDatabase';
-        const collId = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID || 'user_links';
-        const studentsCollId = 'students';
+        const collId = 'user_links';
+        const studentsCollId = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID || 'students';
 
         if (action === 'link' && studentId) {
             // ربط الحساب
