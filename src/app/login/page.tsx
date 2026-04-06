@@ -272,17 +272,7 @@ export default function LoginPage() {
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <button
-                                    onClick={handleLogin}
-                                    disabled={isLoading}
-                                    className={`btn-premium w-full group relative ${isLoading ? "opacity-90 cursor-not-allowed" : ""}`}
-                                >
-                                    {isLoading ? (
-                                        <div className="btn-loader"></div>
-                                    ) : (
-                                        <span className="relative z-10">تأكيد الدخول</span>
-                                    )}
-                                </button>
+
 
                                 <button
                                     onClick={handleGoogleLink}
