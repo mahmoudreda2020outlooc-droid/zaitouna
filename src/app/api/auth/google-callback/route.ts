@@ -1,15 +1,18 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/appwrite-admin";
 import { setAuthCookie } from "@/lib/auth-utils";
-import path from "path";
-import fs from "fs";
+import { Query } from "node-appwrite";
 
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
-    const userId = searchParams.get('userId');
-    const secret = searchParams.get('secret');
-    const studentId = searchParams.get('studentId');
-    const action = searchParams.get('action');
+    const userId = searchParams.get("userId");
+    const secret = searchParams.get("secret");
+    const studentId = searchParams.get("studentId");
+    const action = searchParams.get("action");
+
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+    const collId = 'user_links';
+    const studentsCollId = 'students';
 
     if (!userId || !secret) {
         return NextResponse.redirect(new URL('/login?error=auth_failed', req.url));
@@ -46,12 +49,13 @@ export async function GET(req: Request) {
             }
 
             // تسجيل الدخول بعد الربط
-            const studentsPath = path.join(process.cwd(), "src", "data", "students.json");
-            const students = JSON.parse(fs.readFileSync(studentsPath, "utf8"));
-            const student = students.find((s: any) => s.id === studentId);
+            const response = await admin.databases.listDocuments(dbId, studentsCollId, [
+                Query.equal("studentId", studentId)
+            ]);
 
-            if (student) {
-                await setAuthCookie({ id: student.id, name: student.name });
+            if (response.total > 0) {
+                const student = response.documents[0];
+                await setAuthCookie({ id: student.studentId, name: student.name });
                 return NextResponse.redirect(new URL('/', req.url));
             }
         } else if (action === 'login') {
@@ -60,12 +64,14 @@ export async function GET(req: Request) {
                 const doc = await admin.databases.getDocument(dbId, collId, userId);
                 const linkedStudentId = doc.studentId;
 
-                const studentsPath = path.join(process.cwd(), "src", "data", "students.json");
-                const students = JSON.parse(fs.readFileSync(studentsPath, "utf8"));
-                const student = students.find((s: any) => s.id === linkedStudentId);
+                const studentsCollId = 'students';
+                const response = await admin.databases.listDocuments(dbId, studentsCollId, [
+                    Query.equal("studentId", linkedStudentId)
+                ]);
 
-                if (student) {
-                    await setAuthCookie({ id: student.id, name: student.name });
+                if (response.total > 0) {
+                    const student = response.documents[0];
+                    await setAuthCookie({ id: student.studentId, name: student.name });
                     return NextResponse.redirect(new URL('/', req.url));
                 }
             } catch (e) {
