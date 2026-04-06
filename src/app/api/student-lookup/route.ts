@@ -53,7 +53,7 @@ export async function GET(req: Request) {
         }
 
         return NextResponse.json({ message: "كود الطالب غير مسجل" }, { status: 404 });
-    } catch (error) {
+    } catch (error: any) {
         console.error("Lookup Error:", error);
         return NextResponse.json({ message: "حدث خطأ في السيرفر" }, { status: 500 });
     }
