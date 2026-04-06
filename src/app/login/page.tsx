@@ -26,7 +26,34 @@ export default function LoginPage() {
         } else if (errorParam === 'server_error') {
             setError("حدث خطأ في السيرفر أثناء الربط.");
         }
-    }, []);
+
+        // Handle OAuth success callback
+        if (urlParams.get('googleAuth') === 'success') {
+            setIsLoading(true);
+            setError("");
+            account.createJWT().then(async ({ jwt }) => {
+                const oauthAction = localStorage.getItem('googleAuthAction') || 'login';
+                const authStudentId = localStorage.getItem('googleAuthStudentId');
+
+                const response = await fetch('/api/auth/google', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ jwt, action: oauthAction, studentId: authStudentId })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    router.push('/');
+                } else {
+                    setError(data.message || "فشل تسجيل الدخول");
+                    setIsLoading(false);
+                }
+            }).catch(err => {
+                setError("حدث خطأ في قراءة بيانات حساب جوجل.");
+                setIsLoading(false);
+            });
+        }
+    }, [router]);
 
     const handleLookup = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -72,19 +99,21 @@ export default function LoginPage() {
     };
 
     const handleGoogleLink = () => {
-        // Appwrite OAuth flow
+        localStorage.setItem('googleAuthAction', 'link');
+        localStorage.setItem('googleAuthStudentId', studentId);
         account.createOAuth2Session(
             OAuthProvider.Google,
-            window.location.origin + `/api/auth/google-callback?studentId=${studentId}&action=link`,
-            window.location.origin + "/login"
+            window.location.origin + "/login?googleAuth=success",
+            window.location.origin + "/login?error=auth_failed"
         );
     };
 
     const handleGoogleLogin = () => {
+        localStorage.setItem('googleAuthAction', 'login');
         account.createOAuth2Session(
             OAuthProvider.Google,
-            window.location.origin + "/api/auth/google-callback?action=login",
-            window.location.origin + "/login"
+            window.location.origin + "/login?googleAuth=success",
+            window.location.origin + "/login?error=auth_failed"
         );
     };
 
