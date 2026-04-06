@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { account, client } from "@/lib/appwrite";
+import { OAuthProvider } from "appwrite";
 
 export default function LoginPage() {
     const [studentId, setStudentId] = useState("");
@@ -14,7 +16,16 @@ export default function LoginPage() {
     const router = useRouter();
 
     useEffect(() => {
-        // Redirection is handled by server-side middleware
+        // Handle error messages from Google Auth
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorParam = urlParams.get('error');
+        if (errorParam === 'not_linked') {
+            setError("الحساب ده مش مربوط بأي طالب، ادخل بالكود الأول واربطه بجوجل.");
+        } else if (errorParam === 'auth_failed') {
+            setError("فشل التحقق من حساب جوجل.");
+        } else if (errorParam === 'server_error') {
+            setError("حدث خطأ في السيرفر أثناء الربط.");
+        }
     }, []);
 
     const handleLookup = async (e: React.FormEvent) => {
@@ -58,6 +69,23 @@ export default function LoginPage() {
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const handleGoogleLink = () => {
+        // Appwrite OAuth flow
+        account.createOAuth2Session(
+            OAuthProvider.Google,
+            window.location.origin + `/api/auth/google-callback?studentId=${studentId}&action=link`,
+            window.location.origin + "/login"
+        );
+    };
+
+    const handleGoogleLogin = () => {
+        account.createOAuth2Session(
+            OAuthProvider.Google,
+            window.location.origin + "/api/auth/google-callback?action=login",
+            window.location.origin + "/login"
+        );
     };
 
     const handleLogin = async () => {
@@ -187,6 +215,17 @@ export default function LoginPage() {
                                     </>
                                 )}
                             </button>
+
+                            {mode === "student" && (
+                                <button
+                                    type="button"
+                                    onClick={handleGoogleLogin}
+                                    className="w-full py-4 bg-white/[0.03] border border-white/5 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/5 transition-all group"
+                                >
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5 h-5 opacity-80 group-hover:opacity-100" alt="Google" />
+                                    <span className="text-white/60 text-sm font-bold group-hover:text-white">نسيت الكود؟ دخول بجوجل</span>
+                                </button>
+                            )}
                         </form>
                     ) : (
                         <div className="space-y-8 fade-in">
@@ -215,6 +254,15 @@ export default function LoginPage() {
                                         <span className="relative z-10">تأكيد الدخول</span>
                                     )}
                                 </button>
+
+                                <button
+                                    onClick={handleGoogleLink}
+                                    className="w-full py-4 bg-white/[0.03] border border-primary/20 rounded-2xl flex items-center justify-center gap-3 hover:bg-primary/10 transition-all group"
+                                >
+                                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5 h-5 opacity-80 group-hover:opacity-100" alt="Google" />
+                                    <span className="text-primary text-sm font-black group-hover:brightness-125">ربط حسابي بجوجل</span>
+                                </button>
+
                                 <button
                                     onClick={() => setStep(1)}
                                     className="text-white/30 text-sm font-bold hover:text-white/50 transition-colors py-2"

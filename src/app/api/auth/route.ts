@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import { setAuthCookie } from "@/lib/auth-utils";
+import { createAdminClient } from "@/lib/appwrite-admin";
+import { Query } from "node-appwrite";
 
 export async function POST(req: Request) {
     try {
@@ -24,16 +24,17 @@ export async function POST(req: Request) {
             return NextResponse.json({ message: "كود الطالب مطلوب" }, { status: 400 });
         }
 
-        const dataPath = path.join(process.cwd(), "src", "data", "students.json");
-        if (!fs.existsSync(dataPath)) {
-            return NextResponse.json({ message: "قاعدة بيانات الطلاب غير متوفرة" }, { status: 500 });
-        }
+        const admin = createAdminClient();
+        const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+        const collId = 'students';
 
-        const students = JSON.parse(fs.readFileSync(dataPath, "utf8"));
-        const student = students.find((s: any) => s.id === studentId);
+        const response = await admin.databases.listDocuments(dbId, collId, [
+            Query.equal("studentId", studentId)
+        ]);
 
-        if (student) {
-            const userData = { id: student.id, name: student.name };
+        if (response.total > 0) {
+            const student = response.documents[0];
+            const userData = { id: student.studentId, name: student.name };
             await setAuthCookie(userData, false);
             return NextResponse.json({
                 success: true,
