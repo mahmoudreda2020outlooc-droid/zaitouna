@@ -29,6 +29,15 @@ export async function POST(req: Request) {
         const studentsCollId = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID || 'students';
 
         if (action === 'link' && studentId) {
+            // تحقق ما إذا كان هذا الكود مربوط بالفعل بحساب جوجل آخر
+            const existingStudentLinks = await admin.databases.listDocuments(dbId, collId, [
+                Query.equal("studentId", studentId)
+            ]);
+
+            if (existingStudentLinks.total > 0 && existingStudentLinks.documents[0].$id !== userId) {
+                return NextResponse.json({ message: "هذا الكود مربوط بحساب جوجل آخر بالفعل." }, { status: 400 });
+            }
+
             // ربط الحساب
             let exists = true;
             try {
