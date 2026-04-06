@@ -30,7 +30,7 @@ export async function GET(req: Request) {
         }
 
         const admin = createAdminClient();
-        const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+        const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'MainDatabase';
         const collId = 'students';
 
         const response = await admin.databases.listDocuments(dbId, collId, [

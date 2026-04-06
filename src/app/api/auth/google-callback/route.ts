@@ -10,7 +10,7 @@ export async function GET(req: Request) {
     const studentId = searchParams.get("studentId");
     const action = searchParams.get("action");
 
-    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'MainDatabase';
     const collId = 'user_links';
     const studentsCollId = 'students';
 
