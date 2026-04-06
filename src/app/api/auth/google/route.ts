@@ -30,14 +30,20 @@ export async function POST(req: Request) {
 
         if (action === 'link' && studentId) {
             // ربط الحساب
+            let exists = true;
             try {
-                await admin.databases.createDocument(dbId, collId, userId, {
+                await admin.databases.getDocument(dbId, collId, userId);
+            } catch (e) {
+                exists = false;
+            }
+
+            if (exists) {
+                await admin.databases.updateDocument(dbId, collId, userId, {
                     studentId: studentId,
                     userId: userId
                 });
-            } catch (e: any) {
-                // لو موجود قبل كدة، نحدثه
-                await admin.databases.updateDocument(dbId, collId, userId, {
+            } else {
+                await admin.databases.createDocument(dbId, collId, userId, {
                     studentId: studentId,
                     userId: userId
                 });
