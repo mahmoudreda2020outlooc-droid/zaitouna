@@ -11,18 +11,8 @@ export async function GET(req: Request) {
 
         const authUser = await getAuthUser();
 
-        // Allow lookup without session for initial login (if studentId provided and not a check)
-        if (!authUser && isCheck) {
-            return NextResponse.json({ message: "غير مصرح لك بالدخول" }, { status: 401 });
-        }
-
-        // If logged in as student, prevent looking up others
-        if (authUser && !authUser.isAdmin && studentId && studentId !== authUser.id && !isCheck) {
-            return NextResponse.json({ message: "لا تملك صلاحية البحث عن طلاب آخرين" }, { status: 403 });
-        }
-
         if (isCheck || !studentId) {
-            studentId = authUser.id;
+            studentId = authUser?.id;
         }
 
         if (!studentId) {
