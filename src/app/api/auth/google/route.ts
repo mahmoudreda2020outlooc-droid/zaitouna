@@ -33,16 +33,13 @@ export async function POST(req: Request) {
             try {
                 await admin.databases.createDocument(dbId, collId, userId, {
                     studentId: studentId,
-                    email: email,
-                    userId: userId,
-                    linkedAt: new Date().toISOString()
+                    userId: userId
                 });
             } catch (e: any) {
                 // لو موجود قبل كدة، نحدثه
                 await admin.databases.updateDocument(dbId, collId, userId, {
                     studentId: studentId,
-                    email: email,
-                    linkedAt: new Date().toISOString()
+                    userId: userId
                 });
             }
 
