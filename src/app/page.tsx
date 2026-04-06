@@ -30,9 +30,13 @@ export default function HomePage() {
         if (res.ok) {
           const data = await res.json();
           setUser(data.student);
+        } else {
+          // If auth check fails, go back to login
+          router.push('/login');
         }
       } catch (err) {
         console.error("Auth check failed", err);
+        router.push('/login');
       }
     }
     checkUser();
@@ -43,7 +47,14 @@ export default function HomePage() {
     setCurrentQuote(randomQuote);
   }, []);
 
-  if (!user) return null;
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
+        <div className="btn-loader w-10 h-10 border-primary"></div>
+        <p className="text-white/20 text-xs font-bold animate-pulse">جاري التحقق من الزتونة...</p>
+      </div>
+    );
+  }
 
 
   return (
