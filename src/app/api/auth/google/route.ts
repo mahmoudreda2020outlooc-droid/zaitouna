@@ -79,6 +79,6 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: "فشل التحقق." }, { status: 400 });
     } catch (error: any) {
         console.error("Google Auth Error:", error);
-        return NextResponse.json({ message: "Server Error" }, { status: 500 });
+        return NextResponse.json({ message: `Vercel Debug: ${error?.message || error}` }, { status: 500 });
     }
 }
