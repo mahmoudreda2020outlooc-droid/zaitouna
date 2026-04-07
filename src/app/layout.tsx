@@ -16,7 +16,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "الزتونة | Az-Zaitouna",
-  description: "الزتونة - المنصة التعليمية الذكية للطلاب. المذاكرة بذكاء مش بمجهود.",
+  description: "الزتونة - المنصة التعليمية الذكية للطلاب. المذاكرة بذكاء مش بمجهود. ملخصات، محاضرات، واختبارات لطلاب تكنولوجيا المعلومات.",
+  keywords: ["الزتونة", "Az-Zaitouna", "تعلم", "مذاكرة", "محاضرات", "ملخصات", "تكنولوجيا المعلومات", "LMS", "منصة تعليمية"],
+  authors: [{ name: "محمود رضا" }],
+  openGraph: {
+    title: "الزتونة | Az-Zaitouna",
+    description: "المنصة التعليمية الشاملة لطلاب تكنولوجيا المعلومات. المذاكرة بذكاء مش بمجهود.",
+    url: "https://zaitouna-eaqs.vercel.app",
+    siteName: "الزتونة",
+    locale: "ar_EG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "الزتونة | Az-Zaitouna",
+    description: "المنصة التعليمية الشاملة لطلاب تكنولوجيا المعلومات.",
+  },
+  alternates: {
+    canonical: "https://zaitouna-eaqs.vercel.app",
+  },
 };
 
 export default function RootLayout({
