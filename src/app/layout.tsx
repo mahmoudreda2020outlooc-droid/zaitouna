@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://zaitouna-eaqs.vercel.app",
   },
+  verification: {
+    google: "zl5pfM4x5JKT3ea-4PKlBIQXKSdlFtK50qdxZcxyTww",
+  },
 };
 
 export default function RootLayout({
