@@ -144,9 +144,9 @@ export default function HomePage() {
                 {/* Custom Zaitouna SVG Animation */}
                 <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 graphic-container">
 
-                  {/* Glowing Aura Behind */}
-                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] animate-pulse"></div>
-                  <div className="absolute inset-10 bg-secondary/20 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  {/* Glowing Aura Behind - Reduced for Mobile */}
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-[40px] md:blur-[80px] md:animate-pulse"></div>
+                  <div className="absolute inset-10 bg-secondary/20 rounded-full blur-[30px] md:blur-[60px] md:animate-pulse" style={{ animationDelay: '1s' }}></div>
 
                   <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl overflow-visible">
                     <defs>
@@ -243,9 +243,14 @@ export default function HomePage() {
       </main>
 
       <style jsx>{`
-        @keyframes orb-pulse {
-          0%, 100% { transform: scale(1); opacity: 0.3; }
-          50% { transform: scale(1.1); opacity: 0.5; }
+        @media (min-width: 768px) {
+          @keyframes orb-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+          }
+          .orb {
+            animation: orb-pulse 8s ease-in-out infinite;
+          }
         }
         .text-gradient {
           background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);

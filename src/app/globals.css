@@ -75,13 +75,13 @@ body {
 
 .glass-card {
   background: var(--color-glass);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid var(--color-glass-border);
   border-radius: 1.25rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 @media (min-width: 768px) {
@@ -94,9 +94,11 @@ body {
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.12);
-  transform: translateY(-4px);
+  @media (min-width: 768px) {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+  }
 }
 
 .text-gradient {
@@ -136,18 +138,20 @@ body {
   }
 }
 
-/* Pulse effect */
-.btn-premium::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent);
-  animation: btn-pulse 2s infinite;
-  z-index: -1;
+/* Pulse effect - only for desktop */
+@media (min-width: 768px) {
+  .btn-premium::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent);
+    animation: btn-pulse 2s infinite;
+    z-index: -1;
+  }
 }
 
 @keyframes btn-pulse {
@@ -323,15 +327,15 @@ body {
   }
 }
 
-/* Animations */
+/* Animations - simpler for mobile */
 .fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(5px);
   }
 
   to {
@@ -364,10 +368,9 @@ body {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(40px);
+  filter: blur(20px);
   z-index: -1;
-  opacity: 0.3;
-  animation: orb-pulse 12s ease-in-out infinite;
+  opacity: 0.15;
   will-change: transform, opacity;
 }
 

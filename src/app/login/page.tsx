@@ -154,12 +154,12 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
-            {/* Dynamic Background Effects */}
-            <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-primary/20 rounded-full blur-[180px] animate-pulse"></div>
-            <div className="absolute bottom-[-15%] right-[-10%] w-[60%] h-[60%] bg-secondary/20 rounded-full blur-[180px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute top-[30%] left-[40%] w-[30%] h-[30%] bg-purple-500/10 rounded-full blur-[120px] animate-bounce-slow"></div>
-            <div className="absolute top-[10%] right-[20%] w-[40px] h-[40px] bg-white/5 rounded-full blur-[2px] animate-float"></div>
-            <div className="absolute bottom-[20%] left-[10%] w-[60px] h-[60px] bg-white/5 rounded-full blur-[2px] animate-float-delayed"></div>
+            {/* Dynamic Background Effects - Optimized for Mobile */}
+            <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-primary/10 md:bg-primary/20 rounded-full blur-[80px] md:blur-[180px] animate-pulse"></div>
+            <div className="absolute bottom-[-15%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 md:bg-secondary/20 rounded-full blur-[80px] md:blur-[180px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-[30%] left-[40%] w-[30%] h-[30%] bg-purple-500/10 rounded-full blur-[60px] md:blur-[120px] animate-bounce-slow hidden md:block"></div>
+            <div className="absolute top-[10%] right-[20%] w-[40px] h-[40px] bg-white/5 rounded-full blur-[2px] animate-float hidden md:block"></div>
+            <div className="absolute bottom-[20%] left-[10%] w-[60px] h-[60px] bg-white/5 rounded-full blur-[2px] animate-float-delayed hidden md:block"></div>
 
             <div className="fade-in w-full max-w-lg px-6 relative z-10">
                 <div className="glass-card p-10 md:p-14 border border-white/5 relative overflow-hidden">

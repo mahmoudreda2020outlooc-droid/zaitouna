@@ -119,9 +119,14 @@ export default function SubjectsPage() {
         }
         .glass-card {
            background: var(--glass);
-           backdrop-filter: blur(12px);
+           backdrop-filter: blur(4px);
            border-radius: 24px;
            border: 1px solid var(--glass-border);
+        }
+        @media (min-width: 768px) {
+          .glass-card {
+            backdrop-filter: blur(20px);
+          }
         }
       `}</style>
         </main>
