@@ -98,7 +98,12 @@ export default function LoginPage() {
         }
     };
 
-    const handleGoogleLink = () => {
+    const handleGoogleLink = async () => {
+        try {
+            await account.deleteSession("current");
+        } catch (e) {
+            // No session exists, which is fine
+        }
         localStorage.setItem('googleAuthAction', 'link');
         localStorage.setItem('googleAuthStudentId', studentId);
         account.createOAuth2Session(
@@ -108,7 +113,12 @@ export default function LoginPage() {
         );
     };
 
-    const handleGoogleLogin = () => {
+    const handleGoogleLogin = async () => {
+        try {
+            await account.deleteSession("current");
+        } catch (e) {
+            // No session exists, which is fine
+        }
         localStorage.setItem('googleAuthAction', 'login');
         account.createOAuth2Session(
             OAuthProvider.Google,
