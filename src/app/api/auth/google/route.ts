@@ -41,7 +41,10 @@ export async function POST(req: Request) {
             // ربط الحساب
             let exists = true;
             try {
-                await admin.databases.getDocument(dbId, collId, userId);
+                const doc = await admin.databases.getDocument(dbId, collId, userId);
+                if (doc.studentId !== studentId) {
+                    return NextResponse.json({ message: "هذا الجيميل مربوط بكود طالب آخر بالفعل." }, { status: 400 });
+                }
             } catch (e) {
                 exists = false;
             }
@@ -84,7 +87,7 @@ export async function POST(req: Request) {
                     return NextResponse.json({ success: true, user: { id: student.studentId, name: student.name } });
                 }
             } catch (e) {
-                return NextResponse.json({ message: "الحساب غير مربوط. سجل بكودك الأول واربطه." }, { status: 400 });
+                return NextResponse.json({ message: "لم يتم ربط الجيميل اربطة بالكود اولا" }, { status: 400 });
             }
         }
 

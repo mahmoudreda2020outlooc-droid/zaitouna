@@ -273,6 +273,12 @@ export default function LoginPage() {
 
                             <div className="flex flex-col gap-4">
 
+                                <button
+                                    onClick={handleLogin}
+                                    className="w-full py-4 bg-primary text-white border-none rounded-2xl flex items-center justify-center gap-3 hover:brightness-110 transition-all font-black shadow-lg shadow-primary/20"
+                                >
+                                    دخول الآن
+                                </button>
 
                                 <button
                                     onClick={handleGoogleLink}
