@@ -161,7 +161,7 @@ export default function LoginPage() {
             <div className="absolute top-[10%] right-[20%] w-[40px] h-[40px] bg-white/5 rounded-full blur-[2px] animate-float hidden md:block"></div>
             <div className="absolute bottom-[20%] left-[10%] w-[60px] h-[60px] bg-white/5 rounded-full blur-[2px] animate-float-delayed hidden md:block"></div>
 
-            <div className="fade-in w-full max-w-lg px-6 relative z-10">
+            <div className="w-full max-w-lg px-6 relative z-10">
                 <div className="glass-card p-10 md:p-14 border border-white/5 relative overflow-hidden">
                     {/* Subtle patterns */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
