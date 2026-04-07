@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import WelcomeHero from "@/components/WelcomeHero";
 
 const subjects = [
     { title: "Web Programming II", icon: "🌐", code: "WEB-201", progress: 65, color: "rgba(0, 242, 255, 0.5)", delay: "0.1s", summary: "تطوير تطبيقات الويب **المتقدمة** باستخدام **أحدث التقنيات**." },
@@ -63,27 +64,13 @@ export default function SubjectsPage() {
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,242,255,0.05),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(189,101,255,0.05),transparent_50%)] pointer-events-none -z-10" />
 
             <div className="max-w-7xl mx-auto">
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 animate-in slide-in-from-top-4 duration-700">
-                    <div>
-                        <Link href="/" className="text-primary/70 hover:text-primary mb-4 inline-block transition-colors text-sm font-bold flex items-center gap-2">
-                            <span>←</span> العودة للرئيسية
-                        </Link>
-                        <h1 className="text-2xl md:text-5xl font-black tracking-tight mb-2 text-foreground">
-                            زتونة <span className="text-gradient">المواد</span>
-                        </h1>
-                        <p className="text-foreground/50 text-sm md:text-base">هنا تلاقي الخلاصة لكل مادة دراسية شايل همها.</p>
-                    </div>
+                <WelcomeHero />
 
-                    <div className="glass-card px-6 py-4 flex items-center gap-4 border-white/5">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-light flex items-center justify-center text-xl font-black shadow-lg shadow-primary/20">
-                            {user.name.charAt(0)}
-                        </div>
-                        <div>
-                            <div className="text-sm text-foreground/40 font-bold uppercase tracking-wider">الطالب</div>
-                            <div className="font-bold text-foreground/90">{user.name}</div>
-                        </div>
-                    </div>
+                {/* Subjects List Header */}
+                <div id="subjects-grid" className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 scroll-mt-12">
+                    <h2 className="text-xl md:text-3xl font-black text-foreground/80">
+                        اختر مادتك عشان <span className="text-primary">تبدأ</span>
+                    </h2>
                 </div>
 
                 {/* Subjects List */}
