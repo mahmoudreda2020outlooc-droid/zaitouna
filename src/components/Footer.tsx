@@ -79,7 +79,7 @@ export default function Footer() {
                             رؤيتنا وهدفنا
                         </h3>
                         <p className="text-foreground/50 leading-relaxed text-sm font-medium">
-                            هدفنا هو تمكين طالب تكنولوجيا المعلومات من التميز الأكاديمي بأدوات ذكية. رؤيتنا أن نكون <span className="text-white">المنصة الأولى</span> في مصر التي تدعم الطالب علمياً وتكنولوجياً بروح شبابية عصرية.
+                            هدفنا هو تمكين زمايلنا في قسم <span className="text-secondary">تكنولوجيا المعلومات (IT)</span> في <span className="text-white">جامعة برج العرب التكنولوجية</span> من التميز. إحنا السند الأكاديمي والتقني الأول ليك عشان توصل لأهدافك بروح أخوية وعصرية.
                         </p>
                     </motion.div>
 
