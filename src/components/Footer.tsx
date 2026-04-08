@@ -130,16 +130,6 @@ export default function Footer() {
                             </p>
                         </div>
 
-                        <div className="hidden md:flex gap-12 pt-4">
-                            <div className="space-y-1">
-                                <p className="text-4xl font-black text-white">+500</p>
-                                <p className="text-[10px] text-foreground/30 font-black tracking-widest uppercase">طالب نشط</p>
-                            </div>
-                            <div className="space-y-1">
-                                <p className="text-4xl font-black text-white">100%</p>
-                                <p className="text-[10px] text-foreground/30 font-black tracking-widest uppercase">دعم تعليمي</p>
-                            </div>
-                        </div>
                     </div>
 
                     {/* Feedback Form Card */}
