@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const subjects = [
     { title: "Web Programming II", icon: "🌐", code: "WEB-201", progress: 65, color: "rgba(0, 242, 255, 0.5)", delay: "0.1s", summary: "تطوير تطبيقات الويب **المتقدمة** باستخدام **أحدث التقنيات**." },
@@ -109,6 +110,9 @@ export default function SubjectsPage() {
                         </Link>
                     ))}
                 </div>
+
+                {/* Footer Section */}
+                <Footer />
             </div>
 
             <style jsx>{`
