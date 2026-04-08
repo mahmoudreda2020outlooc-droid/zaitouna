@@ -40,159 +40,208 @@ export default function Footer() {
     };
 
     return (
-        <footer className="relative mt-24 pb-12 border-t border-white/5 pt-16 bg-background/50 backdrop-blur-md" dir="rtl">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <footer className="relative mt-24 pb-12 overflow-hidden bg-background" dir="rtl">
+            {/* Background Decorative Blobs */}
+            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
+            <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -z-10" />
 
-                {/* About Us Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20 text-right">
-                    <div className="space-y-4">
-                        <h3 className="text-2xl font-black text-primary mb-6">قصتنا 📜</h3>
-                        <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
-                            بدأت الزتونة كحلم لتبسيط المحتوي الأكاديمي المعقد وتحويله لـ "زتونة" مركزة تفهمها في دقائق. إحنا هنا عشان ننهي عصر "الحشو" ونبدأ عصر "الفهم" بأقل مجهود ممكن.
+            <div className="max-w-7xl mx-auto px-4 md:px-8 relative pt-20">
+
+                {/* About Us Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="group relative p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-primary/20 transition-all duration-500 overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-primary/20 transition-all" />
+                        <h3 className="text-xl font-black text-primary mb-6 flex items-center gap-3">
+                            <span className="p-2 bg-primary/10 rounded-xl text-lg">📜</span>
+                            قصتنا
+                        </h3>
+                        <p className="text-foreground/50 leading-relaxed text-sm font-medium">
+                            بدأت الزتونة كحلم لتبسيط المحتوي الأكاديمي المعقد وتحويله لـ <span className="text-white">"زتونة"</span> مركزة تفهمها في دقائق. إحنا هنا عشان ننهي عصر <span className="text-red-400">"الحشو"</span> ونبدأ عصر <span className="text-primary italic">"الفهم"</span> بأقل مجهود ممكن.
                         </p>
-                    </div>
-                    <div className="space-y-4">
-                        <h3 className="text-2xl font-black text-secondary mb-6">رؤيتنا وهدفنا 🎯</h3>
-                        <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
-                            هدفنا هو تمكين طالب تكنولوجيا المعلومات من التميز الأكاديمي بأدوات ذكية. رؤيتنا أن نكون المنصة الأولى في مصر التي تدعم الطالب علمياً وتكنولوجياً بروح شبابية.
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="group relative p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-secondary/20 transition-all duration-500 overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-secondary/20 transition-all" />
+                        <h3 className="text-xl font-black text-secondary mb-6 flex items-center gap-3">
+                            <span className="p-2 bg-secondary/10 rounded-xl text-lg">🎯</span>
+                            رؤيتنا وهدفنا
+                        </h3>
+                        <p className="text-foreground/50 leading-relaxed text-sm font-medium">
+                            هدفنا هو تمكين طالب تكنولوجيا المعلومات من التميز الأكاديمي بأدوات ذكية. رؤيتنا أن نكون <span className="text-white">المنصة الأولى</span> في مصر التي تدعم الطالب علمياً وتكنولوجياً بروح شبابية عصرية.
                         </p>
-                    </div>
-                    <div className="space-y-6">
-                        <h3 className="text-2xl font-black text-white mb-6">تيم التقنيات 💻</h3>
-                        <div className="flex flex-wrap gap-2">
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="group relative p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 overflow-hidden"
+                    >
+                        <h3 className="text-xl font-black text-white mb-6 flex items-center gap-3">
+                            <span className="p-2 bg-white/5 rounded-xl text-lg">💻</span>
+                            تيم التقنيات
+                        </h3>
+                        <div className="flex flex-wrap gap-2 mb-6">
                             {TECH_STACK.map((tech) => (
-                                <span key={tech.name} className={`${tech.color} px-4 py-2 rounded-xl text-xs font-bold border border-white/5`}>
+                                <span
+                                    key={tech.name}
+                                    className={`${tech.color} px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider border border-white/[0.05] hover:scale-105 transition-transform cursor-default`}
+                                >
                                     {tech.name}
                                 </span>
                             ))}
                         </div>
-                        <p className="text-xs text-foreground/40 font-medium pt-4 border-t border-white/5">
-                            تم البناء باستخدام أحدث تقنيات الويب والذكاء الاصطناعي لضمان أفضل تجربة مستخدم.
+                        <p className="text-[10px] text-foreground/30 font-bold leading-tight uppercase tracking-widest pt-4 border-t border-white/[0.05]">
+                            بناء عالي الدقة باستخدام تقنيات الـ Core والذكاء الاصطناعي.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
-
-                <hr className="border-white/5 mb-20" />
 
                 {/* Feedback Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    <div className="space-y-8">
-                        <div>
-                            <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter">شكراً لأنك شريك <br /><span className="text-primary italic">في نجاح الزتونة! 🫒</span></h2>
-                            <p className="text-foreground/50 text-lg">رأيك هو اللي بيطورنا ويخلينا مستمرين.. كلمنا ومتترددش.</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-20 border-t border-white/[0.03]">
+                    <div className="space-y-10 group">
+                        <div className="space-y-4">
+                            <motion.span
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em] border border-primary/20"
+                            >
+                                Feedback & Suggestions
+                            </motion.span>
+                            <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tighter">
+                                شكراً لأنك شريك <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary via-primary/60 to-secondary italic">في نجاح الزتونة! 🫒</span>
+                            </h2>
+                            <p className="text-foreground/40 text-lg md:text-xl font-medium max-w-md">
+                                رأيك هو البوصلة اللي بتوجهنا.. سيب بصمتك وساعدنا نكبر أكتر.
+                            </p>
+                        </div>
+
+                        <div className="hidden md:flex gap-12 pt-4">
+                            <div className="space-y-1">
+                                <p className="text-4xl font-black text-white">+500</p>
+                                <p className="text-[10px] text-foreground/30 font-black tracking-widest uppercase">طالب نشط</p>
+                            </div>
+                            <div className="space-y-1">
+                                <p className="text-4xl font-black text-white">100%</p>
+                                <p className="text-[10px] text-foreground/30 font-black tracking-widest uppercase">دعم تعليمي</p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Feedback Form */}
-                    <motion.form
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                    {/* Feedback Form Card */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        onSubmit={handleWhatsAppSubmit}
-                        className="glass-card p-8 space-y-6 border-white/10"
+                        className="relative"
                     >
-                        <h4 className="text-xl font-black text-center mb-4">نموذج الاقتراحات والشكاوى 📝</h4>
-
-                        {/* Star Rating */}
-                        <div className="flex flex-col items-center gap-3 mb-6">
-                            <span className="text-sm font-bold text-foreground/40 uppercase tracking-widest">قيم تجريبتك</span>
-                            <div className="flex gap-2">
-                                {[1, 2, 3, 4, 5].map((star) => (
-                                    <button
-                                        key={star}
-                                        type="button"
-                                        onClick={() => setRating(star)}
-                                        className={`text-3xl transition-all ${star <= rating ? "scale-110 grayscale-0" : "grayscale opacity-20 hover:opacity-100"}`}
-                                    >
-                                        ⭐
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold pr-2">الاسم بالكامل</label>
-                                <input
-                                    required
-                                    type="text"
-                                    placeholder="اكتب اسمك هنا.."
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all"
-                                    value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold pr-2">رقم التليفون</label>
-                                <input
-                                    required
-                                    type="tel"
-                                    placeholder="01xxxxxxxxx"
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all"
-                                    value={formData.phone}
-                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold pr-2">الرقم الأكاديمي (اختياري)</label>
-                            <input
-                                type="text"
-                                placeholder="رقم الطالب..."
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all"
-                                value={formData.academicId}
-                                onChange={(e) => setFormData({ ...formData, academicId: e.target.value })}
-                            />
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold pr-2">عندك اقتراح إيه؟ 💡</label>
-                            <textarea
-                                placeholder="اكتب اقتراحك هنا.."
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-all min-h-[80px]"
-                                value={formData.suggestions}
-                                onChange={(e) => setFormData({ ...formData, suggestions: e.target.value })}
-                            />
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold pr-2 text-red-400">أي شكاوى؟ ⚠️</label>
-                            <textarea
-                                placeholder="لو فيه مشكلة واجهتك قولنا.."
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-red-400/50 outline-none transition-all min-h-[80px]"
-                                value={formData.complaints}
-                                onChange={(e) => setFormData({ ...formData, complaints: e.target.value })}
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            className="w-full bg-gradient-to-r from-primary to-primary-light text-black font-black py-4 rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-secondary/10 blur-3xl opacity-50 -z-10" />
+                        <form
+                            onSubmit={handleWhatsAppSubmit}
+                            className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/10 space-y-8 backdrop-blur-3xl shadow-2xl relative overflow-hidden"
                         >
-                            إرسال عبر واتساب 🚀
-                        </button>
-                    </motion.form>
+                            {/* Inner Decorative Line */}
+                            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+                            <h4 className="text-2xl font-black text-center mb-8 flex items-center justify-center gap-3">
+                                <span className="text-primary text-3xl">📝</span>
+                                نموذج التطوير
+                            </h4>
+
+                            {/* Star Rating Enhanced */}
+                            <div className="flex flex-col items-center gap-4 py-6 bg-white/[0.02] rounded-[2rem] border border-white/5 shadow-inner">
+                                <span className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.4em]">قيم تجربتك الأكاديمية</span>
+                                <div className="flex gap-4">
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <button
+                                            key={star}
+                                            type="button"
+                                            onClick={() => setRating(star)}
+                                            className={`text-4xl transition-all duration-300 transform ${star <= rating ? "scale-110 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]" : "grayscale opacity-20 hover:opacity-100 hover:scale-105"}`}
+                                        >
+                                            {star <= rating ? "★" : "☆"}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black text-foreground/40 uppercase tracking-widest pr-2">الاسم بالكامل</label>
+                                    <input
+                                        required
+                                        type="text"
+                                        placeholder="اكتب اسمك هنا.."
+                                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-primary/50 focus:bg-white/[0.05] outline-none transition-all shadow-inner"
+                                        value={formData.name}
+                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black text-foreground/40 uppercase tracking-widest pr-2">رقم التليفون</label>
+                                    <input
+                                        required
+                                        type="tel"
+                                        placeholder="01xxxxxxxxx"
+                                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-primary/50 focus:bg-white/[0.05] outline-none transition-all shadow-inner"
+                                        value={formData.phone}
+                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <label className="text-[10px] font-black text-foreground/40 uppercase tracking-widest pr-2"> الاقتراحات والشكاوى 💡</label>
+                                <textarea
+                                    placeholder="اكتب كل اللي في بالك هنا، بنقرأ كل كلمة بجد.."
+                                    className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 text-sm focus:border-primary/50 focus:bg-white/[0.05] outline-none transition-all min-h-[140px] shadow-inner resize-none"
+                                    value={formData.suggestions}
+                                    onChange={(e) => setFormData({ ...formData, suggestions: e.target.value })}
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="w-full group relative overflow-hidden bg-primary text-black font-black py-5 rounded-[1.5rem] shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all flex items-center justify-center gap-3 active:scale-95"
+                            >
+                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                <span className="relative z-10 flex items-center gap-3 text-lg">
+                                    إرسال الزتونة 🚀
+                                </span>
+                            </button>
+                        </form>
+                    </motion.div>
                 </div>
 
-                <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-foreground/30 font-bold uppercase tracking-[0.2em]">
-                    <p>© 2026 AZ-ZAITOUNA | INDEPENDENT STUDENT INITIATIVE</p>
-                    <p className="flex gap-4">
-                        <span>Built by the Zaitouna Team</span>
-                        <span className="text-primary">●</span>
-                        <span>For IT Students</span>
-                    </p>
+                {/* Bottom Footer bar */}
+                <div className="mt-20 py-12 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] text-foreground/20 font-black uppercase tracking-[0.4em]">
+                    <p className="hover:text-foreground/40 transition-colors cursor-default">© 2026 AZ-ZAITOUNA | THE INDEPENDENT STUDENT INITIATIVE</p>
+                    <div className="flex items-center gap-8">
+                        <span className="flex items-center gap-4 group cursor-default">
+                            BUILT WITH <span className="text-secondary group-hover:scale-125 transition-transform">❤</span> FOR IT STUDENTS
+                        </span>
+                        <div className="flex gap-4">
+                            <span className="w-1 h-1 bg-primary rounded-full" />
+                            <span className="w-1 h-1 bg-secondary rounded-full" />
+                            <span className="w-1 h-1 bg-white/20 rounded-full" />
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <style jsx>{`
-                .glass-card {
-                    background: rgba(255, 255, 255, 0.02);
-                    backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.05);
-                    border-radius: 32px;
-                }
-            `}</style>
         </footer>
     );
 }
