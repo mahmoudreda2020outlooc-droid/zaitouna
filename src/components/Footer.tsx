@@ -80,12 +80,6 @@ export default function Footer() {
                             <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter">شكراً لأنك شريك <br /><span className="text-primary italic">في نجاح الزتونة! 🫒</span></h2>
                             <p className="text-foreground/50 text-lg">رأيك هو اللي بيطورنا ويخلينا مستمرين.. كلمنا ومتترددش.</p>
                         </div>
-
-                        <div className="p-8 glass-card border-primary/20 bg-primary/5">
-                            <p className="text-primary font-black mb-4">عندك سؤال سريع؟ 🤙</p>
-                            <p className="text-2xl font-bold tracking-widest text-white">01004897420</p>
-                            <p className="text-xs text-foreground/40 mt-2">تواصل معنا عبر واتساب للمساعدة الفورية.</p>
-                        </div>
                     </div>
 
                     {/* Feedback Form */}
