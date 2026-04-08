@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 const TECH_STACK = [
     { name: "Next.js 16", color: "bg-white/10" },
     { name: "Appwrite Cloud", color: "bg-primary/20" },
-    { name: "Gemini AI 2.0", color: "bg-secondary/20" },
+    { name: "HTML5 & CSS3", color: "bg-orange-500/10" },
+    { name: "JavaScript & TS", color: "bg-yellow-500/10" },
     { name: "Tailwind CSS", color: "bg-blue-500/10" },
-    { name: "Framer Motion", color: "bg-pink-500/10" }
+    { name: "Framer Motion", color: "bg-pink-500/10" },
+    { name: "PWA Support", color: "bg-green-500/10" }
 ];
 
 export default function Footer() {
