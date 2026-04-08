@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const TECH_STACK = [
+    { name: "React.js", color: "bg-cyan-500/10" },
     { name: "Next.js 16", color: "bg-white/10" },
     { name: "Appwrite Cloud", color: "bg-primary/20" },
     { name: "HTML5 & CSS3", color: "bg-orange-500/10" },
