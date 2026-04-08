@@ -171,7 +171,7 @@ export default function Footer() {
                                             key={star}
                                             type="button"
                                             onClick={() => setRating(star)}
-                                            className={`text-4xl transition-all duration-300 transform ${star <= rating ? "scale-110 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]" : "grayscale opacity-20 hover:opacity-100 hover:scale-105"}`}
+                                            className={`text-4xl transition-all duration-300 transform ${star <= rating ? "text-yellow-400 scale-110 drop-shadow-[0_0_15px_rgba(250,204,21,0.8)]" : "text-white grayscale opacity-20 hover:opacity-100 hover:scale-105"}`}
                                         >
                                             {star <= rating ? "★" : "☆"}
                                         </button>
