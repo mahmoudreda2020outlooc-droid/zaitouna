@@ -169,7 +169,7 @@ export default function Footer() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div className="space-y-3">
                                     <label className="text-[10px] font-black text-foreground/40 uppercase tracking-widest pr-2">الاسم بالكامل</label>
                                     <input
@@ -190,6 +190,16 @@ export default function Footer() {
                                         className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-primary/50 focus:bg-white/[0.05] outline-none transition-all shadow-inner"
                                         value={formData.phone}
                                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black text-foreground/40 uppercase tracking-widest pr-2">الرقم الأكاديمي</label>
+                                    <input
+                                        type="text"
+                                        placeholder="رقم الطالب..."
+                                        className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-primary/50 focus:bg-white/[0.05] outline-none transition-all shadow-inner"
+                                        value={formData.academicId}
+                                        onChange={(e) => setFormData({ ...formData, academicId: e.target.value })}
                                     />
                                 </div>
                             </div>
