@@ -35,20 +35,43 @@ export async function POST(req: Request) {
         const lecturesPath = path.join(process.cwd(), "src/data/lectures.json");
         const lecturesData = JSON.parse(fs.readFileSync(lecturesPath, "utf8"));
 
-        // Optimization: Keyword-based search to reduce token usage
-        const messageKeywords = message.toLowerCase().split(/\s+/).filter((k: string) => k.length > 2);
-
-        // Find lectures that match keywords in the message
-        let relevantLectures = lecturesData.filter((lect: any) => {
-            const searchText = `${lect.title} ${lect.summary}`.toLowerCase();
-            return messageKeywords.some((kw: string) => searchText.includes(kw));
+        // Optimization: Keyword-based search with normalization
+        let searchMessage = message.toLowerCase();
+        // Normalize common Arabic lecture numbers
+        const numMap: Record<string, string> = {
+            "الأولى": "1", "الاولى": "1",
+            "الثانية": "2", "التانية": "2", "الثانيه": "2", "التانيه": "2",
+            "الثالثة": "3", "التالتة": "3", "الثالثه": "3", "التالته": "3",
+            "الرابعة": "4", "الرابعه": "4", "الرابع": "4"
+        };
+        Object.keys(numMap).forEach(key => {
+            searchMessage = searchMessage.replace(new RegExp(key, 'g'), numMap[key]);
         });
 
-        // Fallback or limit to top 5 relevant matches
+        const messageKeywords = searchMessage.split(/\s+/).filter((k: string) => k.length > 2 || /^\d+$/.test(k));
+
+        // Find lectures that match keywords and sort by relevance
+        let relevantLectures = lecturesData
+            .map((lect: any) => {
+                const subjectName = (subjects[lect.subjectId] || "").toLowerCase();
+                const titleMatch = messageKeywords.reduce((count: number, kw: string) =>
+                    count + (lect.title.toLowerCase().includes(kw) ? 3 : 0), 0);
+                const summaryMatch = messageKeywords.reduce((count: number, kw: string) =>
+                    count + (lect.summary.toLowerCase().includes(kw) ? 1 : 0), 0);
+                const subjectMatch = messageKeywords.reduce((count: number, kw: string) =>
+                    count + (subjectName.includes(kw) ? 5 : 0), 0);
+
+                const score = titleMatch + summaryMatch + subjectMatch;
+                return { ...lect, score };
+            })
+            .filter((l: any) => l.score > 0)
+            .sort((a: any, b: any) => b.score - a.score);
+
+        // Fallback or limit to top 8 relevant matches (more context)
         if (relevantLectures.length === 0) {
-            relevantLectures = lecturesData.slice(0, 5); // Fallback to first 5 if no keywords match
+            relevantLectures = lecturesData.slice(0, 5);
         } else {
-            relevantLectures = relevantLectures.slice(0, 5); // Limit to top 5 relevant matches
+            relevantLectures = relevantLectures.slice(0, 8);
         }
 
         // Format curriculum context with Metadata and URLs
