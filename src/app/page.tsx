@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import InstallButton from "@/components/InstallButton";
+import Footer from "@/components/Footer";
 
 const baladiQuotes = [
   { main: "عافر هتوصل،", subMain: "مفيش حاجة تيجي بالساهل!", quote: "اتعب النهاردة عشان ترتاح بكرة، ومستقبلك يستاهل العافرة." },
@@ -225,21 +226,7 @@ export default function HomePage() {
 
         </div>
 
-        {/* Footer Area */}
-        <footer className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all cursor-crosshair">
-            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center font-black">Z</div>
-            <p className="text-[10px] uppercase tracking-widest font-black leading-tight">Az-Zaitouna<br />Learning Hub</p>
-          </div>
-
-          <div className="flex gap-8 items-center justify-center">
-            {/* DeveloperCard moved to RootLayout */}
-          </div>
-
-          <div className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.2em]">
-            © {new Date().getFullYear()} Independent Student Initiative
-          </div>
-        </footer>
+        <Footer />
       </main>
 
       <style jsx>{`

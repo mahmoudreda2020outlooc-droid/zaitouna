@@ -110,9 +110,6 @@ export default function SubjectsPage() {
                         </Link>
                     ))}
                 </div>
-
-                {/* Footer Section */}
-                <Footer />
             </div>
 
             <style jsx>{`
