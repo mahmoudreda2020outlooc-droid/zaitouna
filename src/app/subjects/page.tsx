@@ -11,7 +11,6 @@ const subjects = [
     { title: "CCNA", icon: "🔌", code: "NET-301", progress: 20, color: "rgba(168, 85, 247, 0.5)", delay: "0.3s", summary: "أساسيات الشبكات والتحقق من الشهادات **العالمية** لـ **Cisco**." },
     { title: "Data Structure", icon: "🌳", code: "DS-401", progress: 10, color: "rgba(249, 115, 22, 0.5)", delay: "0.4s", summary: "هياكل البيانات والخوارزميات البرمجية **المعقدة**." },
     { title: "Java", icon: "☕", code: "JAV-110", progress: 85, color: "rgba(239, 68, 68, 0.5)", delay: "0.5s", summary: "برمجة الكائنات (**OOP**) باستخدام لغة جافا **القوية**." },
-    { title: "الرسم الهندسي", icon: "📐", code: "DRW-102", progress: 50, color: "rgba(59, 130, 246, 0.5)", delay: "0.6s", summary: "أساسيات وتطبيقات الرسم الهندسي **الفني** و**المعماري**." },
 ];
 
 const renderTextWithHighlights = (text: string) => {

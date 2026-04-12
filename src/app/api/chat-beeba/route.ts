@@ -27,8 +27,7 @@ export async function POST(req: Request) {
             "DB-202": "برمجة قواعد البيانات 2 (Database 2)",
             "NET-301": "الشبكات (CCNA)",
             "DS-401": "هياكل البيانات (Data Structures)",
-            "JAV-110": "برمجة جافا (Java)",
-            "DRW-102": "الرسم الهندسي"
+            "JAV-110": "برمجة جافا (Java)"
         };
 
         // Load curriculum data
