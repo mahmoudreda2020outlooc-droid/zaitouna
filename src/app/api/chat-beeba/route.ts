@@ -70,7 +70,7 @@ export async function POST(req: Request) {
         if (relevantLectures.length === 0) {
             relevantLectures = lecturesData.slice(0, 5);
         } else {
-            relevantLectures = relevantLectures.slice(0, 8);
+            relevantLectures = relevantLectures.slice(0, 20); // زيادة السياق عشان يقدر يقرأ كل المحاضرات
         }
 
         // Format curriculum context with Metadata and URLs
