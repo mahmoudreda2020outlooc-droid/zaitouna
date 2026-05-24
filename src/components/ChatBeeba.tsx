@@ -64,6 +64,25 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
         reader.readAsDataURL(file);
     };
 
+    const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+        const clipboardItems = e.clipboardData?.items;
+        if (!clipboardItems) return;
+
+        Array.from(clipboardItems).forEach(item => {
+            if (item.type.indexOf('image/') === 0) {
+                const file = item.getAsFile();
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (readerEvent) => {
+                        setSelectedImage(readerEvent.target?.result as string);
+                        setSelectedImageFile(file);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    };
+
     const removeSelectedImage = () => {
         setSelectedImage(null);
         setSelectedImageFile(null);
@@ -230,7 +249,26 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                             <img src={msg.image} alt="Uploaded attachment" className="w-full h-auto object-contain" />
                                         </div>
                                     )}
-                                    {msg.content && <div className="whitespace-pre-wrap">{msg.content}</div>}
+                                    {msg.content && (
+                                        <div className="relative z-10">
+                                            {msg.content.split(/```(\w*)\n([\s\S]*?)```/g).reduce((acc: any[], part, i, arr) => {
+                                                if (i % 3 === 0) {
+                                                    if (part) {
+                                                        acc.push(<span key={i} dir="auto" className="whitespace-pre-wrap">{part}</span>);
+                                                    }
+                                                } else if (i % 3 === 1) {
+                                                    const lang = part;
+                                                    const code = arr[i + 1];
+                                                    acc.push(
+                                                        <pre key={i} dir="ltr" className="bg-black/50 p-6 rounded-3xl my-6 text-left overflow-x-auto text-base md:text-xl font-mono border border-white/10 text-white/90 shadow-inner">
+                                                            <code>{code}</code>
+                                                        </pre>
+                                                    );
+                                                }
+                                                return acc;
+                                            }, [])}
+                                        </div>
+                                    )}
                                 </div>
                                 {/* Message Overlay Decor */}
                                 <div className={`absolute top-0 ${msg.role === "user" ? "left-0" : "right-0"} w-32 h-32 bg-white/5 blur-3xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity`} />
@@ -291,17 +329,6 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
                                     </button>
-                                    <button
-                                        onMouseDown={startRecording}
-                                        onMouseUp={stopRecording}
-                                        onMouseLeave={stopRecording}
-                                        className={`p-4 rounded-2xl border transition-all active:scale-95 group ${isRecording ? 'bg-red-500/20 border-red-500 animate-pulse' : 'bg-white/5 border-white/10 hover:bg-white/15'}`}
-                                        title="تسجيل صوتي"
-                                    >
-                                        <svg className={`w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110 ${isRecording ? 'text-red-500' : 'text-white/40 group-hover:text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-20a3 3 0 00-3 3v10a3 3 0 006 0V3a3 3 0 00-3-3z" />
-                                        </svg>
-                                    </button>
                                 </div>
 
                                 <div className="flex-1 relative">
@@ -319,6 +346,7 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                                 handleSend();
                                             }
                                         }}
+                                        onPaste={handlePaste}
                                         placeholder={isRecording ? "جاري التسجيل..." : "حابب تسأل الدحيح عن إيه في المنهج يا بطل؟"}
                                         className="w-full bg-transparent border-none px-4 py-4 md:py-6 text-xl md:text-3xl text-white placeholder:text-white/20 focus:outline-none transition-all resize-none max-h-[200px] scrollbar-hide"
                                     />
