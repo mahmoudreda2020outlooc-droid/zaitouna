@@ -394,7 +394,23 @@ export default function BeebaChatPage() {
                                                 </div>
                                             )}
 
-                                            {cleanContent}
+                                            {/* Parse Code Blocks for LTR rendering */}
+                                            {cleanContent.split(/```(\w*)\n([\s\S]*?)```/g).reduce((acc: any[], part, i, arr) => {
+                                                if (i % 3 === 0) {
+                                                    if (part) {
+                                                        acc.push(<span key={i} dir="auto">{part}</span>);
+                                                    }
+                                                } else if (i % 3 === 1) {
+                                                    const lang = part;
+                                                    const code = arr[i + 1];
+                                                    acc.push(
+                                                        <pre key={i} dir="ltr" className="bg-black/50 p-4 rounded-xl my-2 text-left overflow-x-auto text-sm font-mono border border-white/10 text-white/90 shadow-inner">
+                                                            <code>{code}</code>
+                                                        </pre>
+                                                    );
+                                                }
+                                                return acc;
+                                            }, [])}
                                         </div>
 
                                         {sourceLink && (
