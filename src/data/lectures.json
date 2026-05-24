@@ -8926,5 +8926,49 @@
       "sheet": "/materials/WEB-201/sheet-4.pdf",
       "assignments": "#"
     }
+  },
+  {
+    "id": "lecture_5",
+    "subjectId": "WEB-201",
+    "lectureId": "lecture_5",
+    "title": "المحاضرة 5",
+    "summary": "سيتم إضافة الملخص قريباً...",
+    "resources": {
+      "pdf": "/materials/WEB-201/المحاضرة 5.pdf"
+    },
+    "quiz": []
+  },
+  {
+    "id": "lecture_6",
+    "subjectId": "WEB-201",
+    "lectureId": "lecture_6",
+    "title": "المحاضرة 6",
+    "summary": "سيتم إضافة الملخص قريباً...",
+    "resources": {
+      "pdf": "/materials/WEB-201/المحاضرة 6.pdf"
+    },
+    "quiz": []
+  },
+  {
+    "id": "lecture_7",
+    "subjectId": "WEB-201",
+    "lectureId": "lecture_7",
+    "title": "المحاضرة 7",
+    "summary": "سيتم إضافة الملخص قريباً...",
+    "resources": {
+      "pdf": "/materials/WEB-201/المحاضرة 7.pdf"
+    },
+    "quiz": []
+  },
+  {
+    "id": "lecture_8",
+    "subjectId": "WEB-201",
+    "lectureId": "lecture_8",
+    "title": "المحاضرة 8",
+    "summary": "سيتم إضافة الملخص قريباً...",
+    "resources": {
+      "pdf": "/materials/WEB-201/المحاضرة 8.pdf"
+    },
+    "quiz": []
   }
 ]
