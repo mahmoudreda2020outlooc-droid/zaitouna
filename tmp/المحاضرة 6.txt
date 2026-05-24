@@ -1,0 +1,139 @@
+
+
+LECTURE 6
+Introduction to Database 
+and SQL Statements
+W EB DEVELO PM ENT 2
+Dr. ashrafAbdelaziz taha
+
+What Is A Database? 
+Databases are used to storeand organizelarge amounts of data in a structuredway. 
+They are designed to manageand handlelarge volumes of informationefficiently and 
+effectively, making it easy to retrieve, update, and deletedata as needed.
+
+DATABASE ENGINES
+MySQL database server
+
+Software methods to connect database
+•PHPMYADMIN
+•MYSQL workbench 
+•Shell / CMD
+
+SQL statements
+DDL –Data Definition Language
+DQL –Data Query Language
+DML –Data Manipulation Language
+DCL –Data Control Language
+TCL –Transaction Control Language
+
+Creating a new Database in SQL
+CREATE DATABASE Webdevelopment;
+Verifying the Database
+SHOW DATABASES;
+SQL Drop Database
+DROP DATABASE database_name;
+
+SQL Select database
+USE DATABASE_NAME;
+Verifying the Database
+SHOW DATABASES;
+SQL CREATE TABLE Statement
+CREATE TABLE Customer(
+CustomerIDINT PRIMARY KEY,
+CustomerNameVARCHAR(50),
+LastNameVARCHAR(50),
+Country VARCHAR(50),
+Age int(2),
+Phone int(10)
+);
+DROP TABLE
+DROP TABLE;
+
+Adding a Column to a Table:
+ALTER TABLE tablenameADD columnnamedatatype;
+Renaming a Table:
+rename table name1 to name2;
+Truncating a Table:
+TRUNCATE TABLE tablename;
+
+Retrieve Specific Columns from Users Table
+SELECT Username, Email FROM Users;
+Retrieve all data 
+Select * from table_name
+Insert Data into Users Table
+--Inserting specific data into the Users table
+INSERT INTO Users (Username, Email, Password) VALUES
+('user3', 'user3@example.com', 'password3'),
+('user4', 'user4@example.com', 'password4');
+
+Exercise: Creating a Basic Blog Database 
+Create Users Table
+Create a table named "Users" with the following columns:
+UserID(integer)
+Username (varchar(50))
+Email (varchar(100))
+Password (varchar(255))
+
+Exercise: Creating a Basic Blog Database 
+Create Posts Table
+Create a table named "Posts" with the following columns:
+•PostID(integer)
+•Title (varchar(255))
+•Content (text)
+•CreatedAt(timestamp)
+•UserID(integer)
+
+Exercise: Creating a Basic Blog Database 
+Insert Sample DataInsert the following data into the "Users" table:
+•UserID: 1, Username: 'user1', Email: 'user1@example.com', Password: 'password1'
+•UserID: 2, Username: 'user2', Email: 'user2@example.com', Password: 'password2'
+Insert the following data into the "Posts" table:
+•PostID: 1, Title: 'First Post', Content: 'This is the content of the first post.', CreatedAt: 
+[current timestamp], UserID: 1
+•PostID: 2, Title: 'Second Post', Content: 'This is the content of the second post.', 
+CreatedAt: [current timestamp], UserID: 2
+
+Exercise: Creating a Basic Blog Database 
+Retrieve DataWrite SQL queries to retrieve the following information:
+•List all users from the "Users" table.
+•List all posts from the "Posts" table.
+
+Answer
+Create Users Table
+CREATETABLE Users(
+UserIDINT,
+Username 
+VARCHAR(50),
+Email VARCHAR(100),
+Password 
+VARCHAR(255)
+);
+Create Posts Table
+CREATETABLE Posts(
+PostIDINT,
+Title VARCHAR(255),
+Content TEXT,
+CreatedAtTIMESTAMP,
+UserIDINT
+);
+
+Answer: Insert Sample Data
+INSERT INTO Users(UserID, Username, Email, Password) VALUES
+(1, 'user1', 'user1@example.com', 'password1'),
+(2, 'user2', 'user2@example.com', 'password2');
+INSERT INTO Posts(PostID, Title, Content, CreatedAt, UserID) VALUES
+(1, 'First Post', 'This is the content of the first post.', CURRENT_TIMESTAMP, 1),
+(2, 'Second Post', 'This is the content of the second post.', CURRENT_TIMESTAMP, 2);
+
+Answer: Retrieve Data
+--List all users from the Users table
+SELECT* FROMUsers;
+--List all posts from the Posts table
+SELECT *FROM Posts;
+-Retrieve only the Username and Email columns from the Users table
+SELECT Username, Email FROM Users;
+--Retrieve only the Title and CreatedAtcolumns from the Posts table
+SELECT Title, CreatedAtFROM Posts;
+
+resources
+•https://www.w3schools.com/

@@ -1,0 +1,263 @@
+
+
+LECTURE 7
+continue SQL
+constrains -Relations
+W EB DEVELO PM ENT 2
+Dr. ashrafAbdelaziz taha
+
+MySQL Constraints
+•SQL constraints are used to specify rules for data in a table.
+CreateConstraints
+ConstraintscanbespecifiedwhenthetableiscreatedwiththeCREATETABLE
+statement,orafterthetableiscreatedwiththeALTERTABLEstatement.
+CREATE TABLE table_name(
+column1 datatype constraint,
+column2 datatype constraint,
+column3 datatype constraint,
+....
+);
+
+MySQL Constraints
+The following constraints are commonly used in SQL:
+•NOT NULL-Ensures that a column cannot have a NULL value
+•UNIQUE-Ensures that all values in a column are different
+•PRIMARY KEY-A combination of aNOT NULLandUNIQUE. 
+Uniquely identifies each row in a table
+•FOREIGN KEY-Prevents actions that would destroy links between tables
+
+MySQLNOT NULLConstraint
+NOT NULL on CREATE TABLE
+CREATE TABLE Persons (
+ID int NOT NULL,
+LastNamevarchar(255) NOT NULL,
+FirstNamevarchar(255) NOT NULL,
+Age int
+);
+NOT NULL on ALTER TABLE
+ALTER TABLE Persons
+MODIFY Age int NOT NULL;
+
+MySQL UNIQUE Constraint
+UNIQUEon CREATE TABLE
+CREATETABLEPersons (
+ID intNOTNULL,
+LastNamevarchar(255)NOTNULL,
+FirstName varchar(255),
+Age int,
+UNIQUE(ID)
+);
+UNIQUE Constrainton ALTER TABLE
+ALTERTABLEPersons
+ADDCONSTRAINTUC_PersonUNIQUE(ID,LastName);
+CREATETABLEPersons (
+ID intNOTNULL,
+LastNamevarchar(255)NOTNULL,
+FirstName varchar(255),
+Age int,
+CONSTRAINTUC_PersonUNIQUE(ID,LastName)
+);
+
+DROP a UNIQUE Constraint
+•To drop a UNIQUE constraint, use the following SQL:
+ALTERTABLEPersons
+DROPCONSTRAINTUC_Person;
+
+MySQL PRIMARY KEY Constraint
+•The PRIMARY KEY constraint uniquely identifies each record in a table.
+•Primary keys must contain UNIQUE values, and cannot contain NULL values.
+•A table can have only ONEprimary key; and in the table, this primary key can 
+consist of single or multiple columns (fields).
+
+MySQL PRIMARY KEY Constraint
+•The following SQL creates a PRIMARY KEY on the "ID" column 
+when the "Persons" table is created:
+CREATE TABLE Persons (
+ID int NOT NULL,
+LastNamevarchar(255) NOT NULL,
+FirstName varchar(255),
+Age int,
+PRIMARY KEY (ID)
+);
+CREATE TABLE Persons (
+ID int PRIMARY KEY ,
+LastNamevarchar(255) NOT NULL,
+FirstName varchar(255),
+Age int,
+);
+
+Naming of a PRIMARY KEY constraint
+•The following SQL creates a PRIMARY KEY on the "ID" column 
+when the "Persons" table is created:
+CREATETABLEPersons (
+ID intNOTNULL,
+LastNamevarchar(255)NOTNULL,
+FirstName varchar(255),
+Age int,
+CONSTRAINTPK_PersonPRIMARYKEY(ID,LastName)
+);
+Note: In the example above there is only ONE PRIMARY KEY (PK_Person). However, the VALUE of the 
+primary key is made up of TWO COLUMNS (ID + LastName).
+
+Naming of a PRIMARY KEY constraint
+•PRIMARY KEY on ALTER TABLE
+To create a PRIMARY KEY constraint on the "ID" column when the table is already created, use the 
+following SQL:
+ALTER TABLE Persons
+ADD CONSTRAINT PK_PersonPRIMARY KEY (ID, LastName);
+
+DROP a PRIMARY KEY Constraint
+•To drop a PRIMARY KEY constraint, use the following SQL:
+•ALTERTABLEPersons
+DROPPRIMARYKEY;
+•ALTER TABLE Persons
+DROPCONSTRAINTPK_Person;
+
+MySQLFOREIGN KEYConstraint
+•MySQL FOREIGN KEY Constraint
+•The FOREIGN KEY constraint is used to prevent actions that would 
+destroy links between tables.
+•A FOREIGN KEY is a field (or collection of fields) in one table, that 
+refers to the PRIMARY KEY in another table.
+
+MySQLFOREIGN KEYConstraint
+•The table with the foreign key is called the child table, and the table with the 
+primary key is called the referenced or parent table.
+•Look at the following two tables:
+Parent –referenced table
+Child table 
+
+MySQLFOREIGN KEYConstraint
+•The FOREIGN KEY constraint prevents invalid data from being 
+inserted into the foreign key column, because it has to be one of 
+the values contained in the parent table.
+FOREIGN KEY on CREATE TABLE
+The following SQL creates a FOREIGN KEY on the "PersonID" column when the "Orders" table is created:
+CREATETABLEOrders (
+OrderIDintNOTNULL,
+OrderNumberintNOTNULL,
+PersonIDint,
+PRIMARYKEY(OrderID),
+CONSTRAINTFK_PersonOrderFOREIGNKEY(PersonID)
+REFERENCESPersons(PersonID)
+);
+
+MySQLFOREIGN KEYConstraint
+•The FOREIGN KEY constraint prevents invalid data from being inserted into the 
+foreign key column, because it has to be one of the values contained in the 
+parent table.
+FOREIGN KEY on ALTER TABLE
+To create a FOREIGN KEY constraint on the "PersonID" column when the "Orders" table is already created, use the 
+following SQL:
+ALTERTABLEOrders
+ADDCONSTRAINTFK_PersonOrder
+FOREIGNKEY(PersonID)REFERENCESPersons(PersonID);
+To drop a FOREIGN KEY constraint, use the following SQL:
+ALTERTABLEOrders
+DROPFOREIGNKEYFK_PersonOrder;
+
+MySQLAUTO INCREMENTField
+•What is an AUTO INCREMENT Field?
+•Auto-increment allows a unique number to be generated automatically when a 
+new record is inserted into a table.
+•Oftenthisistheprimarykeyfieldthatwewouldliketobecreated
+automaticallyeverytimeanewrecordisinserted.
+CREATETABLEPersons (
+PersonidintNOTNULLAUTO_INCREMENT,
+LastNamevarchar(255)NOTNULL,
+FirstName varchar(255),
+Age int,
+PRIMARYKEY(Personid)
+);
+
+Relational Database Management Systems (RDBMS).
+“Relations"generallyrefertotheassociationsorconnections
+betweentables.Theseassociationsareestablishedthrough
+keys,typicallyprimaryandforeignkeys,andtheyformthebasis
+ofrelationaldatabasemanagementsystems(RDBMS).
+1. One-to-One Relationship:
+2. One-to-Many Relationship:
+3. Many-to-Many Relationship:
+
+Relational database management systems (RDBMS).
+•One-to-OneRelationship:
+Inahospitaldatabase,consideraPatientstableandaMedicalHistorytable.
+Eachpatienthasexactlyonemedicalhistory,andeachmedicalhistory
+recordbelongstoonlyonepatient.
+Patients:
+-PatientID(Primary Key)
+-Name
+-Age
+-Gender
+MedicalHistory:
+-MedicalHistoryID(Primary Key)
+-PatientID(Foreign Key)
+-Diagnosis
+-Treatment
+-Date
+
+•One-to-ManyRelationship:
+ConsideraDepartmentstableandanEmployeestableinacompany
+database.Eachdepartmentcanhavemultipleemployees,buteach
+employeebelongstoexactlyonedepartment.
+Departments:
+-DepartmentID(Primary Key)
+-Name
+-Location
+Employees:
+-EmployeeID(Primary Key)
+-Name
+-DepartmentID(Foreign Key)
+-Position
+-Salary
+
+•Many-to-ManyRelationship:
+ImagineaStudentstableandaCoursestableina
+universitydatabase.Eachstudentcanenrollinmultiple
+courses,andeachcoursecanhavemultiplestudents.
+Students:
+-StudentID(Primary Key)
+-Name
+-Age
+-Gender
+Courses:
+-CourseID(Primary Key)
+-Title
+-Description
+Enrollments:
+-EnrollmentID(Primary Key)
+-StudentID(Foreign Key)
+-CourseID(Foreign Key)
+-Grade
+Pivot –bridge 
+
+Entity Relationship Diagram (ERD)
+•AnERDvisualizestherelationshipsbetweenentitieslikepeople,
+things,orconceptsinadatabase.AnERDwillalsooftenvisualize
+theattributesoftheseentities.
+•Bydefiningtheentities,theirattributes,andshowingthe
+relationshipsbetweenthem,anERdiagramcanillustratethe
+logicalstructureofdatabases.
+
+Entity Relationship 
+Diagram (ERD)
+
+EER (Enhanced Entity-Relationship) Diagram:
+•Extends ERD by adding more complex relationships 
+and features.
+•Suitableformodelingmorecomplexdatabase
+structures.
+
+EER (Enhanced Entity-Relationship) Diagram:
+Reference
+The following diagram 
+provides an overview of the 
+structure of the Employees 
+sample database.
+
+Tools to illustrate ERD
+•Draw io
+•MySQL workbench
+
+Resources
+•https://www.w3schools.com/

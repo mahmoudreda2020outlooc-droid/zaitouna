@@ -1,0 +1,157 @@
+
+
+LECTURE 9
+configuration 
+management Tools
+Git / GitHub
+Web development 2
+
+What is Git
+•Tool for version control system 
+help for following working directory changes and simplify return to 
+any version of the project versions.
+•Every Commit consider as a version of project versions 
+•Help for working in a teamwork with your Team through (Branches)
+
+How To install Git
+Go to git 
+Official website
+And select your 
+operating system 
+then download
+After install it 
+Check installation 
+Trough 
+Write
+Git –version 
+Into terminal
+
+Create Git repo
+•Create new folder with some files which called working Directory
+•Into terminal write  Git init
+This commend will create new hidden file named .git , into this file git will store all project versions and 
+configurations 
+
+Check repo status
+•Using commend git status you can check your project status
+
+Check repo status
+With this commend you will find out  
+•The version or the last commit 
+•The all untracked files (the files which git doesn't track any changes 
+into it)
+•To add it to be tracked by git we use
+ git add <file-name>
+or
+git add . 
+Or 
+git add *
+To add all available files to be tracked
+
+Track files
+After track files , git will track all changes into these files
+Now we tracked all files
+note: to track one file we use git add <file-name>
+
+Check repo status
+Now when change test.txt
+Then using git status to check changes into these files 
+
+Check repo status
+We will notice that git detect that 
+there are new files added test.txt
+and text2.txt
+and detect that there are new 
+changes into these files
+in another word (staged) files 
+
+The three stage Architecture 
+Finally To save the last status 
+and you must add message to save this status
+With commend 
+Git add . (to add the last modifies)
+Git commit –m “message”
+Then we write git status to notice 
+Note: we only making new commit after complete each new feature
+
+File status into git repo
+
+File status into git repo
+•Git divide all files to tracked and untracked 
+•We use git add . To change file status to tracked file
+•Tracked file has some status
+unmodified , modified and staged
+•So we notice that git add . , change file status from untracked to 
+tracked , and from modified to staged
+•Then we use git commit to change file status from staged to 
+unmodified again.
+
+Another commend lines
+•Git status –s
+show status in simple view
+?? Untracked
+M modified 
+or nothing if stable or unmodified version
+•Clear, 
+is a commend to clear existing  commends into terminal
+
+Repo History
+•You can find out all all your project history using 
+git log.
+•And you can exit git log using Q.
+•Each commit has unique ID, Or Hash Number of this commit.
+•You can Go back to any version or commit using 
+git checkout <HASH-NUMBER>
+And HEAD will change to this commit
+
+What is Git Head
+"HEAD" in Git is a pointer to the latest commit in the branch you're currently working on. It's 
+like a bookmark indicating where you are in the project's history.
+Note that the last commit named Master Or main
+After checkout to commit C3 Head will be on C3 and so. 
+
+Git ignore
+•Why git ignore?
+You will need no ignore any changes into some files or directories
+for example files with security issues 
+or directories and files with large size
+•If you already Added file to be tracked you can remove it from git 
+cache to ignore any changes using 
+git rm--cached <File-Name>
+•So now this file status will change to be untracked
+
+Git ignore
+•To preserve keeping this file untracked and ignore any changes
+we will create file named .gitignore
+•Add all files name you want to ignore it into this files
+•You can ignore group of files with specific extension like all txt files 
+by ignore 
+*.txt
+
+What is the difference between git and githup
+•Any changes or different versions of your project are in your local device 
+Exclusive.
+•In case of working with partner or development team we will create central 
+remote repository 
+•After creating local repo , you should create remote repo 
+
+What is the difference between git and githup
+•After any changes or version 
+into your 
+local repo you will push this 
+version, commit to your partner
+•Your partner should pull this 
+commit 
+
+What is the difference between git and git-up
+•The physical location which will host your remote repo called GitHup
+•Note : You have alternative choiceslike git-lap or bitbucket
+
+Create remote repo and push & pull
+•We can create remote repo using 
+git remote add <repo-link>
+•And use 
+git remote –v to check it
+
+resources
+•https://www.w3schools.com/

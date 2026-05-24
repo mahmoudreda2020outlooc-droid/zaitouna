@@ -1,0 +1,156 @@
+
+
+LECTURE 5 
+State management and 
+super Global arrays
+W EB DEVELO PM ENT 2
+
+Intro to state management
+domain\Login.php
+Home.ph
+Login.php
+server
+Name
+Ali
+pass
+123
+memory
+request
+Response
+html + css + js
+Server don’t save any state
+delete it once response
+1-Query string –URL –GET 
+2-HTTP Request (body or header) via  (Post , UPADTE , .... ) methods
+3-HTML Hidden input
+4-Cookie(memory –file (permanent))
+5-Session-Ask server to save state on server memory (session)
+server create session object at first request 
+6-Store Fileon server 
+7-store in database
+
+URL & Request
+•Superglobal are created by php in run time
+1-$_GET[]
+2-$_POST[]
+3-$_REQUEST[]
+4-$_server[]
+
+Hidden
+•<input type=“hidden” name=“name” value=“ahmed”>
+<formaction="process_form.php" method="post">
+<labelfor="username">Username:</label>
+<inputtype="text" id="username" name="username">
+<!--Hidden input field -->
+<inputtype="hidden" id="hiddenField" name="hiddenField" value="hidden_value">
+<inputtype="submit" value="Submit">
+</form>
+
+PHPCookies
+What is a Cookie?
+Acookieisoftenusedtoidentifyauser.Acookieisasmallfilethattheserverembeds
+ontheuser'scomputer.Eachtimethesamecomputerrequestsapagewithabrowser,
+itwillsendthecookietoo.WithPHP,youcanbothcreateandretrievecookievalues.
+Create Cookies With PHP
+<?php
+$cookie_name="user";
+$cookie_value="John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400*30),"/");// 86400 = 1 day
+?>
+
+PHPCookies
+Check if Cookies are Enabled
+<?php
+setcookie("test_cookie","test", time() +3600,'/');
+?>
+<html>
+<body>
+<?php
+if(count($_COOKIE) >0) {
+echo"Cookies are enabled.";
+}else{
+echo"Cookies are disabled.";
+}
+?>
+</body>
+</html>
+
+PHPCookies
+Modify a Cookie Value
+<?php
+$cookie_name="user";
+$cookie_value="John Doe";
+setcookie($cookie_name, $cookie_value, time() + 
+(86400*30),"/");// 86400 = 1 day
+?>
+Delete a Cookie
+<?php
+// set the expiration date to one hour ago
+setcookie("user","", time() -3600);
+?>
+
+Php Sessions –starting and set value
+•A session is a way to store information (in variables) to 
+be used across multiple pages.
+•Unlike a cookie, the information is not stored on the 
+users computer.
+•A session is started with the session_start() function.
+<?php
+// Start the session
+session_start();
+?>
+
+Get PHP Session Variable Values
+<?php
+// Echo session variables that were set on previous page
+echo"Favorite color is ".$_SESSION["favcolor"] .".<br>";
+echo"Favorite animal is ".$_SESSION["favanimal"] .".";
+?>
+all session variable values are stored in the global $_SESSION variable:
+
+Modify a PHP Session Variable
+<?php
+// to change a session variable, just overwrite it
+$_SESSION["favcolor"] ="yellow";
+print_r($_SESSION);
+?>
+Destroy a PHP Session
+<?php
+// remove all session variables
+session_unset();
+// destroy the session
+session_destroy();
+?>
+
+PHPFile Handling
+•PHP readfile() Function
+•PHP Open File -fopen()
+<?php
+echoreadfile("webdictionary.txt");
+?>
+<?php
+$myfile= fopen("webdictionary.txt","r")ordie("Unable to open file!");
+echofread($myfile,filesize("webdictionary.txt"));
+fclose($myfile);
+?>
+
+PHPFile Handling
+•PHP Read File -fread()
+•PHP Close File -fclose()
+fread($myfile,filesize("webdictionary.txt"));
+<?php
+$myfile= fopen("webdictionary.txt","r");
+// some code to be executed....
+fclose($myfile);
+?>
+
+PHPFile Handling
+•PHP Read Single Line -fgets()
+<?php
+$myfile= fopen("webdictionary.txt","r")ordie("Unable to open file!");
+echofgets($myfile);
+fclose($myfile);
+?>
+
+Resources
+•https://www.w3schools.com/

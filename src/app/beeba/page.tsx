@@ -124,6 +124,30 @@ export default function BeebaChatPage() {
         });
     };
 
+    const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+        const clipboardItems = e.clipboardData?.items;
+        if (!clipboardItems) return;
+
+        Array.from(clipboardItems).forEach(item => {
+            if (item.type.indexOf('image/') === 0) {
+                const file = item.getAsFile();
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (readerEvent) => {
+                        const base64 = readerEvent.target?.result as string;
+                        const data = base64.split(",")[1];
+                        setAttachments(prev => [...prev, {
+                            data,
+                            mimeType: file.type,
+                            preview: URL.createObjectURL(file)
+                        }]);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    };
+
     const startRecording = async () => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -456,6 +480,7 @@ export default function BeebaChatPage() {
                                                 handleSend();
                                             }
                                         }}
+                                        onPaste={handlePaste}
                                         placeholder={isRecording ? "جاري التسجيل..." : "إسأل الدحيح..."}
                                         className="w-full bg-transparent border-none px-3 py-3 text-lg text-foreground placeholder:text-foreground/10 focus:outline-none transition-all resize-none max-h-[120px] scrollbar-hide min-h-[48px]"
                                     />
