@@ -214,69 +214,98 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[100] flex flex-col bg-background animate-in fade-in slide-in-from-bottom-1 relative overflow-hidden">
-            {/* Background Orbs for Gemini vibe */}
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 blur-[120px] rounded-full animate-pulse" />
+        <div className="fixed inset-0 z-[100] flex flex-col relative overflow-hidden" style={{ background: 'radial-gradient(ellipse at 15% 15%, #0a0118 0%, #04040e 45%, #000c0c 100%)' }}>
+            {/* Multi-color animated orbs */}
+            <div style={{ position: 'absolute', top: '-15%', left: '-15%', width: '55%', height: '55%', background: 'radial-gradient(circle,rgba(45,212,191,0.22) 0%,transparent 65%)', filter: 'blur(90px)', borderRadius: '50%', animation: 'float 14s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '50%', height: '50%', background: 'radial-gradient(circle,rgba(168,85,247,0.18) 0%,transparent 65%)', filter: 'blur(90px)', borderRadius: '50%', animation: 'float-delayed 17s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', top: '30%', right: '5%', width: '35%', height: '35%', background: 'radial-gradient(circle,rgba(236,72,153,0.12) 0%,transparent 65%)', filter: 'blur(70px)', borderRadius: '50%', animation: 'float 10s ease-in-out infinite reverse' }} />
+            <div style={{ position: 'absolute', bottom: '25%', left: '3%', width: '28%', height: '28%', background: 'radial-gradient(circle,rgba(251,191,36,0.09) 0%,transparent 65%)', filter: 'blur(60px)', borderRadius: '50%', animation: 'float-delayed 12s ease-in-out infinite' }} />
 
             <div
                 className="flex-1 flex flex-col max-w-[1400px] mx-auto w-full relative z-10 overflow-hidden h-full"
                 dir="rtl"
             >
                 {/* Header */}
-                <div className="p-6 md:px-12 md:py-8 flex justify-between items-center bg-transparent backdrop-blur-sm">
-                    <div className="flex items-center gap-6">
-                        <div className="w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center shadow-2xl shadow-primary/30 relative group overflow-hidden">
-                            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                            <span className="text-3xl md:text-5xl relative z-10">🤖</span>
+                <div style={{ padding: '1rem 1.5rem', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <div style={{ position: 'relative', flexShrink: 0 }}>
+                            <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg,#2dd4bf 0%,#7c3aed 50%,#ec4899 100%)', borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 28px rgba(45,212,191,0.5)', animation: 'bounce-slow 4s ease-in-out infinite' }}>
+                                <span style={{ fontSize: 24 }}>🤖</span>
+                            </div>
+                            <div style={{ position: 'absolute', bottom: 2, right: 2, width: 12, height: 12, background: '#22c55e', borderRadius: '50%', border: '2px solid #04040e', boxShadow: '0 0 8px rgba(34,197,94,0.9)' }} />
                         </div>
                         <div>
-                            <h3 className="text-2xl md:text-5xl font-black text-gradient tracking-tight">الدحيح - مساعدك الذكي</h3>
-                            <div className="flex items-center gap-2 mt-2">
-                                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-sm shadow-green-500/50"></span>
-                                <p className="text-[10px] md:text-sm text-white/40 uppercase tracking-[0.5em] font-black">AI CURRICULUM SPECIALIST</p>
+                            <h3 style={{ fontSize: 'clamp(1.1rem,3vw,1.7rem)', fontWeight: 900, background: 'linear-gradient(90deg,#2dd4bf,#a78bfa,#f472b6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', margin: 0, letterSpacing: '-0.01em' }}>
+                                الدحيح 🎓
+                            </h3>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4 }}>
+                                <div style={{ width: 7, height: 7, background: '#22c55e', borderRadius: '50%', boxShadow: '0 0 6px #22c55e', animation: 'pulse 2s infinite' }} />
+                                <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.35em', fontWeight: 700 }}>AI CURRICULUM SPECIALIST</span>
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <button
-                            onClick={onClose}
-                            className="p-4 bg-white/5 hover:bg-white/10 rounded-3xl transition-all text-white/50 hover:text-white border border-white/5 hover:border-white/20 active:scale-90 group"
-                        >
-                            <svg className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
+                    <button
+                        onClick={onClose}
+                        className="active:scale-90 hover:bg-white/10 transition-all"
+                        style={{ padding: '10px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)' }}
+                    >
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
 
                 {/* Messages Container */}
-                <div className="flex-1 overflow-y-auto px-6 md:px-20 py-10 space-y-12 scrollbar-hide">
+                <div className="flex-1 overflow-y-auto px-4 md:px-8 py-6 scrollbar-hide" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                     {messages.map((msg, idx) => (
                         <div
                             key={idx}
-                            className={`flex ${msg.role === "user" ? "justify-start" : "justify-end"} animate-in slide-in-from-bottom-8 duration-500`}
+                            className={`flex items-end gap-3 animate-in slide-in-from-bottom-4 duration-500 ${msg.role === "user" ? "justify-start" : "justify-end"}`}
                         >
-                            <div
-                                className={`max-w-[85%] md:max-w-[80%] p-6 md:p-10 rounded-[2.5rem] text-lg md:text-2xl leading-[1.6] shadow-2xl relative group ${msg.role === "user"
-                                    ? "bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 text-white rounded-tr-none"
-                                    : "bg-gradient-to-br from-white/10 to-white/5 border border-white/10 text-white/95 rounded-tl-none backdrop-blur-2xl"
-                                    }`}
-                            >
-                                {/* Message Content */}
-                                <div className="relative z-10 space-y-4">
+                            {/* AI avatar */}
+                            {msg.role === "assistant" && (
+                                <div style={{ width: 42, height: 42, minWidth: 42, background: 'linear-gradient(135deg,#2dd4bf,#7c3aed)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0, boxShadow: '0 4px 18px rgba(124,58,237,0.5)', alignSelf: 'flex-end' }}>
+                                    🤖
+                                </div>
+                            )}
+
+                            {/* Message bubble */}
+                            <div style={msg.role === "user" ? {
+                                maxWidth: '80%',
+                                padding: '0.85rem 1.25rem',
+                                borderRadius: '20px 4px 20px 20px',
+                                background: 'linear-gradient(135deg,rgba(45,212,191,0.18) 0%,rgba(124,58,237,0.12) 100%)',
+                                border: '1px solid rgba(45,212,191,0.25)',
+                                color: 'white',
+                                fontSize: 'clamp(0.9rem,1.3vw,1rem)',
+                                lineHeight: 1.75,
+                                boxShadow: '0 4px 20px rgba(45,212,191,0.12)',
+                            } : {
+                                maxWidth: '82%',
+                                padding: '1rem 1.3rem',
+                                borderRadius: '4px 20px 20px 20px',
+                                background: 'rgba(255,255,255,0.03)',
+                                border: '1px solid rgba(255,255,255,0.07)',
+                                borderRight: '3px solid rgba(124,58,237,0.7)',
+                                color: 'rgba(255,255,255,0.92)',
+                                fontSize: 'clamp(0.9rem,1.3vw,1rem)',
+                                lineHeight: 1.85,
+                                backdropFilter: 'blur(14px)',
+                                boxShadow: '0 6px 30px rgba(0,0,0,0.4)',
+                            }}>
+                                <div className="space-y-2">
                                     {msg.image && (
-                                        <div className="relative rounded-2xl overflow-hidden border border-white/10 mt-2 max-w-sm">
+                                        <div className="relative rounded-xl overflow-hidden border border-white/10 mt-1 max-w-xs">
                                             <img src={msg.image} alt="Uploaded attachment" className="w-full h-auto object-contain" />
                                         </div>
                                     )}
                                     {msg.content && (
-                                        <div className="relative z-10 space-y-1">
+                                        <div className="space-y-1">
                                             {msg.content.split(/(```[\w]*\n[\s\S]*?```)/g).map((segment, i) => {
                                                 if (segment.startsWith('```')) {
                                                     const code = segment.replace(/^```\w*\n?/, '').replace(/```$/, '');
                                                     return (
-                                                        <pre key={i} dir="ltr" className="bg-black/50 p-6 rounded-3xl my-6 text-left overflow-x-auto text-base md:text-xl font-mono border border-white/10 text-white/90 shadow-inner">
+                                                        <pre key={i} dir="ltr" style={{ background: 'rgba(0,0,0,0.55)', padding: '0.9rem 1rem', borderRadius: 14, margin: '0.6rem 0', overflowX: 'auto', fontSize: '0.82rem', fontFamily: 'monospace', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.88)', direction: 'ltr', textAlign: 'left' }}>
                                                             <code>{code}</code>
                                                         </pre>
                                                     );
@@ -286,21 +315,30 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                         </div>
                                     )}
                                 </div>
-                                {/* Message Overlay Decor */}
-                                <div className={`absolute top-0 ${msg.role === "user" ? "left-0" : "right-0"} w-32 h-32 bg-white/5 blur-3xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity`} />
                             </div>
+
+                            {/* User avatar */}
+                            {msg.role === "user" && (
+                                <div style={{ width: 42, height: 42, minWidth: 42, background: 'linear-gradient(135deg,rgba(45,212,191,0.25),rgba(45,212,191,0.08))', border: '1px solid rgba(45,212,191,0.3)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0, alignSelf: 'flex-end' }}>
+                                    👤
+                                </div>
+                            )}
                         </div>
                     ))}
+
                     {isLoading && (
-                        <div className="flex justify-end animate-in fade-in duration-300">
-                            <div className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-[2.5rem] rounded-tl-none flex gap-4 shadow-3xl backdrop-blur-3xl">
-                                <div className="w-4 h-4 bg-primary rounded-full animate-bounce" />
-                                <div className="w-4 h-4 bg-secondary rounded-full animate-bounce [animation-delay:0.2s]" />
-                                <div className="w-4 h-4 bg-primary rounded-full animate-bounce [animation-delay:0.4s]" />
+                        <div className="flex items-end gap-3 justify-end animate-in fade-in duration-300">
+                            <div style={{ width: 42, height: 42, minWidth: 42, background: 'linear-gradient(135deg,#2dd4bf,#7c3aed)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0 }}>
+                                🤖
+                            </div>
+                            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRight: '3px solid rgba(124,58,237,0.7)', borderRadius: '4px 20px 20px 20px', padding: '0.85rem 1.25rem', backdropFilter: 'blur(14px)', display: 'flex', gap: 10, alignItems: 'center' }}>
+                                <div className="w-3 h-3 rounded-full animate-bounce" style={{ background: '#2dd4bf' }} />
+                                <div className="w-3 h-3 rounded-full animate-bounce" style={{ background: '#a78bfa', animationDelay: '0.15s' }} />
+                                <div className="w-3 h-3 rounded-full animate-bounce" style={{ background: '#f472b6', animationDelay: '0.3s' }} />
                             </div>
                         </div>
                     )}
-                    <div ref={messagesEndRef} className="h-20" />
+                    <div ref={messagesEndRef} className="h-14" />
                 </div>
 
                 {/* Input Dock */}
