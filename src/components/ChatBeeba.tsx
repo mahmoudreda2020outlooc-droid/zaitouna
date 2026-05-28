@@ -254,7 +254,28 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                             {msg.content.split(/```(\w*)\n([\s\S]*?)```/g).reduce((acc: any[], part, i, arr) => {
                                                 if (i % 3 === 0) {
                                                     if (part) {
-                                                        acc.push(<span key={i} dir="auto" className="whitespace-pre-wrap">{part}</span>);
+                                                        const parts = part.split(/(==[\s\S]+?==|\*\*[\s\S]+?\*\*)/g);
+                                                        acc.push(
+                                                            <span key={i} dir="auto" className="whitespace-pre-wrap">
+                                                                {parts.map((subPart, j) => {
+                                                                    if (subPart.startsWith('==') && subPart.endsWith('==')) {
+                                                                        return (
+                                                                            <mark key={j} className="premium-highlighter [--hl-color:#f59e0b] mx-1 transform -rotate-1">
+                                                                                {subPart.slice(2, -2)}
+                                                                            </mark>
+                                                                        );
+                                                                    }
+                                                                    if (subPart.startsWith('**') && subPart.endsWith('**')) {
+                                                                        return (
+                                                                            <span key={j} className="font-black text-primary drop-shadow-[0_0_15px_rgba(45,212,191,0.3)] bg-white/5 px-2 py-0.5 rounded-lg border border-white/10">
+                                                                                {subPart.slice(2, -2)}
+                                                                            </span>
+                                                                        );
+                                                                    }
+                                                                    return subPart;
+                                                                })}
+                                                            </span>
+                                                        );
                                                     }
                                                 } else if (i % 3 === 1) {
                                                     const lang = part;
