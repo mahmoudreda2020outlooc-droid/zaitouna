@@ -254,13 +254,13 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                             {msg.content.split(/```(\w*)\n([\s\S]*?)```/g).reduce((acc: any[], part, i, arr) => {
                                                 if (i % 3 === 0) {
                                                     if (part) {
-                                                        const parts = part.split(/(==[\s\S]+?==|\*\*[\s\S]+?\*\*)/g);
+                                                        const parts = part.split(/(==.+?==|\*\*.+?\*\*)/g);
                                                         acc.push(
                                                             <span key={i} dir="auto" className="whitespace-pre-wrap">
                                                                 {parts.map((subPart, j) => {
                                                                     if (subPart.startsWith('==') && subPart.endsWith('==')) {
                                                                         return (
-                                                                            <mark key={j} className="premium-highlighter [--hl-color:#f59e0b] mx-1 transform -rotate-1">
+                                                                            <mark key={j} style={{ backgroundColor: '#fde047', color: '#1a1a1a', padding: '2px 8px', borderRadius: '6px', fontWeight: 800, display: 'inline-block', margin: '0 3px', transform: 'rotate(-1deg)', boxShadow: '0 2px 8px rgba(253,224,71,0.4)', textDecoration: 'none' }}>
                                                                                 {subPart.slice(2, -2)}
                                                                             </mark>
                                                                         );
