@@ -2,6 +2,27 @@
 
 import { useState, useEffect, useRef } from "react";
 
+// ─── Formatting helper ───────────────────────────────────────────────────────
+function renderFormattedText(text: string) {
+    // 1. Sanitize any real HTML chars first
+    const safe = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    // 2. Apply inline styles
+    const styled = safe
+        // ==هايلايتر أصفر==
+        .replace(/==([^=\n]+)==/g,
+            `<mark style="background:linear-gradient(120deg,#fde047,#f59e0b);color:#111;padding:2px 9px;border-radius:7px;font-weight:800;margin:0 3px;display:inline-block;box-shadow:0 3px 10px rgba(245,158,11,0.45)">$1</mark>`)
+        // **مصطلح تقني بلون**
+        .replace(/\*\*([^*\n]+)\*\*/g,
+            `<strong style="font-weight:900;color:#2dd4bf;text-shadow:0 0 18px rgba(45,212,191,0.6);background:rgba(45,212,191,0.1);padding:2px 8px;border-radius:6px;border-bottom:2px solid rgba(45,212,191,0.5)">$1</strong>`);
+
+    return <span dir="auto" className="whitespace-pre-wrap leading-relaxed" dangerouslySetInnerHTML={{ __html: styled }} />;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 interface Message {
     role: "user" | "assistant";
     content: string;
@@ -250,44 +271,18 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                         </div>
                                     )}
                                     {msg.content && (
-                                        <div className="relative z-10">
-                                            {msg.content.split(/```(\w*)\n([\s\S]*?)```/g).reduce((acc: any[], part, i, arr) => {
-                                                if (i % 3 === 0) {
-                                                    if (part) {
-                                                        const parts = part.split(/(==.+?==|\*\*.+?\*\*)/g);
-                                                        acc.push(
-                                                            <span key={i} dir="auto" className="whitespace-pre-wrap">
-                                                                {parts.map((subPart, j) => {
-                                                                    if (subPart.startsWith('==') && subPart.endsWith('==')) {
-                                                                        return (
-                                                                            <mark key={j} style={{ backgroundColor: '#fde047', color: '#1a1a1a', padding: '2px 8px', borderRadius: '6px', fontWeight: 800, display: 'inline-block', margin: '0 3px', transform: 'rotate(-1deg)', boxShadow: '0 2px 8px rgba(253,224,71,0.4)', textDecoration: 'none' }}>
-                                                                                {subPart.slice(2, -2)}
-                                                                            </mark>
-                                                                        );
-                                                                    }
-                                                                    if (subPart.startsWith('**') && subPart.endsWith('**')) {
-                                                                        return (
-                                                                            <span key={j} className="font-black text-primary drop-shadow-[0_0_15px_rgba(45,212,191,0.3)] bg-white/5 px-2 py-0.5 rounded-lg border border-white/10">
-                                                                                {subPart.slice(2, -2)}
-                                                                            </span>
-                                                                        );
-                                                                    }
-                                                                    return subPart;
-                                                                })}
-                                                            </span>
-                                                        );
-                                                    }
-                                                } else if (i % 3 === 1) {
-                                                    const lang = part;
-                                                    const code = arr[i + 1];
-                                                    acc.push(
+                                        <div className="relative z-10 space-y-1">
+                                            {msg.content.split(/(```[\w]*\n[\s\S]*?```)/g).map((segment, i) => {
+                                                if (segment.startsWith('```')) {
+                                                    const code = segment.replace(/^```\w*\n?/, '').replace(/```$/, '');
+                                                    return (
                                                         <pre key={i} dir="ltr" className="bg-black/50 p-6 rounded-3xl my-6 text-left overflow-x-auto text-base md:text-xl font-mono border border-white/10 text-white/90 shadow-inner">
                                                             <code>{code}</code>
                                                         </pre>
                                                     );
                                                 }
-                                                return acc;
-                                            }, [])}
+                                                return <div key={i}>{renderFormattedText(segment)}</div>;
+                                            })}
                                         </div>
                                     )}
                                 </div>
