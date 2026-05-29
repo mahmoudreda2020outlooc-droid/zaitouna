@@ -7,6 +7,12 @@ interface Message {
     role: "user" | "assistant";
     content: string;
     timestamp?: number;
+    image?: string;
+    file?: {
+        name: string;
+        type: string;
+        preview: string;
+    };
 }
 
 interface ChatSession {
@@ -115,9 +121,10 @@ export default function BeebaChatPage() {
                 const base64 = readerEvent.target?.result as string;
                 const data = base64.split(",")[1];
                 setAttachments(prev => [...prev, {
+                    name: file.name,
                     data,
                     mimeType: file.type,
-                    preview: URL.createObjectURL(file)
+                    preview: file.type.startsWith('image/') ? base64 : 'pdf_preview'
                 }]);
             };
             reader.readAsDataURL(file);
@@ -137,9 +144,10 @@ export default function BeebaChatPage() {
                         const base64 = readerEvent.target?.result as string;
                         const data = base64.split(",")[1];
                         setAttachments(prev => [...prev, {
+                            name: file.name,
                             data,
                             mimeType: file.type,
-                            preview: URL.createObjectURL(file)
+                            preview: base64
                         }]);
                     };
                     reader.readAsDataURL(file);
@@ -211,7 +219,7 @@ export default function BeebaChatPage() {
         sendMessage(input, attachments);
     };
 
-    const sendMessage = async (textToSend: string, attachmentsToSend: { data: string; mimeType: string; preview: string }[]) => {
+    const sendMessage = async (textToSend: string, attachmentsToSend: { name?: string; data: string; mimeType: string; preview: string }[]) => {
         if ((!textToSend.trim() && attachmentsToSend.length === 0) || isLoading) return;
 
         const userMessage = textToSend.trim();
@@ -220,10 +228,22 @@ export default function BeebaChatPage() {
         // Optimistic update
         const newUserMessage: Message = {
             role: "user",
-            content: userMessage || "أرسل ملفاً",
+            content: userMessage || (currentAttachments[0]?.mimeType.includes('pdf') ? "أرسل ملف PDF" : "أرسل صورة"),
             timestamp: Date.now(),
-            image: currentAttachments.find(a => a.mimeType.startsWith('image/'))?.preview
-        } as Message & { image?: string };
+        };
+
+        const imageAtt = currentAttachments.find(a => a.mimeType.startsWith('image/'));
+        if (imageAtt) newUserMessage.image = imageAtt.preview;
+
+        const pdfAtt = currentAttachments.find(a => a.mimeType === 'application/pdf');
+        if (pdfAtt) {
+            newUserMessage.file = {
+                name: pdfAtt.name || "document.pdf",
+                type: pdfAtt.mimeType,
+                preview: pdfAtt.preview
+            };
+        }
+
         const updatedMessages = [...messages, newUserMessage];
 
         setMessages(updatedMessages);
@@ -387,10 +407,24 @@ export default function BeebaChatPage() {
                                             }`}
                                     >
                                         <div className="relative z-10 whitespace-pre-wrap">
-                                            {/* Render Image if exists */}
-                                            {(msg as any).image && (
+                                            {/* Render attachments */}
+                                            {msg.image && (
                                                 <div className="mb-4 relative rounded-2xl overflow-hidden border border-white/10 max-w-sm">
-                                                    <img src={(msg as any).image} alt="Uploaded attachment" className="w-full h-auto object-contain" />
+                                                    <img src={msg.image} alt="Uploaded attachment" className="w-full h-auto object-contain" />
+                                                </div>
+                                            )}
+
+                                            {msg.file && msg.file.type === 'application/pdf' && (
+                                                <div className="mb-4 flex items-center gap-3 bg-white/5 border border-white/10 p-4 rounded-2xl max-w-sm overflow-hidden group/file transition-all hover:bg-white/10">
+                                                    <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center text-red-500 flex-shrink-0">
+                                                        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                                                            <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                                                        </svg>
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="text-white text-sm font-bold truncate">{msg.file.name}</p>
+                                                        <p className="text-white/40 text-[10px] uppercase tracking-widest font-black mt-0.5">PDF Document</p>
+                                                    </div>
                                                 </div>
                                             )}
 
@@ -451,6 +485,13 @@ export default function BeebaChatPage() {
                                 <div key={i} className="relative group w-16 h-16 rounded-xl overflow-hidden border border-white/20 shadow-2xl">
                                     {att.mimeType.startsWith('image/') ? (
                                         <img src={att.preview} className="w-full h-full object-cover" alt="preview" />
+                                    ) : att.mimeType === 'application/pdf' ? (
+                                        <div className="w-full h-full bg-red-500/20 flex flex-col items-center justify-center text-[10px] text-red-500 font-black px-1">
+                                            <svg className="w-6 h-6 mb-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                                            </svg>
+                                            <span className="truncate w-full text-center">PDF</span>
+                                        </div>
                                     ) : (
                                         <div className="w-full h-full bg-secondary/20 flex items-center justify-center text-xl">🎙️</div>
                                     )}
@@ -469,9 +510,11 @@ export default function BeebaChatPage() {
                         <div className="relative group p-[1px] rounded-[2rem] bg-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 focus-within:from-primary/40 focus-within:to-secondary/40 transition-all duration-700">
                             <div className="flex flex-col md:flex-row gap-3 bg-card/95 backdrop-blur-3xl rounded-[1.9rem] p-3 md:p-4">
                                 <div className="flex items-center gap-2">
-                                    <input type="file" hidden ref={fileInputRef} onChange={handleFileChange} multiple accept="image/*" />
-                                    <button onClick={() => fileInputRef.current?.click()} className="p-3 bg-foreground/5 rounded-xl hover:bg-foreground/10 border border-foreground/10 transition-all group/btn">
-                                        <svg className="w-6 h-6 text-foreground/40 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                    <input type="file" hidden ref={fileInputRef} onChange={handleFileChange} multiple accept="image/*,application/pdf" />
+                                    <button onClick={() => fileInputRef.current?.click()} className="p-3 bg-foreground/5 rounded-xl hover:bg-foreground/10 border border-foreground/10 transition-all group/btn" title="إرفاق ملف أو صورة">
+                                        <svg className="w-6 h-6 text-foreground/40 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                                        </svg>
                                     </button>
                                 </div>
 
