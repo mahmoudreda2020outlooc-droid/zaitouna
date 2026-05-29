@@ -3,6 +3,27 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
+// ─── Formatting helper ───────────────────────────────────────────────────────
+function renderFormattedText(text: string) {
+    // 1. Sanitize any real HTML chars first
+    const safe = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    // 2. Apply inline styles
+    const styled = safe
+        // ==هايلايتر أصفر==
+        .replace(/==([^=\n]+)==/g,
+            `<mark style="background:linear-gradient(120deg,#fde047,#f59e0b);color:#111;padding:2px 9px;border-radius:7px;font-weight:800;margin:0 3px;display:inline-block;box-shadow:0 3px 10px rgba(245,158,11,0.45)">$1</mark>`)
+        // **مصطلح تقني بلون**
+        .replace(/\*\*([^*\n]+)\*\*/g,
+            `<strong style="font-weight:900;color:#2dd4bf;text-shadow:0 0 18px rgba(45,212,191,0.6);background:rgba(45,212,191,0.1);padding:2px 8px;border-radius:6px;border-bottom:2px solid rgba(45,212,191,0.5)">$1</strong>`);
+
+    return <span dangerouslySetInnerHTML={{ __html: styled }} />;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 interface Message {
     role: "user" | "assistant";
     content: string;
@@ -432,7 +453,7 @@ export default function BeebaChatPage() {
                                             {cleanContent.split(/```(\w*)\n([\s\S]*?)```/g).reduce((acc: any[], part, i, arr) => {
                                                 if (i % 3 === 0) {
                                                     if (part) {
-                                                        acc.push(<span key={i} dir="auto">{part}</span>);
+                                                        acc.push(<span key={i} dir="auto">{renderFormattedText(part)}</span>);
                                                     }
                                                 } else if (i % 3 === 1) {
                                                     const lang = part;
