@@ -27,6 +27,11 @@ interface Message {
     role: "user" | "assistant";
     content: string;
     image?: string;
+    file?: {
+        name: string;
+        type: string;
+        url: string;
+    };
 }
 
 interface ChatBeebaProps {
@@ -40,8 +45,8 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
     ]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
+    const [selectedFile, setSelectedFile] = useState<string | null>(null);
+    const [selectedFileObject, setSelectedFileObject] = useState<File | null>(null);
     const [isRecording, setIsRecording] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
@@ -77,10 +82,10 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        setSelectedImageFile(file);
+        setSelectedFileObject(file);
         const reader = new FileReader();
         reader.onloadend = () => {
-            setSelectedImage(reader.result as string);
+            setSelectedFile(reader.result as string);
         };
         reader.readAsDataURL(file);
     };
@@ -95,8 +100,8 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                 if (file) {
                     const reader = new FileReader();
                     reader.onload = (readerEvent) => {
-                        setSelectedImage(readerEvent.target?.result as string);
-                        setSelectedImageFile(file);
+                        setSelectedFile(readerEvent.target?.result as string);
+                        setSelectedFileObject(file);
                     };
                     reader.readAsDataURL(file);
                 }
@@ -104,9 +109,9 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
         });
     };
 
-    const removeSelectedImage = () => {
-        setSelectedImage(null);
-        setSelectedImageFile(null);
+    const removeSelectedFile = () => {
+        setSelectedFile(null);
+        setSelectedFileObject(null);
         if (fileInputRef.current) fileInputRef.current.value = "";
     };
 
@@ -155,17 +160,27 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
     const handleSend = async (textOverride?: string, voiceAttachment?: { data: string; mimeType: string }) => {
         const textToSend = typeof textOverride === 'string' ? textOverride : input;
 
-        if ((!textToSend.trim() && !selectedImage && !voiceAttachment) || isLoading) return;
+        if ((!textToSend.trim() && !selectedFile && !voiceAttachment) || isLoading) return;
 
-        const userMessage = textToSend.trim() || (voiceAttachment ? "أرسل تسجيلاً صوتياً" : "");
-        const currentImage = selectedImage;
-        const currentFile = selectedImageFile;
+        const userMessage = textToSend.trim() || (voiceAttachment ? "أرسل تسجيلاً صوتياً" : (selectedFileObject?.type.includes('pdf') ? "أرسل ملف PDF" : "أرسل صورة"));
+        const currentFileContent = selectedFile;
+        const currentFileObject = selectedFileObject;
 
         setInput("");
-        removeSelectedImage();
+        removeSelectedFile();
 
         const newMessage: Message = { role: "user", content: userMessage };
-        if (currentImage) newMessage.image = currentImage;
+        if (currentFileContent && currentFileObject) {
+            if (currentFileObject.type.startsWith('image/')) {
+                newMessage.image = currentFileContent;
+            } else if (currentFileObject.type === 'application/pdf') {
+                newMessage.file = {
+                    name: currentFileObject.name,
+                    type: currentFileObject.type,
+                    url: currentFileContent
+                };
+            }
+        }
 
         setMessages((prev) => [...prev, newMessage]);
         playSound(sendSoundUrl);
@@ -175,13 +190,13 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
             // Prepare payload
             const payload: any = { message: userMessage, history: messages };
 
-            if (currentImage && currentFile) {
+            if (currentFileContent && currentFileObject) {
                 // Extract base64 without the data URL prefix
-                const base64Data = currentImage.split(',')[1];
+                const base64Data = currentFileContent.split(',')[1];
                 payload.attachments = [
                     {
                         data: base64Data,
-                        mimeType: currentFile.type
+                        mimeType: currentFileObject.type
                     }
                 ];
             }
@@ -299,6 +314,19 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                             <img src={msg.image} alt="Uploaded attachment" className="w-full h-auto object-contain" />
                                         </div>
                                     )}
+                                    {msg.file && msg.file.type === 'application/pdf' && (
+                                        <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl mt-1 max-w-xs overflow-hidden">
+                                            <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center text-red-500 flex-shrink-0">
+                                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <p className="text-white text-sm font-medium truncate">{msg.file.name}</p>
+                                                <p className="text-white/40 text-xs uppercase tracking-tighter">PDF Document</p>
+                                            </div>
+                                        </div>
+                                    )}
                                     {msg.content && (
                                         <div className="space-y-1">
                                             {msg.content.split(/(```[\w]*\n[\s\S]*?```)/g).map((segment, i) => {
@@ -344,13 +372,22 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                 {/* Input Dock */}
                 <div className="px-6 md:px-20 pb-10 md:pb-16 flex flex-col items-center">
 
-                    {/* Image Preview Area */}
-                    {selectedImage && (
+                    {/* File Preview Area */}
+                    {selectedFile && selectedFileObject && (
                         <div className="w-full max-w-6xl mb-4 ml-auto">
                             <div className="inline-block relative bg-white/5 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-xl animate-in zoom-in duration-300">
-                                <img src={selectedImage} alt="Preview" className="h-24 w-auto rounded-xl object-contain bg-black/20" />
+                                {selectedFileObject.type.startsWith('image/') ? (
+                                    <img src={selectedFile} alt="Preview" className="h-24 w-auto rounded-xl object-contain bg-black/20" />
+                                ) : (
+                                    <div className="h-24 px-6 flex flex-col items-center justify-center bg-black/20 rounded-xl">
+                                        <svg className="w-10 h-10 text-red-500 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                                        </svg>
+                                        <p className="text-white/60 text-[10px] max-w-[120px] truncate">{selectedFileObject.name}</p>
+                                    </div>
+                                )}
                                 <button
-                                    onClick={removeSelectedImage}
+                                    onClick={removeSelectedFile}
                                     className="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-white p-1 rounded-full shadow-lg transition-transform hover:scale-110 active:scale-95 z-10"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -369,7 +406,7 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                 <div className="flex items-center gap-2 items-end pb-1 pr-2">
                                     <input
                                         type="file"
-                                        accept="image/*"
+                                        accept="image/*,application/pdf"
                                         className="hidden"
                                         ref={fileInputRef}
                                         onChange={handleFileChange}
@@ -377,10 +414,10 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                     <button
                                         onClick={() => fileInputRef.current?.click()}
                                         className="p-4 bg-white/5 hover:bg-white/15 rounded-2xl transition-all text-white/50 hover:text-white border border-transparent hover:border-white/10 group active:scale-95"
-                                        title="إرفاق صورة"
+                                        title="إرفاق ملف أو صورة"
                                     >
                                         <svg className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                                         </svg>
                                     </button>
                                 </div>
@@ -408,7 +445,7 @@ export default function ChatBeeba({ isOpen, onClose }: ChatBeebaProps) {
                                 <div className="flex items-end justify-end">
                                     <button
                                         onClick={() => handleSend()}
-                                        disabled={isLoading || (!input.trim() && !selectedImage)}
+                                        disabled={isLoading || (!input.trim() && !selectedFile)}
                                         className="h-16 md:h-20 px-10 md:px-16 bg-gradient-to-r from-primary to-secondary text-black font-black text-2xl md:text-3xl rounded-2xl hover:scale-105 active:scale-95 transition-all disabled:opacity-30 disabled:scale-100 shadow-2xl shadow-primary/30 flex items-center justify-center gap-4 group"
                                     >
                                         <span>إرسال</span>
